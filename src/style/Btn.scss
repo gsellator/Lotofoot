@@ -1,0 +1,154 @@
+@import 'constants/colors';
+
+.TxtBtn{
+  display: inline-block;
+  vertical-align: top;
+  background: $grey-1;
+  border-radius: 2px;
+  padding: 0 8px;
+  margin: 0 2px 4px 2px;
+  cursor: pointer;
+  height: 30px;
+  line-height: 28px;
+  font-size: 13px;
+  color: $grey-dark;
+  border: solid transparent 1px;
+
+  &:hover{background-color: $grey-2;}
+  &:focus{background-color: $grey-2; outline: none; border: $fluo-blue solid 1px;}
+  &:active{background: $grey-1; color: $blue-fluo}
+  &.active{background: $blue-medium;}
+  &.inactive{background: transparent; border: solid $grey-2 1px; line-height: 28px;}
+}
+
+.GroupTxtBtn{
+  margin: 0 2px 4px 2px;
+  display: inline-block;
+  vertical-align: top;
+
+  .TxtBtn{
+    margin: 0;
+    border: solid $grey-5 1px;
+    border-radius: 0;
+
+    &:first-child{
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    &:not(:last-child){
+      border-right: none;
+    }
+
+    &:last-child{
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+}
+
+.ImgBtn{
+  display: inline-block;
+  vertical-align: top;
+  background: $grey-1;
+  border-radius: 2px;
+  padding: 3px;
+  margin: 0 2px 4px 2px;
+  cursor: pointer;
+  font-size: 0;
+  filter: grayscale(100%);
+  transform: translateZ(0);
+  height: 42px;
+
+  div{
+    display: inline-block;
+    vertical-align: top;
+    opacity: 0.5;
+
+    &.ImgBtnTxt{
+      margin: 0 6px 0 6px;
+      line-height: 36px;
+      font-size: 13px;
+    }
+  }
+
+  &:focus{background-color: $grey-2; outline: none; border: $fluo-blue solid 1px;}
+  &:hover{background-color: $grey-2;}
+  &:active{background: $grey-1; color: $blue-fluo; filter: none;}
+  &.active{background: $blue-medium; filter: none; div{opacity: 1;}}
+}
+
+.SwitchBtn{
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px 54px 5px 0;
+  cursor: pointer;
+  height: 26px;
+
+  .switch{
+    position: absolute;
+    top: 0; right: 0; height: 100%;
+    width: 50px;
+    padding: 4px 8px;
+    border-radius: 13px;
+    transition: all .3s ease;
+    background-color: $grey-6;
+
+    &:before {
+      content: "OFF";
+      position: absolute;
+      top: 0px; right: 7px;
+      line-height: 26px;
+      font-size: 11px;
+      font-weight: 300;
+      opacity: 0.7;
+    }
+
+    .button{
+      position: absolute;
+      top: 3px; bottom: 3px; right: 27px;
+      width: 20px;
+      display: inline-block;
+      background-color: $grey-1;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+  }
+
+  .label{
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 15px;
+    opacity: 0.5;
+  }
+
+  &.on{
+    .switch{
+      background-color: $blue-fluo;
+      &:before {
+        content: "ON";
+        position: absolute;
+        top: 0px; left: 7px; right: initial;
+        color: white;
+        opacity: 1;
+      }
+      .button{
+        transform: translate3d(24px, 0, 0);
+      }
+    }
+    .label{
+      opacity: 1;
+    }
+  }
+
+  &:hover .switch{background-color: $grey-4;}
+  &:active .switch{background-color: $grey-5;}
+  &.on:hover .switch{background-color: $blue-fluo-3;}
+  &.on:active .switch{background-color: $blue-fluo-2;}
+
+
+}

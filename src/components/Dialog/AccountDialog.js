@@ -1,0 +1,53 @@
+import React, { Component, PropTypes } from "react";
+import { navigateAction, RouteStore } from "fluxible-router";
+import { connectToStores } from "fluxible-addons-react";
+import Labels from "../../constants/Labels";
+import Filters from "../Filters";
+
+if (process.env.BROWSER) {
+  require("../../style/Dialog/AccountDialog.scss");
+}
+
+class AccountDialog extends Component {
+  static contextTypes = {
+    getStore: PropTypes.func.isRequired,
+    executeAction: PropTypes.func.isRequired
+  }
+
+  logout() {
+    const newroute = this.context.getStore(RouteStore).makePath('logout');
+    this.context.executeAction(navigateAction, { url: newroute });
+  }
+
+  render() {
+    const { credentials } = this.props;
+
+    return (
+      <div className="AccountDialog">
+        <div className="AccountDialogArrow-1"></div>
+        <div className="AccountDialogArrow-2"></div>
+        <div className="AccountDialogCtnt">
+          <div>
+            <div className="icn-100 account"></div>
+            <div className="AccountDialogInfos">
+              {Filters.capitalize(credentials.firstname) + ' ' + Filters.capitalize(credentials.lastname)}
+              <span>{credentials.username}</span>
+            </div>
+          </div>
+
+        <div className="AccountDialogActions">
+          <a className="TxtBtn" onTouchTap={this.logout.bind(this)}>{Labels.logout}</a>
+        </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+AccountDialog = connectToStores(AccountDialog, ["LoginPageStore"], (context) => {
+  return {
+    credentials: context.getStore("LoginPageStore").getCredentials()
+  };
+}, {getStore: PropTypes.func});
+
+export default AccountDialog;

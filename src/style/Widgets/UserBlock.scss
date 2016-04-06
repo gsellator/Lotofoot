@@ -1,0 +1,25 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.UserBlock{
+  text-align: center;
+
+  .UserBlockActions{
+    margin-bottom: 6px;
+    padding-bottom: 2px;
+    border-bottom: dotted $grey-5 1px;
+  }
+  
+  .UserBlockTitle{
+    font-weight: 300;
+  }
+
+  .UserBlockData{
+    background: $grey-1;
+  }
+}
+
+//@media (max-width: $break-medium){
+//  .UserBlock{
+//  }
+//}

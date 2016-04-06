@@ -1,0 +1,22 @@
+@import '../constants/colors';
+
+.RefreshBtn{
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+  margin: 9px 3px 9px 0;
+  background: $grey-1;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 8px 10px;
+
+  &:hover{background: $grey-2;}
+  &:active{
+    background: $grey-1; color: $blue-fluo;
+    .chn-ico{opacity: 0.6;}
+  }
+
+  .icn-20{
+    margin: 2px 0;
+  }
+}

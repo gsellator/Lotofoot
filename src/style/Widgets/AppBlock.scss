@@ -1,0 +1,27 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.AppBlock{
+  text-align: center;
+  margin-top: 12px;
+
+  .AppBlockActions{
+    margin-bottom: 6px;
+    padding-bottom: 2px;
+    border-bottom: dotted $grey-5 1px;
+  }
+
+  .AppBlockTitle{
+    font-weight: 300;
+  }
+
+  .AppBlockData{
+    background: $grey-1;
+    margin-right: 3px;
+  }
+}
+
+//@media (max-width: $break-medium){
+//  .UserBlock{
+//  }
+//}

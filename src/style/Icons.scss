@@ -1,0 +1,178 @@
+@import './constants/breaks';
+
+@mixin uiux-icons{
+  background: url('../assets/uiux_icons.png') 0 0 no-repeat;
+  background-size: 1320px 340px;
+}
+
+.icn-16{
+  @include uiux-icons;
+  width: 16px; height: 16px;
+
+  &.top{background-position: -122px -100px;}
+  &.right{background-position: -138px -100px;}
+  &.bottom{background-position: -154px -100px;}
+  &.left{background-position: -170px -100px;}
+  &.pending{background-position: -714px -100px;}
+  &.saved{background-position: -730px -100px;}
+}
+
+.icn-20{
+  @include uiux-icons;
+  width: 20px; height: 20px;
+  background-position: -1175px 0;
+
+  &.refresh{background-position: -1195px 0;}
+
+  &:hover{background-position-y:-30px;}
+  &:active{background-position-y:-60px;}
+}
+
+.icn-26{
+  @include uiux-icons;
+  width: 26px; height: 26px;
+
+  &.apps{background-position: -120px 0;}
+  &.account{background-position: -150px 0;}
+  &.settings, &.prefs{background-position: -180px 0;}
+  &.help{background-position: -210px 0;}
+  &.export{background-position: -240px 0;}
+  &.print{background-position: -270px 0;}
+  &.menu{background-position: -300px 0;}
+  &.more{background-position: -330px 0;}
+  &.home{background-position: -360px 0;}
+  &.users, &.myaccount{background-position: -390px 0;}
+  &.auths{background-position: -420px 0;}
+  &.apps, &.myapps{background-position: -450px 0;}
+  &.groups{background-position: -480px 0;}
+  
+  &:hover{background-position-y:-30px;}
+  &:active, &.active{background-position-y:-60px;}
+}
+
+.icn-36{
+  @include uiux-icons;
+  width: 36px; height: 36px;
+
+  &.main{background-position: -0px -0px;}
+  &.main.full{background-position: -0px -0px; width: 120px;}
+  
+  &:hover{background-position-y:-36px;}
+  &:active{background-position-y:-72px;}
+}
+
+.icn-42{
+  @include uiux-icons;
+  width: 42px; height: 42px;
+
+  &.twitter{background-position: -0px -160px;}
+  &.linkedin{background-position: -42px -160px;}
+  &.github{background-position: -84px -160px;}
+  &.email{background-position: -126px -160px;}
+  &.phone{background-position: -168px -160px;}
+}
+
+.icn-60{
+  @include uiux-icons;
+  width: 60px; height: 60px;
+
+  &.telecom{background-position: -760px -205px;}
+  &.bpi{background-position: -820px -205px; width: 90px;}
+  &.microsoft{background-position: -910px -205px; width: 100px;}
+  &.paris{background-position: -1010px -205px; width: 50px;}
+  &.remix{background-position: -1060px -205px; width: 70px;}
+}
+
+.icn-70{
+  @include uiux-icons;
+  width: 70px; height: 45px;
+
+  &.tf1{background-position: -340px -160px;}
+  &.rmc{background-position: -410px -160px;}
+  &.next{background-position: -480px -160px;}
+  &.nrj{background-position: -550px -160px;}
+  &.c25{background-position: -620px -160px;}
+  &.esp{background-position: -690px -160px;}
+  &.pluri{background-position: -760px -160px;}
+  &.tmc{background-position: -830px -160px;}
+  &.nt1{background-position: -900px -160px;}
+  &.hd1{background-position: -970px -160px;}
+  &.discovery{background-position: -1040px -160px;}
+  &.lci{background-position: -1110px -160px;}
+}
+
+.icn-100{
+  @include uiux-icons;
+  width: 100px; height: 100px;
+
+  &.account{background-position: -1050px -0px;}
+}
+
+.icn-150{
+  @include uiux-icons;
+  width: 150px; height: 150px;
+
+  &.wand{background-position: -600px -0px;}
+  &.hammer{background-position: -750px -0px;}
+  &.brush{background-position: -900px -0px;}
+}
+
+.icn-180{
+  @include uiux-icons;
+  width: 180px; height: 130px;
+
+  &.aud{background-position: -0px -210px;}
+  &.data{background-position: -180px -210px;}
+  &.devices{background-position: -360px -210px;}
+  &.knowledge{background-position: -540px -210px;}
+}
+
+@keyframes rotate {
+  0%   {transform: rotate(0deg);}
+  95%  {transform: rotate(360deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes rotate {
+  0%   {-webkit-transform: rotate(0deg);}
+  95%  {-webkit-transform: rotate(360deg);}
+  100% {-webkit-transform: rotate(360deg);}
+}
+
+.loader{
+  position: absolute;
+  left: 10px; top: 12px;
+  width: 24px; height: 24px;
+  transform: translateZ(0);
+
+  background: url('../assets/uiux_loader.png') no-repeat;
+  background-size: 24px 24px;
+  width: 24px; height: 24px;
+
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.sort-ico{
+  position: relative;
+
+  &:before {
+    @include uiux-icons;
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    margin-left: -20px;
+    width: 100%;
+    height: 100%;
+    max-width: 40px;
+  }
+  &.desc:before{background-position: -0px -110px;}
+  &.asc:before{background-position: -40px -109px;}
+}
