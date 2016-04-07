@@ -19,7 +19,7 @@ server.use(morgan(server.get("env") === "production" ? "combined" : "dev"));
 server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(compression());
-server.use(favicon(path.resolve(__dirname, "./assets/favicon.png")));
+server.use(favicon(path.resolve(__dirname, "./assets/uiux_favicon.png")));
 
 // Google
 server.get('/robots.txt', function(req, res) {
