@@ -22,6 +22,7 @@ const Labels = {
   required: '(requis)',
   send: 'Envoyer',
   title: 'Titre',
+  username: 'Email',
   validate: 'Valider',
 };
 
