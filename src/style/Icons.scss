@@ -42,10 +42,9 @@
   &.menu{background-position: -300px 0;}
   &.more{background-position: -330px 0;}
   &.home{background-position: -360px 0;}
-  &.users, &.myaccount{background-position: -390px 0;}
-  &.auths{background-position: -420px 0;}
-  &.apps, &.myapps{background-position: -450px 0;}
-  &.groups{background-position: -480px 0;}
+  &.games{background-position: -390px 0;}
+  &.predictions{background-position: -420px 0;}
+  &.ranking{background-position: -450px 0;}
   
   &:hover{background-position-y:-30px;}
   &:active, &.active{background-position-y:-60px;}
@@ -118,14 +117,11 @@
   &.brush{background-position: -900px -0px;}
 }
 
-.icn-180{
+.icn-200{
   @include uiux-icons;
-  width: 180px; height: 130px;
+  width: 200px; height: 200px;
 
-  &.aud{background-position: -0px -210px;}
-  &.data{background-position: -180px -210px;}
-  &.devices{background-position: -360px -210px;}
-  &.knowledge{background-position: -540px -210px;}
+  &.footix{background-position: -400px -100px;}
 }
 
 @keyframes rotate {

@@ -36,7 +36,7 @@ class Page extends Component {
     const { isLogged, hasDialog, hasAccountDialog, hasShowcard } = this.props;
 
     let mainMenu, nav, body, dialog, accountDialog;
-    if (pageName != 'home' && pageName != 'login') {
+    if (pageName != 'login') {
       mainMenu = <MainMenu />;
       nav = <Nav />;
     }

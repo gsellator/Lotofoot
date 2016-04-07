@@ -4,11 +4,11 @@ import { navigateAction, RouteStore } from "fluxible-router";
 import MatchsData from "../constants/MatchsData";
 
 if (process.env.BROWSER) {
-  require("../style/Pages/HomePage.scss");
+  require("../style/Pages/PredictionsPage.scss");
 }
 
 
-class HubPage extends Component {
+class PredictionsPage extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
@@ -16,12 +16,15 @@ class HubPage extends Component {
 
   render() {
     return (
-      <div className="HomePage">
-        <div className="HomePageContainer">
+      <div className="PredictionsPage">
+        <div className="PredictionsPageContainer">
           <div className="Paper" style={{textAlign: 'center'}}>
-            {true && MatchsData && MatchsData.map((item, i) =>
-              <div>{item.teamA + ' - ' + item.teamB}</div>
-            )}
+            <div className="PaperTitle">
+              PRONOSTIQUES
+            </div>
+            <div className="PredictionsPageContent">
+              Test
+            </div>
           </div>
         </div>
       </div>
@@ -29,10 +32,10 @@ class HubPage extends Component {
   }
 }
 
-HubPage = connectToStores(HubPage, ["LoginPageStore"], (context) => {
+PredictionsPage = connectToStores(PredictionsPage, ["LoginPageStore"], (context) => {
   return {
     credentials: context.getStore("LoginPageStore").getCredentials()
   };
 }, {getStore: PropTypes.func});
 
-export default HubPage;
+export default PredictionsPage;

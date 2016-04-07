@@ -6,6 +6,7 @@ import Sections from "../../constants/Sections";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import config from "../../config";
 import Helpers from '../Helpers';
+import Labels from "../../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Pages/Nav.scss");
@@ -33,7 +34,7 @@ class Nav extends Component {
               Sections.map(sect =>
                 <div key={sect.name}>
                   <div className={pageName == sect.name ? 'NavLink active' : 'NavLink'} onTouchTap={Helpers.navToSectClick.bind(this, sect.name)}>
-                    <div className={'icn-26 ' + sect.name} title={sect.label}></div>
+                    <div className={'icn-26 ' + sect.name} title={Labels[sect.name]}></div>
                   </div>
                 </div>
               )
@@ -56,7 +57,7 @@ class Nav extends Component {
                 <div key={sect.name}>
                   <div className={pageName == sect.name ? 'NavLink active' : 'NavLink'} onTouchTap={Helpers.navToSectClick.bind(this, sect.name)}>
                     <div className={'icn-26 ' + sect.name}></div>
-                    <span className="NavLinkTxt">{sect.label}</span>
+                    <span className="NavLinkTxt">{Labels[sect.name]}</span>
                   </div>
                 </div>
               )}

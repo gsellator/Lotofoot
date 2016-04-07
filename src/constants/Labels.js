@@ -2,33 +2,26 @@ const Labels = {
   account: 'Mon compte',
   actions: 'Actions',
   app: 'Application',
-  
   cancel: 'Annuler',
   create: 'Créer',
-  
   delete: 'Supprimer',
   description: 'Description',
-  
   firstname: 'Prénom',
   forgottenPassword: 'Mot de passe oublié',
-
+  games: 'Matchs',
+  home: 'Accueil',
   key: 'Clé',
-
   lastname: 'Nom',
   logout: 'Se déconnecter',
   login: 'Connexion',
-
   modify: 'Modifier',
-
   password: 'Mot de passe',
-
+  predictions: 'Pronostiques',
+  ranking: 'Classement',
   refresh: 'Recharger la page',
   required: '(requis)',
-
   send: 'Envoyer',
-
   title: 'Titre',
-
   validate: 'Valider',
 };
 

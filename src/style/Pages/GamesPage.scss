@@ -1,15 +1,23 @@
 @import '../constants/colors';
 
-.HomePage {
+.GamesPage {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   overflow: auto; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
 
-  .HomePageContainer{
+  .GamesPageContainer{
     padding: 12px;
   }
 
-  .HomePageContent{
+  .GamesPageContent{
     margin-top: 12px;
+
+    .Match{
+      &:not(:last-child){
+        border-bottom: dotted $grey-5 1px;
+        margin-bottom: 3px;
+        padding-bottom: 3px;
+      }
+    }
   }
 }
