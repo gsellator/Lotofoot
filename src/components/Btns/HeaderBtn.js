@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from "react";
+import { navigateAction } from "fluxible-router";
 import Labels from "../../constants/Labels";
 
 if (process.env.BROWSER) {
@@ -7,7 +8,8 @@ if (process.env.BROWSER) {
 
 class HeaderBtn extends Component {
   reload(){
-    location.reload();
+    const newroute = context.getStore("RouteStore").makePath('home');
+    context.executeAction(navigateAction, { url: newroute });
   }
 
   render() {
