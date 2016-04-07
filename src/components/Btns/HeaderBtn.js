@@ -13,7 +13,7 @@ class HeaderBtn extends Component {
   render() {
     return (
       <div className="HeaderBtn" onTouchTap={this.reload.bind(this)} title={Labels.refresh}>
-        <div className="icn-20 refresh"></div>
+        <div className="icn-20 title"></div>
       </div>
     );
   }

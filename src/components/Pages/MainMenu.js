@@ -6,6 +6,7 @@ import config from "../../config";
 import Helpers from '../Helpers';
 
 import RefreshBtn from "../Btns/RefreshBtn";
+import HeaderBtn from "../Btns/HeaderBtn";
 import AccountBtn from "../Btns/AccountBtn";
 
 if (process.env.BROWSER) {
@@ -28,8 +29,9 @@ class MainMenu extends Component {
     const routeName = route.getIn(["name"]);
     const view = route.getIn(["params", "view"]);
 
-    let refreshBtn, accountBtn;
-    refreshBtn = <RefreshBtn />;
+    let headerBtn, refreshBtn, accountBtn;
+    headerBtn = <HeaderBtn />;
+    //    refreshBtn = <RefreshBtn />;
     accountBtn = <AccountBtn />;
 
     return (
@@ -45,6 +47,7 @@ class MainMenu extends Component {
           </div>
 
           <div className="MainMenuCenter">
+            {headerBtn}
             {refreshBtn}
           </div>
           <div className="MainMenuRight">

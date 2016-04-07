@@ -8,18 +8,18 @@ import LogoutPage from "./pages/LogoutPage";
 
 export default {
   //// PUBLIC
-  home: {
-    path: "/",
-    method: "get",
-    handler: HomePage
-  },
+//  home: {
+//    path: "/",
+//    method: "get",
+//    handler: HomePage
+//  },
   login: {
     path: "/login",
     method: "get",
     handler: LoginPage
   },
-  hub: {
-    path: "/hub",
+  home: {
+    path: "/home",
     method: "get",
     handler: HubPage,
     action: InitActions.hub

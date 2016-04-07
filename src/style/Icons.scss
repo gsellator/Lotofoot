@@ -20,14 +20,15 @@
 .icn-20{
   @include uiux-icons;
   width: 20px; height: 20px;
-  background-position: -1175px 0;
+  background-position: -600px 0;
 
-  &.refresh{background-position: -1195px 0;}
+  &.refresh{background-position: -620px 0;}
+  &.title{background-position: -700px 0; width: 166px;}
 
   &:hover{background-position-y:-30px;}
   &:active{background-position-y:-60px;}
 }
- 
+
 .icn-26{
   @include uiux-icons;
   width: 26px; height: 26px;

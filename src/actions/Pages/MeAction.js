@@ -9,7 +9,7 @@ const ContextAction = {
       const route = context.getStore("RouteStore").getCurrentRoute();
 
       if (!accessToken){
-        context.executeAction(navigateAction, { url: '/' });
+        context.executeAction(navigateAction, { url: '/login' });
       }
 
       context.service.read("MeService", { accessToken }, { timeout: TIMEOUT }, (err, data) => {
@@ -32,8 +32,8 @@ const ContextAction = {
         }
 
         // There user is logged, acces to the login page is forbidden
-        if (route.get('path') == '/') {
-          context.executeAction(navigateAction, { url: '/' })
+        if (route.get('path') == '/login') {
+          context.executeAction(navigateAction, { url: '/home' })
         } else {
           context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, data);
         }

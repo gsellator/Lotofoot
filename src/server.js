@@ -72,12 +72,12 @@ server.use(function(req, res, next) {
 
   if (dld_authentication) {
     // There user is logged, acces to the login page is forbidden
-    if (req.url == '/' || req.url == '/login') {res.redirect(303, '/hub'); return;}
+    if (req.url == '/login') {res.redirect(303, '/home'); return;}
     next();
   } else{
     // There is no accessToken, we ask for credentials
-    if (req.url == '/' || req.url == '/login') {next();}
-    else {res.redirect(303, '/'); return;}
+    if (req.url == '/login') {next();}
+    else {res.redirect(303, '/login'); return;}
   }
 });
 
