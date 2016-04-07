@@ -72,59 +72,11 @@
   &.phone{background-position: -168px -160px;}
 }
 
-.icn-60{
-  @include uiux-icons;
-  width: 60px; height: 60px;
-
-  &.telecom{background-position: -760px -205px;}
-  &.bpi{background-position: -820px -205px; width: 90px;}
-  &.microsoft{background-position: -910px -205px; width: 100px;}
-  &.paris{background-position: -1010px -205px; width: 50px;}
-  &.remix{background-position: -1060px -205px; width: 70px;}
-}
-
-.icn-70{
-  @include uiux-icons;
-  width: 70px; height: 45px;
-
-  &.tf1{background-position: -340px -160px;}
-  &.rmc{background-position: -410px -160px;}
-  &.next{background-position: -480px -160px;}
-  &.nrj{background-position: -550px -160px;}
-  &.c25{background-position: -620px -160px;}
-  &.esp{background-position: -690px -160px;}
-  &.pluri{background-position: -760px -160px;}
-  &.tmc{background-position: -830px -160px;}
-  &.nt1{background-position: -900px -160px;}
-  &.hd1{background-position: -970px -160px;}
-  &.discovery{background-position: -1040px -160px;}
-  &.lci{background-position: -1110px -160px;}
-}
-
 .icn-100{
   @include uiux-icons;
   width: 100px; height: 100px;
 
   &.account{background-position: -1050px -0px;}
-}
-
-.icn-150{
-  @include uiux-icons;
-  width: 150px; height: 150px;
-
-  &.wand{background-position: -600px -0px;}
-  &.hammer{background-position: -750px -0px;}
-  &.brush{background-position: -900px -0px;}
-}
-
-.icn-180{
-  @include uiux-icons;
-  width: 180px; height: 130px;
-
-  &.aud{background-position: -0px -210px;}
-  &.data{background-position: -180px -210px;}
-  &.devices{background-position: -360px -210px;}
-  &.knowledge{background-position: -540px -210px;}
 }
 
 @keyframes rotate {
