@@ -33,7 +33,7 @@ const ContextAction = {
 
         // There user is logged, acces to the login page is forbidden
         if (route.get('path') == '/login') {
-          context.executeAction(navigateAction, { url: '/home' })
+          context.executeAction(navigateAction, { url: '/' })
         } else {
           context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, data);
         }

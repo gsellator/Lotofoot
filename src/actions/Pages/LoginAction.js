@@ -23,7 +23,7 @@ const LoginAction = {
         expiresDate.setTime(expiresDate.getTime() + (data.expires_in * 1000));
         context.setCookie('dld_authentication', accessToken, {expires: expiresDate})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
-        const newroute = context.getStore("RouteStore").makePath('hub');
+        const newroute = context.getStore("RouteStore").makePath('home');
         context.executeAction(navigateAction, { url: newroute });
         done();
       }

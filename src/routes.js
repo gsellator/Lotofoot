@@ -16,7 +16,7 @@ export default {
   },
 
   home: {
-    path: "/home",
+    path: "/",
     method: "get",
     handler: HomePage,
     action: InitActions.hub
