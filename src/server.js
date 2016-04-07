@@ -76,7 +76,7 @@ server.use(function(req, res, next) {
     next();
   } else{
     // There is no accessToken, we ask for credentials
-    if (req.url == '/' || req.url == '/applications' || req.url == '/cgu' || req.url == '/maintenance' || req.url == '/mire' || req.url == '/error' || req.url == '/login' || req.url.indexOf('/recover') == 0) {next();}
+    if (req.url == '/' || req.url == '/login') {next();}
     else {res.redirect(303, '/'); return;}
   }
 });
