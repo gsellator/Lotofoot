@@ -24,7 +24,7 @@ class HomePage extends Component {
             </div>
             <div className="HomePageContent">
               <div style={{textAlign: 'center'}}>
-                {false && <span style={{display: 'inline-block'}} className="icn-200 footix"></span>}
+                {true && <span style={{display: 'inline-block'}} className="icn-200 footix"></span>}
               </div>
               <div>
                 <NavLink className="TxtBtn" routeName="games">
