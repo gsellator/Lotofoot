@@ -43,8 +43,6 @@ server.use(csurf({ cookie: true }));
 // Configure fetchr (for doing api calls server and client-side)
 // and register its services
 const fetchr = app.getPlugin("FetchrPlugin");
-fetchr.registerService(require("./services/LoginService"));
-fetchr.registerService(require("./services/MeService"));
 fetchr.registerService(require("./services/ApiService"));
 
 // Use the fetchr middleware (will enable requests from /api)
