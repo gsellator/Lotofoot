@@ -10,9 +10,21 @@
   }
 
   .Match{
+    height: 24px;
+    position: relative;
+
     span{
       display: inline-block;
       vertical-align: top;
+    }
+
+    .Chns{
+      position: absolute;
+      left: 0;
+
+      .chn-ico:first-child{
+        margin-right: 6px;
+      }
     }
 
     .Flag{

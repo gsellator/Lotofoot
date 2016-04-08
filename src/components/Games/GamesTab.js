@@ -22,6 +22,10 @@ class GamesTab extends Component {
           <div key={i}>
             {item.teamA && item.teamB &&
               <div className="Match">
+                <span className="Chns">
+                  {item.channel && <span className={'chn-ico alt ' + item.channel}></span>}
+                  <span className="chn-ico alt bein-sports-1"></span>
+                </span>
                 <span>{item.teamA.name}</span>
                 <span className="Flag"><img src={item.teamA.flagUrl} /></span>
                 <span> - </span>
