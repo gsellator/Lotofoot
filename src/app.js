@@ -19,7 +19,6 @@ import RefGroupsStore from "./stores/Pages/RefGroupsStore";
 
 
 if (process.env.BROWSER) {
-  require('./assets/static/home-marker.png');
   require('./assets/static/icns.svg');
   require('./assets/static/icns_36x36.png');
   require('./assets/static/icns_48x48.png');
