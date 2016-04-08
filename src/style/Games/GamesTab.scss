@@ -2,11 +2,26 @@
 @import '../constants/breaks';
 
 .GamesTab{
+
+  &>div:not(:last-child) .Match{
+    border-bottom: dotted $grey-5 1px;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+  }
+
   .Match{
-    &:not(:last-child){
-      border-bottom: dotted $grey-5 1px;
-      margin-bottom: 3px;
-      padding-bottom: 3px;
+    span{
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .Flag{
+      padding: 0 3px;
+      img{
+        display: inline-block;
+        vertical-align: top;
+        height: 16px;
+      }
     }
   }
 }

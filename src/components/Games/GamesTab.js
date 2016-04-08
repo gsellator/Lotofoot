@@ -19,8 +19,16 @@ class GamesTab extends Component {
     return (
       <div className="GamesTab">
         {data && data.map((item, i) =>
-          <div key={i} className="Match">
-            {item.teamA && item.teamA.name} - {item.teamB && item.teamB.name}
+          <div key={i}>
+            {item.teamA && item.teamB &&
+              <div className="Match">
+                <span>{item.teamA.name}</span>
+                <span className="Flag"><img src={item.teamA.flagUrl} /></span>
+                <span> - </span>
+                <span className="Flag"><img src={item.teamB.flagUrl} /></span>
+                <span>{item.teamB.name}</span>
+              </div>
+            }
           </div>
         )}
       </div>
