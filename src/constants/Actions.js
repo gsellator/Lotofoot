@@ -22,6 +22,7 @@ const Actions = keyMirror({
 
   // APP
   APIOK_GAMES: null,
+  APIOK_USERS: null,
 });
 
 export default Actions;

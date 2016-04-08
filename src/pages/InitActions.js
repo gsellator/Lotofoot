@@ -43,7 +43,7 @@ const InitActions = {
 
   ranking(context, route, done) {
     Promise.all([
-      context.executeAction(loadMe, {}),
+      context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
     ])
     .then(() => {
       done();

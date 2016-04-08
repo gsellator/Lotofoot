@@ -1,8 +1,9 @@
 import Actions from "../../constants/Actions";
+import ApiUris from "../../constants/ApiUris";
 import { navigateAction } from "fluxible-router";
 const TIMEOUT = 20000;
 
-const ContextAction = {
+const MeAction = {
   loadMe(context, {}) {
     return new Promise(function(resolve, reject) {
       const accessToken = context.getCookie('lotofoot_token');
@@ -12,7 +13,9 @@ const ContextAction = {
         context.executeAction(navigateAction, { url: '/login' });
       }
 
-      context.service.read("MeService", { accessToken }, { timeout: TIMEOUT }, (err, data) => {
+      let endpoint = ApiUris['UsersMe'] + '?access_token=' + accessToken;
+
+      context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT }, (err, data) => {
         if (err) {
           if (err.statusCode === 401) {
             context.executeAction(navigateAction, { url: '/logout' })
@@ -45,4 +48,4 @@ const ContextAction = {
   }
 };
 
-export default ContextAction;
+export default MeAction;

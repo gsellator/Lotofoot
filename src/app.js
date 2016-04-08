@@ -10,6 +10,7 @@ import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
 import GamesTabStore from "./stores/Games/GamesTabStore";
+import UsersTabStore from "./stores/Ranking/UsersTabStore";
 
 import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
 import LoginPageStore from "./stores/Pages/LoginPageStore";
@@ -66,6 +67,7 @@ app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
 app.registerStore(GamesTabStore);
+app.registerStore(UsersTabStore);
 
 app.registerStore(HtmlHeadStore);
 app.registerStore(LoginPageStore);

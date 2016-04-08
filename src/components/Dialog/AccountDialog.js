@@ -30,8 +30,8 @@ class AccountDialog extends Component {
           <div>
             <div className="icn-100 account"></div>
             <div className="AccountDialogInfos">
-              {Filters.capitalize(credentials.firstname) + ' ' + Filters.capitalize(credentials.lastname)}
-              <span>{credentials.username}</span>
+              {Filters.capitalize(credentials.firstName) + ' ' + Filters.capitalize(credentials.lastname)}
+              <span>{credentials.email}</span>
             </div>
           </div>
 

@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 
+import UsersTab from "../components/Ranking/UsersTab";
+
 if (process.env.BROWSER) {
   require("../style/Pages/RankingPage.scss");
 }
@@ -22,7 +24,7 @@ class RankingPage extends Component {
               CLASSEMENT
             </div>
             <div className="RankingPageContent">
-              Test
+              <UsersTab />
             </div>
           </div>
         </div>
