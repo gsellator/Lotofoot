@@ -19,31 +19,31 @@ export default {
     path: "/",
     method: "get",
     handler: HomePage,
-    action: InitActions.hub
+    action: InitActions.home
   },
   games: {
     path: "/games",
     method: "get",
     handler: GamesPage,
-    action: InitActions.hub
+    action: InitActions.games
   },
   predictions: {
     path: "/predictions",
     method: "get",
     handler: PredictionsPage,
-    action: InitActions.hub
+    action: InitActions.predictions
   },
   ranking: {
     path: "/ranking",
     method: "get",
     handler: RankingPage,
-    action: InitActions.hub
+    action: InitActions.ranking
   },
   help: {
     path: "/help",
     method: "get",
     handler: HelpPage,
-    action: InitActions.hub
+    action: InitActions.help
   },
 
   logout: {

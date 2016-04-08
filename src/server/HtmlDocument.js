@@ -80,9 +80,9 @@ class HtmlDocument extends React.Component {
           {meta2}
           <link rel="icon" type="image/png" sizes="96x96" href={prefStr + '/assets/icns_fav_96x96.png'} />
           {meta3}
-          <link rel="mask-icon" href={prefStr + '/assets/icns.svg'} color="#adc5f0" />
+          <link rel="mask-icon" href={prefStr + '/assets/icns.svg'} color="#2d7fbc" />
           {meta4}
-          <meta name="msapplication-TileColor" content="#adc5f0" />
+          <meta name="msapplication-TileColor" content="#2d7fbc" />
           <meta name="msapplication-TileImage" content={prefStr + '/assets/icn_144x144.png'} />
           <meta name="theme-color" content="#FFFFFF" />
 

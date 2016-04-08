@@ -4,10 +4,58 @@ import { loadMe } from "../actions/Pages/MeAction";
 import { getApi } from "../actions/Pages/ApiAction";
 
 const InitActions = {
-  hub(context, route, done) {
+  home(context, route, done) {
+    Promise.all([
+      context.executeAction(loadMe, {}),
+    ])
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  games(context, route, done) {
     Promise.all([
       context.executeAction(loadMe, {}),
       context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
+    ])
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  predictions(context, route, done) {
+    Promise.all([
+      context.executeAction(loadMe, {}),
+    ])
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  ranking(context, route, done) {
+    Promise.all([
+      context.executeAction(loadMe, {}),
+    ])
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  help(context, route, done) {
+    Promise.all([
+      context.executeAction(loadMe, {}),
     ])
     .then(() => {
       done();
