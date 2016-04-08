@@ -1,5 +1,5 @@
 import request from "superagent";
-const debug = require("debug")("hub");
+const debug = require("debug")("lotofoot");
 import config from "../config";
 
 export default {

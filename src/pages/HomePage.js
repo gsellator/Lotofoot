@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
-import MatchsData from "../constants/MatchsData";
 import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
@@ -25,7 +24,7 @@ class HomePage extends Component {
             </div>
             <div className="HomePageContent">
               <div style={{textAlign: 'center'}}>
-                <span style={{display: 'inline-block'}} className="icn-200 footix"></span>
+                {false && <span style={{display: 'inline-block'}} className="icn-200 footix"></span>}
               </div>
               <div>
                 <NavLink className="TxtBtn" routeName="games">

@@ -1,11 +1,11 @@
 import { BaseStore } from "fluxible/addons";
 import Actions from "../../constants/Actions";
 
-class HomeAppsTabStore extends BaseStore {
-  static storeName = "HomeAppsTabStore"
+class GamesTabStore extends BaseStore {
+  static storeName = "GamesTabStore"
 
   static handlers = {
-    [Actions.APIOK_PUBLIC_APPS]: "handleApiOk",
+    [Actions.APIOK_GAMES]: "handleApiOk",
   }
 
   constructor(dispatcher) {
@@ -33,4 +33,4 @@ class HomeAppsTabStore extends BaseStore {
   }
 }
 
-export default HomeAppsTabStore;
+export default GamesTabStore;

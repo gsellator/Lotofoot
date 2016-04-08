@@ -5,7 +5,7 @@ const TIMEOUT = 20000;
 const ContextAction = {
   loadMe(context, {}) {
     return new Promise(function(resolve, reject) {
-      const accessToken = context.getCookie('dld_authentication');
+      const accessToken = context.getCookie('lotofoot_token');
       const route = context.getStore("RouteStore").getCurrentRoute();
 
       if (!accessToken){

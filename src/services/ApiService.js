@@ -1,12 +1,12 @@
 import request from "superagent";
 import { assign } from "lodash";
 import config from "../config";
-const debug = require("debug")("hub");
+const debug = require("debug")("lotofoot");
 
 export default {
   name: "ApiService",
   read(req, resource, { endpoint }, conf, done) {
-    const url = config.hubUri + endpoint;
+    const url = config.apiUri + endpoint;
     debug("Sending GET request to %s", url);
     request.get(url)
     .timeout(conf.timeout)
@@ -22,7 +22,7 @@ export default {
   },
 
   update(req, resource, { endpoint }, body, conf, done) {
-    const url = config.hubUri + endpoint;
+    const url = config.apiUri + endpoint;
     debug("Sending POST request to %s", url, body);
     request.post(url)
     .timeout(conf.timeout)

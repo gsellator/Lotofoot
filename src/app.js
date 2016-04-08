@@ -9,13 +9,11 @@ import Application from "./Application";
 import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
-import HomeAppsTabStore from "./stores/Home/HomeAppsTabStore";
+import GamesTabStore from "./stores/Games/GamesTabStore";
 
 import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
 import LoginPageStore from "./stores/Pages/LoginPageStore";
 import NavStore from "./stores/Pages/NavStore";
-import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
-import RecoverPageStore from "./stores/Pages/RecoverPageStore";
 import RefAppsStore from "./stores/Pages/RefAppsStore";
 import RefGroupsStore from "./stores/Pages/RefGroupsStore";
 
@@ -68,13 +66,11 @@ app.registerStore(AppRouteStore);
 app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
-app.registerStore(HomeAppsTabStore);
+app.registerStore(GamesTabStore);
 
 app.registerStore(HtmlHeadStore);
 app.registerStore(LoginPageStore);
 app.registerStore(NavStore);
-app.registerStore(RecoverInitPageStore);
-app.registerStore(RecoverPageStore);
 app.registerStore(RefAppsStore);
 app.registerStore(RefGroupsStore);
 

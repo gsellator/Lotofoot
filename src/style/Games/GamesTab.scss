@@ -1,0 +1,12 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.GamesTab{
+  .Match{
+    &:not(:last-child){
+      border-bottom: dotted $grey-5 1px;
+      margin-bottom: 3px;
+      padding-bottom: 3px;
+    }
+  }
+}

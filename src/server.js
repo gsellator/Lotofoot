@@ -30,7 +30,7 @@ server.get('/robots.txt', function(req, res) {
 // Logout
 server.get('/logout', function(req, res) {
   res.writeHead(302, {
-    'Set-Cookie': 'dld_authentication=' + '; Path=/',
+    'Set-Cookie': 'lotofoot_token=' + '; Path=/',
     'Content-Type': 'text/plain',
     'Location': '/'
   });
@@ -68,9 +68,9 @@ if (server.get("env") === "development") {
 // Render the app server-side and send it as response
 server.use(function(req, res, next) {
   const context = app.createContext({ req, res });
-  let dld_authentication = req.cookies.dld_authentication;
+  let lotofoot_token = req.cookies.lotofoot_token;
 
-  if (dld_authentication) {
+  if (lotofoot_token) {
     // There user is logged, acces to the login page is forbidden
     if (req.url == '/login') {res.redirect(303, '/'); return;}
     next();

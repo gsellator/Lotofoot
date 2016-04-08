@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
-import MatchsData from "../constants/MatchsData";
 
 if (process.env.BROWSER) {
   require("../style/Pages/PredictionsPage.scss");

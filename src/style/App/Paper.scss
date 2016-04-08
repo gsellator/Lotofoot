@@ -60,16 +60,3 @@
     }
   }
 }
-
-#root.print{
-  .Paper{
-    box-shadow: none;
-    border: solid $grey-5 1px;
-    page-break-inside: avoid;
-
-    .PaperTitle{
-      border-top: none;
-      padding: 6px 0;
-    }
-  }
-}

@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
-import MatchsData from "../constants/MatchsData";
+
+import GamesTab from "../components/Games/GamesTab";
 
 if (process.env.BROWSER) {
   require("../style/Pages/GamesPage.scss");
@@ -23,11 +24,7 @@ class GamesPage extends Component {
               LISTE DES MATCHS
             </div>
             <div className="GamesPageContent">
-              {true && MatchsData && MatchsData.map((item, i) =>
-                <div key={i} className="Match">
-                  {item.teamA + ' - ' + item.teamB}
-                </div>
-              )}
+              <GamesTab />
             </div>
           </div>
         </div>

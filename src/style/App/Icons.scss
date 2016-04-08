@@ -1,7 +1,7 @@
-@import './constants/breaks';
+@import '../constants/breaks';
 
 @mixin uiux-icons{
-  background: url('../assets/uiux_icons.png') 0 0 no-repeat;
+  background: url('../../assets/uiux_icons.png') 0 0 no-repeat;
   background-size: 1320px 340px;
 }
 
@@ -142,7 +142,7 @@
   width: 24px; height: 24px;
   transform: translateZ(0);
 
-  background: url('../assets/uiux_loader.png') no-repeat;
+  background: url('../../assets/uiux_loader.png') no-repeat;
   background-size: 24px 24px;
   width: 24px; height: 24px;
 

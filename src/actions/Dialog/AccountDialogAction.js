@@ -2,7 +2,6 @@ import Actions from "../../constants/Actions";
 
 const AccountDialogAction = {
   switchAccountDialog(context, { }, done) {
-    context.dispatch(Actions.APPS_DIALOG_CLOSE);
     context.dispatch(Actions.NAV_CLOSE);
     context.dispatch(Actions.ACCOUNT_DIALOG_SWITCH);
     done();

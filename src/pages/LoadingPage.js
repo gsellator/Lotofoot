@@ -1,14 +1,13 @@
 import React from "react";
 
 if (process.env.BROWSER) {
-  require("../style/Loader.scss");
-  require("../style/Animate.scss");
+  require("../style/App/Loader.scss");
 }
 
 class LoadingPage extends React.Component {
 
   render() {
-    return <div className="Loader Animate--slow Animate-fadeIn" />;
+    return <div className="Loader" />;
   }
 
 }

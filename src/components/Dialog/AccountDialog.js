@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import Labels from "../../constants/Labels";
-import Filters from "../Filters";
+import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
   require("../../style/Dialog/AccountDialog.scss");

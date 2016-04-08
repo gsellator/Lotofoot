@@ -3,14 +3,13 @@ import { RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import { switchNav } from "../../actions/Pages/NavAction";
 import config from "../../config";
-import Helpers from '../Helpers';
 
 import RefreshBtn from "../Btns/RefreshBtn";
 import HeaderBtn from "../Btns/HeaderBtn";
 import AccountBtn from "../Btns/AccountBtn";
 
 if (process.env.BROWSER) {
-  require("../../style/Pages/MainMenu.scss");
+  require("../../style/App/MainMenu.scss");
 }
 
 class MainMenu extends Component {

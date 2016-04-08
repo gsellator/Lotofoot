@@ -11,6 +11,10 @@ const LoginAction = {
           if (err.message === 'XMLHttpRequest timeout') {
             console.log('LoginService timeout');
             context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
+          } else if (err.message == '{"code":400,"error":"invalid_client","error_description":"Missing parameters. \\"username\\" and \\"password\\" are required"}') {
+            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'Veuillez renseigner les deux champs.');
+          } else if (err.message == 'erreur :getaddrinfo ENOTFOUND dailyhubapi.herokuapp.com dailyhubapi.herokuapp.com:443') {
+            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'Erreur lors de l\'authentification. Veuillez réessayer ultérieurement.');
           } else {
             context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
             done(err);
@@ -21,7 +25,7 @@ const LoginAction = {
         const accessToken = data.access_token;
         var expiresDate = new Date();
         expiresDate.setTime(expiresDate.getTime() + (data.expires_in * 1000));
-        context.setCookie('dld_authentication', accessToken, {expires: expiresDate})
+        context.setCookie('lotofoot_token', accessToken, {expires: expiresDate})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
         const newroute = context.getStore("RouteStore").makePath('home');
         context.executeAction(navigateAction, { url: newroute });

@@ -1,11 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
-//import config from "../config";
-//import Sections from "../constants/Sections";
-//import Helpers from '../components/Helpers';
-//import FormatDate from '../components/FormatDate';
-//import f from '../components/Filters';
 
 if (process.env.BROWSER) {
   require("../style/Pages/HelpPage.scss");

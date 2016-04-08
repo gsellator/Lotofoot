@@ -7,15 +7,15 @@ import { getAccessToken } from "../../actions/Pages/LoginAction";
 import { closeNav } from "../../actions/Pages/NavAction";
 import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";
 
-import MainMenu from "../../components/Pages/MainMenu";
-import Nav from "../../components/Pages/Nav";
+import MainMenu from "../../components/App/MainMenu";
+import Nav from "../../components/App/Nav";
 import Dialog from "../../components/Dialog/Dialog";
 import AccountDialog from "../../components/Dialog/AccountDialog";
 
 if (process.env.BROWSER) {
-  require("../../style/Pages/Page.scss");
-  require("../../style/Icons.scss");
-  require("../../style/Btn.scss");
+  require("../../style/App/Page.scss");
+  require("../../style/App/Icons.scss");
+  require("../../style/App/Btn.scss");
 }
 
 class Page extends Component {
@@ -33,7 +33,7 @@ class Page extends Component {
 
   render() {
     const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
-    const { isLogged, hasDialog, hasAccountDialog, hasShowcard } = this.props;
+    const { isLogged, hasDialog, hasAccountDialog } = this.props;
 
     let mainMenu, nav, body, dialog, accountDialog;
     if (pageName != 'login') {
@@ -58,7 +58,7 @@ class Page extends Component {
           {nav}
         </ReactCSSTransitionGroup>
 
-        <div className={hasShowcard ? 'Page-body noprint' : 'Page-body'}>
+        <div className="Page-body">
           { this.props.children }
         </div>
 
