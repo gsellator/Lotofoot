@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 
+import PredictionsTab from "../components/Predictions/PredictionsTab";
+
 if (process.env.BROWSER) {
   require("../style/Pages/PredictionsPage.scss");
 }
@@ -22,7 +24,7 @@ class PredictionsPage extends Component {
               PRONOSTIQUES
             </div>
             <div className="PredictionsPageContent">
-              Test
+              <PredictionsTab />
             </div>
           </div>
         </div>

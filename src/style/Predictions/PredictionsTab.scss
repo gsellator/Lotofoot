@@ -1,0 +1,39 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.PredictionsTab{
+
+  &>div:not(:last-child) .Match{
+    border-bottom: dotted $grey-5 1px;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+  }
+
+  .Match{
+    height: 24px;
+    position: relative;
+
+    span{
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .Chns{
+      position: absolute;
+      left: 0;
+
+      .chn-ico:first-child{
+        margin-right: 6px;
+      }
+    }
+
+    .Flag{
+      padding: 0 3px;
+      img{
+        display: inline-block;
+        vertical-align: top;
+        height: 16px;
+      }
+    }
+  }
+}

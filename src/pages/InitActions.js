@@ -3,6 +3,10 @@ import Actions from "../constants/Actions";
 import { loadMe } from "../actions/Pages/MeAction";
 import { getApi } from "../actions/Pages/ApiAction";
 
+//context.executeAction(getApi, { route, view: 'UsersRegister', action: Actions.APIOK_USERS_REGISTER }),
+//  context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
+//  context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
+
 const InitActions = {
   home(context, route, done) {
     Promise.all([
@@ -32,6 +36,7 @@ const InitActions = {
   predictions(context, route, done) {
     Promise.all([
       context.executeAction(loadMe, {}),
+      context.executeAction(getApi, { route, view: 'Predictions', action: Actions.APIOK_PREDICTIONS }),
     ])
     .then(() => {
       done();

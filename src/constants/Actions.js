@@ -21,8 +21,12 @@ const Actions = keyMirror({
   NAVIGATE_FAILURE: null,
 
   // APP
-  APIOK_GAMES: null,
+  APIOK_USERS_REGISTER: null,
   APIOK_USERS: null,
+  APIOK_GAMES: null,
+  APIOK_PREDICTIONS: null,
+  APIOK_PREDICTIONS_BYGAME: null,
+  APIOK_PREDICTIONS_BYUSER: null,
 });
 
 export default Actions;
