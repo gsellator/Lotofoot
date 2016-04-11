@@ -104,6 +104,7 @@
 
       .Team{
         flex: 1;
+        white-space: nowrap;
 
         &:first-child{
           text-align: right;
@@ -141,7 +142,8 @@
     }
 
     .Right{
-      width: 60px; height: 24px;
+      width: 60px; min-width: 60px;
+      height: 24px;
       white-space: nowrap;
       text-align: right;
 
@@ -149,6 +151,40 @@
         display: inline-block;
         vertical-align: top;
         margin-left: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .GamesTab{
+    .Match{
+      .Left{
+        display: none;
+      }
+
+      .Center{
+        div{
+          font-size: 13px;
+        }
+
+        .Team{
+          .Flag{
+            height: 10px;
+            margin-top: 6px;
+
+            img{
+              height: 10px;
+            }
+          }
+        }
+
+        .Score{
+          width: 40px;
+          font-size: 14px;
+        }
+      }
+      .Right{
       }
     }
   }
