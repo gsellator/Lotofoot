@@ -8,12 +8,14 @@
     height: 27px;
     margin: 0 -12px 0 -12px;
     white-space: nowrap;
-
     overflow: auto;
     overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
     transform: translateZ(0);
 
+    //    &.Sub{
+    border-top: solid $grey-3 1px;
     margin-bottom: 1px;
+    //    }
 
     .MenuItem{
       line-height: 27px;
@@ -22,7 +24,7 @@
       &:not(:last-child){border-right: solid $grey-3 1px;}
 
       .Label{
-        height: 27px;
+        height: 26px;
         padding: 0 12px;
       }
 
@@ -105,6 +107,8 @@
       .Team{
         flex: 1;
         white-space: nowrap;
+        min-width: 10px;
+        overflow: hidden;
 
         &:first-child{
           text-align: right;
@@ -184,7 +188,9 @@
           font-size: 14px;
         }
       }
+
       .Right{
+        display: none;
       }
     }
   }

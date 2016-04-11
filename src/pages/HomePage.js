@@ -3,6 +3,9 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import Labels from "../constants/Labels";
 
+import CurrentGame from "../components/Games/CurrentGame";
+import GamesTab from "../components/Games/GamesTab";
+
 if (process.env.BROWSER) {
   require("../style/Pages/HomePage.scss");
 }
@@ -18,6 +21,11 @@ class HomePage extends Component {
     return (
       <div className="HomePage">
         <div className="HomePageContainer">
+
+          <CurrentGame />
+          <GamesTab />
+
+
           {false &&
             <div className="Paper" style={{textAlign: 'center'}}>
               <div className="PaperTitle">

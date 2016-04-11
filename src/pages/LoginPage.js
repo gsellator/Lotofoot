@@ -54,6 +54,12 @@ class LoginPage extends Component {
                   <div className="Loader"></div>
                 </button>
               }
+
+              <div>
+                <NavLink className="LoginLink" routeName="createLogin">{Labels.createAccount}</NavLink>
+                <span className="LoginLinkSpacer"> - </span>
+                <NavLink className="LoginLink" routeName="recoverInit">{Labels.forgottenPassword}</NavLink>
+              </div>
             </form>
           </div>
         </div>

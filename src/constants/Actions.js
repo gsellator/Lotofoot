@@ -29,6 +29,7 @@ const Actions = keyMirror({
   APIOK_PREDICTIONS_BYUSER: null,
   
   GAMESTAB_SET_TAB: null,
+  GAMESTAB_SET_PHASE: null,
 });
 
 export default Actions;

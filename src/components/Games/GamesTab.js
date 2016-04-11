@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
-import { setTab } from "../../actions/Games/GamesTabAction";
+import { setTab, setPhase } from "../../actions/Games/GamesTabAction";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
 
@@ -19,8 +19,12 @@ class GamesTab extends Component {
     this.context.executeAction(setTab, { newTab });
   }
 
+  setPhase(newPhase) {
+    this.context.executeAction(setPhase, { newPhase });
+  }
+
   render() {
-    const { data, tab } = this.props;
+    const { data, phase, tab } = this.props;
 
     return (
       <div className="Paper GamesTab">
@@ -31,7 +35,27 @@ class GamesTab extends Component {
           <div className="icn-60 footix"></div>
         </div>
 
-        <div className="GamesMenu">
+        {false &&
+          <div className="GamesMenu">
+            <div className={phase === '0' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '0')}>
+              <div className="Label">Poules</div>
+            </div>
+            <div className={phase === '1' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '1')}>
+              <div className="Label">Huitièmes</div>
+            </div>
+            <div className={phase === '2' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '2')}>
+              <div className="Label">Quarts</div>
+            </div>
+            <div className={phase === '3' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '3')}>
+              <div className="Label">Demis</div>
+            </div>
+            <div className={phase === '4' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '4')}>
+              <div className="Label">Finale</div>
+            </div>
+          </div>
+        }
+
+        <div className="GamesMenu Sub">
           <div className={tab === '-' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, '-')}>
             <div className="Label">Tous</div>
           </div>
@@ -105,6 +129,7 @@ GamesTab = connectToStores(GamesTab, ["GamesTabStore"], (context) => {
   return {
     data: context.getStore("GamesTabStore").getData(),
     tab: context.getStore("GamesTabStore").getTab(),
+    phase: context.getStore("GamesTabStore").getPhase(),
   };
 }, {getStore: PropTypes.func});
 

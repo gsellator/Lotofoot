@@ -2,17 +2,45 @@
 import Actions from "../constants/Actions";
 import { loadMe } from "../actions/Pages/MeAction";
 import { getApi } from "../actions/Pages/ApiAction";
+import { recoverInitInit } from "../actions/Pages/RecoverInitAction";
+import { recoverInit } from "../actions/Pages/RecoverAction";
 
 //context.executeAction(getApi, { route, view: 'UsersRegister', action: Actions.APIOK_USERS_REGISTER }),
 //  context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
 //  context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
 
 const InitActions = {
+  recoverInit(context, route, done) {
+    Promise.all([
+      context.executeAction(recoverInitInit, {}),
+    ])
+      .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  recover(context, route, done) {
+    Promise.all([
+      context.executeAction(recoverInit, { route }),
+      context.executeAction(getApi, { route, view: 'PublicApps', action: Actions.APIOK_PUBLIC_APPS }),
+    ])
+      .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
   home(context, route, done) {
     Promise.all([
       context.executeAction(loadMe, {}),
+      context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
     ])
-    .then(() => {
+      .then(() => {
       done();
     }, (err) => {
       done();
@@ -25,7 +53,7 @@ const InitActions = {
       context.executeAction(loadMe, {}),
       context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
     ])
-    .then(() => {
+      .then(() => {
       done();
     }, (err) => {
       done();
@@ -38,7 +66,7 @@ const InitActions = {
       context.executeAction(loadMe, {}),
       context.executeAction(getApi, { route, view: 'Predictions', action: Actions.APIOK_PREDICTIONS }),
     ])
-    .then(() => {
+      .then(() => {
       done();
     }, (err) => {
       done();
@@ -50,7 +78,7 @@ const InitActions = {
     Promise.all([
       context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
     ])
-    .then(() => {
+      .then(() => {
       done();
     }, (err) => {
       done();
@@ -62,7 +90,7 @@ const InitActions = {
     Promise.all([
       context.executeAction(loadMe, {}),
     ])
-    .then(() => {
+      .then(() => {
       done();
     }, (err) => {
       done();

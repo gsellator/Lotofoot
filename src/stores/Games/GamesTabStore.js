@@ -7,16 +7,17 @@ class GamesTabStore extends BaseStore {
   static handlers = {
     [Actions.APIOK_GAMES]: "handleApiOk",
     [Actions.GAMESTAB_SET_TAB]: "handleSetTab",
+    [Actions.GAMESTAB_SET_PHASE]: "handleSetPhase",
   }
 
   constructor(dispatcher) {
     super(dispatcher);
     this.data;
     this.tab = '-';
+    this.phase = '0';
   }
 
   handleApiOk({ data, route }) {
-    // We add rows witch allow to draw date headers in gamesTab.js
     if (data){
       this.data = data;
     } else {
@@ -30,7 +31,13 @@ class GamesTabStore extends BaseStore {
     this.emitChange();
   }
 
+  handleSetPhase(newPhase) {
+    this.phase = newPhase;
+    this.emitChange();
+  }
+
   getData() {
+    // We filter on the group
     let tmpDataSource = [];
     if (this.tab === '-'){
       tmpDataSource = this.data;
@@ -41,6 +48,7 @@ class GamesTabStore extends BaseStore {
       }
     }
 
+    // We add rows witch allow to draw date headers in gamesTab.js
     let tmpData = [];
     for (let item of tmpDataSource){
       if (tmpData.length === 0 && item.teamA && item.teamB){
@@ -59,16 +67,22 @@ class GamesTabStore extends BaseStore {
     return this.tab;
   }
 
+  getPhase() {
+    return this.phase;
+  }
+
   dehydrate() {
     return {
       data: this.data,
       tab: this.tab,
+      phase: this.phase,
     };
   }
 
   rehydrate(state) {
     this.data = state.data;
     this.tab = state.tab;
+    this.phase = state.phase;
   }
 }
 

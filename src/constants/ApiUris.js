@@ -4,6 +4,10 @@ const ApiUris = {
   UsersRegister: '/users/register',
   Users: '/users',
 
+  RecoverInit: '/recover/init/:username',
+  RecoverTest: '/recover/test/:recovertoken',
+  RecoverUpdate: '/recover/update/:recovertoken',
+
   Games: '/games',
 
   Predictions: '/predictions',

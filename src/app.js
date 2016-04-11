@@ -9,6 +9,7 @@ import Application from "./Application";
 import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
+import CurrentGameStore from "./stores/Games/CurrentGameStore";
 import GamesTabStore from "./stores/Games/GamesTabStore";
 import PredictionsTabStore from "./stores/Predictions/PredictionsTabStore";
 import UsersTabStore from "./stores/Ranking/UsersTabStore";
@@ -16,6 +17,8 @@ import UsersTabStore from "./stores/Ranking/UsersTabStore";
 import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
 import LoginPageStore from "./stores/Pages/LoginPageStore";
 import NavStore from "./stores/Pages/NavStore";
+import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
+import RecoverPageStore from "./stores/Pages/RecoverPageStore";
 import RefAppsStore from "./stores/Pages/RefAppsStore";
 import RefGroupsStore from "./stores/Pages/RefGroupsStore";
 
@@ -67,6 +70,7 @@ app.registerStore(AppRouteStore);
 app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
+app.registerStore(CurrentGameStore);
 app.registerStore(GamesTabStore);
 app.registerStore(PredictionsTabStore);
 app.registerStore(UsersTabStore);
@@ -74,6 +78,8 @@ app.registerStore(UsersTabStore);
 app.registerStore(HtmlHeadStore);
 app.registerStore(LoginPageStore);
 app.registerStore(NavStore);
+app.registerStore(RecoverInitPageStore);
+app.registerStore(RecoverPageStore);
 app.registerStore(RefAppsStore);
 app.registerStore(RefGroupsStore);
 

@@ -1,6 +1,10 @@
 import InitActions from "./pages/InitActions";
 
 import LoginPage from "./pages/LoginPage";
+import CreateLoginPage from "./pages/CreateLoginPage";
+import RecoverInitPage from "./pages/RecoverInitPage";
+import RecoverPage from "./pages/RecoverPage";
+
 import HomePage from "./pages/HomePage";
 import GamesPage from "./pages/GamesPage";
 import PredictionsPage from "./pages/PredictionsPage";
@@ -13,6 +17,25 @@ export default {
     path: "/login",
     method: "get",
     handler: LoginPage
+  },
+  createLogin: {
+    path: "/login/create",
+    method: "get",
+    handler: CreateLoginPage,
+  },
+  
+  // RECOVER
+  recoverInit: {
+    path: "/recover",
+    method: "get",
+    handler: RecoverInitPage,
+    action: InitActions.recoverInit
+  },
+  recover: {
+    path: "/recover/:recovertoken",
+    method: "get",
+    handler: RecoverPage,
+    action: InitActions.recover
   },
 
   home: {
