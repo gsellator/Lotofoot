@@ -19,14 +19,7 @@ class GamesPage extends Component {
     return (
       <div className="GamesPage">
         <div className="GamesPageContainer">
-          <div className="Paper" style={{textAlign: 'center'}}>
-            <div className="PaperTitle">
-              LISTE DES MATCHS
-            </div>
-            <div className="GamesPageContent">
-              <GamesTab />
-            </div>
-          </div>
+          <GamesTab />
         </div>
       </div>
     );

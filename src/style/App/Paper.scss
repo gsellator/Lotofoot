@@ -24,14 +24,33 @@
     padding: 4px 0;
     border-top: solid $grey-medium 3px;
     color: $grey-medium;
+
+    span{
+      font-family: $alt-font-family;
+      font-size: $alt-font-size;
+      font-weight: $alt-font-weight;
+      text-rendering: $alt-text-rendering;
+      color: $grey-medium;
+    }
   }
 
-  .PaperTitle span{
-    font-family: $alt-font-family;
-    font-size: $alt-font-size;
-    font-weight: $alt-font-weight;
-    text-rendering: $alt-text-rendering;
-    color: $grey-medium;
+  .AltPaperTitle{
+    position: relative;
+    text-align: left;
+    margin: -12px -12px 0 -12px;
+    padding: 18px 0 18px 12px;
+    height: 72px;
+
+    .Label{
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 36px;
+    }
+
+    .icn-60{
+      position: absolute;
+      top: 6px; right: 6px;
+    }
   }
 
   .PaperTxt{
