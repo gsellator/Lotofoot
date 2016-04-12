@@ -54,6 +54,14 @@ class CurrentGame extends Component {
             </div>
                   
             <div className="MetaData">
+              <div className="Left">
+                <div className="icn-16 pin"></div>
+                <div className="Label">{data[0].stadium}</div>
+              </div>
+              <div className="Right">
+                {data[0].channel && <div className={'chn-ico alt ' + data[0].channel}></div>}
+                <div className="chn-ico alt bein-sports-1"></div>
+              </div>
             </div>
           </div>
         }
