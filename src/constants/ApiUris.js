@@ -13,7 +13,7 @@ const ApiUris = {
   GamesNext: '/games/next',
 
   Predictions: '/predictions', // GET POST
-  Prediction: '/predictions/:predictionId', // GET PUTf
+  Prediction: '/predictions/:predictionId', // GET PUT
   PredictionsByGame: '/predictions?game=:gameId',
   PredictionsByUser: '/predictions?user=:userId',
 };

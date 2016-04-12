@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
-import { postApi } from "../../actions/Pages/ApiAction";
+import { postApi, putApi } from "../../actions/Pages/ApiAction";
 import Actions from "../../constants/Actions";
 
 if (process.env.BROWSER) {
@@ -68,8 +68,8 @@ class PredictionBlock extends Component {
       scoreTeamB: scoreTeamB,
       winner: winner
     }
-debugger;
-//    this.context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE});
+
+    this.context.executeAction(putApi, { route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE, predictionId});
   }
 
   render() {
