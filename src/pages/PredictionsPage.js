@@ -19,14 +19,7 @@ class PredictionsPage extends Component {
     return (
       <div className="PredictionsPage">
         <div className="PredictionsPageContainer">
-          <div className="Paper" style={{textAlign: 'center'}}>
-            <div className="PaperTitle">
-              PRONOSTIQUES
-            </div>
-            <div className="PredictionsPageContent">
-              <PredictionsTab />
-            </div>
-          </div>
+          <PredictionsTab />
         </div>
       </div>
     );

@@ -2,6 +2,9 @@
 @import '../constants/breaks';
 
 .PredictionsTab{
+  .AltPaperTitle{
+    border-bottom: solid $grey-3 1px;;
+  }
 
 
   .Prediction{

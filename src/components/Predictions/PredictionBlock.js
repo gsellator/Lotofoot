@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import { postApi, putApi } from "../../actions/Pages/ApiAction";
+import { initCreate, initUpdate } from "../../actions/Predictions/PredictionBlockAction";
 import Actions from "../../constants/Actions";
 
 if (process.env.BROWSER) {
@@ -32,6 +33,7 @@ class PredictionBlock extends Component {
   }
 
   postPrediction(gameId) {
+    this.context.executeAction(initCreate, {});
     const route = this.context.getStore("RouteStore").getCurrentRoute();
     let scoreTeamA = this.refs.scoreTeamA.value;
     let scoreTeamB = this.refs.scoreTeamB.value;
@@ -53,6 +55,7 @@ class PredictionBlock extends Component {
   }
 
   updatePrediction(predictionId) {
+    this.context.executeAction(initUpdate, {});
     const route = this.context.getStore("RouteStore").getCurrentRoute();
     let scoreTeamA = this.refs.scoreTeamA.value;
     let scoreTeamB = this.refs.scoreTeamB.value;
@@ -73,18 +76,24 @@ class PredictionBlock extends Component {
   }
 
   render() {
-    const { data, gameData } = this.props;
+    const { data, pending, gameData } = this.props;
     const { scoreTeamA, scoreTeamB } = this.state;
 
     return (
       <div className="Paper PredictionBlock">
-        {data && !data._id && gameData && gameData.status != 'NOT_STARTED' &&
+        {pending &&
+          <div className="Prediction">
+            Chargement...
+          </div>
+        }
+      
+        {!pending && data && !data._id && gameData && gameData.status != 'NOT_STARTED' &&
           <div className="Prediction">
             Vous ne pouvez plus parier sur ce match...
           </div>
         }
 
-        {data && !data._id && gameData && gameData.status === 'NOT_STARTED' &&
+        {!pending && data && !data._id && gameData && gameData.status === 'NOT_STARTED' &&
           <div className="Prediction">
             <div className="Title">
               Pariez sur ce match
@@ -100,7 +109,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {data && data._id && !data.isOpen &&
+        {!pending && data && data._id && !data.isOpen &&
           <div className="Prediction">
             <div>
               Vous ne pouvez plus modifier votre pari
@@ -116,7 +125,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {data && data._id && data.isOpen &&
+        {!pending && data && data._id && data.isOpen &&
           <div className="Prediction">
             <div className="Title">
               Vous pouvez encore modifier votre pari
@@ -139,7 +148,8 @@ class PredictionBlock extends Component {
 PredictionBlock = connectToStores(PredictionBlock, ["PredictionBlockStore"], (context) => {
   return {
     data: context.getStore("PredictionBlockStore").getData(),
-    gameData: context.getStore("GameBlockStore").getData()
+    pending: context.getStore("PredictionBlockStore").getPending(),
+    gameData: context.getStore("GameBlockStore").getData(),
   };
 }, {getStore: PropTypes.func});
 

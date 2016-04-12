@@ -20,7 +20,7 @@ class UsersTab extends Component {
       <div className="UsersTab">
         {data && data.map((item, i) =>
           <div key={i} className="User">
-            <span>{'#' + i + ' ' + item.firstName + ' - ' + item.email}</span>
+            <span>{'#' + i + ' ' + item.firstName + ' - ' + item.email + ' -> ' + item.points}</span>
           </div>
         )}
       </div>

@@ -44,6 +44,7 @@
       justify-content: center;
 
       .Team{
+        flex: 1;
         &:first-child{margin-right: 24px;}
         &:last-child{margin-left: 24px;}
 
