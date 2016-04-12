@@ -6,10 +6,12 @@ const TIMEOUT = 20000;
 const ApiAction = {
   getApi(context, { route, view, action }, done) {
     const accessToken = context.getCookie('lotofoot_token');
+    const userId = context.getStore('LoginPageStore').getCredentials()._id;
+
     let endpoint = ApiUris[view]
     .replace(':gameId', route.getIn(["params", "gameId"]))
     .replace(':predictionId', route.getIn(["params", "predictionId"]))
-    .replace(':userId', route.getIn(["params", "userId"]));
+    .replace(':userId', userId);
 
     if (accessToken && endpoint.includes('?'))
       endpoint = endpoint + '&access_token=' + accessToken;

@@ -52,6 +52,7 @@
 
       .Team{
         flex: 1;
+        max-width: 300px;
         &:first-child{margin-right: 24px;}
         &:last-child{margin-left: 24px;}
 

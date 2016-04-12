@@ -28,27 +28,27 @@ class PredictionsTab extends Component {
         <div className="PredictionsPageContent">
           {data && data.map((item, i) =>
             <div key={i} className="Prediction">
-              <div>item._id : {item._id}</div>
-              <div>item.scoreTeamA : {item.scoreTeamA}</div>
-              <div>item.scoreTeamB : {item.scoreTeamB}</div>
-              <div>item.winner : {item.winner}</div>
-              <div>item.isOpen : {item.isOpen}</div>
-              <div>item.createdAt : {item.createdAt}</div>
-              <div>item.game._id : {item.game._id}</div>
-              <div>item.game.friendlyId : {item.game.friendlyId}</div>
-              <div>item.game.phase : {item.game.phase}</div>
-              <div>item.game.datetime : {item.game.datetime}</div>
-              <div>item.game.stadium : {item.game.stadium}</div>
-              <div>item.game.teamA : {item.game.teamA}</div>
-              <div>item.game.teamB : {item.game.teamB}</div>
-              <div>item.game.scoreTeamA : {item.game.scoreTeamA}</div>
-              <div>item.game.scoreTeamB : {item.game.scoreTeamB}</div>
-              <div>item.game.winner : {item.game.winner}</div>
-              <div>item.game.status : {item.game.status}</div>
-              <div>item.game.channel : {item.game.channel}</div>
-              <div>item.game.group : {item.game.group}</div>
-              <div>item.game.createdAt : {item.game.createdAt}</div>
-              <div>item.game.updatedAt : {item.game.updatedAt}</div>
+              {false && <div>item._id : {item._id}</div>}
+              {false && <div>item.scoreTeamA : {item.scoreTeamA}</div>}
+              {false && <div>item.scoreTeamB : {item.scoreTeamB}</div>}
+              {false && <div>item.winner : {item.winner}</div>}
+              {false && <div>item.isOpen : {item.isOpen}</div>}
+              {false && <div>item.createdAt : {item.createdAt}</div>}
+              {false && <div>item.game._id : {item.game._id}</div>}
+              {false && <div>item.game.friendlyId : {item.game.friendlyId}</div>}
+              {false && <div>item.game.phase : {item.game.phase}</div>}
+              {false && <div>item.game.datetime : {item.game.datetime}</div>}
+              {false && <div>item.game.stadium : {item.game.stadium}</div>}
+              {false && <div>item.game.teamA : {item.game.teamA}</div>}
+              {false && <div>item.game.teamB : {item.game.teamB}</div>}
+              {true && <div>item.game.scoreTeamA : {item.game.scoreTeamA}</div>}
+              {true && <div>item.game.scoreTeamB : {item.game.scoreTeamB}</div>}
+              {false && <div>item.game.winner : {item.game.winner}</div>}
+              {false && <div>item.game.status : {item.game.status}</div>}
+              {false && <div>item.game.channel : {item.game.channel}</div>}
+              {false && <div>item.game.group : {item.game.group}</div>}
+              {false && <div>item.game.createdAt : {item.game.createdAt}</div>}
+              {false && <div>item.game.updatedAt : {item.game.updatedAt}</div>}
             </div>
           )}
         </div>

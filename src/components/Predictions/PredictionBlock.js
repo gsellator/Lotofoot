@@ -14,8 +14,8 @@ class PredictionBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreTeamA: this.props.data.scoreTeamA || 0,
-      scoreTeamB: this.props.data.scoreTeamB || 0
+      scoreTeamA: this.props.data.scoreTeamA || '',
+      scoreTeamB: this.props.data.scoreTeamB || ''
     };
   }
 
@@ -82,9 +82,7 @@ class PredictionBlock extends Component {
     return (
       <div className="Paper PredictionBlock">
         {pending &&
-          <div className="Prediction">
-            Chargement...
-          </div>
+          <div className="LoaderContainer"><div className="Loader" /></div>
         }
       
         {!pending && data && !data._id && gameData && gameData.status != 'NOT_STARTED' &&
