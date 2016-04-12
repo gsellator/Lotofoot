@@ -61,6 +61,19 @@ const InitActions = {
       console.log('InitActions Error : ', err.message);
     });
   },
+  
+  game(context, route, done) {
+    Promise.all([
+      context.executeAction(loadMe, {}),
+      context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
+    ])
+      .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
 
   predictions(context, route, done) {
     Promise.all([

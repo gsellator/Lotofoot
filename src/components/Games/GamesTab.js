@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
+import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import { setTab, setPhase } from "../../actions/Games/GamesTabAction";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
@@ -92,7 +92,7 @@ class GamesTab extends Component {
                   )
                 else
                   return (
-                    <div className="Match">
+                    <NavLink className="Match" routeName="game" navParams={{gameId: item._id}}>
                       <div className="Left">
                         <div className="Group">{'Gp ' + Filters.capitalize(item.group)}</div>
                         <div className="Stadium">{Filters.capitalize(item.stadium)}</div>
@@ -123,7 +123,7 @@ class GamesTab extends Component {
                         {item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
                         <div className="chn-ico alt bein-sports-1"></div>
                       </div>
-                    </div>
+                    </NavLink>
                   )
               })()}
             </div>
