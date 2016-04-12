@@ -16,19 +16,35 @@ class CurrentGame extends Component {
 
   render() {
     const { data } = this.props;
+    debugger;
 
     return (
       <div className="Paper CurrentGame">
-        {false && <div className="stadium bordeaux"></div>}
-        {false && <div className="stadium lens"></div>}
-        {false && <div className="stadium lille"></div>}
-        {false && <div className="stadium lyon"></div>}
-        {false && <div className="stadium marseille"></div>}
-        {false && <div className="stadium nice"></div>}
-        {false && <div className="stadium paris"></div>}
-        {false && <div className="stadium saint-denis"></div>}
-        {false && <div className="stadium saint-etienne"></div>}
-        {true && <div className="stadium toulouse"></div>}
+        {data && data[0] &&
+          <div>
+            {false && <div className="stadium bordeaux"></div>}
+            {false && <div className="stadium lens"></div>}
+            {false && <div className="stadium lille"></div>}
+            {false && <div className="stadium lyon"></div>}
+            {false && <div className="stadium marseille"></div>}
+            {false && <div className="stadium nice"></div>}
+            {false && <div className="stadium paris"></div>}
+            {false && <div className="stadium saint-denis"></div>}
+            {false && <div className="stadium saint-etienne"></div>}
+            {true && <div className="stadium toulouse"></div>}
+
+            <div className="CurrentGameData">
+
+              {false &&
+                <div className={(data[0].winner === 'teamB' || data[0].winner === 'nobody') ? 'Team Winner' : 'Team'}>
+                  <div className="Flag"><img src={data[0].teamB.flagUrl} /></div>
+                  <div className="Label">{data[0].teamB.name}</div>
+                </div>
+              }
+
+            </div>
+          </div>
+        }
       </div>
     );
   }

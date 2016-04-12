@@ -39,6 +39,7 @@ const InitActions = {
     Promise.all([
       context.executeAction(loadMe, {}),
       context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
+      context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT}),
     ])
       .then(() => {
       done();

@@ -1,4 +1,5 @@
 import { BaseStore } from "fluxible/addons";
+import FormatDate from "../../components/Helpers/FormatDate";
 import Actions from "../../constants/Actions";
 
 class GamesTabStore extends BaseStore {
@@ -52,11 +53,11 @@ class GamesTabStore extends BaseStore {
     let tmpData = [];
     for (let item of tmpDataSource){
       if (tmpData.length === 0 && item.teamA && item.teamB){
-        tmpData[0] = {isHeader: true, date: item.date}
+        tmpData[0] = {isHeader: true, datetime: item.datetime}
         tmpData[1] = item;
       } else if (item.teamA && item.teamB) {
-        if (tmpData[tmpData.length-1].date != item.date)
-          tmpData[tmpData.length] = {isHeader: true, date: item.date}
+        if (FormatDate.dtetimeToStr(tmpData[tmpData.length-1].datetime, 'YYYY-MM-DD') != FormatDate.dtetimeToStr(item.datetime, 'YYYY-MM-DD'))
+          tmpData[tmpData.length] = {isHeader: true, datetime: item.datetime}
         tmpData[tmpData.length] = item;
       }
     }

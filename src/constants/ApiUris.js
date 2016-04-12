@@ -8,11 +8,14 @@ const ApiUris = {
   RecoverTest: '/recover/test/:recovertoken',
   RecoverUpdate: '/recover/update/:recovertoken',
 
-  Games: '/games',
+  Games: '/games', // GET POST
+  Game: '/games/:gameId', // GET POST
+  GamesNext: '/games/next',
 
-  Predictions: '/predictions',
-  PredictionsByGame: 'http://{{host}}/api/predictions?game=:gameId',
-  PredictionsByUser: 'http://{{host}}/api/predictions?user=:userId',
+  Predictions: '/predictions', // GET POST
+  Prediction: '/predictions/:predictionId', // GET PUTf
+  PredictionsByGame: '/predictions?game=:gameId',
+  PredictionsByUser: '/predictions?user=:userId',
 };
 
 export default ApiUris;

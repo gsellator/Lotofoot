@@ -87,7 +87,7 @@ class GamesTab extends Component {
                 if (item.isHeader)
                   return (
                     <div className="Date">
-                      {Filters.capitalize(FormatDate.toStr(item.date, 'dddd DD MMMM'))}
+                      {Filters.capitalize(FormatDate.dtetimeToStr(item.datetime, 'dddd DD MMMM'))}
                     </div>
                   )
                 else
@@ -98,14 +98,23 @@ class GamesTab extends Component {
                         <div className="Stadium">{Filters.capitalize(item.stadium)}</div>
                       </div>
                       <div className="Center">
-                        <div className="Team">
+                        <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'Team Winner' : 'Team'}>
                           <div className="Label">{item.teamA.name}</div>
                           <div className="Flag"><img src={item.teamA.flagUrl} /></div>
                         </div>
-                        <div className="Score">
-                          {FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}
+                        <div className="ScoreContainer">
+                          {!(item.scoreTeamA || item.scoreTeamB) &&
+                            <span className="Time">{FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}</span>
+                          }
+                          {(item.scoreTeamA || item.scoreTeamB) &&
+                            <span className="Score">
+                              <span className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'Winner' : ''}>{(item.scoreTeamA || '0')}</span>
+                              <span className={(item.winner === 'nobody') ? 'Winner' : ''}>&#8239;-&#8239;</span>
+                              <span className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'Winner' : ''}>{(item.scoreTeamB || '0')}</span>
+                            </span>
+                          }
                         </div>
-                        <div className="Team">
+                        <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'Team Winner' : 'Team'}>
                           <div className="Flag"><img src={item.teamB.flagUrl} /></div>
                           <div className="Label">{item.teamB.name}</div>
                         </div>

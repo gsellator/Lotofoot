@@ -23,11 +23,14 @@ const Actions = keyMirror({
   // APP
   APIOK_USERS_REGISTER: null,
   APIOK_USERS: null,
+
   APIOK_GAMES: null,
+  APIOK_GAME: null,
+  APIOK_GAMES_NEXT: null,
   APIOK_PREDICTIONS: null,
   APIOK_PREDICTIONS_BYGAME: null,
   APIOK_PREDICTIONS_BYUSER: null,
-  
+
   GAMESTAB_SET_TAB: null,
   GAMESTAB_SET_PHASE: null,
 });
