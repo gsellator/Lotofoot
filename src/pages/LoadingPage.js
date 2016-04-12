@@ -7,7 +7,7 @@ if (process.env.BROWSER) {
 class LoadingPage extends React.Component {
 
   render() {
-    return <div className="Loader" />;
+    return <div className="LoaderContainer"><div className="Loader" /></div>;
   }
 
 }

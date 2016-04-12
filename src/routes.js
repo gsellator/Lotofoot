@@ -5,6 +5,7 @@ import CreateLoginPage from "./pages/CreateLoginPage";
 import RecoverInitPage from "./pages/RecoverInitPage";
 import RecoverPage from "./pages/RecoverPage";
 
+//import LoadingPage from "./pages/LoadingPage";
 import HomePage from "./pages/HomePage";
 import GamesPage from "./pages/GamesPage";
 import PredictionsPage from "./pages/PredictionsPage";
