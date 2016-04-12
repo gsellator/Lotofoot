@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
-//import FormatDate from "../Helpers/FormatDate";
+import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
@@ -36,14 +36,34 @@ class CurrentGame extends Component {
                   <div className="Label">{data[0].teamA.name}</div>
                 </div>
                 <div className="ScoreContainer">
-                  <div className="Score">
-                    <span className={(data[0].winner === 'teamA' || data[0].winner === 'nobody') ? 'Winner' : ''}>{(data[0].scoreTeamA || '0')}</span>
-                    <span className={(data[0].winner === 'nobody') ? 'Winner' : ''}>&#8239;-&#8239;</span>
-                    <span className={(data[0].winner === 'teamB' || data[0].winner === 'nobody') ? 'Winner' : ''}>{(data[0].scoreTeamB || '0')}</span>
-                  </div>
-                  <div className="Time">
-                    27:01
-                  </div>
+                  {data[0].status === 'NOT_STARTED' &&
+                    <div className="Score">
+                      <span>{FormatDate.dtetimeToStr(data[0].datetime, 'HH:mm')}</span>
+                    </div>
+                  }
+                  {data[0].status === 'IN_PROGRESS' &&
+                    <div>
+                      <div className="Score">
+                        <span>{'(' + (data[0].scoreTeamA || '0')}</span>
+                        <span>&#8239;-&#8239;</span>
+                        <span>{(data[0].scoreTeamB || '0') + ')'}</span>
+                      </div>
+                      {false &&
+                        <div className="Time">
+                          27:01
+                        </div>
+                      }
+                    </div>
+                  }
+                  {data[0].status === 'FINISHED' &&
+                    <div>
+                      <div className="Score">
+                        <span>{'(' + (data[0].scoreTeamA || '0')}</span>
+                        <span>&#8239;-&#8239;</span>
+                        <span>{(data[0].scoreTeamB || '0') + ')'}</span>
+                      </div>
+                    </div>
+                  }
                 </div>
                 <div className={(data[0].winner === 'teamB' || data[0].winner === 'nobody') ? 'Team Winner' : 'Team'}>
                   <div className="Flag"><img src={data[0].teamB.flagUrl} /></div>

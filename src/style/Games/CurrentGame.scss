@@ -8,13 +8,13 @@
   .Stadium{
     position: absolute;
     top: -12px; right: -12px; bottom: -12px; left: -12px;
-    filter: blur(3px) contrast(130%); -webkit-filter: blur(3px) contrast(130%);
-    opacity: 0.5;
+    filter: blur(4px) contrast(160%); -webkit-filter: blur(4px) contrast(160%);
+    opacity: 0.35;
     z-index: 0;
 
     &.bordeaux{background: url('../../assets/staduims/bordeaux.jpg') center bottom no-repeat; background-size: cover;}
     &.lens{background: url('../../assets/staduims/lens.jpg') center center no-repeat; background-size: cover;}
-    &.lille{background: url('../../assets/staduims/lille.jpg') center center no-repeat; background-size: cover;}
+    &.lille{background: url('../../assets/staduims/lille.jpg') center top no-repeat; background-size: cover;}
     &.lyon{background: url('../../assets/staduims/lyon.jpg') center center no-repeat; background-size: cover;}
     &.marseille{background: url('../../assets/staduims/marseille.jpg') center center no-repeat; background-size: cover;}
     &.nice{background: url('../../assets/staduims/nice.jpg') center center no-repeat; background-size: cover;}
@@ -113,6 +113,7 @@
 
     .Right{
       margin: 6px;
+      div:not(:first-child){margin-left: 6px;}
     }
   }
 }
