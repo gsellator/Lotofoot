@@ -1,15 +1,18 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
 .CurrentGame{
   background: red;
   height: 250px;
   position: relative;
 
-  .stadium{
+  .Stadium{
     position: absolute;
     top: -12px; right: -12px; bottom: -12px; left: -12px;
     filter: blur(3px) contrast(130%); -webkit-filter: blur(3px) contrast(130%);
     opacity: 0.5;
     z-index: 0;
-    
+
     &.bordeaux{background: url('../../assets/staduims/bordeaux.jpg') center bottom no-repeat; background-size: cover;}
     &.lens{background: url('../../assets/staduims/lens.jpg') center center no-repeat; background-size: cover;}
     &.lille{background: url('../../assets/staduims/lille.jpg') center center no-repeat; background-size: cover;}
@@ -22,4 +25,108 @@
     &.toulouse{background: url('../../assets/staduims/toulouse.jpg') center bottom no-repeat; background-size: cover;}
   }
 
+  .CurrentGameData{
+    position: absolute;
+    top: 0; right: 0; bottom: 36px; left: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .Phase{
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 24px 0;
+    }
+
+    .TeamBlock{
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      .Team{
+        &:first-child{margin-right: 24px;}
+        &:last-child{margin-left: 24px;}
+
+        .Flag{
+          font-size: 0;
+
+          img{
+            height: 80px;
+          }
+        }
+
+        .Label{
+          font-size: 15px;
+          line-height: 20px;
+        }
+      }
+
+      .ScoreContainer{
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .Score{
+          span{
+            font-size: 28px;
+            font-weight: 500;
+            //            color: $grey-medium;
+            line-height: 18px;
+          }
+        }
+
+        .Time{
+          font-size: 14px;
+          font-weight: 500;
+          //            color: $grey-medium;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+
+  .MetaData{
+    position: absolute;
+    right: 0; bottom: 0; left: 0;
+    height: 36px;
+    background: #4c8b4b;
+  }
+}
+
+@media (max-width: $break-medium){
+  .CurrentGame{
+    height: 200px;
+
+    .CurrentGameData{
+      .Phase{
+        margin: 0 0 12px 0;
+      }
+
+      .TeamBlock{
+        .Team{
+          &:first-child{margin-right: 12px;}
+          &:last-child{margin-left: 12px;}
+
+          .Flag{
+            img{
+              height: 64px;
+            }
+          }
+        }
+
+        .ScoreContainer{
+          height: 84px;
+
+          .Score{
+            span{
+              font-size: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
