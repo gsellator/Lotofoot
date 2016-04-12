@@ -7,9 +7,14 @@ if (process.env.BROWSER) {
 }
 
 class HeaderBtn extends Component {
+  static contextTypes = {
+    executeAction: PropTypes.func.isRequired,
+    getStore: PropTypes.func.isRequired
+  }
+
   reload(){
-    const newroute = context.getStore("RouteStore").makePath('home');
-    context.executeAction(navigateAction, { url: newroute });
+    const newroute = this.context.getStore("RouteStore").makePath('home');
+    this.context.executeAction(navigateAction, { url: newroute });
   }
 
   render() {

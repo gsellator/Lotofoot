@@ -40,7 +40,7 @@ const ApiAction = {
     else if (accessToken)
       endpoint = endpoint + '?access_token=' + accessToken;
 
-    context.service.update("ApiService", { endpoint }, body, { timeout: TIMEOUT },
+    context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
           context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);

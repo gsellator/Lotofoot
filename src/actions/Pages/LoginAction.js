@@ -8,7 +8,7 @@ const LoginAction = {
     context.dispatch(Actions.LOGIN_PENDING);
 
     let endpoint = ApiUris['UsersLogin'];
-    context.service.update("ApiService", { endpoint }, { email: username, password: password }, { timeout: TIMEOUT },
+    context.service.create("ApiService", { endpoint }, { email: username, password: password }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
           let errObject = JSON.parse(err.message);

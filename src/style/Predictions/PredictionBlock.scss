@@ -1,11 +1,27 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .PredictionBlock{
   .Prediction{
+    text-align: center;
+
+    .Title{
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .Inputs{
+      input{
+        font-family: $font-family-numbers;
+        font-size: $font-size-numbers;
+        font-weight: $font-weight-numbers;
+        text-rendering: $text-rendering-numbers;
+      }
+    }
 
     .Btns{
-      text-align: center;
+
       margin-top: 12px;
       padding-top: 12px;
       border-top: solid $grey-3 1px;

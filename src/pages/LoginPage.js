@@ -35,7 +35,7 @@ class LoginPage extends Component {
             <form onSubmit={this.login.bind(this)}>
               <div className="LoginLogo"></div>
               <div>
-                <input type="text"
+                <input type="email"
                   ref="loginInput"
                   placeholder={Labels.username}
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />

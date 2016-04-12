@@ -42,7 +42,7 @@ class RecoverInitPage extends Component {
                     {Labels.recoverInitText}
                   </div>
                   <div>
-                    <input type="text"
+                    <input type="email"
                       ref="usernameInput"
                       placeholder={Labels.usernameExample}
                       autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
