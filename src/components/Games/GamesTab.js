@@ -108,9 +108,9 @@ class GamesTab extends Component {
                           }
                           {(item.scoreTeamA || item.scoreTeamB) &&
                             <span className="Score">
-                              <span className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'Winner' : ''}>{(item.scoreTeamA || '0')}</span>
-                              <span className={(item.winner === 'nobody') ? 'Winner' : ''}>&#8239;-&#8239;</span>
-                              <span className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'Winner' : ''}>{(item.scoreTeamB || '0')}</span>
+                              <span>{(item.scoreTeamA || '0')}</span>
+                              <span>&#8239;-&#8239;</span>
+                              <span>{(item.scoreTeamB || '0')}</span>
                             </span>
                           }
                         </div>
