@@ -1,0 +1,14 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.PredictionBlock{
+  .Prediction{
+
+    .Btns{
+      text-align: center;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: solid $grey-3 1px;
+    }
+  }
+}

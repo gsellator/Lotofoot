@@ -24,7 +24,7 @@ class PredictionsPage extends Component {
               PRONOSTIQUES
             </div>
             <div className="PredictionsPageContent">
-              {false && <PredictionsTab />}
+              <PredictionsTab />
             </div>
           </div>
         </div>

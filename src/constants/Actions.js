@@ -28,6 +28,7 @@ const Actions = keyMirror({
   APIOK_GAME: null,
   APIOK_GAMES_NEXT: null,
   APIOK_PREDICTIONS: null,
+  APIOK_PREDICTIONS_CREATE: null,
   APIOK_PREDICTIONS_BYGAME: null,
   APIOK_PREDICTIONS_BYUSER: null,
 

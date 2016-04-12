@@ -6,7 +6,6 @@ import { recoverInitInit } from "../actions/Pages/RecoverInitAction";
 import { recoverInit } from "../actions/Pages/RecoverAction";
 
 //context.executeAction(getApi, { route, view: 'UsersRegister', action: Actions.APIOK_USERS_REGISTER }),
-//  context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
 //  context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
 
 const InitActions = {
@@ -66,6 +65,7 @@ const InitActions = {
     Promise.all([
       context.executeAction(loadMe, {}),
       context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
+      context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
     ])
       .then(() => {
       done();

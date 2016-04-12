@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 
 import GameBlock from "../components/Games/GameBlock";
+import PredictionBlock from "../components/Predictions/PredictionBlock";
 
 if (process.env.BROWSER) {
   require("../style/Pages/GamePage.scss");
@@ -20,6 +21,7 @@ class GamePage extends Component {
       <div className="GamePage">
         <div className="GamePageContainer">
           <GameBlock />
+          <PredictionBlock />
         </div>
       </div>
     );
