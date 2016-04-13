@@ -45,7 +45,7 @@
   &.games{background-position: -390px 0;}
   &.predictions{background-position: -420px 0;}
   &.ranking{background-position: -450px 0;}
-
+  
   &:hover{background-position-y:-30px;}
   &:active, &.active{background-position-y:-60px;}
 }
@@ -56,7 +56,7 @@
 
   &.main{background-position: -0px -0px;}
   &.main.full{background-position: -0px -0px; width: 120px;}
-
+  
   &:hover{background-position-y:-36px;}
   &:active{background-position-y:-72px;}
 }
@@ -72,11 +72,45 @@
   &.phone{background-position: -168px -160px;}
 }
 
+.icn-60{
+  @include uiux-icons;
+  width: 60px; height: 60px;
+
+  &.footix{background-position: 0 -210px;}
+}
+
+.icn-70{
+  @include uiux-icons;
+  width: 70px; height: 45px;
+
+  &.tf1{background-position: -340px -160px;}
+  &.rmc{background-position: -410px -160px;}
+  &.next{background-position: -480px -160px;}
+  &.nrj{background-position: -550px -160px;}
+  &.c25{background-position: -620px -160px;}
+  &.esp{background-position: -690px -160px;}
+  &.pluri{background-position: -760px -160px;}
+  &.tmc{background-position: -830px -160px;}
+  &.nt1{background-position: -900px -160px;}
+  &.hd1{background-position: -970px -160px;}
+  &.discovery{background-position: -1040px -160px;}
+  &.lci{background-position: -1110px -160px;}
+}
+
 .icn-100{
   @include uiux-icons;
   width: 100px; height: 100px;
 
   &.account{background-position: -1050px -0px;}
+}
+
+.icn-150{
+  @include uiux-icons;
+  width: 150px; height: 150px;
+
+  &.wand{background-position: -600px -0px;}
+  &.hammer{background-position: -750px -0px;}
+  &.brush{background-position: -900px -0px;}
 }
 
 .icn-200{
