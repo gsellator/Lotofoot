@@ -70,11 +70,11 @@ server.use(function(req, res, next) {
 
   if (lotofoot_token) {
     // There user is logged, acces to the login page is forbidden
-    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {res.redirect(303, '/'); return;}
+    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {res.redirect(303, '/'); return;}
     next();
   } else{
     // There is no accessToken, we ask for credentials
-    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {next();}
+    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {next();}
     else {res.redirect(303, '/login'); return;}
   }
 });
