@@ -61,15 +61,16 @@ class UserRegisterPage extends Component {
           <div className="UserRegisterPageContent">
             <form onSubmit={this.registerUser.bind(this)}>
 
-              <div>
+              <div className="Input">
+                <div className="Label">Test</div>
                 <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)}
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
               </div>
-              <div>
+              <div className="Input">
                 <input type="email" value={username} onChange={this.usernameChanged.bind(this)}
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
               </div>
-              <div>
+              <div className="Input">
                 <input type="password" value={password} onChange={this.passwordChanged.bind(this)}
                 autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
               </div>
