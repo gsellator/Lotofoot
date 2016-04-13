@@ -13,7 +13,7 @@ const LoginAction = {
   recoverInitSend(context, { username }, done) {
     context.dispatch(Actions.RECOVERINIT_PENDING);
     let endpoint = ApiUris['RecoverInit'].replace(':username', username);
-    context.service.update("ApiService", { endpoint }, {}, { timeout: TIMEOUT },
+    context.service.create("ApiService", { endpoint }, {}, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
           context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);

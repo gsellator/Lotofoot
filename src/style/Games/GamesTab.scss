@@ -1,0 +1,223 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.GamesTab{
+  text-align: center;
+
+  .GamesMenu{
+    height: 27px;
+    margin: 0 -12px 0 -12px;
+    white-space: nowrap;
+    overflow: auto;
+    overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
+    transform: translateZ(0);
+
+    //    &.Sub{
+    border-top: solid $grey-3 1px;
+    margin-bottom: 1px;
+    //    }
+
+    .MenuItem{
+      line-height: 27px;
+      display: inline-block;
+      cursor: pointer;
+      &:not(:last-child){border-right: solid $grey-3 1px;}
+
+      .Label{
+        height: 26px;
+        padding: 0 12px;
+      }
+
+      &:hover .Label{
+        color: $grey-9;
+        border-bottom: solid $grey-5 2px;
+      }
+
+      &:active .Label{
+        color: $grey-6;
+        border-bottom: solid $grey-4 2px;
+      }
+
+      &.Active .Label{
+        color: $cal-color;
+        border-bottom: solid $cal-color 2px;
+      }
+    }
+  }
+
+  .Date{
+    margin: 0 -12px;
+    background: $grey-1;
+    border-top: solid $grey-3 1px;
+    border-bottom: solid $grey-3 1px;
+    text-align: left;
+    padding: 0 12px;
+    color: $grey-9;
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: -1px;
+  }
+
+  .Match{
+    margin: 0 -12px;
+    padding: 6px 12px;
+    border-bottom: solid $grey-3 1px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    cursor: pointer;
+    &:hover{background-color: $grey-0;}
+    &:active{background-color: $grey-1;}
+
+    .Left{
+      height: 22px;
+      width: 96px; min-width: 96px;
+      margin: 1px 0;
+      text-align: left;
+      white-space: nowrap;
+
+      div{
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+        line-height: 22px;
+      }
+
+      .Group{
+        font-weight: 500;
+      }
+
+      .Stadium{
+        margin-left: 6px;
+      }
+
+    }
+
+    .Center{
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      height: 22px;
+      margin: 1px 0;
+
+      div{
+        display: inline-block;
+        vertical-align: top;
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .Team{
+        flex: 1;
+        white-space: nowrap;
+        min-width: 10px;
+        overflow: hidden;
+
+        &:first-child{
+          text-align: right;
+          .Label{padding-right: 6px;}
+        }
+        &:last-child{
+          text-align: left;
+          .Label{padding-left: 6px;}
+        }
+
+        .Label{
+          font-weight: 500;
+          color: $grey-9;
+        }
+
+        .Flag{
+          margin-top: 3px;
+          font-size: 0;
+          height: 16px;
+
+          img{
+            display: inline-block;
+            vertical-align: top;
+            height: 16px;
+          }
+        }
+
+        &.Winner .Label{
+          font-weight: 500;
+          color: black;
+        }
+      }
+
+      .ScoreContainer{
+        width: 49px;
+
+        .Time{
+          font-size: 17px;
+          font-weight: 500;
+          color: $grey-9;
+          line-height: 18px;
+        }
+
+        .Score span{
+          font-family: $font-family-numbers;
+          font-size: $font-size-numbers;
+          font-weight: $font-weight-numbers;
+          text-rendering: $text-rendering-numbers;
+          font-size: 16px;
+          font-weight: 500;
+          color: $grey-9;
+          line-height: 18px;
+          color: black;
+        }
+      }
+    }
+
+    .Right{
+      width: 60px; min-width: 60px;
+      height: 24px;
+      white-space: nowrap;
+      text-align: right;
+
+      .chn-ico{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .GamesTab{
+    .Match{
+      .Left{
+        display: none;
+      }
+
+      .Center{
+        div{
+          font-size: 13px;
+        }
+
+        .Team{
+          .Flag{
+            height: 10px;
+            margin-top: 6px;
+
+            img{
+              height: 10px;
+            }
+          }
+        }
+
+        .Score{
+          width: 40px;
+          font-size: 14px;
+        }
+      }
+
+      .Right{
+        display: none;
+      }
+    }
+  }
+}

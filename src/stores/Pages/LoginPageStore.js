@@ -74,28 +74,6 @@ class LoginPageStore extends BaseStore {
     return this.credentials;
   }
 
-  getAccessLevels(level) {
-    switch(level) {
-      case 'admin':
-        if (this.credentials.role === 'admin') {return true;}
-        return false;
-        break;
-      case 'mkt':
-        if (this.credentials.role === 'admin' || this.credentials.role === 'mkt') {return true;}
-        return false;
-        break;
-      case 'cxo':
-        if (this.credentials.role === 'admin' || this.credentials.role === 'mkt' || this.credentials.role === 'cxo') {return true;}
-        return false;
-        break;
-      case 'standard':
-        return true;
-        break;
-      default:
-        return true;
-    }
-  }
-
   dehydrate() {
     return {
       pending: this.pending,
@@ -114,18 +92,3 @@ class LoginPageStore extends BaseStore {
 }
 
 export default LoginPageStore;
-
-//application
-//company
-//email
-//firstname
-//group
-//hasKantar
-//hasKantarVideo
-//hasMediametrie
-//hasPlurimedia
-//hasSeevibes
-//isAdvertiser
-//lastname
-//role
-//username

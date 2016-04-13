@@ -1,54 +1,23 @@
 const ApiUris = {
-  //// PUBLIC
-  PublicApps: '/public/apps',
+  UsersLogin: '/users/login',
+  UsersMe: '/users/me',
+  UsersRegister: '/users/register',
+  Users: '/users',
 
-
-  //// STANDARD
-  MyAccount: '/myaccount',
-  MyAccountModify: '/myaccount',
-  MyAccountPswdModify: '/myaccountpswd',
-  MyApps: '/myapps',
-
-
-  //// EDITOR
-
-
-  //// ADMIN
-  // RECOVER
   RecoverInit: '/recover/init/:username',
   RecoverTest: '/recover/test/:recovertoken',
   RecoverUpdate: '/recover/update/:recovertoken',
 
-  // USER
-  Users: '/users',
-  UsersFromGroup: '/users/group/:group',
-  User: '/user/:username',
-  UserCreate: '/user',
-  UserModify: '/user/:userid',
-  UserDelete: '/user/:userid/delete',
+  Teams: '/teams',
 
-  // AUTH
-  Auths: '/auths',
-  AuthsFromGroup: '/auths/group/:group',
-  AuthsFromUsername: '/auths/user/:username',
-  AuthsFromApp: '/auths/app/:app',
-  AuthCreate: '/auth',
-  AuthDelete: '/auth/:authid/delete',
+  Games: '/games', // GET POST
+  Game: '/games/:gameId', // GET POST
+  GamesNext: '/games/next',
 
-  // APP
-  RefApps: '/refapps',
-  Apps: '/apps',
-  App: '/app/:app',
-
-  // GROUP
-  RefGroups: '/refgroups',
-  Groups: '/groups',
-  Group: '/group/:group',
-
-  // PREFS
-  Prefs: '/prefs',
-  PrefsFromUser: '/user/:username/prefs',
-  PrefDelete: '/pref/:prefid/delete',
+  Predictions: '/predictions', // GET POST
+  Prediction: '/predictions/:predictionId', // GET PUT
+  PredictionsByGame: '/predictions?user=:userId&game=:gameId',
+  PredictionsByUser: '/predictions?user=:userId',
 };
 
 export default ApiUris;

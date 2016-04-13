@@ -9,19 +9,23 @@ import Application from "./Application";
 import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
-import HomeAppsTabStore from "./stores/Home/HomeAppsTabStore";
+import CurrentGameStore from "./stores/Games/CurrentGameStore";
+import GameBlockStore from "./stores/Games/GameBlockStore";
+import GamesTabStore from "./stores/Games/GamesTabStore";
+import PredictionBlockStore from "./stores/Predictions/PredictionBlockStore";
+import PredictionsTabStore from "./stores/Predictions/PredictionsTabStore";
+import UsersTabStore from "./stores/Ranking/UsersTabStore";
+import TeamsDicoStore from "./stores/Teams/TeamsDicoStore";
 
 import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
 import LoginPageStore from "./stores/Pages/LoginPageStore";
 import NavStore from "./stores/Pages/NavStore";
 import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
 import RecoverPageStore from "./stores/Pages/RecoverPageStore";
-import RefAppsStore from "./stores/Pages/RefAppsStore";
-import RefGroupsStore from "./stores/Pages/RefGroupsStore";
+import UserRegisterPageStore from "./stores/Pages/UserRegisterPageStore";
 
 
 if (process.env.BROWSER) {
-  require('./assets/static/home-marker.png');
   require('./assets/static/icns.svg');
   require('./assets/static/icns_36x36.png');
   require('./assets/static/icns_48x48.png');
@@ -68,14 +72,19 @@ app.registerStore(AppRouteStore);
 app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
-app.registerStore(HomeAppsTabStore);
+app.registerStore(CurrentGameStore);
+app.registerStore(GameBlockStore);
+app.registerStore(GamesTabStore);
+app.registerStore(PredictionBlockStore);
+app.registerStore(PredictionsTabStore);
+app.registerStore(UsersTabStore);
+app.registerStore(TeamsDicoStore);
 
 app.registerStore(HtmlHeadStore);
 app.registerStore(LoginPageStore);
 app.registerStore(NavStore);
 app.registerStore(RecoverInitPageStore);
 app.registerStore(RecoverPageStore);
-app.registerStore(RefAppsStore);
-app.registerStore(RefGroupsStore);
+app.registerStore(UserRegisterPageStore);
 
 export default app;

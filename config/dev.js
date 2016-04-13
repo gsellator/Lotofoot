@@ -2,6 +2,6 @@ export default {
   appName: "lotofoot",
   appFullName: "Lotofoot",
   description: "Euro 2016",
-  hubUri: 'https://dailyhubapi.herokuapp.com',
-//  trackingId: "UA-45826787-3",
+  apiUri: 'https://lotofoot-api-dev.herokuapp.com/api',
+  trackingId: "UA-76304135-1",
 }

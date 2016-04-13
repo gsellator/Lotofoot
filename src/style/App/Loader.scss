@@ -1,0 +1,38 @@
+@keyframes rotate {
+  0%   {transform: rotate(0deg);}
+  95%  {transform: rotate(360deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes rotate {
+  0%   {-webkit-transform: rotate(0deg);}
+  95%  {-webkit-transform: rotate(360deg);}
+  100% {-webkit-transform: rotate(360deg);}
+}
+
+.LoaderContainer {
+  height: 72px;
+  position: relative;
+
+  .Loader{
+    position: absolute;
+    left: 50%; top: 24px;
+    margin-left: -12px;
+    width: 24px; height: 24px;
+    transform: translateZ(0);
+
+    background: url('../../assets/uiux_loader.png') no-repeat;
+    background-size: 24px 24px;
+    width: 24px; height: 24px;
+
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
+}

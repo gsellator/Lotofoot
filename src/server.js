@@ -30,7 +30,7 @@ server.get('/robots.txt', function(req, res) {
 // Logout
 server.get('/logout', function(req, res) {
   res.writeHead(302, {
-    'Set-Cookie': 'dld_authentication=' + '; Path=/',
+    'Set-Cookie': 'lotofoot_token=' + '; Path=/',
     'Content-Type': 'text/plain',
     'Location': '/'
   });
@@ -43,8 +43,6 @@ server.use(csurf({ cookie: true }));
 // Configure fetchr (for doing api calls server and client-side)
 // and register its services
 const fetchr = app.getPlugin("FetchrPlugin");
-fetchr.registerService(require("./services/LoginService"));
-fetchr.registerService(require("./services/MeService"));
 fetchr.registerService(require("./services/ApiService"));
 
 // Use the fetchr middleware (will enable requests from /api)
@@ -68,16 +66,16 @@ if (server.get("env") === "development") {
 // Render the app server-side and send it as response
 server.use(function(req, res, next) {
   const context = app.createContext({ req, res });
-  let dld_authentication = req.cookies.dld_authentication;
+  let lotofoot_token = req.cookies.lotofoot_token;
 
-  if (dld_authentication) {
+  if (lotofoot_token) {
     // There user is logged, acces to the login page is forbidden
-    if (req.url == '/' || req.url == '/login') {res.redirect(303, '/hub'); return;}
+    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {res.redirect(303, '/'); return;}
     next();
   } else{
     // There is no accessToken, we ask for credentials
-    if (req.url == '/' || req.url == '/login') {next();}
-    else {res.redirect(303, '/'); return;}
+    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {next();}
+    else {res.redirect(303, '/login'); return;}
   }
 });
 

@@ -1,0 +1,121 @@
+@import '../constants/breaks';
+
+@mixin uiux-icons{
+  background: url('../../assets/uiux_icons.png') 0 0 no-repeat;
+  background-size: 1320px 340px;
+}
+
+.icn-16{
+  @include uiux-icons;
+  width: 16px; height: 16px;
+
+  &.top{background-position: -122px -100px;}
+  &.right{background-position: -138px -100px;}
+  &.bottom{background-position: -154px -100px;}
+  &.left{background-position: -170px -100px;}
+  &.pin{background-position: -186px -100px;}
+}
+
+.icn-20{
+  @include uiux-icons;
+  width: 20px; height: 20px;
+  background-position: -600px 0;
+
+  &.refresh{background-position: -620px 0;}
+  &.back{background-position: -640px 0;}
+  &.title{background-position: -700px 0; width: 80px;}
+
+  &:hover{background-position-y:-30px;}
+  &:active{background-position-y:-60px;}
+}
+
+.icn-26{
+  @include uiux-icons;
+  width: 26px; height: 26px;
+
+  &.apps{background-position: -120px 0;}
+  &.account{background-position: -150px 0;}
+  &.settings, &.prefs{background-position: -180px 0;}
+  &.help{background-position: -210px 0;}
+  &.export{background-position: -240px 0;}
+  &.print{background-position: -270px 0;}
+  &.menu{background-position: -300px 0;}
+  &.more{background-position: -330px 0;}
+  &.home{background-position: -360px 0;}
+  &.games{background-position: -390px 0;}
+  &.predictions{background-position: -420px 0;}
+  &.ranking{background-position: -450px 0;}
+
+  &:hover{background-position-y:-30px;}
+  &:active, &.active{background-position-y:-60px;}
+}
+
+.icn-36{
+  @include uiux-icons;
+  width: 36px; height: 36px;
+
+  &.main{background-position: -0px -0px;}
+  &.main.full{background-position: -0px -0px; width: 120px;}
+
+  &:hover{background-position-y:-36px;}
+  &:active{background-position-y:-72px;}
+}
+
+.icn-42{
+  @include uiux-icons;
+  width: 42px; height: 42px;
+
+  &.twitter{background-position: -0px -160px;}
+  &.linkedin{background-position: -42px -160px;}
+  &.github{background-position: -84px -160px;}
+  &.email{background-position: -126px -160px;}
+  &.phone{background-position: -168px -160px;}
+}
+
+.icn-100{
+  @include uiux-icons;
+  width: 100px; height: 100px;
+
+  &.account{background-position: -1050px -0px;}
+}
+
+.icn-200{
+  @include uiux-icons;
+  width: 200px; height: 200px;
+
+  &.footix{background-position: -400px -100px;}
+}
+
+.pixel{
+  width: 0; height: 0;
+  &.loader{background: url('../../assets/loader.svg');}
+  &.uiux_loader{background: url('../../assets/uiux_loader.png');}
+  &.uiux_icons{background: url('../../assets/uiux_icons.png');}
+  &.bordeaux{background: url('../../assets/staduims/bordeaux.jpg');}
+  &.lens{background: url('../../assets/staduims/lens.jpg');}
+  &.lille{background: url('../../assets/staduims/lille.jpg');}
+  &.lyon{background: url('../../assets/staduims/lyon.jpg');}
+  &.marseille{background: url('../../assets/staduims/marseille.jpg');}
+  &.nice{background: url('../../assets/staduims/nice.jpg');}
+  &.paris{background: url('../../assets/staduims/paris.jpg');}
+  &.saint-denis{background: url('../../assets/staduims/saint-denis.jpg');}
+  &.saint-etienne{background: url('../../assets/staduims/saint-etienne.jpg');}
+  &.toulouse{background: url('../../assets/staduims/toulouse.jpg');}
+}
+
+//.sort-ico{
+//  position: relative;
+//
+//  &:before {
+//    @include uiux-icons;
+//    content: "";
+//    position: absolute;
+//    top: 0; left: 50%;
+//    margin-left: -20px;
+//    width: 100%;
+//    height: 100%;
+//    max-width: 40px;
+//  }
+//  &.desc:before{background-position: -0px -110px;}
+//  &.asc:before{background-position: -40px -109px;}
+//}

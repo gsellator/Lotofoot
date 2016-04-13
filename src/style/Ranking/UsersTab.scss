@@ -1,0 +1,49 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.UsersTab{
+  text-align: center;
+
+  .AltPaperTitle{
+    border-bottom: solid $grey-3 1px;;
+  }
+
+  .User{
+    margin: 0 -12px;
+    padding: 6px 12px;
+    border-bottom: solid $grey-3 1px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
+//    cursor: pointer;
+//    &:hover{background-color: $grey-0;}
+//    &:active{background-color: $grey-1;}
+
+    .Rank{
+      font-family: $font-family-numbers;
+      text-rendering: $text-rendering-numbers;
+      width: 34px;
+      text-align: left;
+    }
+
+    .Firstname{
+      flex: 1;
+    }
+
+    .Email{
+      flex: 1;
+    }
+
+    .Points{
+      width: 34px;
+      text-align: right;
+    }
+  }
+}
+
+//@media (max-width: $break-medium){
+//  .PredictionsTab{
+//  }
+//}

@@ -1,7 +1,15 @@
 const Sections = [
   {
-    name: 'hub',
-    label: 'hub',
+    name: 'home',
+  },
+  {
+    name: 'games',
+  },
+  {
+    name: 'predictions',
+  },
+  {
+    name: 'ranking',
   },
 ];
 

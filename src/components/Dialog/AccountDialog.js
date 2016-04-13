@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import Labels from "../../constants/Labels";
-import Filters from "../Filters";
+import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
   require("../../style/Dialog/AccountDialog.scss");
@@ -30,8 +30,8 @@ class AccountDialog extends Component {
           <div>
             <div className="icn-100 account"></div>
             <div className="AccountDialogInfos">
-              {Filters.capitalize(credentials.firstname) + ' ' + Filters.capitalize(credentials.lastname)}
-              <span>{credentials.username}</span>
+              {Filters.capitalize(credentials.firstName) + ' ' + Filters.capitalize(credentials.lastname)}
+              <span>{credentials.email}</span>
             </div>
           </div>
 

@@ -1,0 +1,81 @@
+@import '../constants/colors';
+@import '../constants/typography';
+
+.Paper{
+  padding: 12px;
+  margin: 0;
+  background: white;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: max-height cubic-bezier(0.4, 0, 1, 1) 1s;
+  max-height: 10000px;
+  position: relative;
+  &:not(:first-child){margin-top: 12px;}
+
+  .PaperTitle{
+    font-family: $alt-font-family;
+    font-size: $alt-font-size;
+    font-weight: $alt-font-weight;
+    text-rendering: $alt-text-rendering;
+    margin: -12px -12px 0 -12px;
+    border-bottom: solid $grey-5 1px;
+    text-align: center;
+    padding: 4px 0;
+    border-top: solid $grey-medium 3px;
+    color: $grey-medium;
+
+    span{
+      font-family: $alt-font-family;
+      font-size: $alt-font-size;
+      font-weight: $alt-font-weight;
+      text-rendering: $alt-text-rendering;
+      color: $grey-medium;
+    }
+  }
+
+  .AltPaperTitle{
+    position: relative;
+    text-align: left;
+    margin: -12px -12px 0 -12px;
+    padding: 18px 0 18px 12px;
+    height: 72px;
+
+    .Label{
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 36px;
+    }
+
+    .icn-60{
+      position: absolute;
+      top: 6px; right: 6px;
+    }
+  }
+
+  .PaperTxt{
+    max-width: 700px;
+    margin: 12px auto;
+    font-size: 17px;
+
+    div:first-child{
+      margin-bottom: 12px;
+    }
+    span, a{font-size: 17px;}
+  }
+
+  &.Tuto{
+    text-align: center;
+    padding: 12px 6px 6px 12px;
+
+    span{
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    &>span{
+      margin: 0 6px 6px 0;
+      white-space: nowrap;
+    }
+  }
+}

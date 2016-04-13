@@ -7,7 +7,7 @@ import Immutable from "immutable";
 import cookie from 'react-cookie';
 
 import trackPageView from "./utils/trackPageView";
-import Page from "./components/Pages/Page";
+import Page from "./components/App/Page";
 import NotFoundPage from "./pages/NotFoundPage";
 //import ErrorPage from "./pages/ErrorPage";
 import LoadingPage from "./pages/LoadingPage";
@@ -18,8 +18,8 @@ injectTapEventPlugin();
 var request = require('superagent-promise')(require('superagent'), Promise);
 
 if (process.env.BROWSER) {
-  require("./style/Application.scss");
-  require("./style/Pages/Paper.scss");
+  require("./style/App/Application.scss");
+  require("./style/App/Paper.scss");
 }
 
 class Application extends Component {
@@ -51,13 +51,13 @@ class Application extends Component {
 
   componentDidMount(){
     const { currentRoute } = this.props;
-    const accessToken = cookie.load('dld_authentication');
+    const accessToken = cookie.load('lotofoot_token');
     this.trackPage(accessToken, currentRoute.get('url'));
   }
 
   componentDidUpdate(prevProps) {
     const { documentTitle, currentRoute } = this.props;
-    const accessToken = cookie.load('dld_authentication');
+    const accessToken = cookie.load('lotofoot_token');
     
     if (prevProps.documentTitle !== documentTitle) {
       document.title = documentTitle;

@@ -1,18 +1,21 @@
 import Actions from "../../constants/Actions";
+import ApiUris from "../../constants/ApiUris";
 import { navigateAction } from "fluxible-router";
 const TIMEOUT = 20000;
 
-const ContextAction = {
+const MeAction = {
   loadMe(context, {}) {
     return new Promise(function(resolve, reject) {
-      const accessToken = context.getCookie('dld_authentication');
+      const accessToken = context.getCookie('lotofoot_token');
       const route = context.getStore("RouteStore").getCurrentRoute();
 
       if (!accessToken){
-        context.executeAction(navigateAction, { url: '/' });
+        context.executeAction(navigateAction, { url: '/login' });
       }
 
-      context.service.read("MeService", { accessToken }, { timeout: TIMEOUT }, (err, data) => {
+      let endpoint = ApiUris['UsersMe'] + '?access_token=' + accessToken;
+
+      context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT }, (err, data) => {
         if (err) {
           if (err.statusCode === 401) {
             context.executeAction(navigateAction, { url: '/logout' })
@@ -32,7 +35,7 @@ const ContextAction = {
         }
 
         // There user is logged, acces to the login page is forbidden
-        if (route.get('path') == '/') {
+        if (route.get('path') == '/login') {
           context.executeAction(navigateAction, { url: '/' })
         } else {
           context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, data);
@@ -45,4 +48,4 @@ const ContextAction = {
   }
 };
 
-export default ContextAction;
+export default MeAction;
