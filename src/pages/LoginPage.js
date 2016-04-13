@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import { loginUser } from "../actions/Pages/LoginAction";
-import config from "../config";
 import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
@@ -13,7 +12,7 @@ class LoginPage extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired
   }
-  
+
   componentDidMount(){
     this.refs.loginInput.focus();
   }
@@ -27,7 +26,7 @@ class LoginPage extends Component {
 
   render() {
     const { pending } = this.props;
-    
+
     return (
       <div className="LoginPage">
         <div className="LoginPageContainer">
@@ -56,7 +55,7 @@ class LoginPage extends Component {
               }
 
               <div>
-                <NavLink className="LoginLink" routeName="createLogin">{Labels.createAccount}</NavLink>
+                <NavLink className="LoginLink" routeName="userRegister">{Labels.createAccount}</NavLink>
                 <span className="LoginLinkSpacer"> - </span>
                 <NavLink className="LoginLink" routeName="recoverInit">{Labels.forgottenPassword}</NavLink>
               </div>

@@ -1,5 +1,6 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .GameBlock{
   height: 250px;
@@ -78,6 +79,10 @@
 
         .Score{
           span{
+            font-family: $font-family-numbers;
+            font-size: $font-size-numbers;
+            font-weight: $font-weight-numbers;
+            text-rendering: $text-rendering-numbers;
             font-size: 28px;
             font-weight: 500;
             line-height: 18px;
@@ -143,13 +148,13 @@
 
           .Flag{
             img{
-              height: 64px;
+              height: 58px;
             }
           }
         }
 
         .ScoreContainer{
-          height: 84px;
+          height: 78px;
 
           .Score{
             span{

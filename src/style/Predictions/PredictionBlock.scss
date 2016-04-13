@@ -12,7 +12,7 @@
     }
 
     .Inputs{
-      input{
+      input, span{
         font-family: $font-family-numbers;
         font-size: $font-size-numbers;
         font-weight: $font-weight-numbers;
@@ -21,6 +21,7 @@
     }
 
     .Btns{
+
       margin-top: 12px;
       padding-top: 12px;
       border-top: solid $grey-3 1px;

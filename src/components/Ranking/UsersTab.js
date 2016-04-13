@@ -17,12 +17,31 @@ class UsersTab extends Component {
     const { data } = this.props;
 
     return (
-      <div className="UsersTab">
-        {data && data.map((item, i) =>
-          <div key={i} className="User">
-            <span>{'#' + i + ' ' + item.firstName + ' - ' + item.email + ' -> ' + item.points}</span>
+      <div className="Paper UsersTab">
+        <div className="AltPaperTitle">
+          <div className="Label">
+            Le classement
           </div>
-        )}
+          <div className="icn-60 footix"></div>
+        </div>
+        <div>
+          {data && data.map((item, i) =>
+            <div key={i} className="User">
+              <div className="Rank">
+                {'#' + i}
+              </div>
+              <div className="Firstname">
+                {item.firstName}
+              </div>
+              <div className="Email">
+                {item.email}
+              </div>
+              <div className="Points">
+                {item.points}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

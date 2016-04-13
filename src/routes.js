@@ -1,7 +1,7 @@
 import InitActions from "./pages/InitActions";
 
 import LoginPage from "./pages/LoginPage";
-import CreateLoginPage from "./pages/CreateLoginPage";
+import UserRegisterPage from "./pages/UserRegisterPage";
 import RecoverInitPage from "./pages/RecoverInitPage";
 import RecoverPage from "./pages/RecoverPage";
 
@@ -20,10 +20,10 @@ export default {
     method: "get",
     handler: LoginPage
   },
-  createLogin: {
+  userRegister: {
     path: "/login/create",
     method: "get",
-    handler: CreateLoginPage,
+    handler: UserRegisterPage,
   },
   
   // RECOVER

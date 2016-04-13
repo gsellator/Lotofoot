@@ -21,9 +21,10 @@ const Actions = keyMirror({
   NAVIGATE_FAILURE: null,
 
   // APP
-  APIOK_USERS_REGISTER: null,
+  APIOK_USER_REGISTER: null,
   APIOK_USERS: null,
 
+  APIOK_TEAMS: null,
   APIOK_GAMES: null,
   APIOK_GAME: null,
   APIOK_GAMES_NEXT: null,

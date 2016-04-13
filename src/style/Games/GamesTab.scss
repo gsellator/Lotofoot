@@ -1,5 +1,6 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .GamesTab{
   text-align: center;
@@ -157,6 +158,10 @@
         }
 
         .Score span{
+          font-family: $font-family-numbers;
+          font-size: $font-size-numbers;
+          font-weight: $font-weight-numbers;
+          text-rendering: $text-rendering-numbers;
           font-size: 16px;
           font-weight: 500;
           color: $grey-9;

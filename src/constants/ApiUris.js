@@ -8,6 +8,8 @@ const ApiUris = {
   RecoverTest: '/recover/test/:recovertoken',
   RecoverUpdate: '/recover/update/:recovertoken',
 
+  Teams: '/teams',
+
   Games: '/games', // GET POST
   Game: '/games/:gameId', // GET POST
   GamesNext: '/games/next',

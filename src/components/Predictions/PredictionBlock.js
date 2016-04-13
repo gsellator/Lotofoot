@@ -14,8 +14,8 @@ class PredictionBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreTeamA: this.props.data.scoreTeamA || '',
-      scoreTeamB: this.props.data.scoreTeamB || ''
+      scoreTeamA: this.props.data.scoreTeamA,
+      scoreTeamB: this.props.data.scoreTeamB
     };
   }
 
@@ -35,8 +35,8 @@ class PredictionBlock extends Component {
   postPrediction(gameId) {
     this.context.executeAction(initCreate, {});
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    let scoreTeamA = this.refs.scoreTeamA.value;
-    let scoreTeamB = this.refs.scoreTeamB.value;
+    let scoreTeamA = this.state.scoreTeamA;
+    let scoreTeamB = this.state.scoreTeamB;
 
     let winner = 'nobody';
     if (scoreTeamA > scoreTeamB)
@@ -57,8 +57,8 @@ class PredictionBlock extends Component {
   updatePrediction(predictionId) {
     this.context.executeAction(initUpdate, {});
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    let scoreTeamA = this.refs.scoreTeamA.value;
-    let scoreTeamB = this.refs.scoreTeamB.value;
+    let scoreTeamA = this.state.scoreTeamA;
+    let scoreTeamB = this.state.scoreTeamB;
 
     let winner = 'nobody';
     if (scoreTeamA > scoreTeamB)
@@ -84,10 +84,12 @@ class PredictionBlock extends Component {
         {pending &&
           <div className="LoaderContainer"><div className="Loader" /></div>
         }
-      
+
         {!pending && data && !data._id && gameData && gameData.status != 'NOT_STARTED' &&
           <div className="Prediction">
-            Vous ne pouvez plus parier sur ce match...
+            <div className="Title">
+              Il est trop tard, vous ne pouvez plus parier sur ce match
+            </div>
           </div>
         }
 
@@ -97,9 +99,9 @@ class PredictionBlock extends Component {
               Pariez sur ce match
             </div>
             <div className="Inputs">
-              <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" ref="scoreTeamA"/>
+              <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
               <span> - </span>
-              <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" ref="scoreTeamB"/>
+              <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
             </div>
             <div className="Btns">
               <div className="TxtBtn" onClick={this.postPrediction.bind(this, gameData._id)}>Valider mon pronostique</div>
@@ -109,17 +111,15 @@ class PredictionBlock extends Component {
 
         {!pending && data && data._id && !data.isOpen &&
           <div className="Prediction">
-            <div>
+            <div className="Title">
               Vous ne pouvez plus modifier votre pari
             </div>
-            <div>data._id : {data._id}</div>
-            <div>data.scoreTeamA : {data.scoreTeamA}</div>
-            <div>data.scoreTeamB : {data.scoreTeamB}</div>
-            <div>data.winner : {data.winner}</div>
-            <div>data.game._id : {data.game && data.game._id}</div>
-            <div>data.game.teamA : {data.game && data.game.teamA}</div>
-            <div>data.game.teamB : {data.game && data.game.teamB}</div>
-            <div>data.game.status : {data.game && data.game.status}</div>
+
+            <div className="Inputs">
+              <input type="number" readOnly="readonly" value={scoreTeamA} pattern="\d*" min="0" max="9" />
+              <span> - </span>
+              <input type="number" readOnly="readonly" value={scoreTeamB} pattern="\d*" min="0" max="9" />
+            </div>
           </div>
         }
 
@@ -129,9 +129,9 @@ class PredictionBlock extends Component {
               Vous pouvez encore modifier votre pari
             </div>
             <div className="Inputs">
-              <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" ref="scoreTeamA"/>
+              <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
               <span> - </span>
-              <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" ref="scoreTeamB"/>
+              <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
             </div>
             <div className="Btns">
               <div className="TxtBtn" onClick={this.updatePrediction.bind(this, data._id)}>Modifier mon pronostique</div>

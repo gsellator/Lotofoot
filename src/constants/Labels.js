@@ -2,6 +2,7 @@ const Labels = {
   account: 'Mon compte',
   actions: 'Actions',
   app: 'Application',
+  back: 'Revenez en arrière',
   cancel: 'Annuler',
   create: 'Créer',
   createAccount: 'Créer un compte',

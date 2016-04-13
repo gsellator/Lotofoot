@@ -35,11 +35,13 @@ const InitActions = {
   },
 
   home(context, route, done) {
-    Promise.all([
-      context.executeAction(loadMe, {}),
-      context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
-      context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT}),
-    ])
+    context.executeAction(loadMe, {})
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT}),
+      ]);
+    })
     .then(() => {
       done();
     }, (err) => {
@@ -49,10 +51,12 @@ const InitActions = {
   },
 
   games(context, route, done) {
-    Promise.all([
-      context.executeAction(loadMe, {}),
-      context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
-    ])
+    context.executeAction(loadMe, {})
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
+      ]);
+    })
     .then(() => {
       done();
     }, (err) => {
@@ -62,11 +66,13 @@ const InitActions = {
   },
 
   game(context, route, done) {
-    Promise.all([
-      context.executeAction(loadMe, {}),
-      context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
-      context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
-    ])
+    context.executeAction(loadMe, {})
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
+        context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
+      ]);
+    })
     .then(() => {
       done();
     }, (err) => {
@@ -76,11 +82,10 @@ const InitActions = {
   },
 
   predictions(context, route, done) {
-    Promise.all([
-      context.executeAction(loadMe, {}),
-    ])
+    context.executeAction(loadMe, {})
     .then(() => {
       return Promise.all([
+        context.executeAction(getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
         context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS }),
       ]);
     })
@@ -93,9 +98,12 @@ const InitActions = {
   },
 
   ranking(context, route, done) {
-    Promise.all([
-      context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
-    ])
+    context.executeAction(loadMe, {})
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
+      ]);
+    })
     .then(() => {
       done();
     }, (err) => {
@@ -105,9 +113,12 @@ const InitActions = {
   },
 
   help(context, route, done) {
-    Promise.all([
-      context.executeAction(loadMe, {}),
-    ])
+    context.executeAction(loadMe, {})
+//    .then(() => {
+//      return Promise.all([
+//        context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
+//      ]);
+//    })
     .then(() => {
       done();
     }, (err) => {

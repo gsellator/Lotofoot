@@ -19,14 +19,7 @@ class RankingPage extends Component {
     return (
       <div className="RankingPage">
         <div className="RankingPageContainer">
-          <div className="Paper" style={{textAlign: 'center'}}>
-            <div className="PaperTitle">
-              CLASSEMENT
-            </div>
-            <div className="RankingPageContent">
-              <UsersTab />
-            </div>
-          </div>
+          <UsersTab />
         </div>
       </div>
     );

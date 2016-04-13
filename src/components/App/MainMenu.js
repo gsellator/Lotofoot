@@ -4,6 +4,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { switchNav } from "../../actions/Pages/NavAction";
 import config from "../../config";
 
+import BackBtn from "../Btns/BackBtn";
 import RefreshBtn from "../Btns/RefreshBtn";
 import HeaderBtn from "../Btns/HeaderBtn";
 import AccountBtn from "../Btns/AccountBtn";
@@ -28,7 +29,8 @@ class MainMenu extends Component {
     const routeName = route.getIn(["name"]);
     const view = route.getIn(["params", "view"]);
 
-    let headerBtn, refreshBtn, accountBtn;
+    let backBtn, headerBtn, refreshBtn, accountBtn;
+    backBtn = <BackBtn />;
     headerBtn = <HeaderBtn />;
     //    refreshBtn = <RefreshBtn />;
     accountBtn = <AccountBtn />;
@@ -37,12 +39,19 @@ class MainMenu extends Component {
       <menu className="MainMenu">
         <div className="MainMenuTab">
           <div className="MainMenuLeft">
-            <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
-              <div className="icn-36 main"></div>
-            </div>
-            <div className="MainLinkMobile" onTouchTap={this.switchNavClick.bind(this)}>
-              <div className="icn-26 menu"></div>
-            </div>
+            {routeName != 'game' &&
+              <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
+                <div className="icn-36 main"></div>
+              </div>
+            }
+            {routeName != 'game' &&
+              <div className="MainLinkMobile" onTouchTap={this.switchNavClick.bind(this)}>
+                <div className="icn-26 menu"></div>
+              </div>
+            }
+            {routeName == 'game' &&
+              backBtn
+            }
           </div>
 
           <div className="MainMenuCenter">

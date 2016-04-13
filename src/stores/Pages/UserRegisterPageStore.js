@@ -1,8 +1,8 @@
 import { BaseStore } from "fluxible/addons";
 import Actions from "../../constants/Actions";
 
-class LoginPageStore extends BaseStore {
-  static storeName = "LoginPageStore"
+class UserRegisterPageStore extends BaseStore {
+  static storeName = "UserRegisterPageStore"
 
   static handlers = {
     [Actions.LOGIN_PENDING]: "handlePending",
@@ -91,4 +91,4 @@ class LoginPageStore extends BaseStore {
   }
 }
 
-export default LoginPageStore;
+export default UserRegisterPageStore;

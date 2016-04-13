@@ -15,14 +15,14 @@ import GamesTabStore from "./stores/Games/GamesTabStore";
 import PredictionBlockStore from "./stores/Predictions/PredictionBlockStore";
 import PredictionsTabStore from "./stores/Predictions/PredictionsTabStore";
 import UsersTabStore from "./stores/Ranking/UsersTabStore";
+import TeamsDicoStore from "./stores/Teams/TeamsDicoStore";
 
 import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
 import LoginPageStore from "./stores/Pages/LoginPageStore";
 import NavStore from "./stores/Pages/NavStore";
 import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
 import RecoverPageStore from "./stores/Pages/RecoverPageStore";
-import RefAppsStore from "./stores/Pages/RefAppsStore";
-import RefGroupsStore from "./stores/Pages/RefGroupsStore";
+import UserRegisterPageStore from "./stores/Pages/UserRegisterPageStore";
 
 
 if (process.env.BROWSER) {
@@ -78,13 +78,13 @@ app.registerStore(GamesTabStore);
 app.registerStore(PredictionBlockStore);
 app.registerStore(PredictionsTabStore);
 app.registerStore(UsersTabStore);
+app.registerStore(TeamsDicoStore);
 
 app.registerStore(HtmlHeadStore);
 app.registerStore(LoginPageStore);
 app.registerStore(NavStore);
 app.registerStore(RecoverInitPageStore);
 app.registerStore(RecoverPageStore);
-app.registerStore(RefAppsStore);
-app.registerStore(RefGroupsStore);
+app.registerStore(UserRegisterPageStore);
 
 export default app;

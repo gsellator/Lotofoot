@@ -1,20 +1,27 @@
 import { BaseStore } from "fluxible/addons";
 import Actions from "../../constants/Actions";
 
-class RefAppsStore extends BaseStore {
-  static storeName = "RefAppsStore"
+class TeamsDicoStore extends BaseStore {
+  static storeName = "TeamsDicoStore"
 
   static handlers = {
-    [Actions.APIOK_REFAPPS]: "handleApiOk"
+    [Actions.APIOK_TEAMS]: "handleApiOk",
   }
 
   constructor(dispatcher) {
     super(dispatcher);
-    this.data = {};
+    this.data;
   }
 
   handleApiOk({ data, route }) {
-    this.data = data;
+    if (data){
+      this.data = {};
+      for(let item of data){
+        this.data[item._id] = item;
+      }
+    } else {
+      this.data = {}
+    }
     this.emitChange();
   }
 
@@ -24,7 +31,7 @@ class RefAppsStore extends BaseStore {
 
   dehydrate() {
     return {
-      data: this.data
+      data: this.data,
     };
   }
 
@@ -33,4 +40,4 @@ class RefAppsStore extends BaseStore {
   }
 }
 
-export default RefAppsStore;
+export default TeamsDicoStore;
