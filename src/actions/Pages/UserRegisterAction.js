@@ -3,28 +3,24 @@ import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
 const TIMEOUT = 20000;
 
-const LoginAction = {
-  loginUser(context, { username, password }, done) {
-    context.dispatch(Actions.LOGIN_PENDING);
+const UserRegisterAction = {
+  registerUser(context, { body }, done) {
+    context.dispatch(Actions.PENDING_USER_REGISTER);
 
-    let endpoint = ApiUris['UsersLogin'];
-    context.service.create("ApiService", { endpoint }, { email: username, password: password }, { timeout: TIMEOUT },
+    let endpoint = ApiUris['UsersRegister'];
+    context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
+        context.dispatch(Actions.APIOK_USER_REGISTER);
         if (err) {
           let errObject = JSON.parse(err.message);
           let errMsg = errObject ? errObject.message : 'err.message';
           if (errMsg === 'Unauthorized' || errMsg === 'Not Found') {
             context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'La connexion a échoué, mot de passe ou identifiant incorrect.');
-          } else if (errMsg === '"email" is not allowed to be empty. "email" must be a valid email' ||
-        errMsg === '"password" is not allowed to be empty. "password" length must be at least 3 characters long' ||
-        errMsg === '"email" is not allowed to be empty. "email" must be a valid email and "password" is not allowed to be empty. "password" length must be at least 3 characters long') {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'Veuillez renseigner les deux champs.');
           } else {
             context.dispatch(Actions.DIALOG_LOGIN_FAILURE, errMsg);
           }
           return done();
         }
-
         const accessToken = data.token;
         const user = data.user;
         var expiresDate = new Date();
@@ -40,4 +36,4 @@ const LoginAction = {
   },
 };
 
-export default LoginAction;
+export default UserRegisterAction;

@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import { postApi } from "../actions/Pages/ApiAction";
+import { registerUser } from "../actions/Pages/UserRegisterAction";
 import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
@@ -19,12 +20,13 @@ class UserRegisterPage extends Component {
   }
 
   static contextTypes = {
-    executeAction: PropTypes.func.isRequired
+    executeAction: PropTypes.func.isRequired,
+    getStore: PropTypes.func.isRequired
   }
 
-//  componentDidMount(){
-//    this.refs.loginInput.focus();
-//  }
+  componentDidMount(){
+    this.refs.firstNameInput.focus();
+  }
 
   firstnameChanged(e) {
     this.setState({firstname: e.target.value});
@@ -39,16 +41,13 @@ class UserRegisterPage extends Component {
   }
 
   registerUser(e) {
-//    this.context.executeAction(initCreate, {});
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-
+    e.preventDefault();
     const body = {
-      email: this.state.firstname,
-      password: this.state.username,
-      firstName: this.state.password,
+      email: this.state.username,
+      password: this.state.password,
+      firstName: this.state.firstname,
     }
-
-    this.context.executeAction(postApi, { route, view: 'UsersRegister', body, action: Actions.APIOK_USER_REGISTER});
+    this.context.executeAction(registerUser, { body });
   }
 
   render() {
@@ -62,20 +61,22 @@ class UserRegisterPage extends Component {
             <form onSubmit={this.registerUser.bind(this)}>
 
               <div className="Input">
-                <div className="Label">Test</div>
-                <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)}
+                <div className="Label">Prénom</div>
+                <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)} ref="firstNameInput" required
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
               </div>
               <div className="Input">
-                <input type="email" value={username} onChange={this.usernameChanged.bind(this)}
+                <div className="Label">Email</div>
+                <input type="email" value={username} onChange={this.usernameChanged.bind(this)} required
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
               </div>
               <div className="Input">
-                <input type="password" value={password} onChange={this.passwordChanged.bind(this)}
+                <div className="Label">Mot de passe</div>
+                <input type="password" value={password} onChange={this.passwordChanged.bind(this)} required
                 autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
               </div>
               {!pending &&
-                <button type="submit">{Labels.login}</button>
+                <button type="submit">{Labels.createAccount}</button>
               }
               {pending &&
                 <button type="submit">

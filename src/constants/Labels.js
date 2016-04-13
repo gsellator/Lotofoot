@@ -5,7 +5,7 @@ const Labels = {
   back: 'Revenez en arrière',
   cancel: 'Annuler',
   create: 'Créer',
-  createAccount: 'Créer un compte',
+  createAccount: 'Créer mon compte',
   delete: 'Supprimer',
   description: 'Description',
   firstname: 'Prénom',

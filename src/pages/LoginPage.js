@@ -34,15 +34,11 @@ class LoginPage extends Component {
             <form onSubmit={this.login.bind(this)}>
               <div className="LoginLogo"></div>
               <div>
-                <input type="email"
-                  ref="loginInput"
-                  placeholder={Labels.username}
+                <input type="email" ref="loginInput" placeholder={Labels.username} required
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
               </div>
               <div>
-                <input type="password"
-                  ref="passwordInput"
-                  placeholder={Labels.password}
+                <input type="password" ref="passwordInput" placeholder={Labels.password} required
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
               </div>
               {!pending &&

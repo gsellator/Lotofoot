@@ -22,6 +22,7 @@ const Actions = keyMirror({
 
   // APP
   APIOK_USER_REGISTER: null,
+  PENDING_USER_REGISTER: null,
   APIOK_USERS: null,
 
   APIOK_TEAMS: null,
