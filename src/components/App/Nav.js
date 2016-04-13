@@ -45,20 +45,6 @@ class Nav extends Component {
                 <div className="icn-26 more" title="Menu"></div>
               </div>
             </div>
-
-            <div className="pixel loader"></div>
-            <div className="pixel uiux_loader"></div>
-            <div className="pixel uiux_icons"></div>
-            <div className="pixel bordeaux"></div>
-            <div className="pixel lens"></div>
-            <div className="pixel lille"></div>
-            <div className="pixel lyon"></div>
-            <div className="pixel marseille"></div>
-            <div className="pixel nice"></div>
-            <div className="pixel paris"></div>
-            <div className="pixel saint-denis"></div>
-            <div className="pixel saint-etienne"></div>
-            <div className="pixel toulouse"></div>
           </nav>
         <ReactCSSTransitionGroup transitionName="NavFullAnim" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {hasNav &&

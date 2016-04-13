@@ -39,12 +39,14 @@ class GameBlock extends Component {
                   <div className="Label">{data.teamA.name}</div>
                 </div>
                 <div className="ScoreContainer">
-                  {data.status === 'NOT_STARTED' &&
+                  {data[0].status === 'NOT_STARTED' && false && 'test'}
+                  {!data[0].scoreTeamA &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
                     </div>
                   }
-                  {data.status === 'IN_PROGRESS' &&
+                  {data[0].status === 'IN_PROGRESS' && false && 'test'}
+                  {data[0].scoreTeamA &&
                     <div>
                       <div className="Score">
                         <span>{'(' + (data.scoreTeamA || '0')}</span>

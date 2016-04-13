@@ -36,12 +36,14 @@ class CurrentGame extends Component {
                   <div className="Label">{data[0].teamA.name}</div>
                 </div>
                 <div className="ScoreContainer">
-                  {data[0].status === 'NOT_STARTED' &&
+                  {data[0].status === 'NOT_STARTED' && false && 'test'}
+                  {!data[0].scoreTeamA &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data[0].datetime, 'HH:mm')}</span>
                     </div>
                   }
-                  {data[0].status === 'IN_PROGRESS' &&
+                  {data[0].status === 'IN_PROGRESS' && false && 'test'}
+                  {data[0].scoreTeamA &&
                     <div>
                       <div className="Score">
                         <span>{'(' + (data[0].scoreTeamA || '0')}</span>
