@@ -32,7 +32,7 @@ class MainMenu extends Component {
     let backBtn, headerBtn, refreshBtn, accountBtn;
     backBtn = <BackBtn />;
     headerBtn = <HeaderBtn />;
-    //    refreshBtn = <RefreshBtn />;
+    refreshBtn = <RefreshBtn />;
     accountBtn = <AccountBtn />;
 
     return (
@@ -55,8 +55,8 @@ class MainMenu extends Component {
           </div>
 
           <div className="MainMenuCenter">
-            {headerBtn}
             {refreshBtn}
+            {headerBtn}
           </div>
           <div className="MainMenuRight">
             {accountBtn}
