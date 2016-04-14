@@ -20,7 +20,7 @@ class GameBlock extends Component {
 
     return (
       <div className="Paper GameBlock">
-        {data &&
+        {data && 
           <div>
             <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
 
@@ -39,14 +39,14 @@ class GameBlock extends Component {
                   <div className="Label">{data.teamA.name}</div>
                 </div>
                 <div className="ScoreContainer">
-                  {data[0].status === 'NOT_STARTED' && false && 'test'}
-                  {!data[0].scoreTeamA &&
+                  {!data.scoreTeamA && false && 'test'}
+                  {data.status === 'NOT_STARTED' &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
                     </div>
                   }
-                  {data[0].status === 'IN_PROGRESS' && false && 'test'}
-                  {data[0].scoreTeamA &&
+                  {data.scoreTeamA && false && 'test'}
+                  {data.status === 'IN_PROGRESS' &&
                     <div>
                       <div className="Score">
                         <span>{'(' + (data.scoreTeamA || '0')}</span>
@@ -63,9 +63,9 @@ class GameBlock extends Component {
                   {data.status === 'FINISHED' &&
                     <div>
                       <div className="Score">
-                        <span>{'(' + (data.scoreTeamA || '0')}</span>
+                        <span>{(data.scoreTeamA || '0')}</span>
                         <span>&#8239;-&#8239;</span>
-                        <span>{(data.scoreTeamB || '0') + ')'}</span>
+                        <span>{(data.scoreTeamB || '0')}</span>
                       </div>
                     </div>
                   }
