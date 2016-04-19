@@ -85,7 +85,7 @@ class PredictionBlock extends Component {
           <div className="LoaderContainer"><div className="Loader" /></div>
         }
 
-        {!pending && data && !data._id && gameData && gameData.status != 'NOT_STARTED' &&
+        {!pending && data && !data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Prediction">
             <div className="Title">
               Il est trop tard, vous ne pouvez plus parier sur ce match
@@ -93,7 +93,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {!pending && data && !data._id && gameData && gameData.status === 'NOT_STARTED' &&
+        {!pending && data && !data._id && gameData && gameData.status === 'TIMED' &&
           <div className="Prediction">
             <div className="Title">
               Pariez sur ce match
@@ -109,7 +109,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {!pending && data && data._id && !data.isOpen &&
+        {!pending && data && data._id && gameData && gameData.status === 'TIMED' &&
           <div className="Prediction">
             <div className="Title">
               Vous ne pouvez plus modifier votre pari
@@ -123,7 +123,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {!pending && data && data._id && data.isOpen &&
+        {!pending && data && data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Prediction">
             <div className="Title">
               Vous pouvez encore modifier votre pari

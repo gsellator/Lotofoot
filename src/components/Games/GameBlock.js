@@ -40,7 +40,7 @@ class GameBlock extends Component {
                 </div>
                 <div className="ScoreContainer">
                   {!data.scoreTeamA && false && 'test'}
-                  {data.status === 'NOT_STARTED' &&
+                  {data.status === 'TIMED' &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
                     </div>

@@ -37,7 +37,7 @@ class CurrentGame extends Component {
                 </div>
                 <div className="ScoreContainer">
                   {!data[0].scoreTeamA && false && 'test'}
-                  {data[0].status === 'NOT_STARTED' &&
+                  {data[0].status === 'TIMED' &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data[0].datetime, 'HH:mm')}</span>
                     </div>
