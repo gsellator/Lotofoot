@@ -109,7 +109,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {!pending && data && data._id && gameData && gameData.status === 'TIMED' &&
+        {!pending && data && data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Prediction">
             <div className="Title">
               Vous ne pouvez plus modifier votre pari
@@ -123,7 +123,7 @@ class PredictionBlock extends Component {
           </div>
         }
 
-        {!pending && data && data._id && gameData && gameData.status != 'TIMED' &&
+        {!pending && data && data._id && gameData && gameData.status === 'TIMED' &&
           <div className="Prediction">
             <div className="Title">
               Vous pouvez encore modifier votre pari
