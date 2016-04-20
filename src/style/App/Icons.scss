@@ -24,6 +24,8 @@
   &.refresh{background-position: -620px 0;}
   &.back{background-position: -640px 0;}
   &.title{background-position: -700px 0; width: 80px;}
+  &.live{background-position: -780px 0; height: 10px; width: 24px;}
+  &.next{background-position: -804px 0; height: 10px; width: 32px;}
 
   &:hover{background-position-y:-30px;}
   &:active{background-position-y:-60px;}
@@ -45,6 +47,7 @@
   &.games{background-position: -390px 0;}
   &.predictions{background-position: -420px 0;}
   &.ranking{background-position: -450px 0;}
+  &.refresh{background-position: -480px 0;}
   
   &:hover{background-position-y:-30px;}
   &:active, &.active{background-position-y:-60px;}

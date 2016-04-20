@@ -6,10 +6,9 @@
   top: 0; right: 0; left: 0;
   height: 58px;
   z-index: 210;
-  margin: 0; padding: 0 18px;
+  margin: 0; padding: 0;
   box-shadow: 0 0 3px rgba(0,0,0,.3);
   background: white;
-//  background: #369370;
   font-size: 0;
   overflow-x: auto; overflow-y: hidden; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
   user-select: none;
@@ -40,8 +39,11 @@
       display: table-cell;
       vertical-align: top;
       white-space: nowrap;
-      width: 1px;
-      padding: 0 6px 0 0;
+      width: 74px;
+      text-align: center;
+      padding: 0 2px 0 0;
+      //      border-right: solid $grey-5 1px; 
+      //      box-shadow: 0 0 3px rgba(0,0,0,.3);
 
       .MainLink{
         display: inline-block;
@@ -65,27 +67,9 @@
     .MainMenuCenter{
       display: table-cell;
       vertical-align: top;
-      text-align: center;
       white-space: nowrap;
-      padding: 0 6px 0 9px;
-    }
-
-    .MainMenuRight{
-      display: table-cell;
-      vertical-align: top;
-      white-space: nowrap;
-      width: 1px;
-      padding: 0 0 0 6px;
-
-      .MainMenuBtn{
-        display: inline-block;
-        vertical-align: top;
-        cursor: pointer;
-        padding: 16px 6px;
-
-        &:hover .icn-26{background-position-y:-30px;}
-        &:active .icn-26{background-position-y:-60px;}
-      }
+      padding: 0 6px;
+      box-shadow: 0 0 3px rgba(0,0,0,.3);
     }
 
     .MainMenuItem{
@@ -205,11 +189,10 @@
 
 @media screen and (max-width: $break-medium) {
   .MainMenu{
-    padding: 0 6px;
-
     .MainMenuTab{
       .MainMenuLeft{
-        padding: 0 3px 0 0;
+        padding: 0 2px 0 0;
+        width: 50px;
 
         .MainLink{
           display: none;
@@ -218,14 +201,6 @@
         .MainLinkMobile{
           display: inline-block;
         }
-      }
-
-      .MainMenuCenter{
-        padding: 0 3px 0 3px;
-      }
-
-      .MainMenuRight{
-        padding: 0 0 0 3px;
       }
     }
   }

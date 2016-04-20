@@ -5,15 +5,16 @@
   vertical-align: top;
   height: 40px;
   margin: 9px 3px 9px 0;
-  background: $grey-1;
   border-radius: 2px;
   cursor: pointer;
   padding: 8px 10px;
 
-  &:hover{background: $grey-2;}
+  &:hover{
+    .icn-20{background-position-y:-30px;}
+  }
+
   &:active{
-    background: $grey-1; color: $blue-fluo;
-    .chn-ico{opacity: 0.6;}
+    .icn-20{background-position-y:-60px;}
   }
 
   .icn-20{

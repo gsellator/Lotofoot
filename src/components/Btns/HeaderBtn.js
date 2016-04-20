@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from "react";
+import { connectToStores } from "fluxible-addons-react";
 import { navigateAction } from "fluxible-router";
 import Labels from "../../constants/Labels";
 
@@ -18,12 +19,66 @@ class HeaderBtn extends Component {
   }
 
   render() {
+    const route = this.context.getStore('RouteStore').getCurrentRoute();
+    const routeName = route.getIn(["name"]);
+    const { data } = this.props;
+
     return (
-      <div className="HeaderBtn" onTouchTap={this.reload.bind(this)} title={Labels.refresh}>
-        <div className="icn-20 title"></div>
+      <div className="HeaderBtn" onTouchTap={this.reload.bind(this)} title={Labels.home}>
+        {(routeName === 'home' || !data) &&
+          <div className="icn-20 title"></div>
+        }
+        {(routeName != 'home' && data && data.status === 'TIMED') &&
+          <div className="Live">
+            <div className="icn-20 live"></div>
+
+            <div className="Cartouche">
+              <span className="Flag">
+                <img src={data.teamA && data.teamA.flagUrl} />
+              </span>
+              <span className="Score">
+                {data.scoreTeamA || '0'}
+              </span>
+              <span className="Score">&#8239;-&#8239;</span>
+              <span className="Score">
+                {data.scoreTeamB || '0'}
+              </span>
+              <span className="Flag">
+                <img src={data.teamB && data.teamB.flagUrl} />
+              </span>
+            </div>
+          </div>
+        }
+        {(routeName != 'home' && data && data.status === 'IN_PROGRESS') &&
+          <div className="Live">
+            <div className="icn-20 live"></div>
+
+            <div className="Cartouche">
+              <span className="Flag">
+                <img src={data.teamA && data.teamA.flagUrl} />
+              </span>
+              <span className="Score">
+                {data.scoreTeamA || '0'}
+              </span>
+              <span className="Score">&#8239;-&#8239;</span>
+              <span className="Score">
+                {data.scoreTeamB || '0'}
+              </span>
+              <span className="Flag">
+                <img src={data.teamB && data.teamB.flagUrl} />
+              </span>
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
+
+HeaderBtn = connectToStores(HeaderBtn, ["GameBlockStore"], (context) => {
+  return {
+    data: context.getStore("GameBlockStore").getData()
+  };
+}, {getStore: PropTypes.func});
 
 export default HeaderBtn;

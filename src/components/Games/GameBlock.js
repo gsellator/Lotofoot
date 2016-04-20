@@ -20,7 +20,7 @@ class GameBlock extends Component {
 
     return (
       <div className="Paper GameBlock">
-        {data && 
+        {data &&
           <div>
             <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
 
