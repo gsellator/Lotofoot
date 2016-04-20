@@ -5,6 +5,14 @@
   background-size: 1320px 340px;
 }
 
+.icn-10{
+  @include uiux-icons;
+  width: 10px; height: 10px;
+
+  &.live{background-position: -90px -120px; width: 24px;}
+  &.next{background-position: -120px -120px; width: 32px;}
+}
+
 .icn-16{
   @include uiux-icons;
   width: 16px; height: 16px;
@@ -24,8 +32,6 @@
   &.refresh{background-position: -620px 0;}
   &.back{background-position: -640px 0;}
   &.title{background-position: -700px 0; width: 80px;}
-  &.live{background-position: -780px 0; height: 10px; width: 24px;}
-  &.next{background-position: -804px 0; height: 10px; width: 32px;}
 
   &:hover{background-position-y:-30px;}
   &:active{background-position-y:-60px;}
@@ -48,7 +54,7 @@
   &.predictions{background-position: -420px 0;}
   &.ranking{background-position: -450px 0;}
   &.refresh{background-position: -480px 0;}
-  
+
   &:hover{background-position-y:-30px;}
   &:active, &.active{background-position-y:-60px;}
 }
@@ -59,7 +65,7 @@
 
   &.main{background-position: -0px -0px;}
   &.main.full{background-position: -0px -0px; width: 120px;}
-  
+
   &:hover{background-position-y:-36px;}
   &:active{background-position-y:-72px;}
 }

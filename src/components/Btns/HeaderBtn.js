@@ -31,7 +31,7 @@ class HeaderBtn extends Component {
         }
         {(routeName != 'home' && data && data.status === 'TIMED') &&
           <div className="Live">
-            <div className="icn-20 next"></div>
+            <div className="icn-10 next"></div>
 
             <div className="Cartouche">
               <span className="Flag">
@@ -46,7 +46,7 @@ class HeaderBtn extends Component {
         }
         {(routeName != 'home' && data && data.status === 'IN_PROGRESS') &&
           <div className="Live">
-            <div className="icn-20 live"></div>
+            <div className="icn-10 live"></div>
 
             <div className="Cartouche">
               <span className="Flag">
