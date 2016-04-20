@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction } from "fluxible-router";
+import FormatDate from "../Helpers/FormatDate";
 import Labels from "../../constants/Labels";
 
 if (process.env.BROWSER) {
@@ -30,19 +31,13 @@ class HeaderBtn extends Component {
         }
         {(routeName != 'home' && data && data.status === 'TIMED') &&
           <div className="Live">
-            <div className="icn-20 live"></div>
+            <div className="icn-20 next"></div>
 
             <div className="Cartouche">
               <span className="Flag">
                 <img src={data.teamA && data.teamA.flagUrl} />
               </span>
-              <span className="Score">
-                {data.scoreTeamA || '0'}
-              </span>
-              <span className="Score">&#8239;-&#8239;</span>
-              <span className="Score">
-                {data.scoreTeamB || '0'}
-              </span>
+              <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
               <span className="Flag">
                 <img src={data.teamB && data.teamB.flagUrl} />
               </span>
