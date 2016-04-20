@@ -70,9 +70,9 @@ class HeaderBtn extends Component {
   }
 }
 
-HeaderBtn = connectToStores(HeaderBtn, ["GameBlockStore"], (context) => {
+HeaderBtn = connectToStores(HeaderBtn, ["CurrentGameStore"], (context) => {
   return {
-    data: context.getStore("GameBlockStore").getData()
+    data: context.getStore("CurrentGameStore").getData()
   };
 }, {getStore: PropTypes.func});
 
