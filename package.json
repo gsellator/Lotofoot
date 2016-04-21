@@ -20,7 +20,7 @@
   },
   "engines": {
     "node": "5.0.0",
-    "npm" : "~3.3.6"
+    "npm" : "3.3.6"
   },
   "dependencies": {
     "autoprefixer-loader": "2.0.0",
