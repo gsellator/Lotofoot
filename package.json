@@ -19,8 +19,7 @@
     "url": "https://github.com/gsellator/Lotofoot/issues"
   },
   "engines": {
-    "node": "5.0.0",
-    "npm" : "3.3.6"
+    "node": "5.1.1"
   },
   "dependencies": {
     "autoprefixer-loader": "2.0.0",
