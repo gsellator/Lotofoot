@@ -17,23 +17,6 @@ class PredictionsByGameTab extends Component {
 
   render() {
     const { data, users, teamsData } = this.props;
-    //    {false && <div>item._id : {item._id}</div>}
-    //    {true && <div>item.scoreTeamA : {item.scoreTeamA}</div>}
-    //    {true && <div>item.scoreTeamB : {item.scoreTeamB}</div>}
-    //    {false && <div>item.winner : {item.winner}</div>}
-    //    {false && <div>item.isOpen : {item.isOpen}</div>}
-    //    {false && <div>item.createdAt : {item.createdAt}</div>}
-    //    {false && <div>item.game._id : {item.game._id}</div>}
-    //    {false && <div>item.game.friendlyId : {item.game.friendlyId}</div>}
-    //    {false && <div>item.game.phase : {item.game.phase}</div>}
-    //    {false && <div>item.game.datetime : {item.game.datetime}</div>}
-    //    {false && <div>item.game.stadium : {item.game.stadium}</div>}
-    //    {false && <div>item.game.teamA : {item.game.teamA}</div>}
-    //    {false && <div>item.game.teamB : {item.game.teamB}</div>}
-    //    {false && <div>item.game.scoreTeamA : {item.game.scoreTeamA}</div>}
-    //    {false && <div>item.game.scoreTeamB : {item.game.scoreTeamB}</div>}
-    //    {false && <div>item.game.winner : {item.game.winner}</div>}
-    //    {false && <div>item.game.status : {item.game.status}</div>}
 
     return (
       <div className="Paper PredictionsByGameTab">
@@ -46,7 +29,7 @@ class PredictionsByGameTab extends Component {
 
         <div className="PredictionsPageContent">
           {data && data.map((item, i) =>
-            <NavLink key={i} className="Prediction" routeName="game" navParams={{gameId: item.game._id}}>
+            <div key={i} className="Prediction">
               <div className="Left">
                 <div className="Group">{Filters.capitalize(users[item.user])}</div>
               </div>
@@ -72,7 +55,7 @@ class PredictionsByGameTab extends Component {
               <div className="Right">
                 {item.score + ' pt'}
               </div>
-            </NavLink>
+            </div>
           )}
         </div>
       </div>

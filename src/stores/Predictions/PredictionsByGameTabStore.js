@@ -1,11 +1,12 @@
 import { BaseStore } from "fluxible/addons";
+import _ from "lodash";
 import Actions from "../../constants/Actions";
 
 class PredictionsByGameTabStore extends BaseStore {
   static storeName = "PredictionsByGameTabStore"
 
   static handlers = {
-    [Actions.APIOK_PREDICTIONS]: "handleApiOk",
+    [Actions.APIOK_PREDICTIONS_BYGAME]: "handleApiOk",
     [Actions.APIOK_USERS]: "handleApiOkUsers",
   }
 
@@ -16,7 +17,7 @@ class PredictionsByGameTabStore extends BaseStore {
 
   handleApiOk({ data, route }) {
     this.data = data;
-    _.sortBy(data, 'score');
+    this.data = _.sortBy(data, function(item){ return -item.score; });
     this.emitChange();
   }
 

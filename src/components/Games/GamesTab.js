@@ -35,7 +35,7 @@ class GamesTab extends Component {
           <div className="icn-60 footix"></div>
         </div>
 
-        {true &&
+        {false &&
           <div className="GamesMenu">
             <div className={phase === '0' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '0')}>
               <div className="Label">Poules</div>

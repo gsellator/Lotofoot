@@ -18,22 +18,27 @@ class GamePage extends Component {
   }
 
   render() {
+    const { data } = this.props;
+
     return (
       <div className="GamePage">
         <div className="GamePageContainer">
           <GameBlock />
           <PredictionBlock />
-          <PredictionsByGameTab />
+
+          {(data.status === 'IN_PROGRESS' || data.status === 'FINISHED') &&
+            <PredictionsByGameTab />
+          }
         </div>
       </div>
     );
   }
 }
 
-//GamePage = connectToStores(GamePage, ["LoginPageStore"], (context) => {
-//  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
-//  };
-//}, {getStore: PropTypes.func});
+GamePage = connectToStores(GamePage, ["GameBlockStore"], (context) => {
+  return {
+    data: context.getStore("GameBlockStore").getData(),
+  };
+}, {getStore: PropTypes.func});
 
 export default GamePage;
