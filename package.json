@@ -8,7 +8,7 @@
     "start": "NODE_ENV=production node index",
     "dev": "NODE_ENV=development APP_ENV=development DEBUG=lotofoot node index",
     "prod": "NODE_ENV=production PORT=8080 DEBUG=lotofoot node index",
-    "build": "webpack --progress --config  ./webpack/prod.config.js",
+    "build": "webpack --config  ./webpack/prod.config.js",
     "postinstall": "npm run build"
   },
   "repository": {
