@@ -3,28 +3,46 @@
 @import '../constants/typography';
 
 .PredictionBlock{
-  .Prediction{
+  .Title{
     text-align: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  &.Paper .AltPaperTitle{
+    border-bottom: solid $grey-5 1px;
+    margin-bottom: 12px;
+  }
 
-    .Title{
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
+  .Prediction{
+    display: flex;
+    justify-content: center;
 
     .Inputs{
+      padding: 0 6px 0 0;
+
       input, span{
         font-family: $font-family-numbers;
         font-size: $font-size-numbers;
         font-weight: $font-weight-numbers;
         text-rendering: $text-rendering-numbers;
+        height: 40px;
       }
     }
 
     .Btns{
-
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: solid $grey-3 1px;
+      padding: 5px 0 5px 6px;
+      width: 64px;
     }
+  }
+
+  .Points{
+    text-align: center;
+  }
+
+  .PoolRanking{
+    border-top: dotted $grey-5 1px;
+    text-align: center;
+    padding: 12px 0 0 0;
+    margin-top: 12px;
   }
 }

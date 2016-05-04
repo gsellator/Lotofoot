@@ -5,18 +5,18 @@ import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
-  require("../../style/Predictions/PredictionsTab.scss");
+  require("../../style/Predictions/PredictionsByGameTab.scss");
 }
 
 
-class PredictionsTab extends Component {
+class PredictionsByGameTab extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
   }
 
   render() {
-    const { data, teamsData } = this.props;
+    const { data, users, teamsData } = this.props;
     //    {false && <div>item._id : {item._id}</div>}
     //    {true && <div>item.scoreTeamA : {item.scoreTeamA}</div>}
     //    {true && <div>item.scoreTeamB : {item.scoreTeamB}</div>}
@@ -36,10 +36,10 @@ class PredictionsTab extends Component {
     //    {false && <div>item.game.status : {item.game.status}</div>}
 
     return (
-      <div className="Paper PredictionsTab">
+      <div className="Paper PredictionsByGameTab">
         <div className="AltPaperTitle">
           <div className="Label">
-            Tous mes pronostiques
+            Tous les pronostiques
           </div>
           <div className="icn-60 footix"></div>
         </div>
@@ -48,13 +48,11 @@ class PredictionsTab extends Component {
           {data && data.map((item, i) =>
             <NavLink key={i} className="Prediction" routeName="game" navParams={{gameId: item.game._id}}>
               <div className="Left">
-                <div className="Group">{'Gp ' + Filters.capitalize(item.game.group)}</div>
-                <div className="Stadium">{Filters.capitalize(item.game.stadium)}</div>
+                <div className="Group">{Filters.capitalize(users[item.user])}</div>
               </div>
               <div className="Center">
                 {teamsData[item.game.teamA] &&
                   <div className="Team">
-                    <div className="Label">{teamsData[item.game.teamA].name}</div>
                     <div className="Flag"><img src={teamsData[item.game.teamA].flagUrl} /></div>
                   </div>
                 }
@@ -68,13 +66,11 @@ class PredictionsTab extends Component {
                 {teamsData[item.game.teamB] &&
                   <div className="Team">
                     <div className="Flag"><img src={teamsData[item.game.teamB].flagUrl} /></div>
-                    <div className="Label">{teamsData[item.game.teamB].name}</div>
                   </div>
                 }
               </div>
               <div className="Right">
-                {item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
-                <div className="chn-ico alt bein-sports-1"></div>
+                {item.score + ' pt'}
               </div>
             </NavLink>
           )}
@@ -84,11 +80,12 @@ class PredictionsTab extends Component {
   }
 }
 
-PredictionsTab = connectToStores(PredictionsTab, ["PredictionsTabStore"], (context) => {
+PredictionsByGameTab = connectToStores(PredictionsByGameTab, ["PredictionsByGameTabStore"], (context) => {
   return {
-    data: context.getStore("PredictionsTabStore").getData(),
+    data: context.getStore("PredictionsByGameTabStore").getData(),
+    users: context.getStore("PredictionsByGameTabStore").getUsers(),
     teamsData: context.getStore("TeamsDicoStore").getData()
   };
 }, {getStore: PropTypes.func});
 
-export default PredictionsTab;
+export default PredictionsByGameTab;

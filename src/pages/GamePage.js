@@ -4,6 +4,7 @@ import { navigateAction, RouteStore } from "fluxible-router";
 
 import GameBlock from "../components/Games/GameBlock";
 import PredictionBlock from "../components/Predictions/PredictionBlock";
+import PredictionsByGameTab from "../components/Predictions/PredictionsByGameTab";
 
 if (process.env.BROWSER) {
   require("../style/Pages/GamePage.scss");
@@ -22,6 +23,7 @@ class GamePage extends Component {
         <div className="GamePageContainer">
           <GameBlock />
           <PredictionBlock />
+          <PredictionsByGameTab />
         </div>
       </div>
     );

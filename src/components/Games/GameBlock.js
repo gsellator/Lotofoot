@@ -25,7 +25,21 @@ class GameBlock extends Component {
             <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
 
             <div className="GameBlockData">
-              <div className="Date">{Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - Match ' + data.friendlyId}</div>
+              {data.status === 'TIMED' &&
+                <div className="Date">
+                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - Match ' + data.friendlyId}
+                </div>
+              }
+              {data.status === 'IN_PROGRESS' &&
+                <div className="Date">
+                  {'Match ' + data.friendlyId + ' - En cours'}
+                </div>
+              }
+              {data.status === 'FINISHED' &&
+                <div className="Date">
+                  {'Match ' + data.friendlyId + ' - Terminé'}
+                </div>
+              }
               
               {data.phase === 0 && <div className="Phase">{'Groupe ' + Filters.capitalize(data.group)}</div>}
               {data.phase === 1 && <div className="Phase">Huitième de finale</div>}

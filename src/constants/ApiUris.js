@@ -16,8 +16,9 @@ const ApiUris = {
 
   Predictions: '/predictions', // GET POST
   Prediction: '/predictions/:predictionId', // GET PUT
-  PredictionsByGame: '/predictions?user=:userId&game=:gameId',
   PredictionsByUser: '/predictions?user=:userId',
+  PredictionsByGame: '/predictions?game=:gameId',
+  PredictionsByGameAndUser: '/predictions?user=:userId&game=:gameId',
 };
 
 export default ApiUris;

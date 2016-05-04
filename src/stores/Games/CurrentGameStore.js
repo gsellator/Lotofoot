@@ -6,6 +6,7 @@ class CurrentGameStore extends BaseStore {
 
   static handlers = {
     [Actions.APIOK_GAMES_NEXT]: "handleApiOk",
+    [Actions.APIOK_GAMES_NEXTMINI]: "handleApiOk",
   }
 
   constructor(dispatcher) {

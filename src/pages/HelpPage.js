@@ -20,7 +20,7 @@ class HelpPage extends Component {
              Aide
           </div>
           <div className="HelpPageCtnt">
-            En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:adrien@gsell.me">adrien@gsell.me</a>.
+            En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.radio97.fr">hello@lotofoot.radio97.fr</a>.
           </div>
         </div>
       </div>

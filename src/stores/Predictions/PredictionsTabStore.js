@@ -5,7 +5,7 @@ class PredictionsTabStore extends BaseStore {
   static storeName = "PredictionsTabStore"
 
   static handlers = {
-    [Actions.APIOK_PREDICTIONS]: "handleApiOk",
+    [Actions.APIOK_PREDICTIONS_BYGAME]: "handleApiOk",
   }
 
   constructor(dispatcher) {
@@ -34,3 +34,4 @@ class PredictionsTabStore extends BaseStore {
 }
 
 export default PredictionsTabStore;
+

@@ -2,65 +2,14 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.GamesTab{
+.PredictionsByGameTab{
   text-align: center;
 
-  .GamesMenu{
-    height: 27px;
-    line-height: 27px;
-    margin: 0 -12px 0 -12px;
-    white-space: nowrap;
-    overflow: auto;
-    overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
-    transform: translateZ(0);
-
-    //    &.Sub{
-    border-top: solid $grey-3 1px;
-    margin-bottom: 1px;
-    //    }
-
-    .MenuItem{
-      line-height: 27px;
-      display: inline-block;
-      cursor: pointer;
-      &:not(:last-child){border-right: solid $grey-3 1px;}
-
-      .Label{
-        height: 26px;
-        padding: 0 12px;
-      }
-
-      &:hover .Label{
-        color: $grey-9;
-        border-bottom: solid $grey-5 2px;
-      }
-
-      &:active .Label{
-        color: $grey-6;
-        border-bottom: solid $grey-4 2px;
-      }
-
-      &.Active .Label{
-        color: $cal-color;
-        border-bottom: solid $cal-color 2px;
-      }
-    }
+  .AltPaperTitle{
+    border-bottom: solid $grey-3 1px;;
   }
 
-  .Date{
-    margin: 0 -12px;
-    background: $grey-1;
-    border-top: solid $grey-3 1px;
-    border-bottom: solid $grey-3 1px;
-    text-align: left;
-    padding: 0 12px;
-    color: $grey-9;
-    font-weight: 500;
-    font-size: 12px;
-    margin-top: -1px;
-  }
-
-  .Match{
+  .Prediction{
     margin: 0 -12px;
     padding: 6px 12px;
     border-bottom: solid $grey-3 1px;
@@ -188,7 +137,7 @@
 }
 
 @media (max-width: $break-medium){
-  .GamesTab{
+  .PredictionsByGameTab{
     .Match{
       .Left{
         display: none;

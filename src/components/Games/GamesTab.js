@@ -35,7 +35,7 @@ class GamesTab extends Component {
           <div className="icn-60 footix"></div>
         </div>
 
-        {false &&
+        {true &&
           <div className="GamesMenu">
             <div className={phase === '0' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '0')}>
               <div className="Label">Poules</div>
@@ -108,9 +108,11 @@ class GamesTab extends Component {
                           }
                           {(item.scoreTeamA || item.scoreTeamB) &&
                             <span className="Score">
+                              {item.status === 'IN_PROGRESS' && <span>(</span> }
                               <span>{(item.scoreTeamA || '0')}</span>
                               <span>&#8239;-&#8239;</span>
                               <span>{(item.scoreTeamB || '0')}</span>
+                              {item.status === 'IN_PROGRESS' && <span>)</span> }
                             </span>
                           }
                         </div>
