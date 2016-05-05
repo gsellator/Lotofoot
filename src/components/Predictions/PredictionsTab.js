@@ -39,7 +39,7 @@ class PredictionsTab extends Component {
       <div className="Paper PredictionsTab">
         <div className="AltPaperTitle">
           <div className="Label">
-            Tous mes pronostiques
+            Tous mes pronostics
           </div>
           <div className="icn-60 footix"></div>
         </div>

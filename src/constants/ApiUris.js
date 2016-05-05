@@ -4,9 +4,9 @@ const ApiUris = {
   UsersRegister: '/users/register',
   Users: '/users',
 
-  RecoverInit: '/recover/init/:username',
-  RecoverTest: '/recover/test/:recovertoken',
-  RecoverUpdate: '/recover/update/:recovertoken',
+  RecoverInit: '/reset-password',
+  RecoverTest: '/reset-password/:recovertoken',
+  RecoverUpdate: '/reset-password/:recovertoken',
 
   Teams: '/teams',
 

@@ -97,7 +97,7 @@ class PredictionBlock extends Component {
           <div>
             <div className="AltPaperTitle">
               <div className="Label">
-                Mon pronostique
+                Mon pronostic
               </div>
               <div className="icn-60 footix"></div>
             </div>
@@ -109,8 +109,8 @@ class PredictionBlock extends Component {
               </div>
             </div>
             <div className="Points">
-              {gameData.status === 'IN_PROGRESS' && <span>Pour l'instant, ce pronostique vous rapporte </span>}
-              {gameData.status === 'FINISHED' &&<span>Ce pronostique vous rapporte </span>}
+              {gameData.status === 'IN_PROGRESS' && <span>Pour l'instant, ce pronostic vous rapporte </span>}
+              {gameData.status === 'FINISHED' &&<span>Ce pronostic vous rapporte </span>}
               <span>{data.score < 2 ? data.score + ' point.' : data.score + ' points.'}</span>
             </div>
           </div>
@@ -120,7 +120,7 @@ class PredictionBlock extends Component {
           <div>
             <div className="AltPaperTitle">
               <div className="Label">
-                Mon pronostique
+                Mon pronostic
               </div>
               <div className="icn-60 footix"></div>
             </div>

@@ -18,7 +18,7 @@ const Labels = {
   login: 'Connexion',
   modify: 'Modifier',
   password: 'Mot de passe',
-  predictions: 'Pronostiques',
+  predictions: 'pronostics',
   ranking: 'Classement',
   refresh: 'Recharger la page',
   required: '(requis)',
@@ -31,6 +31,7 @@ const Labels = {
   send: 'Envoyer',
   title: 'Titre',
   username: 'Email',
+  usernameExample: 'adresse@me.com',
   validate: 'Valider',
 };
 

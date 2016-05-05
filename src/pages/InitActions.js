@@ -24,7 +24,6 @@ const InitActions = {
   recover(context, route, done) {
     Promise.all([
       context.executeAction(recoverInit, { route }),
-      context.executeAction(getApi, { route, view: 'PublicApps', action: Actions.APIOK_PUBLIC_APPS }),
     ])
     .then(() => {
       done();
