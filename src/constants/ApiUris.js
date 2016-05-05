@@ -20,7 +20,7 @@ const ApiUris = {
   PredictionsByGame: '/predictions?game=:gameId',
   PredictionsByGameAndUser: '/predictions?user=:userId&game=:gameId',
 
-  Messages: '/messages',
+  Messages: '/messages', // GET POST
 };
 
 export default ApiUris;

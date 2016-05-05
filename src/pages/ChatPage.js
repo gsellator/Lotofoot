@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 
 import MessagesTab from "../components/Chat/MessagesTab";
+import MessageEdit from "../components/Chat/MessageEdit";
 
 if (process.env.BROWSER) {
   require("../style/Pages/ChatPage.scss");
@@ -17,10 +18,13 @@ class ChatPage extends Component {
 
   render() {
     return (
-      <div className="ChatPage">
-        <div className="ChatPageContainer">
-          <MessagesTab />
+      <div>
+        <div className="ChatPage">
+          <div className="ChatPageContainer">
+            <MessagesTab />
+          </div>
         </div>
+        <MessageEdit />
       </div>
     );
   }
