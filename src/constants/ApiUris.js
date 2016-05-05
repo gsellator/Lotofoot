@@ -19,6 +19,8 @@ const ApiUris = {
   PredictionsByUser: '/predictions?user=:userId',
   PredictionsByGame: '/predictions?game=:gameId',
   PredictionsByGameAndUser: '/predictions?user=:userId&game=:gameId',
+
+  Messages: '/messages',
 };
 
 export default ApiUris;

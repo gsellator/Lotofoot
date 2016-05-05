@@ -9,6 +9,7 @@ import Application from "./Application";
 import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
+import MessagesTabStore from "./stores/Chat/MessagesTabStore";
 import CurrentGameStore from "./stores/Games/CurrentGameStore";
 import GameBlockStore from "./stores/Games/GameBlockStore";
 import GamesTabStore from "./stores/Games/GamesTabStore";
@@ -73,6 +74,7 @@ app.registerStore(AppRouteStore);
 app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
+app.registerStore(MessagesTabStore);
 app.registerStore(CurrentGameStore);
 app.registerStore(GameBlockStore);
 app.registerStore(GamesTabStore);

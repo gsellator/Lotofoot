@@ -2,7 +2,7 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.Paper.UsersTab{
+.Paper.MessagesTab{
   text-align: center;
   padding-bottom: 0;
 
@@ -10,7 +10,8 @@
     border-bottom: solid $grey-3 1px;;
   }
 
-  .User{
+
+  .Message{
     margin: 0 -12px;
     padding: 6px 12px;
     position: relative;
@@ -29,17 +30,8 @@
       text-align: left;
     }
 
-    .Firstname{
+    .Text{
       flex: 1;
-    }
-
-    .Email{
-      flex: 1;
-    }
-
-    .Points{
-      width: 34px;
-      text-align: right;
     }
   }
 }

@@ -55,10 +55,10 @@ class HomePage extends Component {
   }
 }
 
-HomePage = connectToStores(HomePage, ["LoginPageStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginPageStore").getCredentials()
-  };
-}, {getStore: PropTypes.func});
+//HomePage = connectToStores(HomePage, ["LoginPageStore"], (context) => {
+//  return {
+//    credentials: context.getStore("LoginPageStore").getCredentials()
+//  };
+//}, {getStore: PropTypes.func});
 
 export default HomePage;

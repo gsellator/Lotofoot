@@ -4,6 +4,7 @@ const Labels = {
   app: 'Application',
   back: 'Revenez en arrière',
   cancel: 'Annuler',
+  chat: 'Chat',
   create: 'Créer',
   createAccount: 'Créer mon compte',
   delete: 'Supprimer',

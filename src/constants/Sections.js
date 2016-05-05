@@ -11,6 +11,9 @@ const Sections = [
   {
     name: 'ranking',
   },
+  {
+    name: 'chat',
+  },
 ];
 
 export default Sections;

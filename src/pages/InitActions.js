@@ -119,6 +119,22 @@ const InitActions = {
     });
   },
 
+  chat(context, route, done) {
+    context.executeAction(loadMe, {})
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
+        context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES }),
+      ]);
+    })
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
   help(context, route, done) {
     context.executeAction(loadMe, {})
     .then(() => {

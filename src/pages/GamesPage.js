@@ -26,10 +26,10 @@ class GamesPage extends Component {
   }
 }
 
-GamesPage = connectToStores(GamesPage, ["LoginPageStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginPageStore").getCredentials()
-  };
-}, {getStore: PropTypes.func});
+//GamesPage = connectToStores(GamesPage, ["LoginPageStore"], (context) => {
+//  return {
+//    credentials: context.getStore("LoginPageStore").getCredentials()
+//  };
+//}, {getStore: PropTypes.func});
 
 export default GamesPage;
