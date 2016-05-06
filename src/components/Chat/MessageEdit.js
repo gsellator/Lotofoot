@@ -16,12 +16,21 @@ class MessageEdit extends Component {
     getStore: PropTypes.func.isRequired
   }
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+
+  componentDidUpdate() {
+  }
+
   sendMessage(e) {
     e.preventDefault();
-    const body = { text: this.refs.MessageInput.childNodes[0].value };
-    this.refs.MessageInput.childNodes[0].value = '';
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(createMessage, { route, body });
+    if (this.refs.MessageInput.childNodes[0].value != ''){
+      const body = { text: this.refs.MessageInput.childNodes[0].value };
+      this.refs.MessageInput.childNodes[0].value = '';
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      this.context.executeAction(createMessage, { route, body });
+    }
   }
 
   render() {

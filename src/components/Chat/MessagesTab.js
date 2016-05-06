@@ -26,14 +26,16 @@ class MessagesTab extends Component {
                 {item.user &&
                   <div className={credentials._id === item.user._id ? 'Me' : ''}>
                     <div className="MessageBlock">
-                      <div className="Name">
-                        {item.user && item.user.firstName}
+                      <div className="Title">
+                        <div className="Name">
+                          {item.user && item.user.firstName}
+                        </div>
+                        <div className="Date">
+                          {FormatDate.dtetimeToFromNow(item.createdAt, 'DD/MM')}
+                        </div>
                       </div>
                       <div className="Text">
                         {item.text}
-                      </div>
-                      <div className="Date">
-                        {FormatDate.dtetimeToFromNow(item.createdAt, 'DD/MM')}
                       </div>
                       <div className="icn-16 Phylactery" />
                     </div>
