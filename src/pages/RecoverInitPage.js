@@ -7,6 +7,7 @@ import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/RecoverInitPage.scss");
+  require("../style/Pages/LandingBack.scss");
 }
 
 class RecoverInitPage extends Component {
@@ -27,9 +28,9 @@ class RecoverInitPage extends Component {
 
   render() {
     const { pending, success, username } = this.props;
-    
+
     return (
-      <div className="RecoverInitPage">
+      <div className="RecoverInitPage LandingBack">
         <div className="RecoverInitPageContainer">
           <div className="RecoverInitPageContent">
             <form onSubmit={this.sendUsername.bind(this)}>

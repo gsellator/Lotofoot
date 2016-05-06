@@ -7,6 +7,7 @@ import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/UserRegisterPage.scss");
+  require("../style/Pages/LandingBack.scss");
 }
 
 class UserRegisterPage extends Component {
@@ -55,7 +56,7 @@ class UserRegisterPage extends Component {
     const { firstname, username, password } = this.state;
 
     return (
-      <div className="UserRegisterPage">
+      <div className="UserRegisterPage LandingBack">
         <div className="UserRegisterPageContainer">
           <div className="UserRegisterPageContent">
             <form onSubmit={this.registerUser.bind(this)}>

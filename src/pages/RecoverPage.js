@@ -7,6 +7,7 @@ import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/RecoverPage.scss");
+  require("../style/Pages/LandingBack.scss");
 }
 
 class RecoverPage extends Component {
@@ -39,7 +40,7 @@ class RecoverPage extends Component {
     const { pending, success, username } = this.props;
 
     return (
-      <div className="RecoverPage">
+      <div className="RecoverPage LandingBack">
         <div className="RecoverPageContainer">
           <div className="RecoverPageContent">
             <form onSubmit={this.sendPassword.bind(this)}>

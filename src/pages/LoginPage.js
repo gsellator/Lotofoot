@@ -6,6 +6,7 @@ import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");
+  require("../style/Pages/LandingBack.scss");
 }
 
 class LoginPage extends Component {
@@ -28,7 +29,7 @@ class LoginPage extends Component {
     const { pending } = this.props;
 
     return (
-      <div className="LoginPage">
+      <div className="LoginPage LandingBack">
         <div className="LoginPageContainer">
           <div className="LoginPageContent">
             <form onSubmit={this.login.bind(this)}>
