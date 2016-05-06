@@ -15,6 +15,7 @@ class MessagesTabStore extends BaseStore {
 
   handleApiOk({ data, route }) {
     this.data = data;
+    this.data = this.data.reverse();
     this.emitChange();
   }
 

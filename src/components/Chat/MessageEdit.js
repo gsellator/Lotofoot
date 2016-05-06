@@ -1,7 +1,9 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
+import TextareaAutosize from "react-textarea-autosize";
 import Labels from "../../constants/Labels";
+import { createMessage } from "../../actions/Chat/MessageEditAction";
 
 if (process.env.BROWSER) {
   require("../../style/Chat/MessageEdit.scss");
@@ -14,14 +16,12 @@ class MessageEdit extends Component {
     getStore: PropTypes.func.isRequired
   }
 
-  registerUser(e) {
-//    e.preventDefault();
-//    const body = {
-//      email: this.state.username,
-//      password: this.state.password,
-//      firstName: this.state.firstname,
-//    }
-//    this.context.executeAction(registerUser, { body });
+  sendMessage(e) {
+    e.preventDefault();
+    const body = { text: this.refs.MessageInput.childNodes[0].value };
+    this.refs.MessageInput.childNodes[0].value = '';
+    const route = this.context.getStore("RouteStore").getCurrentRoute();
+    this.context.executeAction(createMessage, { route, body });
   }
 
   render() {
@@ -29,10 +29,12 @@ class MessageEdit extends Component {
 
     return (
       <div className="MessageEdit">
-        <form onSubmit={this.registerUser.bind(this)}>
-          <div className="Input">
-            <input type="text" ref="messageInput" required
-              placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
+        <form onSubmit={this.sendMessage.bind(this)}>
+          <div className="Input" ref="MessageInput">
+            <TextareaAutosize maxRows={5} />
+          </div>
+          <div className="Button">
+            <button type="submit">{Labels.send}</button>
           </div>
         </form>
       </div>

@@ -25,7 +25,7 @@ const ApiAction = {
           return done();
         }
         context.dispatch(action, { data, route });
-        done();
+        return done();
       }
     );
   },
@@ -49,7 +49,7 @@ const ApiAction = {
           return done();
         }
         context.dispatch(action, { data, route });
-        done();
+        return done();
       }
     );
   },
@@ -73,7 +73,7 @@ const ApiAction = {
           return done();
         }
         context.dispatch(action, { data, route });
-        done();
+        return done();
       }
     );
   },

@@ -2,41 +2,66 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.Paper.MessagesTab{
-  text-align: center;
-  padding-bottom: 0;
+.MessagesTab{
+  .MessageLine{
+    >:not(.Me){padding-right: 40%;}
+    >.Me{padding-left: 40%;}
+    &:not(:last-child){margin-bottom: 6px;}
 
-  .AltPaperTitle{
-    border-bottom: solid $grey-3 1px;;
-  }
+    .MessageBlock{
+      position: relative;
+      background: $grey-3;
+      border-radius: 6px;
+      padding: 6px 9px;
 
+      .Name{
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 14px;
+      }
 
-  .Message{
-    margin: 0 -12px;
-    padding: 6px 12px;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
+      .Text{
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 17px;
+      }
 
-    &:not(:last-child){border-bottom: solid $grey-3 1px;}
-    //    cursor: pointer;
-    //    &:hover{background-color: $grey-0;}
-    //    &:active{background-color: $grey-1;}
+      .Date{
+        font-size: 12px;
+        line-height: 12px;
+        text-align: right;
+      }
 
-    .Rank{
-      font-family: $font-family-numbers;
-      text-rendering: $text-rendering-numbers;
-      width: 34px;
-      text-align: left;
+      .Phylactery{
+        position: absolute;
+        width: 9px;
+        bottom: 6px; left: -9px;
+        background-position: -215px -100px;
+      }
     }
 
-    .Text{
-      flex: 1;
+    >.Me{
+      .MessageBlock{
+        background: $blue-fluo;
+
+        .Name, .Text, .Date{
+          color: white;
+        }
+
+        .Phylactery{
+          left: initial; right: -9px;
+          background-position: -204px -100px;
+        }
+      }
     }
   }
 }
 
-//@media (max-width: $break-medium){
-//  .PredictionsTab{
-//  }
-//}
+@media (max-width: $break-medium){
+  .MessagesTab{
+    .MessageLine{
+      >:not(.Me){padding-right: 30%;}
+      >.Me{padding-left: 30%;}
+    }
+  }
+}

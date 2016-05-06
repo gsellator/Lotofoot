@@ -57,6 +57,7 @@
     "react-cookie": "0.4.3",
     "react-dom": "0.14.1",
     "react-tap-event-plugin": "0.2.1",
+    "react-textarea-autosize": "^4.0.1",
     "sass-loader": "2.0.0",
     "serialize-javascript": "1.0.0",
     "serve-favicon": "2.3.0",
