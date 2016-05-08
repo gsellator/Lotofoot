@@ -17,10 +17,26 @@ class HelpPage extends Component {
       <div className="HelpPage">
         <div className="Paper">
           <div className="PaperTitle">
-             Aide
+             Règles du jeu
           </div>
           <div className="HelpPageCtnt">
-            En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.radio97.fr">hello@lotofoot.radio97.fr</a>.
+            <div>
+              Amis Footix, les règles du Lotofoot de l'euro 2016 sont simples.<br/><br/>
+              Pour la phase de qualification qui commence le 10 juin, les points à gagner sont les suivants :<br/>
+                - 1pt pour le bon gagnant<br/>
+                - 1pt pour la bonne différence de but<br/>
+                - 1pt pour le score exacte<br/><br/>
+
+              Pour la phase finale qui commence le XX XXXX, les points à gagner sont les suivants :<br/>
+                - 1pt pour le bon gagnant<br/>
+                - 1pt pour la bonne différence de but<br/>
+                - 1pt pour le score exacte<br/><br/>
+              Les pronostics peuvent être modifiés jusqu'au début du match.<br/>
+              Ne perdons plus de temps. Pronostiquez dès maintenant. Bonne chance !
+            </div>
+            <div className="Footer">
+              En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.radio97.fr">hello@lotofoot.radio97.fr</a>.
+            </div>
           </div>
         </div>
       </div>

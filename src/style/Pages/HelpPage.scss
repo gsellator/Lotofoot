@@ -10,7 +10,13 @@
     max-width: 700px;
     margin: 12px auto 0 auto;
     text-align: center;
-    
+
     div, span, a{font-size: 17px;}
+
+    .Footer{
+      border-top: dotted $grey-5 1px;
+      margin-top: 12px;
+      padding-top: 12px;
+    }
   }
 }

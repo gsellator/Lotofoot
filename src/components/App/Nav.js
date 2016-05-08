@@ -65,7 +65,7 @@ class Nav extends Component {
               <div className="NavLinkSpacer"></div>
               <div className={pageName == 'help' ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, 'help')}>
                 <div className="icn-26 help"></div>
-                <span className="NavLinkTxt">Aide</span>
+                <span className="NavLinkTxt">Règles du jeu</span>
               </div>
             </nav>
           }

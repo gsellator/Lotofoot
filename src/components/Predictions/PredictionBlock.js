@@ -136,9 +136,11 @@ class PredictionBlock extends Component {
                   {pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this)}>...</div>}
                 </div>
               </div>
-            <div className="PoolRanking">
-              Faire apparaitre ici le classement provisoir des poules ?
-            </div>
+              {false &&
+                <div className="PoolRanking">
+                  Faire apparaitre ici le classement provisoir des poules ?
+                </div>
+              }
             </div>
           </div>
         }
