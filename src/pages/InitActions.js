@@ -5,9 +5,6 @@ import { getApi } from "../actions/Pages/ApiAction";
 import { recoverInitInit } from "../actions/Pages/RecoverInitAction";
 import { recoverInit } from "../actions/Pages/RecoverAction";
 
-//context.executeAction(getApi, { route, view: 'UsersRegister', action: Actions.APIOK_USERS_REGISTER }),
-//  context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
-
 const InitActions = {
   recoverInit(context, route, done) {
     Promise.all([
@@ -92,7 +89,7 @@ const InitActions = {
       return Promise.all([
         context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
-        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS }),
+        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
       ]);
     })
     .then(() => {
