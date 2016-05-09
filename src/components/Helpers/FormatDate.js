@@ -21,5 +21,9 @@ const FormatDate = {
   todayToStr(format) {
     return moment().format(format);
   },
+
+  isToday(dte) {
+    return moment().isSame(dte, 'day');
+  }
 }
 export default FormatDate;

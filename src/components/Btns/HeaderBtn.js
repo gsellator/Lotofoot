@@ -38,7 +38,16 @@ class HeaderBtn extends Component {
               <span className="Flag">
                 <img src={data.teamA && data.teamA.flagUrl} />
               </span>
-              <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
+              {FormatDate.isToday(data.datetime) &&
+                <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
+              }
+              {!FormatDate.isToday(data.datetime) &&
+                <span>
+                  <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'DD')}</span>
+                  <span className="Score">&#8239;/&#8239;</span>
+                  <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'MM')}</span>
+                </span>
+              }
               <span className="Flag">
                 <img src={data.teamB && data.teamB.flagUrl} />
               </span>
