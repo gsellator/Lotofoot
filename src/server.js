@@ -96,3 +96,23 @@ server.set("port", process.env.PORT || 3000);
 let activeServer = server.listen(server.get("port"), () => {
   console.log(`Express ${server.get("env")} server listening on ${server.get("port")}`);
 });
+
+// Start the websocket server
+let io = require('socket.io')({
+  transports  : [ 'xhr-polling' ],
+  pollingDuration  : 10,
+}).listen(activeServer);
+
+io.on('connection', function (socket) {
+  // console.log("websocket connection open")
+  var ping = setInterval(function () {
+    // console.log('send ping');
+//    socket.volatile.emit('ping', 'ping');
+    socket.volatile.emit('testyo', 'coucou');
+  }, 1000);
+
+  socket.on('disconnect', function() {
+    // console.log("websocket connection close")
+    clearInterval(ping)
+  })
+})

@@ -22,11 +22,17 @@
 
         th{
           font-size: 15px;
-          border: solid $grey-5 1px;
+          &:not(:last-child){border-right: solid $grey-5 1px;}
         }
 
-        td{
-          border: solid $grey-5 1px;
+        td:not(:last-child){
+          border-right: solid $grey-5 1px;
+        }
+
+        tbody{
+          tr:nth-child(odd){
+            background: $grey-1;
+          }
         }
       }
     }

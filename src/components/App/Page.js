@@ -29,15 +29,18 @@ class Page extends Component {
   }
 
   componentDidMount(){
-    let socket = io.connect(config.apiUri);
+    let socket = io.connect();
     socket.on('update', (data) => {
-      const route = this.context.getStore("RouteStore").getCurrentRoute();
       console.log('Update');
 //      this.context.executeAction(notifyUpdate, { route, data, credentials: this.props.credentials });
     });
 
-    socket.on('ping', (data) => {
-       console.log('ping recieved');
+//    socket.on('ping', (data) => {
+//       console.log('ping recieved', data);
+//    });
+    
+    socket.on('testyo', (data) => {
+       console.log('test recieved', data);
     });
   }
 

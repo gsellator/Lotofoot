@@ -27,7 +27,7 @@ class UsersTab extends Component {
         {credentials && credentials._id &&
           <div>
             {data && data.map((item, i) =>
-              <div key={i} >
+              <div key={i} className={credentials._id === item._id ? 'User Me' : 'User'}>
                 <div className="Rank">
                   {'#' + i}
                 </div>
