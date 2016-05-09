@@ -11,7 +11,25 @@
     margin: 12px auto 0 auto;
     text-align: center;
 
-    div, span, a{font-size: 17px;}
+    div, span, a, th, td{font-size: 17px;}
+
+    .HelpTable{
+      margin: 12px 0;
+
+      table{
+        table-layout: fixed;
+        width: 100%;
+
+        th{
+          font-size: 15px;
+          border: solid $grey-5 1px;
+        }
+
+        td{
+          border: solid $grey-5 1px;
+        }
+      }
+    }
 
     .Footer{
       border-top: dotted $grey-5 1px;
