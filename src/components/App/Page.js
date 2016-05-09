@@ -30,17 +30,13 @@ class Page extends Component {
 
   componentDidMount(){
     let socket = io.connect();
-    socket.on('update', (data) => {
-      console.log('Update');
-//      this.context.executeAction(notifyUpdate, { route, data, credentials: this.props.credentials });
+    
+    socket.on('message', (data) => {
+       console.log('new message received', data);
     });
 
-//    socket.on('ping', (data) => {
-//       console.log('ping recieved', data);
-//    });
-    
-    socket.on('testyo', (data) => {
-       console.log('test recieved', data);
+      socket.on('update', (data) => {
+       console.log('new unknown update received', data);
     });
   }
 
