@@ -36,6 +36,7 @@ const InitActions = {
       return Promise.all([
         context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT}),
         context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
+        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO }),
       ]);
     })
     .then(() => {
@@ -52,7 +53,7 @@ const InitActions = {
       return Promise.all([
         context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
-//        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
+        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO }),
       ]);
     })
     .then(() => {
