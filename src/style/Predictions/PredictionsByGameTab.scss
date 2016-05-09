@@ -1,0 +1,170 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.Paper.PredictionsByGameTab{
+  text-align: center;
+  padding-bottom: 0;
+
+  .AltPaperTitle{
+    border-bottom: solid $grey-3 1px;;
+  }
+
+  .Prediction{
+    margin: 0 -12px;
+    padding: 6px 12px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    &:not(:last-child){border-bottom: solid $grey-3 1px;}
+
+    .Left{
+      height: 22px;
+      width: 96px; min-width: 96px;
+      margin: 1px 0;
+      text-align: left;
+      white-space: nowrap;
+
+      div{
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+        line-height: 22px;
+      }
+
+      .Group{
+        font-weight: 500;
+      }
+
+      .Stadium{
+        margin-left: 6px;
+      }
+
+    }
+
+    .Center{
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      height: 22px;
+      margin: 1px 0;
+
+      div{
+        display: inline-block;
+        vertical-align: top;
+        font-size: 15px;
+        line-height: 22px;
+      }
+
+      .Team{
+        flex: 1;
+        white-space: nowrap;
+        min-width: 10px;
+        overflow: hidden;
+
+        &:first-child{
+          text-align: right;
+          .Label{padding-right: 6px;}
+        }
+        &:last-child{
+          text-align: left;
+          .Label{padding-left: 6px;}
+        }
+
+        .Label{
+          font-weight: 500;
+          color: $grey-9;
+        }
+
+        .Flag{
+          margin-top: 3px;
+          font-size: 0;
+          height: 16px;
+
+          img{
+            display: inline-block;
+            vertical-align: top;
+            height: 16px;
+          }
+        }
+
+        &.Winner .Label{
+          font-weight: 500;
+          color: black;
+        }
+      }
+
+      .ScoreContainer{
+        width: 49px;
+
+        .Time{
+          font-size: 17px;
+          font-weight: 500;
+          color: $grey-9;
+          line-height: 18px;
+        }
+
+        .Score span{
+          font-family: $font-family-numbers;
+          font-size: $font-size-numbers;
+          font-weight: $font-weight-numbers;
+          text-rendering: $text-rendering-numbers;
+          font-size: 16px;
+          font-weight: 500;
+          color: $grey-9;
+          line-height: 18px;
+          color: black;
+        }
+      }
+    }
+
+    .Right{
+      width: 60px; min-width: 60px;
+      height: 24px;
+      white-space: nowrap;
+      text-align: right;
+
+      .chn-ico{
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .PredictionsByGameTab{
+    .Match{
+      .Left{
+        display: none;
+      }
+
+      .Center{
+        div{
+          font-size: 13px;
+        }
+
+        .Team{
+          .Flag{
+            height: 10px;
+            margin-top: 6px;
+
+            img{
+              height: 10px;
+            }
+          }
+        }
+
+        .Score{
+          width: 40px;
+          font-size: 14px;
+        }
+      }
+
+      .Right{
+        display: none;
+      }
+    }
+  }
+}

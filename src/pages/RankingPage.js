@@ -26,10 +26,10 @@ class RankingPage extends Component {
   }
 }
 
-RankingPage = connectToStores(RankingPage, ["LoginPageStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginPageStore").getCredentials()
-  };
-}, {getStore: PropTypes.func});
+//RankingPage = connectToStores(RankingPage, ["LoginPageStore"], (context) => {
+//  return {
+//    credentials: context.getStore("LoginPageStore").getCredentials()
+//  };
+//}, {getStore: PropTypes.func});
 
 export default RankingPage;

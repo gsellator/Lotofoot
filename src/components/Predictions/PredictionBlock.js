@@ -26,53 +26,59 @@ class PredictionBlock extends Component {
 
   handleChangeA(e) {
     this.setState({scoreTeamA: e.target.value});
+    if (this.state.scoreTeamB)
+      this.postPrediction(e.target.value);
   }
 
   handleChangeB(e) {
     this.setState({scoreTeamB: e.target.value});
+    if (this.state.scoreTeamA)
+      this.postPrediction(undefined, e.target.value);
   }
 
-  postPrediction(gameId) {
-    this.context.executeAction(initCreate, {});
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    let scoreTeamA = this.state.scoreTeamA;
-    let scoreTeamB = this.state.scoreTeamB;
+  postPrediction(scoreA, scoreB) {
+    if (this.props.data._id){
+      // Update prediction
+      this.context.executeAction(initUpdate, {});
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      let scoreTeamA = this.state.scoreTeamA;
+      let scoreTeamB = this.state.scoreTeamB;
 
-    let winner = 'nobody';
-    if (scoreTeamA > scoreTeamB)
-      winner = 'teamA';
-    else if (scoreTeamA < scoreTeamB)
-      winner = 'teamB';
+      let winner = 'nobody';
+      if (scoreTeamA > scoreTeamB)
+        winner = 'teamA';
+      else if (scoreTeamA < scoreTeamB)
+        winner = 'teamB';
 
-    const body = {
-      game: { _id: gameId },
-      scoreTeamA: scoreTeamA,
-      scoreTeamB: scoreTeamB,
-      winner: winner
+      const body = {
+        scoreTeamA: scoreTeamA,
+        scoreTeamB: scoreTeamB,
+        winner: winner
+      }
+
+      this.context.executeAction(putApi, { predictionId: this.props.data._id, route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE });
+    } else {
+      // Create prediction
+      this.context.executeAction(initCreate, {});
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      let scoreTeamA = scoreA || this.state.scoreTeamA;
+      let scoreTeamB = scoreB || this.state.scoreTeamB;
+
+      let winner = 'nobody';
+      if (scoreTeamA > scoreTeamB)
+        winner = 'teamA';
+      else if (scoreTeamA < scoreTeamB)
+        winner = 'teamB';
+
+      const body = {
+        game: { _id: this.props.gameData._id },
+        scoreTeamA: scoreTeamA,
+        scoreTeamB: scoreTeamB,
+        winner: winner
+      }
+
+      this.context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE});
     }
-
-    this.context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE});
-  }
-
-  updatePrediction(predictionId) {
-    this.context.executeAction(initUpdate, {});
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    let scoreTeamA = this.state.scoreTeamA;
-    let scoreTeamB = this.state.scoreTeamB;
-
-    let winner = 'nobody';
-    if (scoreTeamA > scoreTeamB)
-      winner = 'teamA';
-    else if (scoreTeamA < scoreTeamB)
-      winner = 'teamB';
-
-    const body = {
-      scoreTeamA: scoreTeamA,
-      scoreTeamB: scoreTeamB,
-      winner: winner
-    }
-
-    this.context.executeAction(putApi, { route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE, predictionId});
   }
 
   render() {
@@ -81,60 +87,60 @@ class PredictionBlock extends Component {
 
     return (
       <div className="Paper PredictionBlock">
-        {pending &&
-          <div className="LoaderContainer"><div className="Loader" /></div>
+        {data && !data._id && gameData && gameData.status != 'TIMED' &&
+          <div className="Title">
+            Il est trop tard, vous ne pouvez plus parier sur ce match
+          </div>
         }
 
-        {!pending && data && !data._id && gameData && gameData.status != 'NOT_STARTED' &&
-          <div className="Prediction">
-            <div className="Title">
-              Il est trop tard, vous ne pouvez plus parier sur ce match
+        {data && data._id && gameData && gameData.status != 'TIMED' &&
+          <div>
+            <div className="AltPaperTitle">
+              <div className="Label">
+                Mon pronostic
+              </div>
+              <div className="icn-60 footix"></div>
+            </div>
+            <div className="Prediction">
+              <div className="Inputs">
+                <span>{scoreTeamA}</span>
+                <span> - </span>
+                <span>{scoreTeamB}</span>
+              </div>
+            </div>
+            <div className="Points">
+              {gameData.status === 'IN_PROGRESS' && <span>Pour l'instant, ce pronostic vous rapporte </span>}
+              {gameData.status === 'FINISHED' &&<span>Ce pronostic vous rapporte </span>}
+              <span>{data.score < 2 ? data.score + ' point.' : data.score + ' points.'}</span>
             </div>
           </div>
         }
 
-        {!pending && data && !data._id && gameData && gameData.status === 'NOT_STARTED' &&
-          <div className="Prediction">
-            <div className="Title">
-              Pariez sur ce match
+        {data && gameData && gameData.status === 'TIMED' &&
+          <div>
+            <div className="AltPaperTitle">
+              <div className="Label">
+                Mon pronostic
+              </div>
+              <div className="icn-60 footix"></div>
             </div>
-            <div className="Inputs">
-              <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
-              <span> - </span>
-              <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
-            </div>
-            <div className="Btns">
-              <div className="TxtBtn" onClick={this.postPrediction.bind(this, gameData._id)}>Valider mon pronostique</div>
-            </div>
-          </div>
-        }
-
-        {!pending && data && data._id && !data.isOpen &&
-          <div className="Prediction">
-            <div className="Title">
-              Vous ne pouvez plus modifier votre pari
-            </div>
-
-            <div className="Inputs">
-              <input type="number" readOnly="readonly" value={scoreTeamA} pattern="\d*" min="0" max="9" />
-              <span> - </span>
-              <input type="number" readOnly="readonly" value={scoreTeamB} pattern="\d*" min="0" max="9" />
-            </div>
-          </div>
-        }
-
-        {!pending && data && data._id && data.isOpen &&
-          <div className="Prediction">
-            <div className="Title">
-              Vous pouvez encore modifier votre pari
-            </div>
-            <div className="Inputs">
-              <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
-              <span> - </span>
-              <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
-            </div>
-            <div className="Btns">
-              <div className="TxtBtn" onClick={this.updatePrediction.bind(this, data._id)}>Modifier mon pronostique</div>
+            <div>
+              <div className="Prediction">
+                <div className="Inputs">
+                  <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
+                  <span> - </span>
+                  <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
+                </div>
+                <div className="Btns">
+                  {!pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this)}>Valider</div>}
+                  {pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this)}>...</div>}
+                </div>
+              </div>
+              {false &&
+                <div className="PoolRanking">
+                  Faire apparaitre ici le classement provisoir des poules ?
+                </div>
+              }
             </div>
           </div>
         }

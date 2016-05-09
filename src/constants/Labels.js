@@ -4,8 +4,9 @@ const Labels = {
   app: 'Application',
   back: 'Revenez en arrière',
   cancel: 'Annuler',
+  chat: 'Chat',
   create: 'Créer',
-  createAccount: 'Créer un compte',
+  createAccount: 'Créer mon compte',
   delete: 'Supprimer',
   description: 'Description',
   firstname: 'Prénom',
@@ -18,7 +19,7 @@ const Labels = {
   login: 'Connexion',
   modify: 'Modifier',
   password: 'Mot de passe',
-  predictions: 'Pronostiques',
+  predictions: 'pronostics',
   ranking: 'Classement',
   refresh: 'Recharger la page',
   required: '(requis)',
@@ -31,6 +32,7 @@ const Labels = {
   send: 'Envoyer',
   title: 'Titre',
   username: 'Email',
+  usernameExample: 'adresse@me.com',
   validate: 'Valider',
 };
 

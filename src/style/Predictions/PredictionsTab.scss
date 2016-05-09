@@ -2,8 +2,9 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.PredictionsTab{
+.Paper.PredictionsTab{
   text-align: center;
+  padding-bottom: 0;
 
   .AltPaperTitle{
     border-bottom: solid $grey-3 1px;;
@@ -12,12 +13,12 @@
   .Prediction{
     margin: 0 -12px;
     padding: 6px 12px;
-    border-bottom: solid $grey-3 1px;
     position: relative;
     display: flex;
     justify-content: space-between;
-
     cursor: pointer;
+
+    &:not(:last-child){border-bottom: solid $grey-3 1px;}
     &:hover{background-color: $grey-0;}
     &:active{background-color: $grey-1;}
 

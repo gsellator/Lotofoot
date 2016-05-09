@@ -5,7 +5,7 @@ class PredictionBlockStore extends BaseStore {
   static storeName = "PredictionBlockStore"
 
   static handlers = {
-    [Actions.APIOK_PREDICTIONS_BYGAME]: "handleApiOk",
+    [Actions.APIOK_PREDICTIONS_BYGAMEANDUSER]: "handleApiOk",
     [Actions.PENDING_PREDICTIONS_CREATE]: "handlePendingSwitch",
     [Actions.PENDING_PREDICTION_UPDATE]: "handlePendingSwitch",
     [Actions.APIOK_PREDICTIONS_CREATE]: "handleApiOkCreate",

@@ -4,9 +4,9 @@ const ApiUris = {
   UsersRegister: '/users/register',
   Users: '/users',
 
-  RecoverInit: '/recover/init/:username',
-  RecoverTest: '/recover/test/:recovertoken',
-  RecoverUpdate: '/recover/update/:recovertoken',
+  RecoverInit: '/reset-password',
+  RecoverTest: '/reset-password/:recovertoken',
+  RecoverUpdate: '/reset-password/:recovertoken',
 
   Teams: '/teams',
 
@@ -16,8 +16,11 @@ const ApiUris = {
 
   Predictions: '/predictions', // GET POST
   Prediction: '/predictions/:predictionId', // GET PUT
-  PredictionsByGame: '/predictions?user=:userId&game=:gameId',
   PredictionsByUser: '/predictions?user=:userId',
+  PredictionsByGame: '/predictions?game=:gameId',
+  PredictionsByGameAndUser: '/predictions?user=:userId&game=:gameId',
+
+  Messages: '/messages', // GET POST
 };
 
 export default ApiUris;

@@ -9,14 +9,14 @@ const LoginAction = {
     context.dispatch(Actions.RECOVERINIT_INIT, {});
     done();
   },
-  
+
   recoverInitSend(context, { username }, done) {
     context.dispatch(Actions.RECOVERINIT_PENDING);
-    let endpoint = ApiUris['RecoverInit'].replace(':username', username);
-    context.service.create("ApiService", { endpoint }, {}, { timeout: TIMEOUT },
+    let endpoint = ApiUris['RecoverInit'];
+    context.service.create("ApiService", { endpoint }, { email: username }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
+          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'L\'email que vous avez indiqué est incorrect');
           context.dispatch(Actions.RECOVERINIT_FAILED, username);
           return done();
         }

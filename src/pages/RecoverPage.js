@@ -7,6 +7,7 @@ import Labels from "../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/RecoverPage.scss");
+  require("../style/Pages/LandingBack.scss");
 }
 
 class RecoverPage extends Component {
@@ -14,7 +15,7 @@ class RecoverPage extends Component {
     getStore: PropTypes.func.isRequired,
     executeAction: PropTypes.func.isRequired
   }
-  
+
   componentDidMount(){
     if (!this.props.initFailure && !this.props.success)
       this.refs.passwordInput.focus();
@@ -37,9 +38,9 @@ class RecoverPage extends Component {
 
   render() {
     const { pending, success, username } = this.props;
-    
+
     return (
-      <div className="RecoverPage">
+      <div className="RecoverPage LandingBack">
         <div className="RecoverPageContainer">
           <div className="RecoverPageContent">
             <form onSubmit={this.sendPassword.bind(this)}>
@@ -70,7 +71,12 @@ class RecoverPage extends Component {
                     Bien reçu !
                   </div>
                   <div className="text">
-                    Utilisez votre nouveau mot de passe pour vous connecter à nos application.
+                    Votre mot de passe a été modifié.
+                  </div>
+                  <div>
+                    <NavLink className="TxtBtn" routeName="home">
+                      Accéder au lotofoot
+                    </NavLink>
                   </div>
                 </div>
               }

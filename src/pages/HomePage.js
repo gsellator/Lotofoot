@@ -3,7 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import Labels from "../constants/Labels";
 
-import CurrentGame from "../components/Games/CurrentGame";
+import GameBlock from "../components/Games/GameBlock";
 import GamesTab from "../components/Games/GamesTab";
 
 if (process.env.BROWSER) {
@@ -22,7 +22,7 @@ class HomePage extends Component {
       <div className="HomePage">
         <div className="HomePageContainer">
 
-          <CurrentGame />
+          <GameBlock />
           <GamesTab />
 
 
@@ -55,10 +55,10 @@ class HomePage extends Component {
   }
 }
 
-HomePage = connectToStores(HomePage, ["LoginPageStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginPageStore").getCredentials()
-  };
-}, {getStore: PropTypes.func});
+//HomePage = connectToStores(HomePage, ["LoginPageStore"], (context) => {
+//  return {
+//    credentials: context.getStore("LoginPageStore").getCredentials()
+//  };
+//}, {getStore: PropTypes.func});
 
 export default HomePage;

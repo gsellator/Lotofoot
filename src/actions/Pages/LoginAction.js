@@ -28,9 +28,8 @@ const LoginAction = {
         const accessToken = data.token;
         const user = data.user;
         var expiresDate = new Date();
-//        expiresDate.setTime(expiresDate.getTime() + (data.expires_in * 1000));5000000
         expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
-        context.setCookie('lotofoot_token', accessToken, {expires: expiresDate})
+        context.setCookie('lotofoot_token', accessToken, {expires: expiresDate, path: '/'})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
         context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, user);
         const newroute = context.getStore("RouteStore").makePath('home');

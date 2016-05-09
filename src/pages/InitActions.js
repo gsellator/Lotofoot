@@ -5,9 +5,6 @@ import { getApi } from "../actions/Pages/ApiAction";
 import { recoverInitInit } from "../actions/Pages/RecoverInitAction";
 import { recoverInit } from "../actions/Pages/RecoverAction";
 
-//context.executeAction(getApi, { route, view: 'UsersRegister', action: Actions.APIOK_USERS_REGISTER }),
-//  context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
-
 const InitActions = {
   recoverInit(context, route, done) {
     Promise.all([
@@ -24,7 +21,6 @@ const InitActions = {
   recover(context, route, done) {
     Promise.all([
       context.executeAction(recoverInit, { route }),
-      context.executeAction(getApi, { route, view: 'PublicApps', action: Actions.APIOK_PUBLIC_APPS }),
     ])
     .then(() => {
       done();
@@ -38,8 +34,8 @@ const InitActions = {
     context.executeAction(loadMe, {})
     .then(() => {
       return Promise.all([
-        context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
         context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT}),
+        context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
       ]);
     })
     .then(() => {
@@ -54,6 +50,7 @@ const InitActions = {
     context.executeAction(loadMe, {})
     .then(() => {
       return Promise.all([
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
       ]);
     })
@@ -69,7 +66,12 @@ const InitActions = {
     context.executeAction(loadMe, {})
     .then(() => {
       return Promise.all([
+//        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
+        context.executeAction(getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER }),
+
+        context.executeAction(getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
+        context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
         context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
       ]);
     })
@@ -85,8 +87,9 @@ const InitActions = {
     context.executeAction(loadMe, {})
     .then(() => {
       return Promise.all([
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
-        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS }),
+        context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER }),
       ]);
     })
     .then(() => {
@@ -101,7 +104,24 @@ const InitActions = {
     context.executeAction(loadMe, {})
     .then(() => {
       return Promise.all([
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
+      ]);
+    })
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  chat(context, route, done) {
+    context.executeAction(loadMe, {})
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
+        context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES }),
       ]);
     })
     .then(() => {
@@ -114,11 +134,11 @@ const InitActions = {
 
   help(context, route, done) {
     context.executeAction(loadMe, {})
-//    .then(() => {
-//      return Promise.all([
-//        context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES }),
-//      ]);
-//    })
+    .then(() => {
+      return Promise.all([
+        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
+      ]);
+    })
     .then(() => {
       done();
     }, (err) => {

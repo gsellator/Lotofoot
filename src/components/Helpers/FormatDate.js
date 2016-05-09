@@ -10,6 +10,10 @@ const FormatDate = {
     return moment(dte, 'YYYY-MM-DDTHH:mm:ss.SSSZ').format(format);
   },
 
+  dtetimeToFromNow(dte, format) {
+    return moment(dte, 'YYYY-MM-DDTHH:mm:ss.SSSZ').fromNow();
+  },
+
   dteToStr(dte, format) {
     return moment(dte).format(format);
   },

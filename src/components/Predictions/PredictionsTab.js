@@ -39,7 +39,7 @@ class PredictionsTab extends Component {
       <div className="Paper PredictionsTab">
         <div className="AltPaperTitle">
           <div className="Label">
-            Tous mes pronostiques
+            Tous mes pronostics
           </div>
           <div className="icn-60 footix"></div>
         </div>
@@ -65,10 +65,12 @@ class PredictionsTab extends Component {
                     <span>{(item.scoreTeamB || '0')}</span>
                   </span>
                 </div>
-                {teamsData[item.game.teamB] && <div className="Team">
-                  <div className="Flag"><img src={teamsData[item.game.teamB].flagUrl} /></div>
-                  <div className="Label">{teamsData[item.game.teamB].name}</div>
-                </div>}
+                {teamsData[item.game.teamB] &&
+                  <div className="Team">
+                    <div className="Flag"><img src={teamsData[item.game.teamB].flagUrl} /></div>
+                    <div className="Label">{teamsData[item.game.teamB].name}</div>
+                  </div>
+                }
               </div>
               <div className="Right">
                 {item.channel && <div className={'chn-ico alt ' + item.channel}></div>}

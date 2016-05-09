@@ -2,8 +2,9 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.UsersTab{
+.Paper.UsersTab{
   text-align: center;
+  padding-bottom: 0;
 
   .AltPaperTitle{
     border-bottom: solid $grey-3 1px;;
@@ -12,14 +13,14 @@
   .User{
     margin: 0 -12px;
     padding: 6px 12px;
-    border-bottom: solid $grey-3 1px;
     position: relative;
     display: flex;
     justify-content: space-around;
 
-//    cursor: pointer;
-//    &:hover{background-color: $grey-0;}
-//    &:active{background-color: $grey-1;}
+    &:not(:last-child){border-bottom: solid $grey-3 1px;}
+    //    cursor: pointer;
+    //    &:hover{background-color: $grey-0;}
+    //    &:active{background-color: $grey-1;}
 
     .Rank{
       font-family: $font-family-numbers;

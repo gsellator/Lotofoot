@@ -11,6 +11,7 @@ import GamesPage from "./pages/GamesPage";
 import GamePage from "./pages/GamePage";
 import PredictionsPage from "./pages/PredictionsPage";
 import RankingPage from "./pages/RankingPage";
+import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
 import LogoutPage from "./pages/LogoutPage";
 
@@ -69,6 +70,12 @@ export default {
     method: "get",
     handler: RankingPage,
     action: InitActions.ranking
+  },
+  chat: {
+    path: "/chat",
+    method: "get",
+    handler: ChatPage,
+    action: InitActions.chat
   },
   help: {
     path: "/help",

@@ -25,7 +25,21 @@ class GameBlock extends Component {
             <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
 
             <div className="GameBlockData">
-              <div className="Date">{Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - Match ' + data.friendlyId}</div>
+              {data.status === 'TIMED' &&
+                <div className="Date">
+                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - Match ' + data.friendlyId}
+                </div>
+              }
+              {data.status === 'IN_PROGRESS' &&
+                <div className="Date">
+                  {'Match ' + data.friendlyId + ' - En cours'}
+                </div>
+              }
+              {data.status === 'FINISHED' &&
+                <div className="Date">
+                  {'Match ' + data.friendlyId + ' - Terminé'}
+                </div>
+              }
               
               {data.phase === 0 && <div className="Phase">{'Groupe ' + Filters.capitalize(data.group)}</div>}
               {data.phase === 1 && <div className="Phase">Huitième de finale</div>}
@@ -39,11 +53,13 @@ class GameBlock extends Component {
                   <div className="Label">{data.teamA.name}</div>
                 </div>
                 <div className="ScoreContainer">
-                  {data.status === 'NOT_STARTED' &&
+                  {!data.scoreTeamA && false && 'test'}
+                  {data.status === 'TIMED' &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
                     </div>
                   }
+                  {data.scoreTeamA && false && 'test'}
                   {data.status === 'IN_PROGRESS' &&
                     <div>
                       <div className="Score">
@@ -61,9 +77,9 @@ class GameBlock extends Component {
                   {data.status === 'FINISHED' &&
                     <div>
                       <div className="Score">
-                        <span>{'(' + (data.scoreTeamA || '0')}</span>
+                        <span>{(data.scoreTeamA || '0')}</span>
                         <span>&#8239;-&#8239;</span>
-                        <span>{(data.scoreTeamB || '0') + ')'}</span>
+                        <span>{(data.scoreTeamB || '0')}</span>
                       </div>
                     </div>
                   }

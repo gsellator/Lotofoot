@@ -26,10 +26,10 @@ class PredictionsPage extends Component {
   }
 }
 
-PredictionsPage = connectToStores(PredictionsPage, ["LoginPageStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginPageStore").getCredentials()
-  };
-}, {getStore: PropTypes.func});
+//PredictionsPage = connectToStores(PredictionsPage, ["LoginPageStore"], (context) => {
+//  return {
+//    credentials: context.getStore("LoginPageStore").getCredentials()
+//  };
+//}, {getStore: PropTypes.func});
 
 export default PredictionsPage;
