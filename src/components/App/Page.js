@@ -4,6 +4,9 @@ import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import FrenchTvLogos from "french-tv-logos";
 
+import io from "socket.io-client";
+import config from "../../config";
+
 import { getAccessToken } from "../../actions/Pages/LoginAction";
 import { closeNav } from "../../actions/Pages/NavAction";
 import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";
@@ -23,6 +26,19 @@ class Page extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
+  }
+
+  componentDidMount(){
+    let socket = io.connect(config.apiUri);
+    socket.on('update', (data) => {
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      console.log('Update');
+//      this.context.executeAction(notifyUpdate, { route, data, credentials: this.props.credentials });
+    });
+
+    socket.on('ping', (data) => {
+       console.log('ping recieved');
+    });
   }
 
   ckickHandler(e){

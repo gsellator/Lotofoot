@@ -49,7 +49,7 @@ class Nav extends Component {
         <ReactCSSTransitionGroup transitionName="NavFullAnim" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {hasNav &&
             <nav className="NavFull">
-              <div className="MainLink">
+              <div className="MainLink" onTouchTap={NavHelper.navToSectClick.bind(this, 'home')}>
                 <div className="icn-36 main full"></div>
               </div>
 

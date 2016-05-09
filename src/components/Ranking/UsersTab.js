@@ -14,7 +14,7 @@ class UsersTab extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, credentials } = this.props;
 
     return (
       <div className="Paper UsersTab">
@@ -24,31 +24,34 @@ class UsersTab extends Component {
           </div>
           <div className="icn-60 footix"></div>
         </div>
-        <div>
-          {data && data.map((item, i) =>
-            <div key={i} className="User">
-              <div className="Rank">
-                {'#' + i}
+        {credentials && credentials._id &&
+          <div>
+            {data && data.map((item, i) =>
+              <div key={i} >
+                <div className="Rank">
+                  {'#' + i}
+                </div>
+                <div className="Firstname">
+                  {item.firstName}
+                </div>
+                <div className="Email">
+                  {item.email}
+                </div>
+                <div className="Points">
+                  {item.points}
+                </div>
               </div>
-              <div className="Firstname">
-                {item.firstName}
-              </div>
-              <div className="Email">
-                {item.email}
-              </div>
-              <div className="Points">
-                {item.points}
-              </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        }
       </div>
     );
   }
 }
 
-UsersTab = connectToStores(UsersTab, ["UsersTabStore"], (context) => {
+UsersTab = connectToStores(UsersTab, ["LoginPageStore", "UsersTabStore"], (context) => {
   return {
+    credentials: context.getStore("LoginPageStore").getCredentials(),
     data: context.getStore("UsersTabStore").getData()
   };
 }, {getStore: PropTypes.func});
