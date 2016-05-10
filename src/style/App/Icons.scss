@@ -31,7 +31,19 @@
 
   &.refresh{background-position: -620px 0;}
   &.back{background-position: -640px 0;}
-  &.title{background-position: -700px 0; width: 80px;}
+  &.title{
+    background-position: -700px 0; width: 80px;
+
+    &.lotofoot-dev, &.lotofoot-pre{
+      position: relative;
+      &:before {
+        content: "*";
+        position: absolute;
+        top: -4px; right: -8px;
+        font-size: 20px;
+      }
+    }
+  }
 
   &:hover{background-position-y:-30px;}
   &:active{background-position-y:-60px;}

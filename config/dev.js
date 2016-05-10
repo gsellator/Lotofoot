@@ -1,5 +1,5 @@
 export default {
-  appName: "lotofoot",
+  appName: "lotofoot-dev",
   appFullName: "Lotofoot",
   description: "Pariez sur les matchs de l'Euro 2016",
   appUri: 'http://localhost:3000',

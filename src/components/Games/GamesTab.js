@@ -24,7 +24,7 @@ class GamesTab extends Component {
   }
 
   render() {
-    const { data, phase, tab } = this.props;
+    const { data, phase, tab, predictions } = this.props;
 
     return (
       <div className="Paper GamesTab">
@@ -92,7 +92,7 @@ class GamesTab extends Component {
                   )
                 else
                   return (
-                    <NavLink className="Match" routeName="game" navParams={{gameId: item._id}}>
+                    <NavLink className={predictions[item._id] ? 'Match Ok' : 'Match'} routeName="game" navParams={{gameId: item._id}}>
                       <div className="Left">
                         <div className="Group">{'Gp ' + Filters.capitalize(item.group)}</div>
                         <div className="Stadium">{Filters.capitalize(item.stadium)}</div>
@@ -136,11 +136,12 @@ class GamesTab extends Component {
   }
 }
 
-GamesTab = connectToStores(GamesTab, ["GamesTabStore"], (context) => {
+GamesTab = connectToStores(GamesTab, ["GamesTabStore", "PredictionsDicoStore"], (context) => {
   return {
     data: context.getStore("GamesTabStore").getData(),
     tab: context.getStore("GamesTabStore").getTab(),
     phase: context.getStore("GamesTabStore").getPhase(),
+    predictions: context.getStore("PredictionsDicoStore").getData(),
   };
 }, {getStore: PropTypes.func});
 

@@ -60,8 +60,13 @@
         .Flag{
           font-size: 0;
 
-          img{
-            height: 80px;
+          .Img{
+            margin: auto;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            width: 90px;
+            height: 60px;
           }
         }
 

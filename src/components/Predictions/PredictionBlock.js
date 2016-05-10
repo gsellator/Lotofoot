@@ -26,13 +26,13 @@ class PredictionBlock extends Component {
 
   handleChangeA(e) {
     this.setState({scoreTeamA: e.target.value});
-    if (this.state.scoreTeamB)
+    if (e.target.value && this.state.scoreTeamB)
       this.postPrediction(e.target.value);
   }
 
   handleChangeB(e) {
     this.setState({scoreTeamB: e.target.value});
-    if (this.state.scoreTeamA)
+    if (e.target.value && this.state.scoreTeamA)
       this.postPrediction(undefined, e.target.value);
   }
 
@@ -63,6 +63,10 @@ class PredictionBlock extends Component {
       const route = this.context.getStore("RouteStore").getCurrentRoute();
       let scoreTeamA = scoreA || this.state.scoreTeamA;
       let scoreTeamB = scoreB || this.state.scoreTeamB;
+
+      if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB))){
+        return;
+      }
 
       let winner = 'nobody';
       if (scoreTeamA > scoreTeamB)
@@ -132,8 +136,8 @@ class PredictionBlock extends Component {
                   <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
                 </div>
                 <div className="Btns">
-                  {!pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this)}>Valider</div>}
-                  {pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this)}>...</div>}
+                  {!pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>Valider</div>}
+                  {pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>...</div>}
                 </div>
               </div>
               {false &&
