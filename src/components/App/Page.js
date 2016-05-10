@@ -4,7 +4,6 @@ import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import FrenchTvLogos from "french-tv-logos";
 
-import io from "socket.io-client";
 import config from "../../config";
 
 import { getAccessToken } from "../../actions/Pages/LoginAction";
@@ -15,6 +14,7 @@ import MainMenu from "../../components/App/MainMenu";
 import Nav from "../../components/App/Nav";
 import Dialog from "../../components/Dialog/Dialog";
 import AccountDialog from "../../components/Dialog/AccountDialog";
+import NotificationComponent from './Notification';
 
 if (process.env.BROWSER) {
   require("../../style/App/Page.scss");
@@ -26,18 +26,6 @@ class Page extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
-  }
-
-  componentDidMount(){
-    let socket = io.connect();
-    
-    socket.on('message', (data) => {
-       console.log('new message received', data);
-    });
-
-      socket.on('update', (data) => {
-       console.log('new unknown update received', data);
-    });
   }
 
   ckickHandler(e){
@@ -81,6 +69,8 @@ class Page extends Component {
         <ReactCSSTransitionGroup transitionName="DialogAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           {dialog}
         </ReactCSSTransitionGroup>
+
+        <NotificationComponent />
       </div>
     );
   }
