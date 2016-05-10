@@ -14,7 +14,7 @@ var appEnv = process.env.APP_ENV || 'development';
 
 
 module.exports = {
-  devtool: "cheap-module-eval-source-map",
+  devtool: "#eval-source-map",
   entry: {
     "main": [
       "webpack-dev-server/client?http://" + WEBPACK_HOST + ":" + WEBPACK_PORT,
