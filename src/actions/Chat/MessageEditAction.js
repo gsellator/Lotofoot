@@ -15,11 +15,8 @@ const MessageEditAction = {
   },
 
   getMessages(context, { route = {}, body }) {
-      console.log("get messages");
-
     return context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
     .then(() => {
-      console.log("message sent");
       return;
     }, (err) => {
       console.log('GetMessages Error : ', err.message);
