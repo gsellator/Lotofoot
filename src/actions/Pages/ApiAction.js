@@ -1,6 +1,8 @@
 import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
 import config from "../../config";
+import _ from 'lodash';
+import immutable from 'immutable';
 const TIMEOUT = 20000;
 
 const ApiAction = {
@@ -8,9 +10,12 @@ const ApiAction = {
     const accessToken = context.getCookie('lotofoot_token');
     const userId = context.getStore('LoginPageStore').getCredentials()._id;
 
+    const gameId = immutable.Map.isMap(route) ? route.getIn(["params", "gameId"]) : null;
+    const predictionId = immutable.Map.isMap(route) ? route.getIn(["params", "predictionId"]) : null;
+
     let endpoint = ApiUris[view]
-    .replace(':gameId', route.getIn(["params", "gameId"]))
-    .replace(':predictionId', route.getIn(["params", "predictionId"]))
+    .replace(':gameId', gameId)
+    .replace(':predictionId', predictionId)
     .replace(':userId', userId);
 
     if (accessToken && endpoint.includes('?'))

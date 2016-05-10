@@ -26,7 +26,7 @@ class UserRegisterPage extends Component {
   }
 
   componentDidMount(){
-    this.refs.firstNameInput.focus();
+    this.refs.usernameInput.focus();
   }
 
   firstnameChanged(e) {
@@ -63,12 +63,12 @@ class UserRegisterPage extends Component {
               <div className="LoginLogo"></div>
               <div className="Input">
                 <div className="Label">Email</div>
-                <input type="email" value={username} onChange={this.usernameChanged.bind(this)} required
+                <input type="email" value={username} onChange={this.usernameChanged.bind(this)} ref="usernameInput" required
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
               </div>
               <div className="Input">
                 <div className="Label">Prénom</div>
-                <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)} ref="firstNameInput" required
+                <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)} required
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
               </div>
               <div className="Input">

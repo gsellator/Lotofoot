@@ -9,6 +9,7 @@ import csurf from "csurf";
 import app from "./app";
 import config from "./config";
 import render from "./server/render";
+import notifier from './server/notifier';
 var request = require('superagent-promise')(require('superagent'), Promise);
 
 // Initialize express server
@@ -36,6 +37,9 @@ server.get('/logout', function(req, res) {
   });
   res.end();
 });
+
+// Notifications
+server.post('/notifier/update', (req, res) => {notifier.notify(req, res, io)});
 
 // This is used by the fetchr plugin
 server.use(csurf({ cookie: true }));
@@ -96,3 +100,19 @@ server.set("port", process.env.PORT || 3000);
 let activeServer = server.listen(server.get("port"), () => {
   console.log(`Express ${server.get("env")} server listening on ${server.get("port")}`);
 });
+
+// Start the websocket server
+let io = require('socket.io')({
+  transports  : [ 'xhr-polling' ],
+  pollingDuration  : 10,
+}).listen(activeServer);
+
+io.on('connection', function (socket) {
+  var ping = setInterval(function () {
+    socket.volatile.emit('testyo', 'coucou');
+  }, 1000);
+
+  socket.on('disconnect', function() {
+    clearInterval(ping)
+  })
+})

@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { navigateAction } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Labels from "../../constants/Labels";
+import config from "../../config";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/HeaderBtn.scss");
@@ -27,7 +28,7 @@ class HeaderBtn extends Component {
     return (
       <div className="HeaderBtn" onTouchTap={this.reload.bind(this)} title={Labels.home}>
         {(routeName === 'home' || !data) &&
-          <div className="icn-20 title"></div>
+          <div className={'icn-20 title ' + config.appName}></div>
         }
         {(routeName != 'home' && data && data.status === 'TIMED') &&
           <div className="Live">
@@ -37,7 +38,16 @@ class HeaderBtn extends Component {
               <span className="Flag">
                 <img src={data.teamA && data.teamA.flagUrl} />
               </span>
-              <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
+              {FormatDate.isToday(data.datetime) &&
+                <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
+              }
+              {!FormatDate.isToday(data.datetime) &&
+                <span>
+                  <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'DD')}</span>
+                  <span className="Score">&#8239;/&#8239;</span>
+                  <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'MM')}</span>
+                </span>
+              }
               <span className="Flag">
                 <img src={data.teamB && data.teamB.flagUrl} />
               </span>

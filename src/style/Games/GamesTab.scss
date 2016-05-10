@@ -72,6 +72,9 @@
     &:hover{background-color: $grey-0;}
     &:active{background-color: $grey-1;}
 
+    background: $orange-light;
+    &.Ok{background: $green-light;}
+
     .Left{
       height: 22px;
       width: 96px; min-width: 96px;

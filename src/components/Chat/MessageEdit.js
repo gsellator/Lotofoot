@@ -17,10 +17,12 @@ class MessageEdit extends Component {
   }
 
   componentDidMount() {
-    this.componentDidUpdate();
-  }
-
-  componentDidUpdate() {
+    this.refs.MessageInput.childNodes[0].addEventListener("keydown", (e) => {
+      if (e.keyCode == 13 && !e.shiftKey){
+        e.preventDefault();
+        this.sendMessage(e);
+      }
+    });
   }
 
   sendMessage(e) {
@@ -28,11 +30,10 @@ class MessageEdit extends Component {
     if (this.refs.MessageInput.childNodes[0].value != ''){
       const body = { text: this.refs.MessageInput.childNodes[0].value };
       this.refs.MessageInput.childNodes[0].value = '';
-      
       let event = new Event('input', { bubbles: true });
       this.refs.MessageInput.childNodes[0].dispatchEvent(event);
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-//      this.context.executeAction(createMessage, { route, body });
+      this.context.executeAction(createMessage, { route, body });
     }
   }
 

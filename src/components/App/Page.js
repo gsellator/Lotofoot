@@ -4,6 +4,8 @@ import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import FrenchTvLogos from "french-tv-logos";
 
+import config from "../../config";
+
 import { getAccessToken } from "../../actions/Pages/LoginAction";
 import { closeNav } from "../../actions/Pages/NavAction";
 import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";
@@ -12,6 +14,7 @@ import MainMenu from "../../components/App/MainMenu";
 import Nav from "../../components/App/Nav";
 import Dialog from "../../components/Dialog/Dialog";
 import AccountDialog from "../../components/Dialog/AccountDialog";
+import NotificationComponent from './Notification';
 
 if (process.env.BROWSER) {
   require("../../style/App/Page.scss");
@@ -66,6 +69,8 @@ class Page extends Component {
         <ReactCSSTransitionGroup transitionName="DialogAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           {dialog}
         </ReactCSSTransitionGroup>
+
+        <NotificationComponent />
       </div>
     );
   }

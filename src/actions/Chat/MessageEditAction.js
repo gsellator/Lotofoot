@@ -13,6 +13,16 @@ const MessageEditAction = {
       console.log('MessageEditAction error');
     });
   },
+
+  getMessages(context, { route = {}, body }) {
+    return context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
+    .then(() => {
+      return;
+    }, (err) => {
+      console.log('GetMessages Error : ', err.message);
+      return;
+    });
+  }
 };
 
 export default MessageEditAction;
