@@ -21,7 +21,7 @@ class AccountDialog extends Component {
 
   render() {
     const { credentials } = this.props;
-
+    const hasPaidString = credentials.hasPaid ? '✅  Cotisation à jour' : "💲  Je dois 5€";
     return (
       <div className="AccountDialog">
         <div className="AccountDialogArrow-1"></div>
@@ -32,6 +32,7 @@ class AccountDialog extends Component {
             <div className="AccountDialogInfos">
               {Filters.capitalize(credentials.firstName) + ' ' + Filters.capitalize(credentials.lastname)}
               <span>{credentials.email}</span>
+              <span>{hasPaidString}</span>
             </div>
           </div>
 
