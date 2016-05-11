@@ -26,14 +26,14 @@ class PredictionBlock extends Component {
 
   handleChangeA(e) {
     this.setState({scoreTeamA: e.target.value});
-    if (e.target.value && this.state.scoreTeamB)
-      this.postPrediction(e.target.value);
+//    if (e.target.value && this.state.scoreTeamB)
+//      this.postPrediction(e.target.value);
   }
 
   handleChangeB(e) {
     this.setState({scoreTeamB: e.target.value});
-    if (e.target.value && this.state.scoreTeamA)
-      this.postPrediction(undefined, e.target.value);
+//    if (e.target.value && this.state.scoreTeamA)
+//      this.postPrediction(undefined, e.target.value);
   }
 
   postPrediction(scoreA, scoreB) {
