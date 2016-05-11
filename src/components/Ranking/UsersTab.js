@@ -29,7 +29,7 @@ class UsersTab extends Component {
             {data && data.map((item, i) =>
               <div key={i} className={credentials._id === item._id ? 'User Me' : 'User'}>
                 <div className="Rank">
-                  {'#' + i}
+                  {'#' + (i+1)}
                 </div>
                 <div className="Firstname">
                   {item.firstName}
