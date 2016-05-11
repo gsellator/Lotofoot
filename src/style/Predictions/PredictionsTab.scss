@@ -10,6 +10,18 @@
     border-bottom: solid $grey-3 1px;;
   }
 
+  .EmptyList{
+    padding: 12px 0;
+
+    &>div:not(:last-child){
+      margin-bottom: 6px;
+    }
+
+    div, span, .TxtBtn{
+      font-size: 15px;
+    }
+  }
+
   .Prediction{
     margin: 0 -12px;
     padding: 6px 12px;
