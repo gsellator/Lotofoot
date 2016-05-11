@@ -61,8 +61,8 @@
   &.print{background-position: -270px 0;}
   &.menu{background-position: -300px 0;}
   &.more{background-position: -330px 0;}
-  &.home{background-position: -360px 0;}
-  &.games{background-position: -390px 0;}
+//  &.home{background-position: -360px 0;}
+  &.games, &.home{background-position: -390px 0;}
   &.predictions{background-position: -420px 0;}
   &.ranking{background-position: -450px 0;}
   &.refresh{background-position: -480px 0;}
