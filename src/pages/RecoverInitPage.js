@@ -54,11 +54,6 @@ class RecoverInitPage extends Component {
                       <div className="Loader"></div>
                     </button>
                   }
-                  <div style={{marginTop: '18px'}}>
-                    <a href="/login">
-                      {Labels.logToDaily}
-                    </a>
-                  </div>
                 </div>
               }
               {success &&
@@ -71,6 +66,10 @@ class RecoverInitPage extends Component {
                   </div>
                 </div>
               }
+
+              <div>
+                <NavLink className="LoginLink" routeName="login">{Labels.backHome}</NavLink>
+              </div>
             </form>
           </div>
         </div>

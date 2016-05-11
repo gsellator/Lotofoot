@@ -47,6 +47,12 @@ export default {
     handler: HomePage,
     action: InitActions.home
   },
+  homeNew: {
+    path: "/?msg=new",
+    method: "get",
+    handler: HomePage,
+    action: InitActions.home
+  },
   games: {
     path: "/games",
     method: "get",
