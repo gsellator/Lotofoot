@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import Labels from "../constants/Labels";
 
+import HelpBlock from "../components/Help/HelpBlock";
 import GameBlock from "../components/Games/GameBlock";
 import GamesTab from "../components/Games/GamesTab";
 
@@ -19,17 +20,26 @@ class HomePage extends Component {
     getStore: PropTypes.func.isRequired
   }
 
-  componentDidMount() {
-//    console.log('test1');
-//    const route = this.context.getStore('RouteStore').getCurrentRoute();
-//    if (route.getIn(["query", "msg"]) === 'new')
-      // this.context.executeAction(initUpdate, {}); //'Pensez à consulter les règles !'
-  }
-
   render() {
+    const route = this.context.getStore('RouteStore').getCurrentRoute();
+    const msg = route.getIn(["query", "msg"]);
+
     return (
       <div className="HomePage">
         <div className="HomePageContainer">
+          {msg === 'new' &&
+            <div className="Paper">
+              <div className="PaperTitle">
+                Règles du jeu
+              </div>
+              <div>
+                <HelpBlock />
+              </div>
+              <div className="HelpSpacer">
+                <NavLink className="TxtBtn" routeName="home">Fermer les règles</NavLink>
+              </div>
+            </div>
+          }
 
           <GameBlock />
           <GamesTab />
