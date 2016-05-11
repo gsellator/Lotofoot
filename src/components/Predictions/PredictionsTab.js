@@ -16,24 +16,7 @@ class PredictionsTab extends Component {
   }
 
   render() {
-    const { data, teamsData } = this.props;
-    //    {false && <div>item._id : {item._id}</div>}
-    //    {true && <div>item.scoreTeamA : {item.scoreTeamA}</div>}
-    //    {true && <div>item.scoreTeamB : {item.scoreTeamB}</div>}
-    //    {false && <div>item.winner : {item.winner}</div>}
-    //    {false && <div>item.isOpen : {item.isOpen}</div>}
-    //    {false && <div>item.createdAt : {item.createdAt}</div>}
-    //    {false && <div>item.game._id : {item.game._id}</div>}
-    //    {false && <div>item.game.friendlyId : {item.game.friendlyId}</div>}
-    //    {false && <div>item.game.phase : {item.game.phase}</div>}
-    //    {false && <div>item.game.datetime : {item.game.datetime}</div>}
-    //    {false && <div>item.game.stadium : {item.game.stadium}</div>}
-    //    {false && <div>item.game.teamA : {item.game.teamA}</div>}
-    //    {false && <div>item.game.teamB : {item.game.teamB}</div>}
-    //    {false && <div>item.game.scoreTeamA : {item.game.scoreTeamA}</div>}
-    //    {false && <div>item.game.scoreTeamB : {item.game.scoreTeamB}</div>}
-    //    {false && <div>item.game.winner : {item.game.winner}</div>}
-    //    {false && <div>item.game.status : {item.game.status}</div>}
+    const { currentGame, data, teamsData } = this.props;
 
     return (
       <div className="Paper PredictionsTab">
@@ -45,6 +28,18 @@ class PredictionsTab extends Component {
         </div>
 
         <div className="PredictionsPageContent">
+          {data && !data[0] &&
+            <div className="EmptyList">
+              <div>
+                Vous n'avez pas encore enregistré de pronostic.
+              </div>
+              <div>
+                <NavLink className="TxtBtn" routeName="game" navParams={{gameId: currentGame._id}}>
+                  {'Pronostiquez dès maintenant ' + currentGame.teamA.name + '-' + currentGame.teamB.name}
+                </NavLink>
+              </div>
+            </div>
+          }
           {data && data.map((item, i) =>
             <NavLink key={i} className="Prediction" routeName="game" navParams={{gameId: item.game._id}}>
               <div className="Left">
@@ -84,8 +79,9 @@ class PredictionsTab extends Component {
   }
 }
 
-PredictionsTab = connectToStores(PredictionsTab, ["PredictionsTabStore"], (context) => {
+PredictionsTab = connectToStores(PredictionsTab, ["CurrentGameStore", "PredictionsTabStore", "TeamsDicoStore"], (context) => {
   return {
+    currentGame: context.getStore("CurrentGameStore").getData(),
     data: context.getStore("PredictionsTabStore").getData(),
     teamsData: context.getStore("TeamsDicoStore").getData()
   };
