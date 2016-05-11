@@ -7,9 +7,16 @@
   overflow: auto; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
   padding: 12px 12px 12px 4px;
 
-  //  .HomePageContainer{
-  //    
-  //  }
+  .HelpSpacer{
+    border-top: dotted $grey-5 1px;
+    margin-top: 12px;
+    padding-top: 12px;
+    text-align: center;
+
+    .TxtBtn{
+      margin-bottom: 0;
+    }
+  }
 
   .HomePageContent{
     margin-top: 12px;

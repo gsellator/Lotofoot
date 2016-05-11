@@ -7,40 +7,14 @@
   padding: 12px 12px 12px 4px;
 
   .HelpPageCtnt{
-    max-width: 700px;
-    margin: 12px auto 0 auto;
-    text-align: center;
-
-    div, span, a, th, td{font-size: 17px;}
-
-    .HelpTable{
-      margin: 12px 0;
-
-      table{
-        table-layout: fixed;
-        width: 100%;
-
-        th{
-          font-size: 15px;
-          &:not(:last-child){border-right: solid $grey-5 1px;}
-        }
-
-        td:not(:last-child){
-          border-right: solid $grey-5 1px;
-        }
-
-        tbody{
-          tr:nth-child(odd){
-            background: $grey-1;
-          }
-        }
-      }
-    }
-
     .Footer{
+      max-width: 700px;
+      margin: 12px auto 0 auto;
+      text-align: center;
       border-top: dotted $grey-5 1px;
       margin-top: 12px;
       padding-top: 12px;
+      div, span, a, th, td{font-size: 17px;}
     }
   }
 }
