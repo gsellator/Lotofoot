@@ -6,6 +6,8 @@ import Labels from "../constants/Labels";
 import GameBlock from "../components/Games/GameBlock";
 import GamesTab from "../components/Games/GamesTab";
 
+import Actions from "../constants/Actions";
+
 if (process.env.BROWSER) {
   require("../style/Pages/HomePage.scss");
 }
@@ -15,6 +17,13 @@ class HomePage extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+//    console.log('test1');
+//    const route = this.context.getStore('RouteStore').getCurrentRoute();
+//    if (route.getIn(["query", "msg"]) === 'new')
+      // this.context.executeAction(initUpdate, {}); //'Pensez à consulter les règles !'
   }
 
   render() {

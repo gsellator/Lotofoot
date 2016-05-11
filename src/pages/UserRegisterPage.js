@@ -85,6 +85,9 @@ class UserRegisterPage extends Component {
                 </button>
               }
 
+              <div>
+                <NavLink className="LoginLink" routeName="login">{Labels.backHome}</NavLink>
+              </div>
             </form>
           </div>
         </div>

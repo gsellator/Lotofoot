@@ -80,29 +80,6 @@
             font-size: 0;
           }
         }
-
-        .LoginLink{
-          display: inline-block;
-          vertical-align: top;
-          color: $grey-dark;
-          opacity: 0.5;
-          transition: all .3s ease;
-          line-height: 16px;
-          margin: 18px 0 0 0;
-
-          &:hover{opacity: 1;}
-          &:active{opacity: 0.7;}
-        }
-
-        .LoginLinkSpacer{
-          display: inline-block;
-          vertical-align: top;
-          color: $grey-dark;
-          opacity: 0.5;
-          line-height: 16px;
-          margin: 18px 6px 0 6px;
-
-        }
       }
     }
   }

@@ -3,6 +3,7 @@ const Labels = {
   actions: 'Actions',
   app: 'Application',
   back: 'Revenez en arrière',
+  backHome: 'Retour à l\'accueil',
   cancel: 'Annuler',
   chat: 'Chat',
   create: 'Créer',
