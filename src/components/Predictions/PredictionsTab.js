@@ -33,11 +33,13 @@ class PredictionsTab extends Component {
               <div>
                 Vous n'avez pas encore enregistré de pronostic.
               </div>
-              <div>
-                <NavLink className="TxtBtn" routeName="game" navParams={{gameId: currentGame._id}}>
-                  {'Pronostiquez dès maintenant ' + currentGame.teamA.name + '-' + currentGame.teamB.name}
-                </NavLink>
-              </div>
+              {currentGame && currentGame._id && currentGame.teamA && currentGame.teamA &&
+                <div>
+                  <NavLink className="TxtBtn" routeName="game" navParams={{gameId: currentGame._id}}>
+                    {'Pronostiquez dès maintenant ' + currentGame.teamA.name + '-' + currentGame.teamB.name}
+                  </NavLink>
+                </div>
+              }
             </div>
           }
           {data && data.map((item, i) =>
