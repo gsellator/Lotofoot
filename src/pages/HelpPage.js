@@ -27,6 +27,7 @@ class HelpPage extends Component {
             </div>
           </div>
         </div>
+        <div className="Illu" />
       </div>
     );
   }

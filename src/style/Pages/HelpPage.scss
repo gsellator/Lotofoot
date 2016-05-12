@@ -1,10 +1,18 @@
 @import '../constants/colors';
+@import '../constants/breaks';
 
 .HelpPage{
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   overflow: auto; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
   padding: 12px 12px 12px 4px;
+
+  .Illu{
+    margin-top: 24px;
+    height: 600px;
+    background: url('../../assets/super_victor.svg') center top no-repeat;
+    background-size: contain;
+  }
 
   .HelpPageCtnt{
     .Footer{
@@ -15,6 +23,22 @@
       margin-top: 12px;
       padding-top: 12px;
       div, span, a, th, td{font-size: 17px;}
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .HelpPage{
+    .Illu{
+      height: 400px;
+    }
+  }
+}
+
+@media (max-width: $break-small){
+  .HelpPage{
+    .Illu{
+      height: 240px;
     }
   }
 }
