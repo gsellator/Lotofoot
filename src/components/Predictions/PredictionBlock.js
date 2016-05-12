@@ -142,7 +142,7 @@ class PredictionBlock extends Component {
               </div>
               {false &&
                 <div className="PoolRanking">
-                  Faire apparaitre ici le classement provisoir des poules ?
+                  Faire apparaitre ici le classement provisoir des groupes ?
                 </div>
               }
             </div>

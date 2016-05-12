@@ -5,9 +5,9 @@ const Sections = [
 //  {
 //    name: 'games',
 //  },
-  {
-    name: 'predictions',
-  },
+//  {
+//    name: 'predictions',
+//  },
   {
     name: 'ranking',
   },
