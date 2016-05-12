@@ -58,6 +58,7 @@
 
     .GamesBtn{
       cursor: pointer;
+      flex-shrink: 0;
 
       .GamesLabel{
         font-size: 14px;
@@ -111,7 +112,7 @@
       .RowLine{
         display: flex;
         border-bottom: dotted $grey-5 1px;
-        
+
         .Head{
           height: 30px; width: 36px;
           flex-basis: 36px;
@@ -124,9 +125,9 @@
             background-color: $footix-blue;
           }
 
-//          .chn-ico{
-//            margin: 3px 6px;
-//          }
+          //          .chn-ico{
+          //            margin: 3px 6px;
+          //          }
         }
 
         .Flag{
@@ -209,17 +210,17 @@
           height: 30px; width: 36px;
           flex-basis: 36px;
           flex-shrink: 0;
-//
-//          .Pin{
-//            width: 8px; height: 8px;
-//            margin: 11px 14px;
-//            border-radius: 4px;
-//            background-color: $footix-blue;
-//          }
-//
-//          .chn-ico{
-//            margin: 3px 6px;
-//          }
+          //
+          //          .Pin{
+          //            width: 8px; height: 8px;
+          //            margin: 11px 14px;
+          //            border-radius: 4px;
+          //            background-color: $footix-blue;
+          //          }
+          //
+          //          .chn-ico{
+          //            margin: 3px 6px;
+          //          }
         }
 
         .PredictionLabel{
@@ -230,7 +231,7 @@
           text-overflow: ellipsis;
           overflow: hidden;
           color: $grey-9;
-//          text-align: left;
+          //          text-align: left;
         }
 
         .Left{
