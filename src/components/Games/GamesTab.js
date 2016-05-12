@@ -124,29 +124,35 @@ class GamesTab extends Component {
                           <div className="Flag" style={{backgroundImage: 'url(' + item.teamB.flagUrl + ')'}} />
                           <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
                         </div>
-                          
+
                         <div className="Head">
-                          {false && item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
                         </div>
                       </div>
 
                       <div className="RowSubLine">
-                        <div className="Head">
-                        </div>
                         <div className="Left">
                           {item.status === 'TIMED' && predictions[item._id] &&
                             <div className="PredictionLabel">
-                              {'Mon prono : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}
+                              <span className="icn-16 chip2" />
+                              <span>{'Prono : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
+                              <span className="icn-16 pin" />
+                              <span>{Filters.capitalize(item.stadium)}</span>
+                              <span className="icn-16 tv" />
+                              {!item.channel && <span>Bein</span>}
+                              {item.channel && <span>{'BeIn & ' + item.channel}</span>}
                             </div>
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              Pas encore de prono
+                              <span className="icn-16 chip2" />
+                              <span>Pas de prono</span>
+                              <span className="icn-16 pin" />
+                              <span>{Filters.capitalize(item.stadium)}</span>
+                              <span className="icn-16 tv" />
+                              {!item.channel && <span>Bein</span>}
+                              {item.channel && <span>{'Bein & ' + item.channel.toUpperCase()}</span>}
                             </div>
                           }
-                        </div>
-                        <div className="Head">
-                          {false && item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
                         </div>
                       </div>
                     </NavLink>
