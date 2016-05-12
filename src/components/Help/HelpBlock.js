@@ -25,7 +25,7 @@ class HelpBlock extends Component {
           l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.<br/><br/>
 
           Le nombre de points que vos pronostics vous rapportent dépendent :<br/>
-          - Du stade de la compétition auquel appartient le match (match de poule, quart de finale...)<br/>
+          - Du stade de la compétition auquel appartient le match (groupes, quarts de finale...)<br/>
           - De l'exactitude de votre pronostic (bon vainqueur, bon vainqueur et bonne différence de buts, bon vainqueur avec le score exact)<br/><br/>
 
           Les points mis en jeu sont les suivants :
@@ -43,7 +43,7 @@ class HelpBlock extends Component {
             </thead>
             <tbody>
               <tr>
-                <th>Poules</th>
+                <th>Groupes</th>
                 <td>1</td>
                 <td>2</td>
                 <td>3</td>

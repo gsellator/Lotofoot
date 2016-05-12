@@ -36,50 +36,44 @@ class GamesTab extends Component {
         </div>
 
         {false &&
-          <div className="GamesMenu">
-            <div className={phase === '0' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '0')}>
-              <div className="Label">Poules</div>
+          <div className="PhaseSelector">
+            <div className={phase === '0' ? 'PhaseBtn Active' : 'PhaseBtn'} onClick={this.setPhase.bind(this, '0')}>
+              <div className="PhaseLabel">Matchs</div>
             </div>
-            <div className={phase === '1' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '1')}>
-              <div className="Label">Huitièmes</div>
+            <div className={phase === '1' ? 'PhaseBtn Active' : 'PhaseBtn'} onClick={this.setPhase.bind(this, '1')}>
+              <div className="PhaseLabel">Groupes</div>
             </div>
-            <div className={phase === '2' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '2')}>
-              <div className="Label">Quarts</div>
-            </div>
-            <div className={phase === '3' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '3')}>
-              <div className="Label">Demis</div>
-            </div>
-            <div className={phase === '4' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setPhase.bind(this, '4')}>
-              <div className="Label">Finale</div>
+            <div className={phase === '2' ? 'PhaseBtn Active' : 'PhaseBtn'} onClick={this.setPhase.bind(this, '2')}>
+              <div className="PhaseLabel">Phase finale</div>
             </div>
           </div>
         }
 
-        <div className="GamesMenu Sub">
-          <div className={tab === '-' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, '-')}>
-            <div className="Label">Tous</div>
+        <div className="GamesSelector">
+          <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
+            <div className="GamesLabel">Tous</div>
           </div>
-          <div className={tab === 'a' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, 'a')}>
-            <div className="Label">Groupe A</div>
+          <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
+            <div className="GamesLabel">Groupe A</div>
           </div>
-          <div className={tab === 'b' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, 'b')}>
-            <div className="Label">Groupe B</div>
+          <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
+            <div className="GamesLabel">Groupe B</div>
           </div>
-          <div className={tab === 'c' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, 'c')}>
-            <div className="Label">Groupe C</div>
+          <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
+            <div className="GamesLabel">Groupe C</div>
           </div>
-          <div className={tab === 'd' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, 'd')}>
-            <div className="Label">Groupe D</div>
+          <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
+            <div className="GamesLabel">Groupe D</div>
           </div>
-          <div className={tab === 'e' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, 'e')}>
-            <div className="Label">Groupe E</div>
+          <div className={tab === 'e' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'e')}>
+            <div className="GamesLabel">Groupe E</div>
           </div>
-          <div className={tab === 'f' ? 'MenuItem Active' : 'MenuItem'} onClick={this.setTab.bind(this, 'f')}>
-            <div className="Label">Groupe F</div>
+          <div className={tab === 'f' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'f')}>
+            <div className="GamesLabel">Groupe F</div>
           </div>
         </div>
 
-        <div>
+        <div className="TabContent">
           {data && data.map((item, i) =>
             <div key={i}>
 
@@ -92,38 +86,45 @@ class GamesTab extends Component {
                   )
                 else
                   return (
-                    <NavLink className={predictions[item._id] ? 'Match Ok' : 'Match'} routeName="game" navParams={{gameId: item._id}}>
+                    <NavLink className="Row" routeName="game" navParams={{gameId: item._id}}>
+                      <div className="Head">
+                        {item.status === 'TIMED' && !predictions[item._id] &&
+                          <div className="Pin" />
+                        }
+                      </div>
                       <div className="Left">
-                        <div className="Group">{'Gp ' + Filters.capitalize(item.group)}</div>
-                        <div className="Stadium">{Filters.capitalize(item.stadium)}</div>
+                        <div className="Flag" style={{backgroundImage: 'url(' + item.teamA.flagUrl + ')'}} />
+                        <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
                       </div>
                       <div className="Center">
-                        <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'Team Winner' : 'Team'}>
-                          <div className="Label">{item.teamA.name}</div>
-                          <div className="Flag"><img src={item.teamA.flagUrl} /></div>
-                        </div>
-                        <div className="ScoreContainer">
-                          {!(item.scoreTeamA || item.scoreTeamB) &&
-                            <span className="Time">{FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}</span>
-                          }
-                          {(item.scoreTeamA || item.scoreTeamB) &&
-                            <span className="Score">
-                              {item.status === 'IN_PROGRESS' && <span>(</span> }
-                              <span>{(item.scoreTeamA || '0')}</span>
-                              <span>&#8239;-&#8239;</span>
-                              <span>{(item.scoreTeamB || '0')}</span>
-                              {item.status === 'IN_PROGRESS' && <span>)</span> }
-                            </span>
-                          }
-                        </div>
-                        <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'Team Winner' : 'Team'}>
-                          <div className="Flag"><img src={item.teamB.flagUrl} /></div>
-                          <div className="Label">{item.teamB.name}</div>
-                        </div>
+                        {item.status === 'TIMED' &&
+                          <div className="Time">
+                            {FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}
+                          </div>
+                        }
+                        {item.status === 'IN_PROGRESS' &&
+                          <div className="Score">
+                            <span>(&#8239;</span>
+                            <span>{(item.scoreTeamA || '0')}</span>
+                            <span>&#8239;-&#8239;</span>
+                            <span>{(item.scoreTeamB || '0')}</span>
+                            <span>&#8239;)</span>
+                          </div>
+                        }
+                        {item.status === 'FINISHED' &&
+                          <div className="Score">
+                            <span>{(item.scoreTeamA || '0')}</span>
+                            <span>&#8239;-&#8239;</span>
+                            <span>{(item.scoreTeamB || '0')}</span>
+                          </div>
+                        }
                       </div>
                       <div className="Right">
-                        {item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
-                        <div className="chn-ico alt bein-sports-1"></div>
+                        <div className="Flag" style={{backgroundImage: 'url(' + item.teamB.flagUrl + ')'}} />
+                        <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
+
+                      </div>
+                      <div className="Head">
                       </div>
                     </NavLink>
                   )

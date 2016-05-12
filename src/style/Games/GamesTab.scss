@@ -6,185 +6,189 @@
   text-align: center;
   padding-bottom: 0;
 
-  .GamesMenu{
-    height: 28px;
-    font-size: 0;
+  .PhaseSelector{
     margin: 0 -12px 0 -12px;
-    white-space: nowrap;
+    background: $footix-blue;
+    display: flex;
+
+    .PhaseBtn{
+      flex: 1;
+      cursor: pointer;
+
+      .PhaseLabel{
+        color: white;
+        font-size: 15px;
+        height: 42px;
+        line-height: 40px;
+        transition: all .15s ease;
+        border-bottom: solid $footix-yellow 0px;
+      }
+
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.20);
+      }
+
+      &:active{
+        background-color: rgba(255, 255, 255, 0.10);
+      }
+
+      &.Active{
+        .PhaseLabel{
+          border-bottom: solid $footix-yellow 3px;
+        }
+      }
+    }
+  }
+
+  .GamesSelector{
+    margin: 0 -12px 0 -12px;
+    display: flex;
+    justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
     overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
     transform: translateZ(0);
-    border-top: solid $grey-3 1px;
-    margin-bottom: 1px;
+    margin-bottom: 12px;
+    border-bottom: solid $grey-5 1px;
+    border-top: solid $grey-5 1px;
 
-    .MenuItem{
-      height: 28px;
-      display: inline-block;
+    &::before, &::after {
+      content: '';
+    }
+
+    .GamesBtn{
       cursor: pointer;
-      &:not(:last-child){border-right: solid $grey-3 1px;}
 
-      .Label{
-        height: 27px;
-        line-height: 25px;
+      .GamesLabel{
+        font-size: 14px;
+        height: 34px;
+        line-height: 32px;
+        transition: all .15s ease;
+        border-bottom: solid $footix-red 0px;
+        white-space: nowrap;
         padding: 0 12px;
       }
 
-      &:hover .Label{
-        color: $grey-9;
-        border-bottom: solid $grey-5 2px;
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.10);
       }
 
-      &:active .Label{
-        color: $grey-6;
-        border-bottom: solid $grey-4 2px;
+      &:active{
+        background-color: rgba(0, 0, 0, 0.05);
       }
 
-      &.Active .Label{
-        color: $cal-color;
-        border-bottom: solid $cal-color 2px;
+      &.Active{
+        .GamesLabel{
+          color: $footix-red;
+          border-bottom: solid $footix-red 3px;
+        }
       }
     }
   }
 
-  .Date{
-    margin: 0 -12px;
-    background: $grey-1;
-    border-top: solid $grey-3 1px;
-    border-bottom: solid $grey-3 1px;
-    text-align: left;
-    padding: 0 12px;
-    color: $grey-9;
-    font-weight: 500;
-    font-size: 12px;
-    margin-top: -1px;
-  }
-
-  .Match{
-    margin: 0 -12px;
-    padding: 6px 12px;
-    border-bottom: solid $grey-3 1px;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-
-    cursor: pointer;
-    &:hover{background-color: $grey-0;}
-    &:active{background-color: $grey-1;}
-
-    background: $orange-light;
-    &.Ok{background: $green-light;}
-
-    .Left{
-      height: 22px;
-      width: 96px; min-width: 96px;
-      margin: 1px 0;
+  .TabContent{
+    .Date{
+      margin: 0 -12px;
+      background: $grey-1;
+      border-top: solid $grey-3 1px;
+      border-bottom: solid $grey-3 1px;
       text-align: left;
-      white-space: nowrap;
-
-      div{
-        display: inline-block;
-        vertical-align: top;
-        font-size: 12px;
-        line-height: 22px;
-      }
-
-      .Group{
-        font-weight: 500;
-      }
-
-      .Stadium{
-        margin-left: 6px;
-      }
-
+      padding: 0 12px;
+      color: $grey-9;
+      font-weight: 500;
+      font-size: 12px;
+      margin-top: -1px;
     }
 
-    .Center{
-      flex: 1;
+    .Row{
+      margin: 0 -12px;
+      border-bottom: solid $grey-3 1px;
       display: flex;
-      justify-content: space-between;
-      height: 22px;
-      margin: 1px 0;
+      cursor: pointer;
+      &:hover{background-color: $grey-1;}
+      &:active{background-color: $grey-0;}
 
-      div{
-        display: inline-block;
-        vertical-align: top;
-        font-size: 15px;
-        line-height: 22px;
+      .Head{
+        height: 40px; width: 24px;
+
+        .Pin{
+          width: 8px; height: 8px;
+          margin: 16px 8px;
+          border-radius: 4px;
+          background-color: $footix-blue;
+        }
       }
 
-      .Team{
-        flex: 1;
+      .Flag{
+        position: absolute;
+        width: 18px; height: 12px;
+        top: 14px;
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+
+      .TeamLabel{
+        position: absolute;
+        top: 0; bottom: 0;
+        line-height: 40px;
         white-space: nowrap;
-        min-width: 10px;
+        text-overflow: ellipsis;
         overflow: hidden;
+        font-weight: 500;
+        color: $grey-9;
 
-        &:first-child{
-          text-align: right;
-          .Label{padding-right: 6px;}
-        }
-        &:last-child{
-          text-align: left;
-          .Label{padding-left: 6px;}
-        }
-
-        .Label{
-          font-weight: 500;
-          color: $grey-9;
-        }
-
-        .Flag{
-          margin-top: 3px;
-          font-size: 0;
-          height: 16px;
-
-          img{
-            display: inline-block;
-            vertical-align: top;
-            height: 16px;
-          }
-        }
-
-        &.Winner .Label{
-          font-weight: 500;
+        &.Winner{
           color: black;
         }
       }
 
-      .ScoreContainer{
-        width: 49px;
+      .Left{
+        position: relative;
+        flex: 1;
+
+        .Flag{right: 0;}
+        .TeamLabel{
+          right: 24px; left: 0;
+          text-align: right;
+        }
+      }
+
+      .Center{
+        width: 46px;
 
         .Time{
-          font-size: 17px;
+          font-size: 15px;
           font-weight: 500;
           color: $grey-9;
-          line-height: 18px;
+          line-height: 40px;
+          height: 40px;
         }
 
-        .Score span{
-          font-family: $font-family-numbers;
-          font-size: $font-size-numbers;
-          font-weight: $font-weight-numbers;
-          text-rendering: $text-rendering-numbers;
-          font-size: 16px;
-          font-weight: 500;
-          color: $grey-9;
-          line-height: 18px;
-          color: black;
+        .Score{
+          height: 40px;
+          
+          span{
+            font-family: $font-family-numbers;
+            text-rendering: $text-rendering-numbers;
+            color: $grey-9;
+            line-height: 40px;
+            font-size: 13px;
+            font-weight: 500;
+            color: black;
+          }
         }
       }
-    }
 
-    .Right{
-      width: 60px; min-width: 60px;
-      height: 24px;
-      white-space: nowrap;
-      text-align: right;
+      .Right{
+        position: relative;
+        flex: 1;
 
-      .chn-ico{
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 6px;
+        .Flag{left: 0;}
+        .TeamLabel{
+          left: 24px; right: 0;
+          text-align: left;
+        }
       }
     }
   }
@@ -192,36 +196,38 @@
 
 @media (max-width: $break-medium){
   .GamesTab{
-    .Match{
-      .Left{
-        display: none;
-      }
-
-      .Center{
-        div{
-          font-size: 13px;
-        }
-
-        .Team{
-          .Flag{
-            height: 10px;
-            margin-top: 6px;
-
-            img{
-              height: 10px;
-            }
-          }
-        }
-
-        .Score{
-          width: 40px;
-          font-size: 14px;
-        }
-      }
-
-      .Right{
-        display: none;
-      }
+    .TabContent{
+      //      .Match{
+      //        .Left{
+      //          display: none;
+      //        }
+      //
+      //        .Center{
+      //          div{
+      //            font-size: 13px;
+      //          }
+      //
+      //          .Team{
+      //            .Flag{
+      //              height: 10px;
+      //              margin-top: 6px;
+      //
+      //              img{
+      //                height: 10px;
+      //              }
+      //            }
+      //          }
+      //
+      //          .Score{
+      //            width: 40px;
+      //            font-size: 14px;
+      //          }
+      //        }
+      //
+      //        .Right{
+      //          display: none;
+      //        }
+      //      }
     }
   }
 }
