@@ -101,93 +101,146 @@
     }
 
     .Row{
+      display: block;
       margin: 0 -12px;
       border-bottom: solid $grey-3 1px;
-      display: flex;
       cursor: pointer;
       &:hover{background-color: $grey-1;}
       &:active{background-color: $grey-0;}
 
-      .Head{
-        height: 40px; width: 24px;
+      .RowLine{
+        display: flex;
+        border-bottom: dotted $grey-5 1px;
+        
+        .Head{
+          height: 30px; width: 36px;
+          flex-basis: 36px;
+          flex-shrink: 0;
 
-        .Pin{
-          width: 8px; height: 8px;
-          margin: 16px 8px;
-          border-radius: 4px;
-          background-color: $footix-blue;
+          .Pin{
+            width: 8px; height: 8px;
+            margin: 11px 14px;
+            border-radius: 4px;
+            background-color: $footix-blue;
+          }
+
+//          .chn-ico{
+//            margin: 3px 6px;
+//          }
         }
-      }
 
-      .Flag{
-        position: absolute;
-        width: 18px; height: 12px;
-        top: 14px;
-        background-size: contain;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-      }
-
-      .TeamLabel{
-        position: absolute;
-        top: 0; bottom: 0;
-        line-height: 40px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        font-weight: 500;
-        color: $grey-9;
-
-        &.Winner{
-          color: black;
+        .Flag{
+          position: absolute;
+          width: 18px; height: 12px;
+          top: 9px;
+          background-size: contain;
+          background-position: 50% 50%;
+          background-repeat: no-repeat;
         }
-      }
 
-      .Left{
-        position: relative;
-        flex: 1;
-
-        .Flag{right: 0;}
         .TeamLabel{
-          right: 24px; left: 0;
-          text-align: right;
-        }
-      }
-
-      .Center{
-        width: 46px;
-
-        .Time{
-          font-size: 15px;
+          position: absolute;
+          top: 0; bottom: 0;
+          line-height: 30px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
           font-weight: 500;
           color: $grey-9;
-          line-height: 40px;
-          height: 40px;
+
+          &.Winner{
+            color: black;
+          }
         }
 
-        .Score{
-          height: 40px;
-          
-          span{
-            font-family: $font-family-numbers;
-            text-rendering: $text-rendering-numbers;
-            color: $grey-9;
-            line-height: 40px;
-            font-size: 13px;
+        .Left{
+          position: relative;
+          flex: 1;
+
+          .Flag{right: 0;}
+          .TeamLabel{
+            right: 24px; left: 0;
+            text-align: right;
+          }
+        }
+
+        .Center{
+          width: 46px;
+
+          .Time{
+            font-size: 15px;
             font-weight: 500;
-            color: black;
+            color: $grey-9;
+            line-height: 30px;
+            height: 30px;
+          }
+
+          .Score{
+            height: 30px;
+
+            span{
+              font-family: $font-family-numbers;
+              text-rendering: $text-rendering-numbers;
+              color: $grey-9;
+              line-height: 30px;
+              font-size: 13px;
+              font-weight: 500;
+              color: black;
+            }
+          }
+        }
+
+        .Right{
+          position: relative;
+          flex: 1;
+
+          .Flag{left: 0;}
+          .TeamLabel{
+            left: 24px; right: 0;
+            text-align: left;
           }
         }
       }
 
-      .Right{
-        position: relative;
-        flex: 1;
+      .RowSubLine{
+        display: flex;
 
-        .Flag{left: 0;}
-        .TeamLabel{
-          left: 24px; right: 0;
-          text-align: left;
+        .Head{
+          height: 30px; width: 36px;
+          flex-basis: 36px;
+          flex-shrink: 0;
+//
+//          .Pin{
+//            width: 8px; height: 8px;
+//            margin: 11px 14px;
+//            border-radius: 4px;
+//            background-color: $footix-blue;
+//          }
+//
+//          .chn-ico{
+//            margin: 3px 6px;
+//          }
+        }
+
+        .PredictionLabel{
+          position: absolute;
+          top: 0; bottom: 0;
+          line-height: 28px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          color: $grey-9;
+//          text-align: left;
+        }
+
+        .Left{
+          position: relative;
+          flex: 1;
+          height: 30px;
+
+          .PredictionLabel{
+            right: 0; left: 0;
+          }
         }
       }
     }

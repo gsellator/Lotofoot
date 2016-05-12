@@ -87,44 +87,67 @@ class GamesTab extends Component {
                 else
                   return (
                     <NavLink className="Row" routeName="game" navParams={{gameId: item._id}}>
-                      <div className="Head">
-                        {item.status === 'TIMED' && !predictions[item._id] &&
-                          <div className="Pin" />
-                        }
+                      <div className="RowLine">
+                        <div className="Head">
+                          {item.status === 'TIMED' && !predictions[item._id] &&
+                            <div className="Pin" />
+                          }
+                        </div>
+                        <div className="Left">
+                          <div className="Flag" style={{backgroundImage: 'url(' + item.teamA.flagUrl + ')'}} />
+                          <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
+                        </div>
+                        <div className="Center">
+                          {item.status === 'TIMED' &&
+                            <div className="Time">
+                              {FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}
+                            </div>
+                          }
+                          {item.status === 'IN_PROGRESS' &&
+                            <div className="Score">
+                              <span>(&#8239;</span>
+                              <span>{(item.scoreTeamA || '0')}</span>
+                              <span>&#8239;-&#8239;</span>
+                              <span>{(item.scoreTeamB || '0')}</span>
+                              <span>&#8239;)</span>
+                            </div>
+                          }
+                          {item.status === 'FINISHED' &&
+                            <div className="Score">
+                              <span>{(item.scoreTeamA || '0')}</span>
+                              <span>&#8239;-&#8239;</span>
+                              <span>{(item.scoreTeamB || '0')}</span>
+                            </div>
+                          }
+                        </div>
+                        <div className="Right">
+                          <div className="Flag" style={{backgroundImage: 'url(' + item.teamB.flagUrl + ')'}} />
+                          <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
+                        </div>
+                          
+                        <div className="Head">
+                          {false && item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
+                        </div>
                       </div>
-                      <div className="Left">
-                        <div className="Flag" style={{backgroundImage: 'url(' + item.teamA.flagUrl + ')'}} />
-                        <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
-                      </div>
-                      <div className="Center">
-                        {item.status === 'TIMED' &&
-                          <div className="Time">
-                            {FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}
-                          </div>
-                        }
-                        {item.status === 'IN_PROGRESS' &&
-                          <div className="Score">
-                            <span>(&#8239;</span>
-                            <span>{(item.scoreTeamA || '0')}</span>
-                            <span>&#8239;-&#8239;</span>
-                            <span>{(item.scoreTeamB || '0')}</span>
-                            <span>&#8239;)</span>
-                          </div>
-                        }
-                        {item.status === 'FINISHED' &&
-                          <div className="Score">
-                            <span>{(item.scoreTeamA || '0')}</span>
-                            <span>&#8239;-&#8239;</span>
-                            <span>{(item.scoreTeamB || '0')}</span>
-                          </div>
-                        }
-                      </div>
-                      <div className="Right">
-                        <div className="Flag" style={{backgroundImage: 'url(' + item.teamB.flagUrl + ')'}} />
-                        <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
 
-                      </div>
-                      <div className="Head">
+                      <div className="RowSubLine">
+                        <div className="Head">
+                        </div>
+                        <div className="Left">
+                          {item.status === 'TIMED' && predictions[item._id] &&
+                            <div className="PredictionLabel">
+                              {'Mon prono : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}
+                            </div>
+                          }
+                          {item.status === 'TIMED' && !predictions[item._id] &&
+                            <div className="PredictionLabel">
+                              Pas encore de prono
+                            </div>
+                          }
+                        </div>
+                        <div className="Head">
+                          {false && item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
+                        </div>
                       </div>
                     </NavLink>
                   )

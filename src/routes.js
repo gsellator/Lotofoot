@@ -53,24 +53,24 @@ export default {
     handler: HomePage,
     action: InitActions.home
   },
-  games: {
-    path: "/games",
-    method: "get",
-    handler: GamesPage,
-    action: InitActions.games
-  },
+//  games: {
+//    path: "/games",
+//    method: "get",
+//    handler: GamesPage,
+//    action: InitActions.games
+//  },
   game: {
     path: "/games/:gameId",
     method: "get",
     handler: GamePage,
     action: InitActions.game
   },
-  predictions: {
-    path: "/predictions",
-    method: "get",
-    handler: PredictionsPage,
-    action: InitActions.predictions
-  },
+//  predictions: {
+//    path: "/predictions",
+//    method: "get",
+//    handler: PredictionsPage,
+//    action: InitActions.predictions
+//  },
   ranking: {
     path: "/ranking",
     method: "get",
