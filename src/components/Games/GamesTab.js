@@ -126,6 +126,7 @@ class GamesTab extends Component {
                         </div>
 
                         <div className="Head">
+                          {item.channel && <div className={'chn-18 ' + item.channel} />}
                         </div>
                       </div>
 
@@ -133,24 +134,14 @@ class GamesTab extends Component {
                         <div className="Left">
                           {item.status === 'TIMED' && predictions[item._id] &&
                             <div className="PredictionLabel">
-                              <span className="icn-16 chip2" />
-                              <span>{'Prono : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
-                              <span className="icn-16 pin" />
-                              <span>{Filters.capitalize(item.stadium)}</span>
-                              <span className="icn-16 tv" />
-                              {!item.channel && <span>Bein</span>}
-                              {item.channel && <span>{'BeIn & ' + item.channel}</span>}
+                              <span className="icn-16 chip" />
+                              <span>{'Mon pronostic : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
                             </div>
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              <span className="icn-16 chip2" />
-                              <span>Pas de prono</span>
-                              <span className="icn-16 pin" />
-                              <span>{Filters.capitalize(item.stadium)}</span>
-                              <span className="icn-16 tv" />
-                              {!item.channel && <span>Bein</span>}
-                              {item.channel && <span>{'Bein & ' + item.channel.toUpperCase()}</span>}
+                              <span className="icn-16 chip" />
+                              <span>Pas encore de pronostic</span>
                             </div>
                           }
                         </div>

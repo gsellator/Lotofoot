@@ -102,8 +102,8 @@ class GameBlock extends Component {
                 <div className="Label">{data.stadium}</div>
               </div>
               <div className="Right">
-                {data.channel && <div className={'chn-ico alt ' + data.channel}></div>}
-                <div className="chn-ico alt bein-sports-1"></div>
+                {data.channel && <div className={'chn-24 ' + data.channel}></div>}
+                <div className="chn-24 bein-sports-1"></div>
               </div>
             </div>
           </div>

@@ -91,8 +91,8 @@
     .Date{
       margin: 0 -12px;
       background: $grey-3;
-//      border-top: solid $grey-3 2px;
-//      border-bottom: solid $grey-3 2px;
+      //      border-top: solid $grey-3 2px;
+      //      border-bottom: solid $grey-3 2px;
       text-align: left;
       padding: 0 12px;
       color: $grey-9;
@@ -114,20 +114,20 @@
         border-bottom: dotted $grey-4 1px;
 
         .Head{
-          height: 30px; width: 36px;
+          height: 30px; width: 30px;
           flex-basis: 36px;
           flex-shrink: 0;
 
           .Pin{
             width: 8px; height: 8px;
-            margin: 11px 14px;
+            margin: 11px 11px;
             border-radius: 4px;
             background-color: $footix-blue;
           }
 
-          //          .chn-ico{
-          //            margin: 3px 6px;
-          //          }
+          .chn-18{
+            margin: 6px 6px;
+          }
         }
 
         .Flag{
@@ -205,23 +205,6 @@
 
       .RowSubLine{
         display: flex;
-
-        .Head{
-          height: 30px; width: 36px;
-          flex-basis: 36px;
-          flex-shrink: 0;
-          //
-          //          .Pin{
-          //            width: 8px; height: 8px;
-          //            margin: 11px 14px;
-          //            border-radius: 4px;
-          //            background-color: $footix-blue;
-          //          }
-          //
-          //          .chn-ico{
-          //            margin: 3px 6px;
-          //          }
-        }
 
         .PredictionLabel{
           position: absolute;
