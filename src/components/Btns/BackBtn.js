@@ -13,7 +13,8 @@ class BackBtn extends Component {
   render() {
     return (
       <div className="BackBtn" onTouchTap={this.goBack.bind(this)} title={Labels.back}>
-        <div className="icn-20 back"></div>
+        <div className="icn-26 back"></div>
+        <div className="Label">Matchs</div>
       </div>
     );
   }

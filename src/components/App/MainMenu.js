@@ -43,12 +43,19 @@ class MainMenu extends Component {
     return (
       <menu className="MainMenu">
         <div className="Left">
-          <div className="Desktop" onTouchTap={this.switchNavClick.bind(this)}>
-            <div className={'icn-36 main ' + config.appName}></div>
-          </div>
-          <div className="Mobile" onTouchTap={this.goHome.bind(this)}>
-            <div className={'icn-26 main ' + config.appName}></div>
-          </div>
+          {routeName != 'game' &&
+            <div>
+              <div className="Desktop" onTouchTap={this.switchNavClick.bind(this)}>
+                <div className={'icn-36 main ' + config.appName}></div>
+              </div>
+              <div className="Mobile" onTouchTap={this.goHome.bind(this)}>
+                <div className={'icn-26 main ' + config.appName}></div>
+              </div>
+            </div>
+          }
+          {routeName == 'game' &&
+            backBtn
+          }
         </div>
         <div className="Center">
           {headerBtn}
