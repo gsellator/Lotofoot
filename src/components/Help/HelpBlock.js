@@ -24,7 +24,7 @@ class HelpBlock extends Component {
           Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est
           l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.<br/><br/>
 
-          Le nombre de points que vos pronostics vous rapportent dépendent :<br/>
+          Le nombre de points que vos pronostics vous rapportent dépend :<br/>
           - Du stade de la compétition auquel appartient le match (groupes, quarts de finale...)<br/>
           - De l'exactitude de votre pronostic (bon vainqueur, bon vainqueur et bonne différence de buts, bon vainqueur avec le score exact)<br/><br/>
 

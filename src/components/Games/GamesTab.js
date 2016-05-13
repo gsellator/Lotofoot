@@ -75,6 +75,9 @@ class GamesTab extends Component {
             <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
               <div className="GamesLabel">Tous</div>
             </div>
+            {false && <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
+              <div className="GamesLabel">Pas encore pronostiqués</div>
+            </div>}
             <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
               <div className="GamesLabel">Groupe A</div>
             </div>
