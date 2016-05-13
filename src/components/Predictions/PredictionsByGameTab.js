@@ -36,7 +36,9 @@ class PredictionsByGameTab extends Component {
               <div className="Center">
                 {teamsData[item.game.teamA] &&
                   <div className="Team">
-                    <div className="Flag"><img src={teamsData[item.game.teamA].flagUrl} /></div>
+                    <div className="Flag">
+                      <div className={'flag-12 ' + teamsData[item.game.teamA].slug} />
+                   </div>
                   </div>
                 }
                 <div className="ScoreContainer">
@@ -48,7 +50,9 @@ class PredictionsByGameTab extends Component {
                 </div>
                 {teamsData[item.game.teamB] &&
                   <div className="Team">
-                    <div className="Flag"><img src={teamsData[item.game.teamB].flagUrl} /></div>
+                    <div className="Flag">
+                      <div className={'flag-12 ' + teamsData[item.game.teamB].slug} />
+                    </div>
                   </div>
                 }
               </div>
