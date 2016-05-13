@@ -136,7 +136,7 @@ class GamesTab extends Component {
                           }
                         </div>
                         <div className="Left">
-                          <div className="Flag" style={{backgroundImage: 'url(' + item.teamA.flagUrl + ')'}} />
+                          <div className={'flag-12 ' + item.teamA.slug} />
                           <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
                         </div>
                         <div className="Center">
@@ -163,7 +163,7 @@ class GamesTab extends Component {
                           }
                         </div>
                         <div className="Right">
-                          <div className="Flag" style={{backgroundImage: 'url(' + item.teamB.flagUrl + ')'}} />
+                          <div className={'flag-12 ' + item.teamB.slug} />
                           <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
                         </div>
 

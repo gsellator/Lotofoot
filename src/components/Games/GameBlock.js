@@ -50,7 +50,7 @@ class GameBlock extends Component {
               <div className="TeamBlock">
                 <div className={(data.winner === 'teamA' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
                   <div className="Flag">
-                    <div className="Img" style={{backgroundImage: 'url(' + data.teamA.flagUrl + ')'}} />
+                    <div className={'flag-60 ' + data.teamA.slug} />
                   </div>
                   <div className="Label">{data.teamA.name}</div>
                 </div>
@@ -88,7 +88,7 @@ class GameBlock extends Component {
                 </div>
                 <div className={(data.winner === 'teamB' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
                   <div className="Flag">
-                    <div className="Img" style={{backgroundImage: 'url(' + data.teamB.flagUrl + ')'}} />
+                    <div className={'flag-60 ' + data.teamB.slug} />
                   </div>
                   <div className="Label">{data.teamB.name}</div>
                 </div>

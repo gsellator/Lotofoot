@@ -4,7 +4,7 @@
 
 .Paper.GamesTab{
   text-align: center;
-//  padding-top: 0;
+  //  padding-top: 0;
   padding-bottom: 0;
 
   .PhaseSelector{
@@ -131,13 +131,10 @@
           }
         }
 
-        .Flag{
+        .flag-12{
           position: absolute;
           width: 18px; height: 12px;
           top: 9px;
-          background-size: contain;
-          background-position: 50% 50%;
-          background-repeat: no-repeat;
         }
 
         .TeamLabel{
@@ -160,6 +157,7 @@
           flex: 1;
 
           .Flag{right: 0;}
+          .flag-12{right: 0;}
           .TeamLabel{
             right: 24px; left: 0;
             text-align: right;

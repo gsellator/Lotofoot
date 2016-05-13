@@ -5,6 +5,11 @@
   background-size: 720px 220px;
 }
 
+@mixin uiux-flags{
+  background: url('../../assets/uiux_flags.png') 0 0 no-repeat;
+  background-size: 2390px 77px;
+}
+
 .icn-10{
   @include uiux-icons;
   width: 10px; height: 10px;
@@ -127,4 +132,65 @@
   &.m6{background-position: -30px -145px;}
   &.tmc{background-position: -60px -145px;}
   &.bein-sports-1{background-position: -90px -145px;}
+}
+
+
+.flag-60{
+  @include uiux-flags;
+  width: 90px; height: 60px;
+
+  &.albania{background-position: -0px -0px;}
+  &.austria{background-position: -100px -0px;}
+  &.belgium{background-position: -200px -0px;}
+  &.croatia{background-position: -300px -0px;}
+  &.england{background-position: -400px -0px;}
+  &.france{background-position: -500px -0px;}
+  &.germany{background-position: -600px -0px;}
+  &.hungary{background-position: -700px -0px;}
+  &.iceland{background-position: -800px -0px;}
+  &.ireland{background-position: -900px -0px;}
+  &.italy{background-position: -1000px -0px;}
+  &.northern-ireland{background-position: -1100px -0px;}
+  &.poland{background-position: -1200px -0px;}
+  &.portugal{background-position: -1300px -0px;}
+  &.romania{background-position: -1400px -0px;}
+  &.russia{background-position: -1500px -0px;}
+  &.slovakia{background-position: -1600px -0px;}
+  &.spain{background-position: -1700px -0px;}
+  &.sweden{background-position: -1800px -0px;}
+  &.switzerland{background-position: -1900px -0px;}
+  &.czech-republic{background-position: -2000px -0px;}
+  &.turkey{background-position: -2100px -0px;}
+  &.ukraine{background-position: -2200px -0px;}
+  &.wales{background-position: -2300px -0px;}
+}
+
+.flag-12{
+  @include uiux-flags;
+  width: 18px; height: 12px;
+
+  &.albania{background-position: -0px -65px;}
+  &.austria{background-position: -100px -65px;}
+  &.belgium{background-position: -200px -65px;}
+  &.croatia{background-position: -300px -65px;}
+  &.england{background-position: -400px -65px;}
+  &.france{background-position: -500px -65px;}
+  &.germany{background-position: -600px -65px;}
+  &.hungary{background-position: -700px -65px;}
+  &.iceland{background-position: -800px -65px;}
+  &.ireland{background-position: -900px -65px;}
+  &.italy{background-position: -1000px -65px;}
+  &.northern-ireland{background-position: -1100px -65px;}
+  &.poland{background-position: -1200px -65px;}
+  &.portugal{background-position: -1300px -65px;}
+  &.romania{background-position: -1400px -65px;}
+  &.russia{background-position: -1500px -65px;}
+  &.slovakia{background-position: -1600px -65px;}
+  &.spain{background-position: -1700px -65px;}
+  &.sweden{background-position: -1800px -65px;}
+  &.switzerland{background-position: -1900px -65px;}
+  &.czech-republic{background-position: -2000px -65px;}
+  &.turkey{background-position: -2100px -65px;}
+  &.ukraine{background-position: -2200px -65px;}
+  &.wales{background-position: -2300px -65px;}
 }

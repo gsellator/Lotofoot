@@ -36,7 +36,7 @@ class HeaderBtn extends Component {
 
             <div className="Cartouche">
               <span className="Flag">
-                <img src={data.teamA && data.teamA.flagUrl} />
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} />}
               </span>
               {FormatDate.isToday(data.datetime) &&
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
@@ -49,7 +49,7 @@ class HeaderBtn extends Component {
                 </span>
               }
               <span className="Flag">
-                <img src={data.teamB && data.teamB.flagUrl} />
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} />}
               </span>
             </div>
           </div>
@@ -60,7 +60,7 @@ class HeaderBtn extends Component {
 
             <div className="Cartouche">
               <span className="Flag">
-                <img src={data.teamA && data.teamA.flagUrl} />
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} />}
               </span>
               <span className="Score">
                 {data.scoreTeamA || '0'}
@@ -70,7 +70,7 @@ class HeaderBtn extends Component {
                 {data.scoreTeamB || '0'}
               </span>
               <span className="Flag">
-                <img src={data.teamB && data.teamB.flagUrl} />
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} />}
               </span>
             </div>
           </div>
