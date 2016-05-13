@@ -51,6 +51,7 @@
   &.help{background-position: -275px 0;}
   &.account{background-position: -305px 0;}
   &.refresh{background-position: -335px 0;}
+  &.back{background-position: -365px 0; width: 16px;}
 
   &:hover{background-position-y:-30px;}
   &:active, &.active{background-position-y:-60px;}
