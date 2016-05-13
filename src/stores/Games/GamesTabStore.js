@@ -15,7 +15,7 @@ class GamesTabStore extends BaseStore {
     super(dispatcher);
     this.data;
     this.tab = '-';
-    this.phase = '0';
+    this.phase = '1';
   }
 
   handleApiOk({ data, route }) {
