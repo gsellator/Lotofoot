@@ -3,7 +3,6 @@ import { connectToStores } from "fluxible-addons-react";
 import { navigateAction } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Labels from "../../constants/Labels";
-import config from "../../config";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/HeaderBtn.scss");
@@ -15,8 +14,8 @@ class HeaderBtn extends Component {
     getStore: PropTypes.func.isRequired
   }
 
-  reload(){
-    const newroute = this.context.getStore("RouteStore").makePath('home');
+  goToGame(gameId){
+    const newroute = this.context.getStore("RouteStore").makePath('game', { gameId });
     this.context.executeAction(navigateAction, { url: newroute });
   }
 
@@ -26,17 +25,17 @@ class HeaderBtn extends Component {
     const { data } = this.props;
 
     return (
-      <div className="HeaderBtn" onTouchTap={this.reload.bind(this)} title={Labels.home}>
-        {(routeName === 'home' || !data) &&
-          <div className={'icn-20 title ' + config.appName}></div>
+      <div className="HeaderBtn">
+        {(!data || (data && data.status === 'FINISHED')) &&
+          <div className="icn-20 title"></div>
         }
-        {(routeName != 'home' && data && data.status === 'TIMED') &&
-          <div className="Live">
+        {data && data.status === 'TIMED' &&
+          <div className="Live" onTouchTap={this.goToGame.bind(this, data._id)}>
             <div className="icn-10 next"></div>
 
             <div className="Cartouche">
               <span className="Flag">
-                <img src={data.teamA && data.teamA.flagUrl} />
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} />}
               </span>
               {FormatDate.isToday(data.datetime) &&
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
@@ -49,18 +48,18 @@ class HeaderBtn extends Component {
                 </span>
               }
               <span className="Flag">
-                <img src={data.teamB && data.teamB.flagUrl} />
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} />}
               </span>
             </div>
           </div>
         }
-        {(routeName != 'home' && data && data.status === 'IN_PROGRESS') &&
-          <div className="Live">
+        {data && data.status === 'IN_PROGRESS' &&
+          <div className="Live" onTouchTap={this.goToGame.bind(this, data._id)}>
             <div className="icn-10 live"></div>
 
             <div className="Cartouche">
               <span className="Flag">
-                <img src={data.teamA && data.teamA.flagUrl} />
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} />}
               </span>
               <span className="Score">
                 {data.scoreTeamA || '0'}
@@ -70,7 +69,7 @@ class HeaderBtn extends Component {
                 {data.scoreTeamB || '0'}
               </span>
               <span className="Flag">
-                <img src={data.teamB && data.teamB.flagUrl} />
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} />}
               </span>
             </div>
           </div>

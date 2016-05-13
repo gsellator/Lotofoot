@@ -5,7 +5,6 @@
   vertical-align: top;
   height: 40px;
   margin: 7px 3px 7px 0;
-  cursor: pointer;
   padding: 8px 6px;
 
   &:hover{
@@ -20,7 +19,13 @@
     margin: 4px 0;
   }
 
+  .icn-10{
+    margin: auto;
+  }
+
   .Live{
+    cursor: pointer;
+
     .icn-20{
       margin: 0;
     }
@@ -38,11 +43,8 @@
         font-size: 0;
         &:first-child{margin-right: 3px;}
         &:last-child{margin-left: 3px;}
-
-        img{
-          height: 12px;
-        }
       }
+
       .Score{
         display: inline-block;
         vertical-align: top;

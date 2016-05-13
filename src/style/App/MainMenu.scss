@@ -9,9 +9,9 @@
   margin: 0; padding: 0;
   box-shadow: 0 0 3px rgba(0,0,0,.3);
   background: white;
-  font-size: 0;
-  overflow-x: auto; overflow-y: hidden; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
   user-select: none;
+  display: flex;
+  justify-content: space-between;
 
   &.MainMenuAnim-enter {
     transform: translateY(-60px);
@@ -31,176 +31,41 @@
     transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   }
 
-  .MainMenuTab{
-    display: table;
-    width: 100%;
+  .Left{
+    flex: 1;
+    padding-left: 6px;
 
-    .MainMenuLeft{
-      display: table-cell;
-      vertical-align: top;
-      white-space: nowrap;
-      width: 73px;
-      text-align: center;
-      padding: 0 2px 0 0;
-      //      border-right: solid $grey-5 1px; 
-            box-shadow: 0 0 3px rgba(0,0,0,.3);
-
-      .MainLink{
-        display: inline-block;
-        cursor: pointer;
-        padding: 11px 1px;
-
-        &:hover .icn-36{background-position-y:-36px;}
-        &:active .icn-36{background-position-y:-72px;}
-      }
-
-      .MainLinkMobile{
-        display: none;
-        cursor: pointer;
-        padding: 16px 6px;
-
-        &:hover .icn-26{background-position-y:-30px;}
-        &:active .icn-26{background-position-y:-60px;}
-      }
-    }
-
-    .MainMenuCenter{
-      display: table-cell;
-      vertical-align: top;
-      white-space: nowrap;
-      padding: 0 6px;
-    }
-
-    .MainMenuItem{
-      display: inline-block;
-      vertical-align: top;
-      height: 40px;
-      margin: 9px 3px 9px 0;
-      padding: 0 9px;
-      background: $grey-1;
-      border-radius: 2px;
+    .Desktop{
       cursor: pointer;
-      &:hover{
-        background: $grey-2;
-        .icn-20{background-position-y:-30px;}
-        .MainMenuSubItem.cibs, .MainMenuSubItem.dtes{background: $grey-4;}
-      }
-      &:active{
-        background: $grey-1;
-        color: $footix-blue;
-        .icn-20{background-position-y:-60px;}
-        .MainMenuSubItem.cibs, .MainMenuSubItem.dtes{background: $grey-3;}
-      }
+      padding: 11px 13px;
 
-      .icn-20{
-        display: inline-block;
-        vertical-align: top;
-        margin: 10px 6px 10px 0;
-      }
-
-      &.chn{
-        padding: 8px 10px;
-      }
-
-      &.tarif{
-        padding: 10px 12px;
-        .icn-20{margin: 0;}
-      }
-
-      &.dp{
-        padding: 8px 12px;
-        position: relative;
-        .icn-20{margin: 0;}
-        .start{
-          position: absolute;
-          top: 5px; left: 0;
-          width: 100%;
-          margin: 0;
-          text-align: center;
-        }
-        .end{
-          position: absolute;
-          top: 17px; left: 0;
-          width: 100%;
-          margin: 0;
-          text-align: center;
-        }
-      }
-
-      &.level{
-        padding: 10px 12px;
-        .icn-20{margin: 0;}
-      }
-
-      &.Dte{
-        position: relative;
-        width: 48px;
-        padding: 0;
-      }
-
-      .MainMenuSubItem{
-        display: inline-block;
-        vertical-align: top;
-        margin: 11px 0;
-        padding: 2px 0;
-        font-size: 12px;
-        text-transform: uppercase;
-        font-weight: 300;
-
-        &.cibs, &.dtes{
-          border-radius: 2px;
-          background: $grey-3;
-          margin: 11px 2px;
-          padding: 2px;
-        }
-
-        &.DteMonth{
-          position: absolute;
-          top: 0; left: 0;
-          width: 48px; height: 14px;
-          line-height: 10px;
-          font-size: 11px;
-          margin: 0;
-          text-align: center;
-          background: $grey-3;
-          border-top-left-radius: 2px;
-          border-top-right-radius: 2px;
-          font-weight: 300;
-        }
-
-        &.DteDay{
-          position: absolute;
-          top: 14px; left: 0;
-          width: 48px; height: 26px;
-          line-height: 21px;
-          font-size: 18px;
-          margin: 0;
-          text-align: center;
-          border-top-left-radius: 2px;
-          border-top-right-radius: 2px;
-          text-transform: none;
-          font-weight: 300;
-        }
-      }
+      &:hover .icn-36{background-position-y:-36px;}
+      &:active .icn-36{background-position-y:-72px;}
     }
+
+    .Mobile{
+      display: none;
+      cursor: pointer;
+      padding: 16px 6px;
+    }
+  }
+
+  .Right{
+    flex: 1;
+    text-align: right;
+    padding-right: 6px;
   }
 }
 
 @media (max-width: $break-medium){
   .MainMenu{
-    .MainMenuTab{
-      .MainMenuLeft{
-        padding: 0 2px 0 0;
-        width: 50px;
-        box-shadow: none;
+    .Left{
+      .Desktop{
+        display: none;
+      }
 
-        .MainLink{
-          display: none;
-        }
-
-//        .MainLinkMobile{
-//          display: inline-block;
-//        }
+      .Mobile{
+        display: block;
       }
     }
   }
