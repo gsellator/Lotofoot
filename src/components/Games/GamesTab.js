@@ -182,7 +182,7 @@ class GamesTab extends Component {
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              <span className="icn-16 chip" />
+                              {false && <span className="icn-16 chip" />}
                               <span>Pas encore de pronostic</span>
                             </div>
                           }

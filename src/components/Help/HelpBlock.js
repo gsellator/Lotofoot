@@ -36,9 +36,9 @@ class HelpBlock extends Component {
             <thead>
               <tr>
                 <th></th>
-                <th>Bon vainqueur</th>
-                <th>Bonne diff de buts</th>
-                <th>Bon score</th>
+                <th>Bon gagnant</th>
+                <th>Gagnant & bonne diff de buts</th>
+                <th>Gagnant & bon score</th>
               </tr>
             </thead>
             <tbody>

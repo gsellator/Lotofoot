@@ -6,7 +6,9 @@ const PredictionBlockAction = {
   create(context, { route, scoreTeamA, scoreTeamB, gameId }, done) {
     context.dispatch(Actions.PENDING_PREDICTIONS_CREATE);
 
-    if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB))){return;}
+    if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB))){
+      return context.dispatch(Actions.APIOK_PREDICTIONS_CREATE, {});
+    }
 
     let winner = 'nobody';
     if (scoreTeamA > scoreTeamB)

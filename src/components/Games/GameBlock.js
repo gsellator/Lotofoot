@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
+import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
 
@@ -21,7 +21,7 @@ class GameBlock extends Component {
     return (
       <div className="Paper GameBlock">
         {data &&
-          <div>
+          <NavLink routeName="game" navParams={{gameId: data._id}}>
             <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
 
             <div className="GameBlockData">
@@ -106,21 +106,7 @@ class GameBlock extends Component {
                 <div className="chn-24 bein-sports-1"></div>
               </div>
             </div>
-          </div>
-        }
-
-        {false &&
-          <div>
-            <div>data.friendlyId : {data.friendlyId}</div>
-            <div>data.datetime : {data.datetime}</div>
-            <div>data.status : {data.status}</div>
-            <div>data.createdAt : {data.createdAt}</div>
-            <div>data.updatedAt : {data.updatedAt}</div>
-            <div>data.teamA._id : {data.teamA._id}</div>
-            <div>data.teamA.slug : {data.teamA.slug}</div>
-            <div>data.teamB._id : {data.teamB._id}</div>
-            <div>data.teamB.slug : {data.teamB.slug}</div>
-          </div>
+          </NavLink>
         }
       </div>
     );

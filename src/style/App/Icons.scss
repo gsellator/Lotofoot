@@ -50,6 +50,7 @@
   width: 26px; height: 26px;
   background-position: -125px 0;
 
+  &.more{background-position: -125px 0;}
   &.menu{background-position: -155px 0;}
   &.games, &.home{background-position: -185px 0;}
   &.ranking{background-position: -215px 0;}
