@@ -32,19 +32,7 @@
   background-position: -485px 0;
 
   &.back{background-position: -510px 0;}
-  &.title{
-    background-position: -535px 0; width: 80px;
-
-    &.lotofoot-dev, &.lotofoot-pre{
-      position: relative;
-      &:before {
-        content: "*";
-        position: absolute;
-        top: -4px; right: -8px;
-        font-size: 20px;
-      }
-    }
-  }
+  &.title{background-position: -535px 0; width: 80px;}
 
   &:hover{background-position-y:-30px;}
   &:active{background-position-y:-60px;}
@@ -68,11 +56,43 @@
   &:active, &.active{background-position-y:-60px;}
 }
 
+.icn-26{
+  @include uiux-icons;
+  width: 26px; height: 26px;
+
+  &.main{
+    background-position: -225px -180px;
+
+    &.lotofoot-dev, &.lotofoot-pre{
+      position: relative;
+      &:before {
+        content: "*";
+        position: absolute;
+        top: -8px; right: -8px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
 .icn-36{
   @include uiux-icons;
   width: 36px; height: 36px;
 
-  &.main{background-position: -0px -0px;}
+  &.main{
+    background-position: -0px -0px;
+
+    &.lotofoot-dev, &.lotofoot-pre{
+      position: relative;
+      &:before {
+        content: "*";
+        position: absolute;
+        top: -8px; right: -8px;
+        font-size: 20px;
+      }
+    }
+  }
+
   &.main.full{background-position: -0px -0px; width: 120px;}
 
   &:hover{background-position-y:-36px;}
