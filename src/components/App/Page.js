@@ -11,6 +11,7 @@ import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";
 
 import MainMenu from "../../components/App/MainMenu";
 import Nav from "../../components/App/Nav";
+import TabNav from "../../components/App/TabNav";
 import Dialog from "../../components/Dialog/Dialog";
 import AccountDialog from "../../components/Dialog/AccountDialog";
 import NotificationComponent from './Notification';
@@ -38,10 +39,11 @@ class Page extends Component {
     const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
     const { isLogged, hasDialog, hasAccountDialog } = this.props;
 
-    let mainMenu, nav, body, dialog, accountDialog;
+    let mainMenu, nav, tabnav, body, dialog, accountDialog;
     if (pageName != 'login' && pageName != 'userRegister' && pageName != 'recoverInit' && pageName != 'recover') {
       mainMenu = <MainMenu />;
       nav = <Nav />;
+      tabnav = <TabNav />;
     }
     if (hasDialog) {dialog = <Dialog key="1"/>;}
     if (hasAccountDialog) {accountDialog = <AccountDialog />;}
@@ -52,13 +54,16 @@ class Page extends Component {
         <ReactCSSTransitionGroup transitionName="MainMenuAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           {mainMenu}
         </ReactCSSTransitionGroup>
-        
+
         <ReactCSSTransitionGroup transitionName="AccountDialogAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           {accountDialog}
         </ReactCSSTransitionGroup>
 
         <ReactCSSTransitionGroup transitionName="NavAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           {nav}
+        </ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup transitionName="TabNavAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+          {tabnav}
         </ReactCSSTransitionGroup>
 
         <div className="Page-body">

@@ -1,9 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
-import { postApi, putApi } from "../../actions/Pages/ApiAction";
-import { initCreate, initUpdate } from "../../actions/Predictions/PredictionBlockAction";
-import Actions from "../../constants/Actions";
+import { RouteStore } from "fluxible-router";
+import { create, update } from "../../actions/Predictions/PredictionBlockAction";
 
 if (process.env.BROWSER) {
   require("../../style/Predictions/PredictionBlock.scss");
@@ -26,62 +24,25 @@ class PredictionBlock extends Component {
 
   handleChangeA(e) {
     this.setState({scoreTeamA: e.target.value});
-//    if (e.target.value && this.state.scoreTeamB)
-//      this.postPrediction(e.target.value);
   }
 
   handleChangeB(e) {
     this.setState({scoreTeamB: e.target.value});
-//    if (e.target.value && this.state.scoreTeamA)
-//      this.postPrediction(undefined, e.target.value);
   }
 
   postPrediction(scoreA, scoreB) {
-    if (this.props.data._id){
-      // Update prediction
-      this.context.executeAction(initUpdate, {});
-      const route = this.context.getStore("RouteStore").getCurrentRoute();
-      let scoreTeamA = this.state.scoreTeamA;
-      let scoreTeamB = this.state.scoreTeamB;
-
-      let winner = 'nobody';
-      if (scoreTeamA > scoreTeamB)
-        winner = 'teamA';
-      else if (scoreTeamA < scoreTeamB)
-        winner = 'teamB';
-
-      const body = {
-        scoreTeamA: scoreTeamA,
-        scoreTeamB: scoreTeamB,
-        winner: winner
-      }
-
-      this.context.executeAction(putApi, { predictionId: this.props.data._id, route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE });
-    } else {
+    if (!this.props.data._id){
       // Create prediction
-      this.context.executeAction(initCreate, {});
       const route = this.context.getStore("RouteStore").getCurrentRoute();
       let scoreTeamA = scoreA || this.state.scoreTeamA;
       let scoreTeamB = scoreB || this.state.scoreTeamB;
-
-      if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB))){
-        return;
-      }
-
-      let winner = 'nobody';
-      if (scoreTeamA > scoreTeamB)
-        winner = 'teamA';
-      else if (scoreTeamA < scoreTeamB)
-        winner = 'teamB';
-
-      const body = {
-        game: { _id: this.props.gameData._id },
-        scoreTeamA: scoreTeamA,
-        scoreTeamB: scoreTeamB,
-        winner: winner
-      }
-
-      this.context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE});
+      this.context.executeAction(create, { route, scoreTeamA, scoreTeamB, gameId: this.props.gameData._id });
+    } else {
+      // Update prediction
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      let scoreTeamA = this.state.scoreTeamA;
+      let scoreTeamB = this.state.scoreTeamB;
+      this.context.executeAction(update, { route, scoreTeamA, scoreTeamB, predictionId: this.props.data._id });
     }
   }
 

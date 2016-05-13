@@ -28,12 +28,14 @@ class GamesTab extends Component {
 
     return (
       <div className="Paper GamesTab">
-        <div className="AltPaperTitle">
-          <div className="Label">
-            Tous les matchs
+        {true &&
+          <div className="AltPaperTitle">
+            <div className="Label">
+              Tous les matchs
+            </div>
+            <div className="icn-60 footix"></div>
           </div>
-          <div className="icn-60 footix"></div>
-        </div>
+        }
 
         {false &&
           <div className="PhaseSelector">
@@ -49,29 +51,69 @@ class GamesTab extends Component {
           </div>
         }
 
-        <div className="GamesSelector">
-          <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
-            <div className="GamesLabel">Tous</div>
+        {phase === '0' &&
+          <div className="GamesSelector">
+            <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
+              <div className="GamesLabel">Tous</div>
+            </div>
+            <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
+              <div className="GamesLabel">Sem 1</div>
+            </div>
+            <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
+              <div className="GamesLabel">Sem 2</div>
+            </div>
+            <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
+              <div className="GamesLabel">Sem 3</div>
+            </div>
+            <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
+              <div className="GamesLabel">Sem 4</div>
+            </div>
           </div>
-          <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
-            <div className="GamesLabel">Groupe A</div>
+        }
+        {phase === '1' &&
+          <div className="GamesSelector">
+            <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
+              <div className="GamesLabel">Tous</div>
+            </div>
+            <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
+              <div className="GamesLabel">Groupe A</div>
+            </div>
+            <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
+              <div className="GamesLabel">Groupe B</div>
+            </div>
+            <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
+              <div className="GamesLabel">Groupe C</div>
+            </div>
+            <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
+              <div className="GamesLabel">Groupe D</div>
+            </div>
+            <div className={tab === 'e' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'e')}>
+              <div className="GamesLabel">Groupe E</div>
+            </div>
+            <div className={tab === 'f' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'f')}>
+              <div className="GamesLabel">Groupe F</div>
+            </div>
           </div>
-          <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
-            <div className="GamesLabel">Groupe B</div>
+        }
+        {phase === '2' &&
+          <div className="GamesSelector">
+            <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
+              <div className="GamesLabel">Tous</div>
+            </div>
+            <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
+              <div className="GamesLabel">1/8</div>
+            </div>
+            <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
+              <div className="GamesLabel">1/4</div>
+            </div>
+            <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
+              <div className="GamesLabel">1/2</div>
+            </div>
+            <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
+              <div className="GamesLabel">Finale</div>
+            </div>
           </div>
-          <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
-            <div className="GamesLabel">Groupe C</div>
-          </div>
-          <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
-            <div className="GamesLabel">Groupe D</div>
-          </div>
-          <div className={tab === 'e' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'e')}>
-            <div className="GamesLabel">Groupe E</div>
-          </div>
-          <div className={tab === 'f' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'f')}>
-            <div className="GamesLabel">Groupe F</div>
-          </div>
-        </div>
+        }
 
         <div className="TabContent">
           {data && data.map((item, i) =>

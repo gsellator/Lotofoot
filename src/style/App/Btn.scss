@@ -16,7 +16,7 @@
 
   &:hover{background-color: $grey-3;}
   &:focus{background-color: $grey-3; outline: none; border: $fluo-blue solid 1px;}
-  &:active{background: $grey-2; color: $blue-fluo}
+  &:active{background: $grey-2; color: $footix-blue}
   &.active{background: $blue-medium;}
   &.inactive{background: transparent; border: solid $grey-3 1px; line-height: 28px;}
 }
@@ -74,7 +74,7 @@
 
   &:focus{background-color: $grey-2; outline: none; border: $fluo-blue solid 1px;}
   &:hover{background-color: $grey-2;}
-  &:active{background: $grey-1; color: $blue-fluo; filter: none;}
+  &:active{background: $grey-1; color: $footix-blue; filter: none;}
   &.active{background: $blue-medium; filter: none; div{opacity: 1;}}
 }
 
@@ -128,7 +128,7 @@
 
   &.on{
     .switch{
-      background-color: $blue-fluo;
+      background-color: $footix-blue;
       &:before {
         content: "ON";
         position: absolute;

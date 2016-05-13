@@ -87,7 +87,7 @@
       }
       &:active{
         background: $grey-1;
-        color: $blue-fluo;
+        color: $footix-blue;
         .icn-20{background-position-y:-60px;}
         .MainMenuSubItem.cibs, .MainMenuSubItem.dtes{background: $grey-3;}
       }
@@ -186,20 +186,21 @@
   }
 }
 
-@media screen and (max-width: $break-medium) {
+@media (max-width: $break-medium){
   .MainMenu{
     .MainMenuTab{
       .MainMenuLeft{
         padding: 0 2px 0 0;
         width: 50px;
+        box-shadow: none;
 
         .MainLink{
           display: none;
         }
 
-        .MainLinkMobile{
-          display: inline-block;
-        }
+//        .MainLinkMobile{
+//          display: inline-block;
+//        }
       }
     }
   }

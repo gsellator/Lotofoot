@@ -28,7 +28,7 @@ class Nav extends Component {
     const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
 
     return (
-      <div className="Navs">
+      <div className="Nav">
           <nav className="NavSummary">
             {
               Sections.map(sect =>
@@ -75,10 +75,9 @@ class Nav extends Component {
   }
 }
 
-Nav = connectToStores(Nav, ["NavStore", "LoginPageStore"], (context) => {
+Nav = connectToStores(Nav, ["NavStore"], (context) => {
   return {
     hasNav: context.getStore("NavStore").hasNav(),
-    credentials: context.getStore("LoginPageStore").getCredentials()
   };
 }, {getStore: PropTypes.func});
 
