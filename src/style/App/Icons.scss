@@ -2,37 +2,33 @@
 
 @mixin uiux-icons{
   background: url('../../assets/uiux_icons.png') 0 0 no-repeat;
-  background-size: 1320px 340px;
+  background-size: 720px 220px;
 }
 
 .icn-10{
   @include uiux-icons;
   width: 10px; height: 10px;
 
-  &.live{background-position: -90px -120px; width: 24px;}
-  &.next{background-position: -120px -120px; width: 32px;}
+  &.live{background-position: -275px -92px; width: 24px;}
+  &.next{background-position: -305px -92px; width: 32px;}
 }
 
 .icn-16{
   @include uiux-icons;
   width: 16px; height: 16px;
 
-  &.top{background-position: -122px -100px;}
-  &.right{background-position: -138px -100px;}
-  &.bottom{background-position: -154px -100px;}
-  &.left{background-position: -170px -100px;}
-  &.pin{background-position: -186px -100px;}
+  &.pin{background-position: -125px -92px;}
+  &.chip{background-position: -175px -92px;}
 }
 
 .icn-20{
   @include uiux-icons;
   width: 20px; height: 20px;
-  background-position: -600px 0;
+  background-position: -485px 0;
 
-  &.refresh{background-position: -620px 0;}
-  &.back{background-position: -640px 0;}
+  &.back{background-position: -510px 0;}
   &.title{
-    background-position: -700px 0; width: 80px;
+    background-position: -535px 0; width: 80px;
 
     &.lotofoot-dev, &.lotofoot-pre{
       position: relative;
@@ -52,21 +48,15 @@
 .icn-26{
   @include uiux-icons;
   width: 26px; height: 26px;
+  background-position: -125px 0;
 
-  &.apps{background-position: -120px 0;}
-  &.account{background-position: -150px 0;}
-  &.settings, &.prefs{background-position: -180px 0;}
-  &.help{background-position: -210px 0;}
-  &.export{background-position: -240px 0;}
-  &.print{background-position: -270px 0;}
-  &.menu{background-position: -300px 0;}
-  &.more{background-position: -330px 0;}
-//  &.home{background-position: -360px 0;}
-  &.games, &.home{background-position: -390px 0;}
-  &.predictions{background-position: -420px 0;}
-  &.ranking{background-position: -450px 0;}
-  &.refresh{background-position: -480px 0;}
-  &.chat{background-position: -510px 0;}
+  &.menu{background-position: -155px 0;}
+  &.games, &.home{background-position: -185px 0;}
+  &.ranking{background-position: -215px 0;}
+  &.chat{background-position: -245px 0;}
+  &.help{background-position: -275px 0;}
+  &.account{background-position: -305px 0;}
+  &.refresh{background-position: -335px 0;}
 
   &:hover{background-position-y:-30px;}
   &:active, &.active{background-position-y:-60px;}
@@ -83,63 +73,18 @@
   &:active{background-position-y:-72px;}
 }
 
-.icn-42{
-  @include uiux-icons;
-  width: 42px; height: 42px;
-
-  &.twitter{background-position: -0px -160px;}
-  &.linkedin{background-position: -42px -160px;}
-  &.github{background-position: -84px -160px;}
-  &.email{background-position: -126px -160px;}
-  &.phone{background-position: -168px -160px;}
-}
-
 .icn-60{
   @include uiux-icons;
   width: 60px; height: 60px;
 
-  &.footix{background-position: 0 -210px;}
-}
-
-.icn-70{
-  @include uiux-icons;
-  width: 70px; height: 45px;
-
-  &.tf1{background-position: -340px -160px;}
-  &.rmc{background-position: -410px -160px;}
-  &.next{background-position: -480px -160px;}
-  &.nrj{background-position: -550px -160px;}
-  &.c25{background-position: -620px -160px;}
-  &.esp{background-position: -690px -160px;}
-  &.pluri{background-position: -760px -160px;}
-  &.tmc{background-position: -830px -160px;}
-  &.nt1{background-position: -900px -160px;}
-  &.hd1{background-position: -970px -160px;}
-  &.discovery{background-position: -1040px -160px;}
-  &.lci{background-position: -1110px -160px;}
+  &.footix{background-position: -225px -115px;}
 }
 
 .icn-100{
   @include uiux-icons;
   width: 100px; height: 100px;
 
-  &.account{background-position: -1050px -0px;}
-}
-
-.icn-150{
-  @include uiux-icons;
-  width: 150px; height: 150px;
-
-  &.wand{background-position: -600px -0px;}
-  &.hammer{background-position: -750px -0px;}
-  &.brush{background-position: -900px -0px;}
-}
-
-.icn-200{
-  @include uiux-icons;
-  width: 200px; height: 200px;
-
-  &.footix{background-position: -400px -100px;}
+  &.account{background-position: -120px -115px;}
 }
 
 .pixel{
@@ -159,19 +104,26 @@
   &.toulouse{background: url('../../assets/staduims/toulouse.jpg');}
 }
 
-//.sort-ico{
-//  position: relative;
-//
-//  &:before {
-//    @include uiux-icons;
-//    content: "";
-//    position: absolute;
-//    top: 0; left: 50%;
-//    margin-left: -20px;
-//    width: 100%;
-//    height: 100%;
-//    max-width: 40px;
-//  }
-//  &.desc:before{background-position: -0px -110px;}
-//  &.asc:before{background-position: -40px -109px;}
-//}
+.chn-24{
+  @include uiux-icons;
+  display: inline-block;
+  vertical-align: top;
+  width: 24px; height: 24px;
+
+  &.tf1{background-position: -0px -115px;}
+  &.m6{background-position: -30px -115px;}
+  &.tmc{background-position: -60px -115px;}
+  &.bein-sports-1{background-position: -90px -115px;}
+}
+
+.chn-18{
+  @include uiux-icons;
+  display: inline-block;
+  vertical-align: top;
+  width: 18px; height: 18px;
+
+  &.tf1{background-position: -0px -145px;}
+  &.m6{background-position: -30px -145px;}
+  &.tmc{background-position: -60px -145px;}
+  &.bein-sports-1{background-position: -90px -145px;}
+}

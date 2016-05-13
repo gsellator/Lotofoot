@@ -43,31 +43,6 @@ class HomePage extends Component {
 
           <GameBlock />
           <GamesTab />
-
-
-          {false &&
-            <div className="Paper" style={{textAlign: 'center'}}>
-              <div className="PaperTitle">
-                ACCUEIL
-              </div>
-              <div className="HomePageContent">
-                <div style={{textAlign: 'center'}}>
-                  {true && <span style={{display: 'inline-block'}} className="icn-200 footix"></span>}
-                </div>
-                <div>
-                  <NavLink className="TxtBtn" routeName="games">
-                    {Labels.games}
-                  </NavLink>
-                  <NavLink className="TxtBtn" routeName="predictions">
-                    {Labels.predictions}
-                  </NavLink>
-                  <NavLink className="TxtBtn" routeName="ranking">
-                    {Labels.ranking}
-                  </NavLink>
-                </div>
-              </div>
-            </div>
-          }
         </div>
       </div>
     );

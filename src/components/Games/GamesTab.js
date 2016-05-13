@@ -124,29 +124,26 @@ class GamesTab extends Component {
                           <div className="Flag" style={{backgroundImage: 'url(' + item.teamB.flagUrl + ')'}} />
                           <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
                         </div>
-                          
+
                         <div className="Head">
-                          {false && item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
+                          {item.channel && <div className={'chn-18 ' + item.channel} />}
                         </div>
                       </div>
 
                       <div className="RowSubLine">
-                        <div className="Head">
-                        </div>
                         <div className="Left">
                           {item.status === 'TIMED' && predictions[item._id] &&
                             <div className="PredictionLabel">
-                              {'Mon prono : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}
+                              <span className="icn-16 chip" />
+                              <span>{'Mon pronostic : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
                             </div>
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              Pas encore de prono
+                              <span className="icn-16 chip" />
+                              <span>Pas encore de pronostic</span>
                             </div>
                           }
-                        </div>
-                        <div className="Head">
-                          {false && item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
                         </div>
                       </div>
                     </NavLink>

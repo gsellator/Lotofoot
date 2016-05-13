@@ -70,8 +70,8 @@ class PredictionsTab extends Component {
                 }
               </div>
               <div className="Right">
-                {item.channel && <div className={'chn-ico alt ' + item.channel}></div>}
-                <div className="chn-ico alt bein-sports-1"></div>
+                {item.channel && <div className={'chn-24 ' + item.channel}></div>}
+                <div className="chn-24 bein-sports-1"></div>
               </div>
             </NavLink>
           )}
