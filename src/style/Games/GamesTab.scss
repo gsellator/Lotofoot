@@ -7,16 +7,16 @@
   //  padding-top: 0;
   padding-bottom: 0;
 
-  .PhaseSelector{
+  .FilterSelector{
     margin: 0 -12px 0 -12px;
     background: $footix-blue;
     display: flex;
 
-    .PhaseBtn{
+    .FilterBtn{
       flex: 1;
       cursor: pointer;
 
-      .PhaseLabel{
+      .FilterLabel{
         color: white;
         font-size: 15px;
         height: 42px;
@@ -34,14 +34,14 @@
       }
 
       &.Active{
-        .PhaseLabel{
+        .FilterLabel{
           border-bottom: solid $footix-yellow 3px;
         }
       }
     }
   }
 
-  .GamesSelector{
+  .SubfilterSelector{
     margin: 0 -12px 0 -12px;
     display: flex;
     justify-content: space-between;
@@ -57,11 +57,11 @@
       content: '';
     }
 
-    .GamesBtn{
+    .SubfilterBtn{
       cursor: pointer;
       flex-shrink: 0;
 
-      .GamesLabel{
+      .SubfilterLabel{
         font-size: 14px;
         height: 34px;
         line-height: 32px;
@@ -80,7 +80,7 @@
       }
 
       &.Active{
-        .GamesLabel{
+        .SubfilterLabel{
           color: $footix-red;
           border-bottom: solid $footix-red 3px;
         }

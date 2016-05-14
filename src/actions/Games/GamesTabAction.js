@@ -1,13 +1,13 @@
 import Actions from "../../constants/Actions";
 
 const GamesTabAction = {
-  setTab(context, { newTab }, done) {
-    context.dispatch(Actions.GAMESTAB_SET_TAB, newTab);
+  setFilter(context, { newFilter }, done) {
+    context.dispatch(Actions.GAMESTAB_SET_FILTER, newFilter);
     done();
   },
 
-  setPhase(context, { newPhase }, done) {
-    context.dispatch(Actions.GAMESTAB_SET_PHASE, newPhase);
+  setSubfilter(context, { newSubfilter }, done) {
+    context.dispatch(Actions.GAMESTAB_SET_SUBFILTER, newSubfilter);
     done();
   },
 };

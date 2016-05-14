@@ -6,84 +6,130 @@ class GamesTabStore extends BaseStore {
   static storeName = "GamesTabStore"
 
   static handlers = {
-    [Actions.APIOK_GAMES]: "handleApiOk",
-    [Actions.GAMESTAB_SET_TAB]: "handleSetTab",
-    [Actions.GAMESTAB_SET_PHASE]: "handleSetPhase",
+    [Actions.APIOK_GAMES]: "handleApiOkGames",
+    [Actions.APIOK_PREDICTIONS_BYUSER_DICO]: "handleApiOkPredictions",
+    [Actions.GAMESTAB_SET_FILTER]: "handleSetFilter",
+    [Actions.GAMESTAB_SET_SUBFILTER]: "handleSetSubfilter",
   }
 
   constructor(dispatcher) {
     super(dispatcher);
-    this.data;
-    this.tab = '-';
-    this.phase = '1';
+    this.games;
+    this.predictions;
+    this.filter = 'match';
+    this.subfilter = '-';
   }
 
-  handleApiOk({ data, route }) {
+  handleApiOkGames({ data, route }) {
     if (data){
-      this.data = data;
+      this.games = data;
     } else {
-      this.data = [];
+      this.games = [];
     }
     this.emitChange();
   }
 
-  handleSetTab(newTab) {
-    this.tab = newTab;
-    this.emitChange();
-  }
-
-  handleSetPhase(newPhase) {
-    this.phase = newPhase;
-    this.emitChange();
-  }
-
-  getData() {
-    // We filter on the group
-    let tmpDataSource = [];
-    if (this.tab === '-'){
-      tmpDataSource = this.data;
-    } else {
-      for (let item of this.data){
-        if (this.tab === item.group)
-          tmpDataSource[tmpDataSource.length] = item;
+  handleApiOkPredictions({ data, route }) {
+    if (data){
+      this.predictions = {};
+      for(let item of data){
+        this.predictions[item.game._id] = item;
       }
+    } else {
+      this.predictions = {}
+    }
+    this.emitChange();
+  }
+
+  handleSetFilter(newFilter) {
+    this.filter = newFilter;
+    this.subfilter = '-';
+    this.emitChange();
+  }
+
+  handleSetSubfilter(newSubfilter) {
+    this.subfilter = newSubfilter;
+    this.emitChange();
+  }
+
+  getGames() {
+    // We filter on the group
+    let tmpGamesSource = [];
+    switch (this.filter){
+      case "match":
+        if (this.subfilter === '-'){
+          tmpGamesSource = this.games;
+        } else if (this.predictions) {
+          for (let item of this.games){
+            if (!this.predictions[item._id])
+              tmpGamesSource[tmpGamesSource.length] = item;
+          }
+        }
+        break;
+
+      case "group":
+        if (this.subfilter === '-'){
+          for (let item of this.games){
+            if (item.phase === 0)
+              tmpGamesSource[tmpGamesSource.length] = item;
+          }
+        } else {
+          for (let item of this.games){
+            if (item.phase === 0 && this.subfilter === item.group)
+              tmpGamesSource[tmpGamesSource.length] = item;
+          }
+        }
+        break;
+
+      case "finale":
+        if (this.subfilter === '-'){
+          for (let item of this.games){
+            if (item.phase > 0)
+              tmpGamesSource[tmpGamesSource.length] = item;
+          }
+        } else {
+          for (let item of this.games){
+            if (this.subfilter == item.phase)
+              tmpGamesSource[tmpGamesSource.length] = item;
+          }
+        }
+        break;
     }
 
     // We add rows witch allow to draw date headers in gamesTab.js
-    let tmpData = [];
-    for (let item of tmpDataSource){
-      if (tmpData.length === 0 && item.teamA && item.teamB){
-        tmpData[0] = {isHeader: true, datetime: item.datetime}
-        tmpData[1] = item;
-      } else if (item.teamA && item.teamB) {
-        if (FormatDate.dtetimeToStr(tmpData[tmpData.length-1].datetime, 'YYYY-MM-DD') != FormatDate.dtetimeToStr(item.datetime, 'YYYY-MM-DD'))
-          tmpData[tmpData.length] = {isHeader: true, datetime: item.datetime}
-        tmpData[tmpData.length] = item;
+    let tmpGames = [];
+    for (let item of tmpGamesSource){
+      if (tmpGames.length === 0){
+        tmpGames[0] = {isHeader: true, datetime: item.datetime}
+        tmpGames[1] = item;
+      } else {
+        if (FormatDate.dtetimeToStr(tmpGames[tmpGames.length-1].datetime, 'YYYY-MM-DD') != FormatDate.dtetimeToStr(item.datetime, 'YYYY-MM-DD'))
+          tmpGames[tmpGames.length] = {isHeader: true, datetime: item.datetime}
+        tmpGames[tmpGames.length] = item;
       }
     }
-    return tmpData;
+
+    return tmpGames;
   }
 
-  getTab() {
-    return this.tab;
-  }
-
-  getPhase() {
-    return this.phase;
-  }
+  getPredictions() {return this.predictions;}
+  getFilter() {return this.filter;}
+  getSubfilter() {return this.subfilter;}
 
   dehydrate() {
     return {
-      data: this.data,
-      tab: this.tab,
-      phase: this.phase,
+      games: this.games,
+      predictions: this.predictions,
+      filter: this.filter,
+      subfilter: this.subfilter,
     };
   }
 
   rehydrate(state) {
-    this.data = state.data;
-    this.tab = state.tab;
-    this.phase = state.phase;
+    this.games = state.games;
+    this.predictions = state.predictions;
+    this.filter = state.filter;
+    this.subfilter = state.subfilter;
   }
 }
 

@@ -50,8 +50,8 @@ const Actions = keyMirror({
   APIOK_MESSAGES: null,
   APIOK_MESSAGE_CREATE: null,
 
-  GAMESTAB_SET_TAB: null,
-  GAMESTAB_SET_PHASE: null,
+  GAMESTAB_SET_FILTER: null,
+  GAMESTAB_SET_SUBFILTER: null,
 });
 
 export default Actions;

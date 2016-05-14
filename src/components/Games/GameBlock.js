@@ -48,12 +48,14 @@ class GameBlock extends Component {
               {data.phase === 4 && <div className="Phase">Finale</div>}
 
               <div className="TeamBlock">
-                <div className={(data.winner === 'teamA' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
-                  <div className="Flag">
-                    <div className={'flag-60 ' + data.teamA.slug} />
+                {data.teamA &&
+                  <div className={(data.winner === 'teamA' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
+                    <div className="Flag">
+                      <div className={'flag-60 ' + data.teamA.slug} />
+                    </div>
+                    <div className="Label">{data.teamA.name}</div>
                   </div>
-                  <div className="Label">{data.teamA.name}</div>
-                </div>
+                }
                 <div className="ScoreContainer">
                   {!data.scoreTeamA && false && 'test'}
                   {data.status === 'TIMED' &&
@@ -86,12 +88,14 @@ class GameBlock extends Component {
                     </div>
                   }
                 </div>
-                <div className={(data.winner === 'teamB' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
-                  <div className="Flag">
-                    <div className={'flag-60 ' + data.teamB.slug} />
+                {data.teamB &&
+                  <div className={(data.winner === 'teamB' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
+                    <div className="Flag">
+                      <div className={'flag-60 ' + data.teamB.slug} />
+                    </div>
+                    <div className="Label">{data.teamB.name}</div>
                   </div>
-                  <div className="Label">{data.teamB.name}</div>
-                </div>
+                }
               </div>
 
             </div>

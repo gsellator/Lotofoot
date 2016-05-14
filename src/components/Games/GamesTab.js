@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
-import { setTab, setPhase } from "../../actions/Games/GamesTabAction";
+import { setSubfilter, setFilter } from "../../actions/Games/GamesTabAction";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
 
@@ -15,16 +15,16 @@ class GamesTab extends Component {
     getStore: PropTypes.func.isRequired
   }
 
-  setTab(newTab) {
-    this.context.executeAction(setTab, { newTab });
+  setFilter(newFilter) {
+    this.context.executeAction(setFilter, { newFilter });
   }
-
-  setPhase(newPhase) {
-    this.context.executeAction(setPhase, { newPhase });
+  
+  setSubfilter(newSubfilter) {
+    this.context.executeAction(setSubfilter, { newSubfilter });
   }
 
   render() {
-    const { data, phase, tab, predictions } = this.props;
+    const { games, filter, subfilter, predictions } = this.props;
 
     return (
       <div className="Paper GamesTab">
@@ -37,89 +37,75 @@ class GamesTab extends Component {
           </div>
         }
 
-        {false &&
-          <div className="PhaseSelector">
-            <div className={phase === '0' ? 'PhaseBtn Active' : 'PhaseBtn'} onClick={this.setPhase.bind(this, '0')}>
-              <div className="PhaseLabel">Matchs</div>
-            </div>
-            <div className={phase === '1' ? 'PhaseBtn Active' : 'PhaseBtn'} onClick={this.setPhase.bind(this, '1')}>
-              <div className="PhaseLabel">Groupes</div>
-            </div>
-            <div className={phase === '2' ? 'PhaseBtn Active' : 'PhaseBtn'} onClick={this.setPhase.bind(this, '2')}>
-              <div className="PhaseLabel">Phase finale</div>
-            </div>
+        <div className="FilterSelector">
+          <div className={filter === 'match' ? 'FilterBtn Active' : 'FilterBtn'} onClick={this.setFilter.bind(this, 'match')}>
+            <div className="FilterLabel">Matchs</div>
           </div>
-        }
+          <div className={filter === 'group' ? 'FilterBtn Active' : 'FilterBtn'} onClick={this.setFilter.bind(this, 'group')}>
+            <div className="FilterLabel">Groupes</div>
+          </div>
+          <div className={filter === 'finale' ? 'FilterBtn Active' : 'FilterBtn'} onClick={this.setFilter.bind(this, 'finale')}>
+            <div className="FilterLabel">Phase finale</div>
+          </div>
+        </div>
 
-        {phase === '0' &&
-          <div className="GamesSelector">
-            <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
-              <div className="GamesLabel">Tous</div>
+        {filter === 'match' &&
+          <div className="SubfilterSelector">
+            <div className={subfilter === '-' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '-')}>
+              <div className="SubfilterLabel">Tous</div>
             </div>
-            <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
-              <div className="GamesLabel">Sem 1</div>
-            </div>
-            <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
-              <div className="GamesLabel">Sem 2</div>
-            </div>
-            <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
-              <div className="GamesLabel">Sem 3</div>
-            </div>
-            <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
-              <div className="GamesLabel">Sem 4</div>
+            <div className={subfilter === '1' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '1')}>
+              <div className="SubfilterLabel">À pronostiquer</div>
             </div>
           </div>
         }
-        {phase === '1' &&
-          <div className="GamesSelector">
-            <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
-              <div className="GamesLabel">Tous</div>
+        {filter === 'group' &&
+          <div className="SubfilterSelector">
+            <div className={subfilter === '-' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '-')}>
+              <div className="SubfilterLabel">Tous</div>
             </div>
-            {false && <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
-              <div className="GamesLabel">Pas encore pronostiqués</div>
-            </div>}
-            <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
-              <div className="GamesLabel">Groupe A</div>
+            <div className={subfilter === 'a' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, 'a')}>
+              <div className="SubfilterLabel">Groupe A</div>
             </div>
-            <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
-              <div className="GamesLabel">Groupe B</div>
+            <div className={subfilter === 'b' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, 'b')}>
+              <div className="SubfilterLabel">Groupe B</div>
             </div>
-            <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
-              <div className="GamesLabel">Groupe C</div>
+            <div className={subfilter === 'c' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, 'c')}>
+              <div className="SubfilterLabel">Groupe C</div>
             </div>
-            <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
-              <div className="GamesLabel">Groupe D</div>
+            <div className={subfilter === 'd' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, 'd')}>
+              <div className="SubfilterLabel">Groupe D</div>
             </div>
-            <div className={tab === 'e' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'e')}>
-              <div className="GamesLabel">Groupe E</div>
+            <div className={subfilter === 'e' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, 'e')}>
+              <div className="SubfilterLabel">Groupe E</div>
             </div>
-            <div className={tab === 'f' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'f')}>
-              <div className="GamesLabel">Groupe F</div>
+            <div className={subfilter === 'f' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, 'f')}>
+              <div className="SubfilterLabel">Groupe F</div>
             </div>
           </div>
         }
-        {phase === '2' &&
-          <div className="GamesSelector">
-            <div className={tab === '-' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, '-')}>
-              <div className="GamesLabel">Tous</div>
+        {filter === 'finale' &&
+          <div className="SubfilterSelector">
+            <div className={subfilter === '-' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '-')}>
+              <div className="SubfilterLabel">Tous</div>
             </div>
-            <div className={tab === 'a' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'a')}>
-              <div className="GamesLabel">1/8</div>
+            <div className={subfilter === '1' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '1')}>
+              <div className="SubfilterLabel">1/8</div>
             </div>
-            <div className={tab === 'b' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'b')}>
-              <div className="GamesLabel">1/4</div>
+            <div className={subfilter === '2' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '2')}>
+              <div className="SubfilterLabel">1/4</div>
             </div>
-            <div className={tab === 'c' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'c')}>
-              <div className="GamesLabel">1/2</div>
+            <div className={subfilter === '3' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '3')}>
+              <div className="SubfilterLabel">1/2</div>
             </div>
-            <div className={tab === 'd' ? 'GamesBtn Active' : 'GamesBtn'} onClick={this.setTab.bind(this, 'd')}>
-              <div className="GamesLabel">Finale</div>
+            <div className={subfilter === '4' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onClick={this.setSubfilter.bind(this, '4')}>
+              <div className="SubfilterLabel">Finale</div>
             </div>
           </div>
         }
 
         <div className="TabContent">
-          {data && data.map((item, i) =>
+          {games && games.map((item, i) =>
             <div key={i}>
 
               {(() => {
@@ -138,17 +124,24 @@ class GamesTab extends Component {
                             <div className="Pin" />
                           }
                         </div>
-                        <div className="Left">
-                          <div className={'flag-12 ' + item.teamA.slug} />
-                          <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
-                        </div>
+                        {item.teamA &&
+                          <div className="Left">
+                            <div className={'flag-12 ' + item.teamA.slug} />
+                            <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
+                          </div>
+                        }
+                        {!item.teamA &&
+                          <div className="Left">
+                            <div className="TeamLabel">{item.futureTeamA}</div>
+                          </div>
+                        }
                         <div className="Center">
                           {item.status === 'TIMED' &&
                             <div className="Time">
                               {FormatDate.dtetimeToStr(item.datetime, 'HH:mm')}
                             </div>
                           }
-                          {item.status === 'IN_PROGRESS' &&
+                          {item.status === 'IN_PROGRESS' && item.teamA && item.teamB &&
                             <div className="Score">
                               <span>(&#8239;</span>
                               <span>{(item.scoreTeamA || '0')}</span>
@@ -157,7 +150,7 @@ class GamesTab extends Component {
                               <span>&#8239;)</span>
                             </div>
                           }
-                          {item.status === 'FINISHED' &&
+                          {item.status === 'FINISHED' && item.teamA && item.teamB &&
                             <div className="Score">
                               <span>{(item.scoreTeamA || '0')}</span>
                               <span>&#8239;-&#8239;</span>
@@ -165,10 +158,17 @@ class GamesTab extends Component {
                             </div>
                           }
                         </div>
-                        <div className="Right">
-                          <div className={'flag-12 ' + item.teamB.slug} />
-                          <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
-                        </div>
+                        {item.teamB &&
+                          <div className="Right">
+                            <div className={'flag-12 ' + item.teamB.slug} />
+                            <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
+                          </div>
+                        }
+                        {!item.teamB &&
+                          <div className="Right">
+                            <div className="TeamLabel">{item.futureTeamB}</div>
+                          </div>
+                        }
 
                         <div className="Head">
                           {item.channel && <div className={'chn-18 ' + item.channel} />}
@@ -202,12 +202,12 @@ class GamesTab extends Component {
   }
 }
 
-GamesTab = connectToStores(GamesTab, ["GamesTabStore", "PredictionsDicoStore"], (context) => {
+GamesTab = connectToStores(GamesTab, ["GamesTabStore"], (context) => {
   return {
-    data: context.getStore("GamesTabStore").getData(),
-    tab: context.getStore("GamesTabStore").getTab(),
-    phase: context.getStore("GamesTabStore").getPhase(),
-    predictions: context.getStore("PredictionsDicoStore").getData(),
+    games: context.getStore("GamesTabStore").getGames(),
+    predictions: context.getStore("GamesTabStore").getPredictions(),
+    filter: context.getStore("GamesTabStore").getFilter(),
+    subfilter: context.getStore("GamesTabStore").getSubfilter(),
   };
 }, {getStore: PropTypes.func});
 
