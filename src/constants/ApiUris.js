@@ -10,7 +10,7 @@ const ApiUris = {
 
   Teams: '/teams',
 
-  Games: '/games', // GET POST
+  Games: '/games?limit=51', // GET
   Game: '/games/:gameId', // GET POST
   GamesNext: '/games/next',
 
