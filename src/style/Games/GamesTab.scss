@@ -4,7 +4,7 @@
 
 .Paper.GamesTab{
   text-align: center;
-  //  padding-top: 0;
+  padding-top: 0;
   padding-bottom: 0;
 
   .FilterSelector{
@@ -118,12 +118,25 @@
           height: 30px; width: 30px;
           flex-basis: 36px;
           flex-shrink: 0;
+          text-align: left;
 
           .Pin{
+            display: inline-block;
+            vertical-align: top;
             width: 8px; height: 8px;
-            margin: 11px 11px;
+            margin: 11px 5px;
             border-radius: 4px;
             background-color: $footix-blue;
+            &.Alt{background-color: $footix-yellow;}
+            &.Trsp{background-color: transparent;}
+          }
+
+          .Rank{
+            display: inline-block;
+            vertical-align: top;
+            line-height: 28px;
+            color: $grey-9;
+            font-size: 10px;
           }
 
           .chn-18{
@@ -146,10 +159,7 @@
           overflow: hidden;
           font-weight: 500;
           color: $grey-9;
-
-          &.Winner{
-            color: black;
-          }
+          &.Winner{color: black;}
         }
 
         .Left{
@@ -161,6 +171,7 @@
           .TeamLabel{
             right: 24px; left: 0;
             text-align: right;
+            &.Alt{right: 6px;}
           }
         }
 
@@ -198,6 +209,7 @@
           .TeamLabel{
             left: 24px; right: 0;
             text-align: left;
+            &.Alt{left: 6px;}
           }
         }
       }
@@ -232,6 +244,10 @@
           }
         }
       }
+    }
+
+    .RowContainer:last-child .Row{
+      border-bottom: none;
     }
   }
 }

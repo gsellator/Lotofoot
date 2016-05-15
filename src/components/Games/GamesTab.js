@@ -4,6 +4,7 @@ import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import { setSubfilter, setFilter } from "../../actions/Games/GamesTabAction";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
+import Labels from "../../constants/Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Games/GamesTab.scss");
@@ -28,7 +29,7 @@ class GamesTab extends Component {
 
     return (
       <div className="Paper GamesTab">
-        {true &&
+        {false &&
           <div className="AltPaperTitle">
             <div className="Label">
               Tous les matchs
@@ -106,7 +107,7 @@ class GamesTab extends Component {
 
         <div className="TabContent">
           {games && games.map((item, i) =>
-            <div key={i}>
+            <div key={i} className="RowContainer">
 
               {(() => {
                 if (item.isHeader)
@@ -121,8 +122,14 @@ class GamesTab extends Component {
                       <div className="RowLine">
                         <div className="Head">
                           {item.status === 'TIMED' && !predictions[item._id] &&
-                            <div className="Pin" />
+                            <div className={item.teamA ? 'Pin' : 'Pin Alt'} />
                           }
+                          {(item.status != 'TIMED' || predictions[item._id]) &&
+                            <div className="Pin Trsp" />
+                          }
+                          <div className="Rank">
+                            {'#' + item.friendlyId}
+                          </div>
                         </div>
                         {item.teamA &&
                           <div className="Left">
@@ -132,7 +139,7 @@ class GamesTab extends Component {
                         }
                         {!item.teamA &&
                           <div className="Left">
-                            <div className="TeamLabel">{item.futureTeamA}</div>
+                            <div className="TeamLabel Alt">{Labels[item.futureTeamA]}</div>
                           </div>
                         }
                         <div className="Center">
@@ -166,7 +173,7 @@ class GamesTab extends Component {
                         }
                         {!item.teamB &&
                           <div className="Right">
-                            <div className="TeamLabel">{item.futureTeamB}</div>
+                            <div className="TeamLabel Alt">{Labels[item.futureTeamB]}</div>
                           </div>
                         }
 
