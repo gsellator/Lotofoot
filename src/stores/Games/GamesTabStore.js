@@ -1,6 +1,7 @@
 import { BaseStore } from "fluxible/addons";
 import FormatDate from "../../components/Helpers/FormatDate";
 import Actions from "../../constants/Actions";
+import _ from "lodash";
 
 class GamesTabStore extends BaseStore {
   static storeName = "GamesTabStore"
@@ -43,7 +44,17 @@ class GamesTabStore extends BaseStore {
 
   handleSetFilter(newFilter) {
     this.filter = newFilter;
-    this.subfilter = '-';
+    switch (newFilter){
+      case "match":
+        this.subfilter = '-';
+      break;
+      case "group":
+        this.subfilter = 'a';
+      break;
+      case "finale":
+        this.subfilter = '1';
+      break;
+    }
     this.emitChange();
   }
 
@@ -60,7 +71,10 @@ class GamesTabStore extends BaseStore {
         if (this.subfilter === '-'){
           tmpGamesSource = this.games;
         } else if (this.subfilter == 1) {
-          tmpGamesSource = this.games;
+          for (let item of this.games){
+            if (item.status === 'TIMED')
+              tmpGamesSource[tmpGamesSource.length] = item;
+          }
         } else if (this.predictions) {
           for (let item of this.games){
             if (!this.predictions[item._id])
@@ -112,6 +126,46 @@ class GamesTabStore extends BaseStore {
     }
 
     return tmpGames;
+  }
+
+  getGroupRanking() {
+    // We filter on the group
+    let teams = {};
+
+    if (this.predictions && this.filter === 'group'){
+      for (let item of this.games){
+        if (item.phase === 0 && this.subfilter === item.group && item.teamA && item.teamB && this.predictions[item._id]){
+          if (!teams[item.teamA._id])
+            teams[item.teamA._id] = { slug: item.teamA.slug, name: item.teamA.name, points: 0, dif: 0 };
+          if (!teams[item.teamB._id])
+            teams[item.teamB._id] = { slug: item.teamB.slug, name: item.teamB.name, points: 0, dif: 0 };
+
+          switch (this.predictions[item._id].winner){
+            case "nobody":
+              teams[item.teamA._id].points = teams[item.teamA._id].points + 1;
+              teams[item.teamB._id].points = teams[item.teamB._id].points + 1;
+            break;
+            case "teamA":
+              teams[item.teamA._id].points = teams[item.teamA._id].points + 3;
+              teams[item.teamA._id].dif = teams[item.teamA._id].dif + this.predictions[item._id].scoreTeamA - this.predictions[item._id].scoreTeamB;
+              teams[item.teamB._id].dif = teams[item.teamB._id].dif + this.predictions[item._id].scoreTeamB - this.predictions[item._id].scoreTeamA;
+            break;
+            case "teamB":
+              teams[item.teamB._id].points = teams[item.teamB._id].points + 3;
+              teams[item.teamA._id].dif = teams[item.teamA._id].dif + this.predictions[item._id].scoreTeamA - this.predictions[item._id].scoreTeamB;
+              teams[item.teamB._id].dif = teams[item.teamB._id].dif + this.predictions[item._id].scoreTeamB - this.predictions[item._id].scoreTeamA;
+            break;
+          };
+        }
+      }
+    }
+
+    let teamsArray = [];
+    for (let item in teams){
+      teamsArray[teamsArray.length] = teams[item];
+    }
+
+    return _.sortBy(teamsArray, function(tm){ return -tm.points*100 - tm.dif; });
   }
 
   getPredictions() {return this.predictions;}

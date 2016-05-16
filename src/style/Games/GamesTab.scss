@@ -2,149 +2,55 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.Paper.GamesFilters{
-  text-align: center;
-  padding: 0;
-
-  .FilterSelector{
-    //    margin: 0 -12px 0 -12px;
-    background: $footix-blue;
-    display: flex;
-
-    .FilterBtn{
-      flex: 1;
-      cursor: pointer;
-
-      .FilterLabel{
-        color: white;
-        font-size: 15px;
-        height: 42px;
-        line-height: 40px;
-        transition: all .15s ease;
-        border-bottom: solid $footix-yellow 0px;
-      }
-
-      &:hover{
-        background-color: rgba(255, 255, 255, 0.20);
-      }
-
-      &:active{
-        background-color: rgba(255, 255, 255, 0.10);
-      }
-
-      &.Active{
-        background-color: transparent;
-
-        .FilterLabel{
-          border-bottom: solid $footix-yellow 3px;
-        }
-      }
-    }
-  }
-
-  .SubfilterSelector{
-    display: flex;
-    justify-content: space-between;
-    overflow-x: auto;
-    overflow-y: hidden;
-    overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
-    transform: translateZ(0);
-    border-top: solid $grey-5 1px;
-
-    &::before, &::after {
-      content: '';
-    }
-
-    .SubfilterBtn{
-      cursor: pointer;
-      flex-shrink: 0;
-
-      .SubfilterLabel{
-        font-size: 14px;
-        height: 34px;
-        line-height: 32px;
-        transition: all .15s ease;
-        border-bottom: solid $footix-red 0px;
-        white-space: nowrap;
-        padding: 0 12px;
-      }
-
-      &:hover{
-        .SubfilterLabel{
-          color: rgba(0, 0, 0, 0.50);
-        }
-      }
-
-      &:active{
-        .SubfilterLabel{
-          color: rgba(0, 0, 0, 0.75);
-        }
-      }
-
-      &.Active{
-        .SubfilterLabel{
-          color: $footix-red;
-          border-bottom: solid $footix-red 3px;
-        }
-      }
-    }
-  }
-}
-
-
 .Paper.GamesTab{
   text-align: center;
   padding: 0;
-
+  
   .TabContent{
     .Date{
-//      margin: 0 -12px;
-      background: $grey-3;
-      //      border-top: solid $grey-3 2px;
-      //      border-bottom: solid $grey-3 2px;
       text-align: left;
-      padding: 0 12px;
+      padding: 3px 12px 3px 9px;
       color: $grey-9;
-      font-weight: 500;
-      font-size: 12px;
-      margin-top: -2px;
+      font-size: 14px;
+      padding-top: 18px;
+      border-bottom: solid $grey-5 1px;
     }
 
     .Row{
       display: block;
-//      margin: 0 -12px;
-      border-bottom: solid $grey-5 2px;
+      border-bottom: solid $grey-5 1px;
       cursor: pointer;
+      background: white;
       &:hover{background-color: $grey-1;}
       &:active{background-color: $grey-0;}
 
       .RowLine{
         display: flex;
-        border-bottom: dotted $grey-4 1px;
-
+        
         .Head{
-          height: 30px; width: 30px;
-          flex-basis: 36px;
+          height: 30px; width: 33px;
+          flex-basis: 33px;
           flex-shrink: 0;
           text-align: left;
 
-          .Pin{
-            display: inline-block;
-            vertical-align: top;
-            width: 8px; height: 8px;
-            margin: 11px 5px;
-            border-radius: 4px;
-            background-color: $footix-blue;
-            &.Alt{background-color: $footix-yellow;}
-            &.Trsp{background-color: transparent;}
-          }
+          //          .Pin{
+          //            display: inline-block;
+          //            vertical-align: top;
+          //            width: 8px; height: 8px;
+          //            margin: 11px 5px;
+          //            border-radius: 4px;
+          //            background-color: $footix-blue;
+          //            &.Alt{background-color: $footix-yellow;}
+          //            &.Trsp{background-color: transparent;}
+          //          }
 
           .Rank{
             display: inline-block;
             vertical-align: top;
             line-height: 28px;
             color: $grey-9;
-            font-size: 10px;
+            font-size: 11px;
+            padding-left: 9px;
           }
 
           .chn-18{
@@ -225,10 +131,28 @@
       .RowSubLine{
         display: flex;
 
+        .Head{
+          height: 26px; width: 30px;
+          flex-basis: 36px;
+          flex-shrink: 0;
+          text-align: left;
+
+          .Pin{
+            display: inline-block;
+            vertical-align: top;
+            width: 6px; height: 6px;
+            margin: 10px 9px;
+            border-radius: 3px;
+            background-color: $footix-blue;
+            &.Alt{background-color: $footix-yellow;}
+            &.Trsp{background-color: transparent;}
+          }
+        }
+
         .PredictionLabel{
           position: absolute;
           top: 0; bottom: 0;
-          line-height: 28px;
+          line-height: 20px;
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
@@ -237,15 +161,16 @@
           .icn-16{
             display: inline-block;
             vertical-align: top;
-            margin: 7px 2px;
+            margin: 3px 2px;
             &:not(:first-child){margin-left: 6px;}
           }
+
+          .Mobile{display: none}
         }
 
         .Left{
           position: relative;
           flex: 1;
-          height: 30px;
 
           .PredictionLabel{
             right: 0; left: 0;
@@ -254,17 +179,31 @@
       }
     }
 
+    .RowContainer:first-child .Date{
+      padding-top: 3px;
+    }
+
     .RowContainer:last-child .Row{
-      border-bottom: none;
+      //      border-bottom: none;
     }
   }
 }
 
 @media (max-width: $break-medium){
-  .Paper.GamesFilters{
-    border-radius: 0;
-  }
   .Paper.GamesTab{
     border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    .TabContent{
+      .Row{
+        .RowSubLine{
+          .PredictionLabel{
+            .Desktop{display: none;}
+            .Mobile{display: inline;}
+          }
+        }
+      }
+    }
   }
 }

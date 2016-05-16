@@ -5,7 +5,10 @@ import Labels from "../constants/Labels";
 
 import HelpBlock from "../components/Help/HelpBlock";
 import GameBlock from "../components/Games/GameBlock";
+
+import GamesFilters from "../components/Games/GamesFilters";
 import GamesTab from "../components/Games/GamesTab";
+import GroupRanking from "../components/Games/GroupRanking";
 
 import Actions from "../constants/Actions";
 
@@ -23,10 +26,10 @@ class HomePage extends Component {
   render() {
     const route = this.context.getStore('RouteStore').getCurrentRoute();
     const msg = route.getIn(["query", "msg"]);
+    const { filter } = this.props;
 
-    let gameBlock, gamesTab;
-//    gameBlock = <GameBlock />;
-    gamesTab = <GamesTab />;
+    let gameBlock;
+    //    gameBlock = <GameBlock />;
 
     return (
       <div className="HomePage">
@@ -41,16 +44,23 @@ class HomePage extends Component {
           </div>
         }
         {gameBlock}
-        {gamesTab}
+
+        <GamesFilters />
+        <GamesTab />
+
+        {filter === 'group' && false &&
+          <GroupRanking />
+        }
       </div>
     );
   }
 }
 
-//HomePage = connectToStores(HomePage, ["LoginPageStore"], (context) => {
-//  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
-//  };
-//}, {getStore: PropTypes.func});
+HomePage = connectToStores(HomePage, ["GamesTabStore"], (context) => {
+  return {
+    filter: context.getStore("GamesTabStore").getFilter(),
+    subfilter: context.getStore("GamesTabStore").getSubfilter(),
+  };
+}, {getStore: PropTypes.func});
 
 export default HomePage;
