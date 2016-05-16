@@ -30,6 +30,7 @@
     user-select: none;
     overflow-x: hidden; overflow-y: auto;
     overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
+    background: $grey-0;
 
     .NavLink{
       display: block;

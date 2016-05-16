@@ -18,12 +18,6 @@ class UsersTab extends Component {
 
     return (
       <div className="Paper UsersTab">
-        <div className="AltPaperTitle">
-          <div className="Label">
-            Le classement
-          </div>
-          <div className="icn-60 footix"></div>
-        </div>
         {credentials && credentials._id &&
           <div>
             {data && data.map((item, i) =>
@@ -32,10 +26,7 @@ class UsersTab extends Component {
                   {'#' + (i+1)}
                 </div>
                 <div className="Firstname">
-                  {item.firstName}
-                </div>
-                <div className="Email">
-                  {item.email}
+                  {item.firstName + ' - ' + item.email}
                 </div>
                 <div className="Points">
                   {item.points}

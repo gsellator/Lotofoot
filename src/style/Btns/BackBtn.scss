@@ -1,4 +1,5 @@
 @import '../constants/colors';
+@import '../constants/breaks';
 
 .BackBtn{
   cursor: pointer;
@@ -27,5 +28,11 @@
   &:active{
     .icn-26{background-position-y:-60px;}
     .Label{color: $footix-blue;}
+  }
+}
+
+@media (max-width: $break-medium){
+  .BackBtn{
+    padding: 8px 0 8px 3px;
   }
 }

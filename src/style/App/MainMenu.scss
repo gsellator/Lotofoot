@@ -46,7 +46,7 @@
     .Mobile{
       display: none;
       cursor: pointer;
-      padding: 16px 6px;
+      padding: 8px 6px;
     }
   }
 
@@ -59,6 +59,8 @@
 
 @media (max-width: $break-medium){
   .MainMenu{
+    height: 42px;
+    
     .Left{
       .Desktop{
         display: none;

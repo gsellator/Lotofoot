@@ -24,26 +24,24 @@ class HomePage extends Component {
     const route = this.context.getStore('RouteStore').getCurrentRoute();
     const msg = route.getIn(["query", "msg"]);
 
+    let gameBlock, gamesTab;
+//    gameBlock = <GameBlock />;
+    gamesTab = <GamesTab />;
+
     return (
       <div className="HomePage">
-        <div className="HomePageContainer">
-          {msg === 'new' &&
-            <div className="Paper">
-              <div className="PaperTitle">
-                Règles du jeu
-              </div>
-              <div>
-                <HelpBlock />
-              </div>
-              <div className="HelpSpacer">
-                <NavLink className="TxtBtn" routeName="home">Fermer les règles</NavLink>
-              </div>
+        {msg === 'new' &&
+          <div className="Paper HomeHelp">
+            <div>
+              <HelpBlock />
             </div>
-          }
-
-          <GameBlock />
-          <GamesTab />
-        </div>
+            <div className="HelpSpacer">
+              <NavLink className="TxtBtn" routeName="home">Fermer les règles</NavLink>
+            </div>
+          </div>
+        }
+        {gameBlock}
+        {gamesTab}
       </div>
     );
   }

@@ -59,6 +59,8 @@ class GamesTabStore extends BaseStore {
       case "match":
         if (this.subfilter === '-'){
           tmpGamesSource = this.games;
+        } else if (this.subfilter == 1) {
+          tmpGamesSource = this.games;
         } else if (this.predictions) {
           for (let item of this.games){
             if (!this.predictions[item._id])

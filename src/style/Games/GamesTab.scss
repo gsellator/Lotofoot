@@ -2,13 +2,12 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
-.Paper.GamesTab{
+.Paper.GamesFilters{
   text-align: center;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
 
   .FilterSelector{
-    margin: 0 -12px 0 -12px;
+    //    margin: 0 -12px 0 -12px;
     background: $footix-blue;
     display: flex;
 
@@ -34,6 +33,8 @@
       }
 
       &.Active{
+        background-color: transparent;
+
         .FilterLabel{
           border-bottom: solid $footix-yellow 3px;
         }
@@ -42,15 +43,12 @@
   }
 
   .SubfilterSelector{
-    margin: 0 -12px 0 -12px;
     display: flex;
     justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
     overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
     transform: translateZ(0);
-    margin-bottom: 12px;
-    border-bottom: solid $grey-5 1px;
     border-top: solid $grey-5 1px;
 
     &::before, &::after {
@@ -72,11 +70,15 @@
       }
 
       &:hover{
-        background-color: rgba(0, 0, 0, 0.10);
+        .SubfilterLabel{
+          color: rgba(0, 0, 0, 0.50);
+        }
       }
 
       &:active{
-        background-color: rgba(0, 0, 0, 0.05);
+        .SubfilterLabel{
+          color: rgba(0, 0, 0, 0.75);
+        }
       }
 
       &.Active{
@@ -87,10 +89,16 @@
       }
     }
   }
+}
+
+
+.Paper.GamesTab{
+  text-align: center;
+  padding: 0;
 
   .TabContent{
     .Date{
-      margin: 0 -12px;
+//      margin: 0 -12px;
       background: $grey-3;
       //      border-top: solid $grey-3 2px;
       //      border-bottom: solid $grey-3 2px;
@@ -104,7 +112,7 @@
 
     .Row{
       display: block;
-      margin: 0 -12px;
+//      margin: 0 -12px;
       border-bottom: solid $grey-5 2px;
       cursor: pointer;
       &:hover{background-color: $grey-1;}
@@ -253,39 +261,10 @@
 }
 
 @media (max-width: $break-medium){
-  .GamesTab{
-    .TabContent{
-      //      .Match{
-      //        .Left{
-      //          display: none;
-      //        }
-      //
-      //        .Center{
-      //          div{
-      //            font-size: 13px;
-      //          }
-      //
-      //          .Team{
-      //            .Flag{
-      //              height: 10px;
-      //              margin-top: 6px;
-      //
-      //              img{
-      //                height: 10px;
-      //              }
-      //            }
-      //          }
-      //
-      //          .Score{
-      //            width: 40px;
-      //            font-size: 14px;
-      //          }
-      //        }
-      //
-      //        .Right{
-      //          display: none;
-      //        }
-      //      }
-    }
+  .Paper.GamesFilters{
+    border-radius: 0;
+  }
+  .Paper.GamesTab{
+    border-radius: 0;
   }
 }

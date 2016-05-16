@@ -135,6 +135,8 @@
 
 @media (max-width: $break-medium){
   .PredictionsByGameTab{
+    border-radius: 0;
+
     .Match{
       .Left{
         display: none;
