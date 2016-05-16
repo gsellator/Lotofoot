@@ -7,24 +7,28 @@
   overflow: auto; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
   padding: 12px 12px 12px 4px;
 
-  .HelpSpacer{
-    border-top: dotted $grey-5 1px;
-    margin-top: 12px;
-    padding-top: 12px;
-    text-align: center;
+  .HomeHelp{
+    margin-bottom: 12px;
 
-    .TxtBtn{
-      margin-bottom: 0;
+    .HelpSpacer{
+      border-top: dotted $grey-5 1px;
+      margin-top: 12px;
+      padding-top: 12px;
+      text-align: center;
+
+      .TxtBtn{
+        margin-bottom: 0;
+      }
     }
-  }
-
-  .HomePageContent{
-    margin-top: 12px;
   }
 }
 
 @media (max-width: $break-medium){
   .HomePage{
-    padding: 12px;
+    padding: 0 0 12px 0;
+
+    .HomeHelp{
+      margin: 12px;
+    }
   }
 }

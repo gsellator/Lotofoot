@@ -22,7 +22,7 @@ const MeAction = {
             reject(err);
           } else if (err.message === 'XMLHttpRequest timeout') {
             console.log('MeService timeout');
-            const currentCredentials = context.getStore("LoginStore").getCredentials();
+            const currentCredentials = context.getStore("LoginPageStore").getCredentials();
             if (!currentCredentials.role){
               context.executeAction(navigateAction, { url: '/logout' })
               reject(err);

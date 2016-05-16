@@ -5,7 +5,10 @@ import Labels from "../constants/Labels";
 
 import HelpBlock from "../components/Help/HelpBlock";
 import GameBlock from "../components/Games/GameBlock";
+
+import GamesFilters from "../components/Games/GamesFilters";
 import GamesTab from "../components/Games/GamesTab";
+import GroupRanking from "../components/Games/GroupRanking";
 
 import Actions from "../constants/Actions";
 
@@ -23,36 +26,41 @@ class HomePage extends Component {
   render() {
     const route = this.context.getStore('RouteStore').getCurrentRoute();
     const msg = route.getIn(["query", "msg"]);
+    const { filter } = this.props;
+
+    let gameBlock;
+    //    gameBlock = <GameBlock />;
 
     return (
       <div className="HomePage">
-        <div className="HomePageContainer">
-          {msg === 'new' &&
-            <div className="Paper">
-              <div className="PaperTitle">
-                Règles du jeu
-              </div>
-              <div>
-                <HelpBlock />
-              </div>
-              <div className="HelpSpacer">
-                <NavLink className="TxtBtn" routeName="home">Fermer les règles</NavLink>
-              </div>
+        {msg === 'new' &&
+          <div className="Paper HomeHelp">
+            <div>
+              <HelpBlock />
             </div>
-          }
+            <div className="HelpSpacer">
+              <NavLink className="TxtBtn" routeName="home">Fermer les règles</NavLink>
+            </div>
+          </div>
+        }
+        {gameBlock}
 
-          <GameBlock />
-          <GamesTab />
-        </div>
+        <GamesFilters />
+        <GamesTab />
+
+        {filter === 'group' && false &&
+          <GroupRanking />
+        }
       </div>
     );
   }
 }
 
-//HomePage = connectToStores(HomePage, ["LoginPageStore"], (context) => {
-//  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
-//  };
-//}, {getStore: PropTypes.func});
+HomePage = connectToStores(HomePage, ["GamesTabStore"], (context) => {
+  return {
+    filter: context.getStore("GamesTabStore").getFilter(),
+    subfilter: context.getStore("GamesTabStore").getSubfilter(),
+  };
+}, {getStore: PropTypes.func});
 
 export default HomePage;

@@ -17,17 +17,16 @@ class HelpPage extends Component {
     return (
       <div className="HelpPage">
         <div className="Paper">
-          <div className="PaperTitle">
-             Règles du jeu
-          </div>
           <div className="HelpPageCtnt">
+            <div className="IlluContainer">
+              <div className="Illu" />
+            </div>
             <HelpBlock />
             <div className="Footer">
               En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.radio97.fr">hello@lotofoot.radio97.fr</a>.
             </div>
           </div>
         </div>
-        <div className="Illu" />
       </div>
     );
   }

@@ -4,14 +4,14 @@
 
 .Paper.UsersTab{
   text-align: center;
-  padding-bottom: 0;
+  padding: 0;
 
   .AltPaperTitle{
     border-bottom: solid $grey-3 1px;;
   }
 
   .User{
-    margin: 0 -12px;
+//    margin: 0 -12px;
     padding: 6px 12px;
     position: relative;
     display: flex;
@@ -33,22 +33,20 @@
       text-align: left;
     }
 
-    .Firstname{
-      flex: 1;
-    }
+//    .Firstname{
+//    }
 
-    .Email{
-      flex: 1;
-    }
 
     .Points{
+      flex: 1;
       width: 34px;
       text-align: right;
     }
   }
 }
 
-//@media (max-width: $break-medium){
-//  .PredictionsTab{
-//  }
-//}
+@media (max-width: $break-medium){
+  .Paper.UsersTab{
+    border-radius: 0;
+  }
+}

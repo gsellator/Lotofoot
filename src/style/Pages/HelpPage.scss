@@ -7,11 +7,17 @@
   overflow: auto; overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
   padding: 12px 12px 12px 4px;
 
-  .Illu{
-    margin-top: 24px;
-    height: 600px;
-    background: url('../../assets/super_victor.svg') center top no-repeat;
-    background-size: contain;
+  .IlluContainer{
+    margin: -12px -12px 24px -12px;
+    padding: 24px;
+    background: url('../../assets/uiux_help-back.jpg') center center no-repeat;
+    background-size: cover;
+
+    .Illu{
+      height: 320px;
+      background: url('../../assets/super_victor.svg') center top no-repeat;
+      background-size: contain;
+    }
   }
 
   .HelpPageCtnt{
@@ -29,18 +35,28 @@
 
 @media (max-width: $break-medium){
   .HelpPage{
-    .Illu{
-      height: 400px;
+    padding: 0;
+
+    .Paper{
+      border-radius: 0;
+
+      .IlluContainer{
+        padding: 12px;
+
+        .Illu{
+          height: 220px;
+        }
+      }
     }
   }
 }
 
 @media (max-width: $break-small){
   .HelpPage{
-    padding: 12px;
-    
-    .Illu{
-      height: 240px;
+    .IlluContainer{
+      .Illu{
+        height: 180px;
+      }
     }
   }
 }
