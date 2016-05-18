@@ -23,7 +23,7 @@ class HelpPage extends Component {
             </div>
             <HelpBlock />
             <div className="Footer">
-              En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.radio97.fr">hello@lotofoot.radio97.fr</a>.
+              En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>.
             </div>
           </div>
         </div>

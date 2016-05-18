@@ -13,27 +13,6 @@
   position: relative;
   &:not(:first-child){margin-top: 12px;}
 
-  .PaperTitle{
-    font-family: $alt-font-family;
-    font-size: $alt-font-size;
-    font-weight: $alt-font-weight;
-    text-rendering: $alt-text-rendering;
-    margin: -12px -12px 0 -12px;
-    border-bottom: solid $grey-5 1px;
-    text-align: center;
-    padding: 4px 0;
-    border-top: solid $grey-medium 3px;
-    color: $grey-medium;
-
-    span{
-      font-family: $alt-font-family;
-      font-size: $alt-font-size;
-      font-weight: $alt-font-weight;
-      text-rendering: $alt-text-rendering;
-      color: $grey-medium;
-    }
-  }
-
   .AltPaperTitle{
     position: relative;
     text-align: left;

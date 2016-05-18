@@ -27,8 +27,7 @@ class UsersTab extends Component {
                   {'#' + (i+1)}
                 </div>
                 <div className="Firstname">
-                  {Filters.capitalize(item.firstName) + ' ' + Filters.capitalize(item.lastName)
-                  }
+                  {Filters.capitalize(item.firstName) + ' ' + Filters.capitalize(item.lastName)}
                 </div>
                 <div className="Points">
                   {item.points}
