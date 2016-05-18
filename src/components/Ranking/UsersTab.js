@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
+import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
   require("../../style/Ranking/UsersTab.scss");
@@ -26,7 +27,8 @@ class UsersTab extends Component {
                   {'#' + (i+1)}
                 </div>
                 <div className="Firstname">
-                  {item.firstName + ' - ' + item.email}
+                  {Filters.capitalize(item.firstName) + ' ' + Filters.capitalize(item.lastName)
+                  }
                 </div>
                 <div className="Points">
                   {item.points}

@@ -15,6 +15,7 @@ class UserRegisterPage extends Component {
     super(props);
     this.state = {
       firstname: '',
+      lastname: '',
       username: '',
       password: ''
     };
@@ -33,6 +34,10 @@ class UserRegisterPage extends Component {
     this.setState({firstname: e.target.value});
   }
 
+  lastnameChanged(e) {
+    this.setState({lastname: e.target.value});
+  }
+
   usernameChanged(e) {
     this.setState({username: e.target.value});
   }
@@ -47,13 +52,14 @@ class UserRegisterPage extends Component {
       email: this.state.username,
       password: this.state.password,
       firstName: this.state.firstname,
+      lastName: this.state.lastname,
     }
     this.context.executeAction(registerUser, { body });
   }
 
   render() {
     const { pending } = this.props;
-    const { firstname, username, password } = this.state;
+    const { firstname, lastname, username, password } = this.state;
 
     return (
       <div className="UserRegisterPage LandingBack">
@@ -69,6 +75,11 @@ class UserRegisterPage extends Component {
               <div className="Input">
                 <div className="Label">Prénom</div>
                 <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)} required
+                placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
+              </div>
+              <div className="Input">
+                <div className="Label">Nom</div>
+                <input type="text" value={lastname} onChange={this.lastnameChanged.bind(this)} required
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
               </div>
               <div className="Input">
