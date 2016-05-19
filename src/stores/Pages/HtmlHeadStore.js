@@ -55,12 +55,12 @@ class HtmlHeadStore extends BaseStore {
   handleNavigateSuccess(route) {
     switch (route.get("name")) {
       case "home":
-        this.title = 'Lotofoot';
-        this.description = 'Lotofoot';
+        this.title = 'Lotofoot.io';
+        this.description = 'Lotofoot Euro 2016';
         break;
       case "login":
         this.title = 'Lotofoot';
-        this.description = 'Lotofoot';
+        this.description = 'Lotofoot Euro 2016';
         break;
       default:
         this.setInitialState();
