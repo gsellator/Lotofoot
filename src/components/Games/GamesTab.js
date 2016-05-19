@@ -3,7 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Games/GamesTab.scss");
@@ -43,7 +43,7 @@ class GamesTab extends Component {
                         {item.teamA &&
                           <div className="Left">
                             <div className={'flag-12 ' + item.teamA.slug} />
-                            <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamA.name}</div>
+                            <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{Labels[item.teamA.slug.replace('-', '')]}</div>
                           </div>
                         }
                         {!item.teamA &&
@@ -77,7 +77,7 @@ class GamesTab extends Component {
                         {item.teamB &&
                           <div className="Right">
                             <div className={'flag-12 ' + item.teamB.slug} />
-                            <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{item.teamB.name}</div>
+                            <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{Labels[item.teamB.slug.replace('-', '')]}</div>
                           </div>
                         }
                         {!item.teamB &&
@@ -109,8 +109,8 @@ class GamesTab extends Component {
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              <span className="Desktop">Cliquez pour pronostiquer</span>
-                              <span className="Mobile">Tapez pour pronostiquer</span>
+                              <span className="Desktop">{Labels.clickToPredict}</span>
+                              <span className="Mobile">{Labels.tabToPredict}</span>
                             </div>
                           }
                         </div>

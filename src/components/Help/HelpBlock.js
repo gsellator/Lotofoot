@@ -1,73 +1,59 @@
 import React, { PropTypes, Component } from "react";
-//import { connectToStores } from "fluxible-addons-react";
-//import FormatDate from "../Helpers/FormatDate";
-//import Filters from "../Helpers/Filters";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Help/HelpBlock.scss");
 }
 
 class HelpBlock extends Component {
-//  static contextTypes = {
-//    executeAction: PropTypes.func.isRequired,
-//    getStore: PropTypes.func.isRequired
-//  }
-
   render() {
     const { data, teamsData } = this.props;
 
     return (
       <div className="HelpBlock">
-        <div>
-          Amis Footix, le but de ce lotofoot est de pronostiquer le vainqueur et le score de chaque match de l'Euro.
-          Nous tenons compte du score final du match, prolongations incluses.
-          Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est
-          l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.<br/><br/>
-
-          Le nombre de points que vos pronostics vous rapportent dépend :<br/>
-          - Du stade de la compétition auquel appartient le match (groupes, quarts de finale...)<br/>
-          - De l'exactitude de votre pronostic (bon vainqueur, bon vainqueur et bonne différence de buts, bon vainqueur avec le score exact)<br/><br/>
-
-          Les points mis en jeu sont les suivants :
-        </div>
+        <div>{Labels.helpL1}</div>
+        <div style={{marginTop: '12px'}}>{Labels.helpL2}</div>
+        <div>{Labels.helpL3}</div>
+        <div>{Labels.helpL4}</div>
+        <div style={{marginTop: '12px'}}>{Labels.helpL5}</div>
 
         <div className="HelpTable">
           <table>
             <thead>
               <tr>
                 <th></th>
-                <th>Bon gagnant</th>
-                <th>Gagnant & bonne diff de buts</th>
-                <th>Gagnant & bon score</th>
+                <th>{Labels.helpLabel1}</th>
+                <th>{Labels.helpLabel2}</th>
+                <th>{Labels.helpLabel3}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>Groupes</th>
+                <th>{Labels.groups}</th>
                 <td>1</td>
                 <td>2</td>
                 <td>3</td>
               </tr>
               <tr>
-                <th>1/8</th>
+                <th>{Labels.p1}</th>
                 <td>2</td>
                 <td>4</td>
                 <td>6</td>
               </tr>
               <tr>
-                <th>1/4</th>
+                <th>{Labels.p2}</th>
                 <td>3</td>
                 <td>5</td>
                 <td>8</td>
               </tr>
               <tr>
-                <th>1/2</th>
+                <th>{Labels.p3}</th>
                 <td>4</td>
                 <td>6</td>
                 <td>10</td>
               </tr>
               <tr>
-                <th>Finale</th>
+                <th>{Labels.p4}</th>
                 <td>5</td>
                 <td>7</td>
                 <td>12</td>
@@ -76,18 +62,10 @@ class HelpBlock extends Component {
           </table>
         </div>
 
-        <div>
-          Les pronostics peuvent être modifiés jusqu'au début du match. Bonne chance !
-        </div>
+        <div>{Labels.helpL6}</div>
       </div>
     );
   }
 }
-
-//HelpBlock = connectToStores(HelpBlock, ["HelpBlockStore"], (context) => {
-//  return {
-//    data: context.getStore("HelpBlockStore").getData(),
-//  };
-//}, {getStore: PropTypes.func});
 
 export default HelpBlock;

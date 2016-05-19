@@ -2,9 +2,6 @@ import React, { Component, PropTypes } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-
-import config from "../../config";
-
 import { getAccessToken } from "../../actions/Pages/LoginAction";
 import { closeNav } from "../../actions/Pages/NavAction";
 import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";

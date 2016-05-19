@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { submitDialog } from "../../actions/Dialog/DialogAction";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Dialog/Dialog.scss");
@@ -31,7 +32,7 @@ class Dialog extends Component {
               <span>{txt}</span>
             </div>
             <div>
-              <button ref="DialogWindowButton" type="submit" className="DialogWindowButton">OK</button>
+              <button ref="DialogWindowButton" type="submit" className="DialogWindowButton">Labels.ok</button>
             </div>
           </form>
         </div>

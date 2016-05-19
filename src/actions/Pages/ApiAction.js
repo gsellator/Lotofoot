@@ -1,6 +1,5 @@
 import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
-import config from "../../config";
 import _ from 'lodash';
 import immutable from 'immutable';
 const TIMEOUT = 20000;

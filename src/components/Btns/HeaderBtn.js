@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/HeaderBtn.scss");
@@ -35,7 +35,7 @@ class HeaderBtn extends Component {
 
             <div className="Cartouche">
               <span className="Flag">
-                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} />}
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} title={Labels[data.teamA.slug.replace('-', '')]} />}
               </span>
               {FormatDate.isToday(data.datetime) &&
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
@@ -48,7 +48,7 @@ class HeaderBtn extends Component {
                 </span>
               }
               <span className="Flag">
-                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} />}
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} title={Labels[data.teamB.slug.replace('-', '')]} />}
               </span>
             </div>
           </div>
@@ -59,7 +59,7 @@ class HeaderBtn extends Component {
 
             <div className="Cartouche">
               <span className="Flag">
-                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} />}
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} title={Labels[data.teamA.slug.replace('-', '')]} />}
               </span>
               <span className="Score">
                 {data.scoreTeamA || '0'}
@@ -69,7 +69,7 @@ class HeaderBtn extends Component {
                 {data.scoreTeamB || '0'}
               </span>
               <span className="Flag">
-                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} />}
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} title={Labels[data.teamB.slug.replace('-', '')]} />}
               </span>
             </div>
           </div>

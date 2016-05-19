@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from "react";
-import { navigateAction, RouteStore } from "fluxible-router";
-import { connectToStores } from "fluxible-addons-react";
+import { RouteStore } from "fluxible-router";
 import Sections from "../../constants/Sections";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import config from "../../config";
 import NavHelper from '../Helpers/NavHelper';
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/App/TabNav.scss");
@@ -36,18 +33,12 @@ class TabNav extends Component {
         <div className="TabNavBtn">
           <div className={pageName.indexOf('help') == 0 ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, 'help')}>
             <div className="icn-26 help" title={Labels.help} />
-            <div className="Label">Aide</div>
+            <div className="Label">{Labels.help}</div>
           </div>
         </div>
       </nav>
     );
   }
 }
-
-//Nav = connectToStores(Nav, ["NavStore", "LoginPageStore"], (context) => {
-//  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
-//  };
-//}, {getStore: PropTypes.func});
 
 export default TabNav;

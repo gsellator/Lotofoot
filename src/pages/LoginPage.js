@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import { loginUser } from "../actions/Pages/LoginAction";
-import Labels from "../constants/Labels";
+import Labels from "../Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");

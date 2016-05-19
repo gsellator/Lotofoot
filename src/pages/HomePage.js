@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
-import Labels from "../constants/Labels";
+import Labels from "../Labels";
 
 import HelpBlock from "../components/Help/HelpBlock";
 import GameBlock from "../components/Games/GameBlock";

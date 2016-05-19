@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Predictions/PredictionsByGameTab.scss");
@@ -22,12 +23,12 @@ class PredictionsByGameTab extends Component {
       <div className="Paper PredictionsByGameTab">
         <div className="AltPaperTitle">
           <div className="Label">
-            Tous les pronostics
+            {Labels.allPredictions}
           </div>
           <div className="icn-60 footix"></div>
         </div>
 
-        <div className="PredictionsPageContent">
+        <div>
           {data && data.map((item, i) =>
             <div key={i} className="Prediction">
               <div className="Left">

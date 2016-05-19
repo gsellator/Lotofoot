@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
@@ -21,7 +21,7 @@ class AccountDialog extends Component {
 
   render() {
     const { credentials } = this.props;
-    const hasPaidString = credentials.hasPaid ? '✅  Cotisation à jour' : "💲  Je dois 5€";
+    const hasPaidString = credentials.hasPaid ? Labels.hasPaid : Labels.hasNotPaid;
     return (
       <div className="AccountDialog">
         <div className="AccountDialogArrow-1"></div>

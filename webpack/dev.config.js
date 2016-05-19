@@ -10,8 +10,6 @@ var assetsPath = path.resolve(__dirname, "../public/assets");
 
 var WEBPACK_HOST = "localhost";
 var WEBPACK_PORT = parseInt(process.env.PORT) + 1 || 3001;
-var appEnv = process.env.APP_ENV || 'development';
-
 
 module.exports = {
   devtool: "#eval-source-map",
@@ -46,7 +44,6 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("development"),
-        APP_ENV: JSON.stringify(appEnv),
         BROWSER: JSON.stringify(true)
       }
     }),
