@@ -10,7 +10,7 @@ class NotificationComponent extends Component {
 
   componentDidMount(){
     let socket = io.connect();
-    
+
     socket.on('message', (data) => {
        console.log('new message received', data);
        this.context.executeAction(MessageEditAction.getMessages);

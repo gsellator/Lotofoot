@@ -1,12 +1,12 @@
 {
-  "name": "Lotofoot",
+  "name": "Lotofoot.io",
   "version": "0.1.70",
-  "description": "Lotofoot Euro 2016",
+  "description": "Pronostiquez les matchs de l'Euro 2016",
   "main": "index.js",
   "private": true,
   "scripts": {
     "start": "NODE_ENV=production node index",
-    "dev": "NODE_ENV=development APP_ENV=development DEBUG=lotofoot node index",
+    "dev": "NODE_ENV=development DEBUG=lotofoot node index",
     "prod": "NODE_ENV=production PORT=8080 DEBUG=lotofoot node index",
     "build": "webpack --config  ./webpack/prod.config.js",
     "postinstall": "npm run build"

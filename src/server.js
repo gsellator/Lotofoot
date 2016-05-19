@@ -7,7 +7,6 @@ import favicon from "serve-favicon";
 import morgan from "morgan";
 import csurf from "csurf";
 import app from "./app";
-import config from "./config";
 import render from "./server/render";
 import notifier from './server/notifier';
 var request = require('superagent-promise')(require('superagent'), Promise);

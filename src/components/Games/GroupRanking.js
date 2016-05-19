@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-//import FormatDate from "../Helpers/FormatDate";
-//import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
   require("../../style/Games/GroupRanking.scss");
@@ -20,7 +18,7 @@ class GroupRanking extends Component {
       <div className="Paper GroupRanking">
         <div className="AltPaperTitle">
           <div className="Label">
-            Vos qualifiés
+            ---
           </div>
           <div className="icn-60 footix"></div>
         </div>
@@ -35,7 +33,7 @@ class GroupRanking extends Component {
               <div>
                 <span>{'#' + (i+1)}</span>
                 <span className={'flag-12 ' + item.slug} />
-                <span>{item.name}</span>
+                <span>{Labels[item.slug.replace('-', '')]}</span>
               </div>
               <div>{item.points}</div>
               <div>{item.dif}</div>

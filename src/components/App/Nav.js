@@ -4,9 +4,8 @@ import { connectToStores } from "fluxible-addons-react";
 import { switchNav } from "../../actions/Pages/NavAction";
 import Sections from "../../constants/Sections";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
-import config from "../../config";
 import NavHelper from '../Helpers/NavHelper';
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/App/Nav.scss");
@@ -42,7 +41,7 @@ class Nav extends Component {
 
             <div  className={(pageName == 'settings' || pageName == 'help') ? 'NavLink active' : 'NavLink'} onTouchTap={this.switchNav.bind(this)}>
               <div>
-                <div className="icn-26 more" title="Menu"></div>
+                <div className="icn-26 more" title={Labels.menu}></div>
               </div>
             </div>
           </nav>
@@ -65,7 +64,7 @@ class Nav extends Component {
               <div className="NavLinkSpacer"></div>
               <div className={pageName == 'help' ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, 'help')}>
                 <div className="icn-26 help"></div>
-                <span className="NavLinkTxt">Règles du jeu</span>
+                <span className="NavLinkTxt">{Labels.rules}</span>
               </div>
             </nav>
           }

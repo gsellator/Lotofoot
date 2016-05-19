@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore } from "fluxible-router";
 import { create, update } from "../../actions/Predictions/PredictionBlockAction";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Predictions/PredictionBlock.scss");
@@ -54,7 +55,7 @@ class PredictionBlock extends Component {
       <div className="Paper PredictionBlock">
         {data && !data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Title">
-            Il est trop tard, vous ne pouvez plus parier sur ce match
+            {Labels.tooLate}
           </div>
         }
 
@@ -62,7 +63,7 @@ class PredictionBlock extends Component {
           <div>
             <div className="AltPaperTitle">
               <div className="Label">
-                Mon pronostic
+                {Labels.myPrediction}
               </div>
               <div className="icn-60 footix"></div>
             </div>
@@ -74,9 +75,9 @@ class PredictionBlock extends Component {
               </div>
             </div>
             <div className="Points">
-              {gameData.status === 'IN_PROGRESS' && <span>Pour l'instant, ce pronostic vous rapporte </span>}
-              {gameData.status === 'FINISHED' &&<span>Ce pronostic vous rapporte </span>}
-              <span>{data.score < 2 ? data.score + ' point.' : data.score + ' points.'}</span>
+              {gameData.status === 'IN_PROGRESS' && <span>{Labels.inProgressGain + ' '}</span>}
+              {gameData.status === 'FINISHED' &&<span>{Labels.finishedGain + ' '}</span>}
+              <span>{data.score < 2 ? data.score + ' ' + Labels.point + '.' : data.score + ' ' + Labels.point + '.'}</span>
             </div>
           </div>
         }
@@ -85,7 +86,7 @@ class PredictionBlock extends Component {
           <div>
             <div className="AltPaperTitle">
               <div className="Label">
-                Mon pronostic
+                {Labels.myPrediction}
               </div>
               <div className="icn-60 footix"></div>
             </div>
@@ -97,15 +98,10 @@ class PredictionBlock extends Component {
                   <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
                 </div>
                 <div className="Btns">
-                  {!pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>Valider</div>}
+                  {!pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>{Labels.validate}</div>}
                   {pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>...</div>}
                 </div>
               </div>
-              {false &&
-                <div className="PoolRanking">
-                  Faire apparaitre ici le classement provisoir des groupes ?
-                </div>
-              }
             </div>
           </div>
         }

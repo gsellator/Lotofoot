@@ -5,11 +5,8 @@ import UserRegisterPage from "./pages/UserRegisterPage";
 import RecoverInitPage from "./pages/RecoverInitPage";
 import RecoverPage from "./pages/RecoverPage";
 
-//import LoadingPage from "./pages/LoadingPage";
 import HomePage from "./pages/HomePage";
-import GamesPage from "./pages/GamesPage";
 import GamePage from "./pages/GamePage";
-import PredictionsPage from "./pages/PredictionsPage";
 import RankingPage from "./pages/RankingPage";
 import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
@@ -53,24 +50,12 @@ export default {
     handler: HomePage,
     action: InitActions.home
   },
-//  games: {
-//    path: "/games",
-//    method: "get",
-//    handler: GamesPage,
-//    action: InitActions.games
-//  },
   game: {
     path: "/games/:gameId",
     method: "get",
     handler: GamePage,
     action: InitActions.game
   },
-//  predictions: {
-//    path: "/predictions",
-//    method: "get",
-//    handler: PredictionsPage,
-//    action: InitActions.predictions
-//  },
   ranking: {
     path: "/ranking",
     method: "get",

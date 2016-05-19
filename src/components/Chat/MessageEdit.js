@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from "react";
-import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
+import { RouteStore } from "fluxible-router";
 import TextareaAutosize from "react-textarea-autosize";
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 import { createMessage } from "../../actions/Chat/MessageEditAction";
 
 if (process.env.BROWSER) {
@@ -54,11 +53,5 @@ class MessageEdit extends Component {
     );
   }
 }
-
-//MessageEdit = connectToStores(MessageEdit, ["MessageEditStore"], (context) => {
-//  return {
-//    data: context.getStore("MessageEditStore").getData()
-//  };
-//}, {getStore: PropTypes.func});
 
 export default MessageEdit;

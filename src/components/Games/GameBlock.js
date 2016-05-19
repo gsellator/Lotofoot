@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Games/GameBlock.scss");
@@ -27,25 +28,25 @@ class GameBlock extends Component {
             <div className="GameBlockData">
               {data.status === 'TIMED' &&
                 <div className="Date">
-                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - Match ' + data.friendlyId}
+                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - ' + Labels.game + ' ' + data.friendlyId}
                 </div>
               }
               {data.status === 'IN_PROGRESS' &&
                 <div className="Date">
-                  {'Match ' + data.friendlyId + ' - En cours'}
+                  {Labels.game + ' ' + data.friendlyId + ' - ' + Labels.finished}
                 </div>
               }
               {data.status === 'FINISHED' &&
                 <div className="Date">
-                  {'Match ' + data.friendlyId + ' - Terminé'}
+                  {Labels.game + ' ' + data.friendlyId + ' -' + Labels.inProgress}
                 </div>
               }
 
-              {data.phase === 0 && <div className="Phase">{'Groupe ' + Filters.capitalize(data.group)}</div>}
-              {data.phase === 1 && <div className="Phase">Huitième de finale</div>}
-              {data.phase === 2 && <div className="Phase">Quart de finale</div>}
-              {data.phase === 3 && <div className="Phase">Demi finale</div>}
-              {data.phase === 4 && <div className="Phase">Finale</div>}
+              {data.phase === 0 && <div className="Phase">{Labels.group + ' ' + Filters.capitalize(data.group)}</div>}
+              {data.phase === 1 && <div className="Phase">{Labels.eightFinal}</div>}
+              {data.phase === 2 && <div className="Phase">{Labels.quarterFinal}</div>}
+              {data.phase === 3 && <div className="Phase">{Labels.semiFinal}</div>}
+              {data.phase === 4 && <div className="Phase">{Labels.Final}</div>}
 
               <div className="TeamBlock">
                 {data.teamA &&
@@ -53,7 +54,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className={'flag-60 ' + data.teamA.slug} />
                     </div>
-                    <div className="Label">{data.teamA.name}</div>
+                    <div className="Label">{Labels[data.teamA.slug.replace('-', '')]}</div>
                   </div>
                 }
                 <div className="ScoreContainer">
@@ -93,7 +94,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className={'flag-60 ' + data.teamB.slug} />
                     </div>
-                    <div className="Label">{data.teamB.name}</div>
+                    <div className="Label">{Labels[data.teamB.slug.replace('-', '')]}</div>
                   </div>
                 }
               </div>

@@ -29,17 +29,17 @@ class HtmlDocument extends React.Component {
     let prefStr = 'http://localhost:3001';
     let meta1, meta2, meta3, meta4;
 
-    /*if (process.env.APP_ENV === 'pre'){
+    if (process.env.APP_NAME === 'lotofoot-pre'){
       prefStr = '';
       meta1 = <link rel="apple-touch-icon" sizes="120x120" href="/assets/icns_120x120-pre.png" />;
       meta2 = <link rel="icon" type="image/png" sizes="192x192" href="/assets/icns_192x192-pre.png" />;
-      meta3 = <link rel="manifest" href="/icns_manifest-pre.json" />;
+      meta3 = <link rel="manifest" href="/assets/icns_manifest-pre.json" />;
       meta4 = <meta name="msapplication-config" content="/assets/icns_browserconfig.xml" />;
-    } else*/ if (process.env.NODE_ENV === 'production'){
+    } else if (process.env.NODE_ENV === 'lotofoot'){
       prefStr = '';
       meta1 = <link rel="apple-touch-icon" sizes="120x120" href="/assets/icns_120x120.png" />;
       meta2 = <link rel="icon" type="image/png" sizes="192x192" href="/assets/icns_192x192.png" />;
-      meta3 = <link rel="manifest" href="/icns_manifest.json" />;
+      meta3 = <link rel="manifest" href="/assets/icns_manifest.json" />;
       meta4 = <meta name="msapplication-config" content="/assets/icns_browserconfig.xml" />;
     }
 
@@ -55,7 +55,7 @@ class HtmlDocument extends React.Component {
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-          <meta name="apple-mobile-web-app-title" content="Lotofoot" />
+          <meta name="apple-mobile-web-app-title" content="Lotofoot.io" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <meta name="google-site-verification" content="u_jMeVlqwU6m_mQM6s6L9WCoOWeeB3t-kv9MM1obJ_M" />

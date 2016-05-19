@@ -136,9 +136,9 @@ class GamesTabStore extends BaseStore {
       for (let item of this.games){
         if (item.phase === 0 && this.subfilter === item.group && item.teamA && item.teamB && this.predictions[item._id]){
           if (!teams[item.teamA._id])
-            teams[item.teamA._id] = { slug: item.teamA.slug, name: item.teamA.name, points: 0, dif: 0 };
+            teams[item.teamA._id] = { slug: item.teamA.slug, points: 0, dif: 0 };
           if (!teams[item.teamB._id])
-            teams[item.teamB._id] = { slug: item.teamB.slug, name: item.teamB.name, points: 0, dif: 0 };
+            teams[item.teamB._id] = { slug: item.teamB.slug, points: 0, dif: 0 };
 
           switch (this.predictions[item._id].winner){
             case "nobody":

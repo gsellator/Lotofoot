@@ -3,7 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import { postApi } from "../actions/Pages/ApiAction";
 import { registerUser } from "../actions/Pages/UserRegisterAction";
-import Labels from "../constants/Labels";
+import Labels from "../Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/UserRegisterPage.scss");

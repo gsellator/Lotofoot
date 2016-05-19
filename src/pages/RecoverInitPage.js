@@ -2,8 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import { recoverInitSend } from "../actions/Pages/RecoverInitAction";
-import config from "../config";
-import Labels from "../constants/Labels";
+import Labels from "../Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/RecoverInitPage.scss");

@@ -1,9 +1,5 @@
-// Load different configs for production or development
-let configFile = "dev.js";
-
-if (process.env.APP_ENV === "prod") { configFile = "prod.js"; }
-else if (process.env.APP_ENV === "pre") { configFile = "pre.js"; }
-
-const config = require("../config/" + configFile);
-
-export default config;
+export default {
+  appName: process.env.APP_NAME || 'lotofoot-dev',
+  apiUri: process.env.API_URI || 'https://lotofoot-api-dev.herokuapp.com/api',
+  trackingId: process.env.TRACKING_ID || undefined,
+}

@@ -1,28 +1,26 @@
 import { BaseStore } from "fluxible/addons";
 import Actions from "../../constants/Actions";
-import config from "../../config";
 
-const BASE_URL = config.baseUrl;
+const BASE_URL = 'http://www.lotofoot.io/';
 
 class HtmlHeadStore extends BaseStore {
   static storeName = "HtmlHeadStore"
 
   static handlers = {
-//    [Actions.NAVIGATE_START]: "handleNavigateStart",
     [Actions.NAVIGATE_SUCCESS]: "handleNavigateSuccess",
     [Actions.NAVIGATE_FAILURE]: "handleNavigateFailure"
   }
 
   constructor(dispatcher) {
     super(dispatcher);
-    this.siteName = config.appFullName;
+    this.siteName = 'Lotofoot.io';
     this.currentUrl = null;
     this.setInitialState();
   }
 
   setInitialState() {
-    this.title = config.appFullName;
-    this.description = config.description;
+    this.title = 'Lotofoot.io';
+    this.description = 'Pronostiquez les matchs de l\'Euro 2016';
   }
 
   getTitle() {
@@ -45,22 +43,11 @@ class HtmlHeadStore extends BaseStore {
     return `${BASE_URL}${route.get("url")}`;
   }
 
-//  handleNavigateStart() {
-//    // Use a loading title when loading the route
-//    this.title = 'LOADING';
-//    this.emitChange();
-//  }
-
-
   handleNavigateSuccess(route) {
     switch (route.get("name")) {
       case "home":
-        this.title = 'Lotofoot';
-        this.description = 'Lotofoot';
-        break;
-      case "login":
-        this.title = 'Lotofoot';
-        this.description = 'Lotofoot';
+        this.title = 'Lotofoot.io';
+        this.description = 'Pronostiquez les matchs de l\'Euro 2016';
         break;
       default:
         this.setInitialState();

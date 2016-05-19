@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from "react";
-import Labels from "../../constants/Labels";
+import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/RefreshBtn.scss");
