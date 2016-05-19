@@ -3,7 +3,6 @@ import keyMirror from "keymirror";
 const Actions = keyMirror({
   LOGIN_PENDING: null,
   LOGIN_SUCCESS: null,
-  LOGIN_COOKIE_FOUND: null,
   LOGIN_UPDATE_CREDENTIALS: null,
   RECOVERINIT_PENDING: null,
   RECOVERINIT_FAILED: null,

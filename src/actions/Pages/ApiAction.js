@@ -25,7 +25,7 @@ const ApiAction = {
     context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
+          context.dispatch(Actions.DIALOG_SHOW, err.message);
           return done();
         }
         context.dispatch(action, { data, route });
@@ -49,7 +49,7 @@ const ApiAction = {
     context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
+          context.dispatch(Actions.DIALOG_SHOW, err.message);
           return done();
         }
         context.dispatch(action, { data, route });
@@ -73,7 +73,7 @@ const ApiAction = {
     context.service.update("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
+          context.dispatch(Actions.DIALOG_SHOW, err.message);
           return done();
         }
         context.dispatch(action, { data, route });

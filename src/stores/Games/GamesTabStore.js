@@ -64,6 +64,8 @@ class GamesTabStore extends BaseStore {
   }
 
   getGames() {
+    if (!this.games){return undefined;}
+
     // We filter on the group
     let tmpGamesSource = [];
     switch (this.filter){

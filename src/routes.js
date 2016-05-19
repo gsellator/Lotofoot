@@ -42,13 +42,13 @@ export default {
     path: "/",
     method: "get",
     handler: HomePage,
-    action: InitActions.home
+    action: InitActions.me
   },
   homeNew: {
     path: "/?msg=new",
     method: "get",
     handler: HomePage,
-    action: InitActions.home
+    action: InitActions.me
   },
   game: {
     path: "/games/:gameId",
@@ -60,19 +60,19 @@ export default {
     path: "/ranking",
     method: "get",
     handler: RankingPage,
-    action: InitActions.ranking
+    action: InitActions.me
   },
   chat: {
     path: "/chat",
     method: "get",
     handler: ChatPage,
-    action: InitActions.chat
+    action: InitActions.me
   },
   help: {
     path: "/help",
     method: "get",
     handler: HelpPage,
-    action: InitActions.help
+    action: InitActions.me
   },
 
   logout: {

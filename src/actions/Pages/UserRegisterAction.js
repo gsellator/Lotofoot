@@ -15,9 +15,9 @@ const UserRegisterAction = {
           let errObject = JSON.parse(err.message);
           let errMsg = errObject ? errObject.message : 'err.message';
           if (errMsg === 'Unauthorized' || errMsg === 'Not Found') {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'La connexion a échoué, mot de passe ou identifiant incorrect.');
+            context.dispatch(Actions.DIALOG_SHOW, 'La connexion a échoué, mot de passe ou identifiant incorrect.');
           } else {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, errMsg);
+            context.dispatch(Actions.DIALOG_SHOW, errMsg);
           }
           return done();
         }

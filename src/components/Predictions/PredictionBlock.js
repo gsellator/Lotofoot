@@ -13,8 +13,8 @@ class PredictionBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreTeamA: this.props.data.scoreTeamA,
-      scoreTeamB: this.props.data.scoreTeamB
+      scoreTeamA: 0,//this.props.data.scoreTeamA,
+      scoreTeamB: 0,//this.props.data.scoreTeamB
     };
   }
 

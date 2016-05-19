@@ -26,12 +26,10 @@ const LoginAction = {
         }
 
         const accessToken = data.token;
-        const user = data.user;
         var expiresDate = new Date();
         expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
         context.setCookie('lotofoot_token', accessToken, {expires: expiresDate, path: '/'})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
-        context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, user);
         const newroute = context.getStore("RouteStore").makePath('home');
         context.executeAction(navigateAction, { url: newroute });
         done();

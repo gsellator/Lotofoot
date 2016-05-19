@@ -12,7 +12,7 @@ const LoginAction = {
     context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'Ce lien n\'est plus valide, demandez-en un nouveau !');
+          context.dispatch(Actions.DIALOG_SHOW, 'Ce lien n\'est plus valide, demandez-en un nouveau !');
           context.dispatch(Actions.RECOVER_INIT_FAILED);
           done();
         }
@@ -27,7 +27,7 @@ const LoginAction = {
     context.service.create("ApiService", { endpoint }, { password }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.');
+          context.dispatch(Actions.DIALOG_SHOW, 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.');
           context.dispatch(Actions.RECOVER_FAILED, '');
           return done();
         }

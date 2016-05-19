@@ -16,7 +16,7 @@ const LoginAction = {
     context.service.create("ApiService", { endpoint }, { email: username }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'L\'email que vous avez indiqué est incorrect');
+          context.dispatch(Actions.DIALOG_SHOW, 'L\'email que vous avez indiqué est incorrect');
           context.dispatch(Actions.RECOVERINIT_FAILED, username);
           return done();
         }

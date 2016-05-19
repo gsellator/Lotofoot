@@ -34,7 +34,7 @@ class Page extends Component {
 
   render() {
     const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
-    const { isLogged, hasDialog, hasAccountDialog } = this.props;
+    const { hasDialog, hasAccountDialog } = this.props;
 
     let mainMenu, nav, tabnav, body, dialog, accountDialog;
     if (pageName != 'login' && pageName != 'userRegister' && pageName != 'recoverInit' && pageName != 'recover') {
@@ -79,7 +79,6 @@ class Page extends Component {
 
 Page = connectToStores(Page, ["LoginPageStore", "NavStore", "DialogStore", "AccountDialogStore"], (context) => {
   return {
-    isLogged: context.getStore("LoginPageStore").isLoggedIn(),
     credentials: context.getStore("LoginPageStore").getCredentials(),
     hasNav: context.getStore("NavStore").hasNav(),
     hasDialog: context.getStore("DialogStore").hasDialog(),
