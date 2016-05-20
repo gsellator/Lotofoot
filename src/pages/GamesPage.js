@@ -15,22 +15,31 @@ if (process.env.BROWSER) {
   require("../style/Pages/GamesPage.scss");
 }
 
-
 class GamesPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { loaded: false };
+  }
+
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
   }
 
   componentDidMount(){
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT});
-    this.context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
-    this.context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+    this.componentDidUpdate();
+
   }
 
-//  componentDidUpdate(){
-//  }
+  componentDidUpdate(){
+    if (!this.state.loaded && this.props.userId){
+      this.setState({loaded: true});
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT});
+      this.context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
+      this.context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+    }
+  }
 
   render() {
     const route = this.context.getStore('RouteStore').getCurrentRoute();
@@ -70,8 +79,9 @@ class GamesPage extends Component {
   }
 }
 
-GamesPage = connectToStores(GamesPage, ["GamesTabStore"], (context) => {
+GamesPage = connectToStores(GamesPage, ["LoginPageStore", "GamesTabStore"], (context) => {
   return {
+    userId: context.getStore('LoginPageStore').getCredentials()._id,
     filter: context.getStore("GamesTabStore").getFilter(),
     games: context.getStore("GamesTabStore").getGames(),
     predictions: context.getStore("GamesTabStore").getPredictions(),
