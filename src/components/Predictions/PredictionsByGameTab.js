@@ -68,7 +68,7 @@ class PredictionsByGameTab extends Component {
   }
 }
 
-PredictionsByGameTab = connectToStores(PredictionsByGameTab, ["PredictionsByGameTabStore"], (context) => {
+PredictionsByGameTab = connectToStores(PredictionsByGameTab, ["PredictionsByGameTabStore", "TeamsDicoStore"], (context) => {
   return {
     data: context.getStore("PredictionsByGameTabStore").getData(),
     users: context.getStore("PredictionsByGameTabStore").getUsers(),
