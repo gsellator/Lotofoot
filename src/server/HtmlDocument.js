@@ -35,7 +35,7 @@ class HtmlDocument extends React.Component {
       meta2 = <link rel="icon" type="image/png" sizes="192x192" href="/assets/icns_192x192-pre.png" />;
       meta3 = <link rel="manifest" href="/assets/icns_manifest-pre.json" />;
       meta4 = <meta name="msapplication-config" content="/assets/icns_browserconfig.xml" />;
-    } else if (process.env.NODE_ENV === 'lotofoot'){
+    } else if (process.env.APP_NAME === 'lotofoot'){
       prefStr = '';
       meta1 = <link rel="apple-touch-icon" sizes="120x120" href="/assets/icns_120x120.png" />;
       meta2 = <link rel="icon" type="image/png" sizes="192x192" href="/assets/icns_192x192.png" />;
