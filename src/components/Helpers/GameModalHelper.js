@@ -17,12 +17,16 @@ const GameModalHelper = {
     let url = route.url.substring(0, route.url.indexOf('?')) || route.url;
     this.context.executeAction(navigateAction, { url });
   },
-  
+
   altCloseGameModal(context) {
     context.executeAction(switchHasGameModal, { hasGameModal: false });
     const route = context.getStore("RouteStore").getCurrentRoute();
     let url = route.url.substring(0, route.url.indexOf('?')) || route.url;
     context.executeAction(navigateAction, { url });
+  },
+
+  miniCloseGameModal(context) {
+    context.executeAction(switchHasGameModal, { hasGameModal: false });
   },
 }
 
