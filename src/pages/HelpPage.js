@@ -1,6 +1,9 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
+import Actions from "../constants/Actions";
+import { getApi } from "../actions/Pages/ApiAction";
+
 import HelpBlock from "../components/Help/HelpBlock";
 
 if (process.env.BROWSER) {
@@ -11,6 +14,11 @@ class HelpPage extends Component {
   static contextTypes = {
     getStore: PropTypes.func.isRequired,
     executeAction: PropTypes.func.isRequired
+  }
+
+  componentDidMount(){
+    const route = this.context.getStore("RouteStore").getCurrentRoute();
+    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
   }
 
   render() {

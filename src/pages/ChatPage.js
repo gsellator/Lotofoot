@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
+import Actions from "../constants/Actions";
+import { getApi } from "../actions/Pages/ApiAction";
 
 import MessagesTab from "../components/Chat/MessagesTab";
 import MessageEdit from "../components/Chat/MessageEdit";
@@ -16,6 +18,9 @@ class ChatPage extends Component {
   }
 
   componentDidMount() {
+    const route = this.context.getStore("RouteStore").getCurrentRoute();
+    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
+    this.context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES });
     this.componentDidUpdate();
   }
 
@@ -24,12 +29,17 @@ class ChatPage extends Component {
   }
 
   render() {
+    const { data } = this.props;
+
     return (
       <div>
+        {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
         <div className="ChatPage" ref="ChatPage">
-          <div className="ChatPageContainer">
-            <MessagesTab />
-          </div>
+          {data &&
+            <div className="ChatPageContainer">
+              <MessagesTab />
+            </div>
+          }
         </div>
         <MessageEdit />
       </div>

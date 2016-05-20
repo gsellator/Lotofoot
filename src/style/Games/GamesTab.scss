@@ -5,15 +5,15 @@
 .Paper.GamesTab{
   text-align: center;
   padding: 0;
-  
+
   .TabContent{
     .Date{
       text-align: left;
-      padding: 3px 12px 3px 9px;
+      padding: 6px 12px 3px 9px;
       color: $grey-9;
       font-size: 14px;
-      padding-top: 18px;
       border-bottom: solid $grey-5 1px;
+      background: $grey-1;
     }
 
     .Row{
@@ -26,7 +26,7 @@
 
       .RowLine{
         display: flex;
-        
+
         .Head{
           height: 30px; width: 33px;
           flex-basis: 33px;
@@ -196,6 +196,11 @@
     box-shadow: none;
 
     .TabContent{
+      .Date{
+        background: transparent;
+        padding-top: 18px;
+      }
+
       .Row{
         .RowSubLine{
           .PredictionLabel{

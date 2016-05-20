@@ -7,6 +7,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var strip = require("strip-loader");
 
 var assetsPath = path.join(__dirname, "../public/assets");
+var appName = process.env.APP_NAME || 'lotofoot-dev';
 
 module.exports = {
   devtool: "source-map",
@@ -48,7 +49,8 @@ module.exports = {
         BROWSER: JSON.stringify(true),
 
         // Useful to reduce the size of client-side libraries, e.g. react
-        NODE_ENV: JSON.stringify("production")
+        NODE_ENV: JSON.stringify("production"),
+        APP_NAME: JSON.stringify(appName),
       }
     }),
 

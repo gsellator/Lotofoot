@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
+import Actions from "../constants/Actions";
+import { getApi } from "../actions/Pages/ApiAction";
 
 import UsersTab from "../components/Ranking/UsersTab";
 
@@ -15,21 +17,32 @@ class RankingPage extends Component {
     getStore: PropTypes.func.isRequired
   }
 
+  componentDidMount(){
+    const route = this.context.getStore("RouteStore").getCurrentRoute();
+    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
+    this.context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS });
+  }
+
   render() {
+    const { data } = this.props;
+
     return (
       <div className="RankingPage">
-        <div className="RankingPageContainer">
-          <UsersTab />
-        </div>
+        {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {data &&
+          <div className="RankingPageContainer">
+            <UsersTab />
+          </div>
+        }
       </div>
     );
   }
 }
 
-//RankingPage = connectToStores(RankingPage, ["LoginPageStore"], (context) => {
-//  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
-//  };
-//}, {getStore: PropTypes.func});
+RankingPage = connectToStores(RankingPage, ["UsersTabStore"], (context) => {
+  return {
+    data: context.getStore("UsersTabStore").getData()
+  };
+}, {getStore: PropTypes.func});
 
 export default RankingPage;

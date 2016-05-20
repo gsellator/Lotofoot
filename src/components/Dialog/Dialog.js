@@ -32,7 +32,7 @@ class Dialog extends Component {
               <span>{txt}</span>
             </div>
             <div>
-              <button ref="DialogWindowButton" type="submit" className="DialogWindowButton">Labels.ok</button>
+              <button ref="DialogWindowButton" type="submit" className="DialogWindowButton">{Labels.ok}</button>
             </div>
           </form>
         </div>
