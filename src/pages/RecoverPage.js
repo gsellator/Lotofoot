@@ -73,7 +73,7 @@ class RecoverPage extends Component {
                     Votre mot de passe a été modifié.
                   </div>
                   <div>
-                    <NavLink className="TxtBtn" routeName="home">
+                    <NavLink className="TxtBtn" routeName="games">
                       Accéder au lotofoot
                     </NavLink>
                   </div>

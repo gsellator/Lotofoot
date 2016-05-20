@@ -13,14 +13,23 @@ class PredictionBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreTeamA: 0,//this.props.data.scoreTeamA,
-      scoreTeamB: 0,//this.props.data.scoreTeamB
+      scoreTeamA: this.props.data.scoreTeamA,
+      scoreTeamB: this.props.data.scoreTeamB
     };
   }
 
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
+  }
+
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+
+  componentDidUpdate() {
+    if (this.state.scoreTeamA === undefined && this.state.scoreTeamA != this.props.data.scoreTeamA) {this.setState({scoreTeamA: this.props.data.scoreTeamA});}
+    if (this.state.scoreTeamB === undefined && this.state.scoreTeamB != this.props.data.scoreTeamB) {this.setState({scoreTeamB: this.props.data.scoreTeamB});}
   }
 
   handleChangeA(e) {
@@ -53,6 +62,7 @@ class PredictionBlock extends Component {
 
     return (
       <div className="Paper PredictionBlock">
+        {!(data && gameData) && <div className="LoaderContainer"><div className="Loader" /></div>}
         {data && !data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Title">
             {Labels.tooLate}
@@ -91,17 +101,19 @@ class PredictionBlock extends Component {
               <div className="icn-60 footix"></div>
             </div>
             <div>
-              <div className="Prediction">
-                <div className="Inputs">
-                  <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
-                  <span> - </span>
-                  <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
+              {pending && <div className="LoaderContainer"><div className="Loader" /></div>}
+              {!pending &&
+                <div className="Prediction">
+                  <div className="Inputs">
+                    <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="9" />
+                    <span> - </span>
+                    <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="9" />
+                  </div>
+                  <div className="Btns">
+                    <div className="PaperBtn" onTouchTap={this.postPrediction.bind(this, undefined, undefined)}>{Labels.validate}</div>
+                  </div>
                 </div>
-                <div className="Btns">
-                  {!pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>{Labels.validate}</div>}
-                  {pending && <div className="TxtBtn" onClick={this.postPrediction.bind(this, undefined, undefined)}>...</div>}
-                </div>
-              </div>
+              }
             </div>
           </div>
         }
@@ -110,11 +122,13 @@ class PredictionBlock extends Component {
   }
 }
 
-PredictionBlock = connectToStores(PredictionBlock, ["PredictionBlockStore"], (context) => {
+PredictionBlock = connectToStores(PredictionBlock, ["GameBlockStore", "PredictionBlockStore"], (context) => {
+  const route = context.getStore("RouteStore").getCurrentRoute();
+  const game = route.query.game;
   return {
-    data: context.getStore("PredictionBlockStore").getData(),
+    gameData: context.getStore("GameBlockStore").getData(game),
+    data: context.getStore("PredictionBlockStore").getData(game),
     pending: context.getStore("PredictionBlockStore").getPending(),
-    gameData: context.getStore("GameBlockStore").getData(),
   };
 }, {getStore: PropTypes.func});
 

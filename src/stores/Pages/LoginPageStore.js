@@ -48,7 +48,7 @@ class LoginPageStore extends BaseStore {
 
   getPending() {return this.pending;}
   getAccessToken() {return this.accessToken;}
-  getCredentials() {return this.credentials;}
+  getCredentials() {return this.credentials && this.credentials._id ? this.credentials : { _id: undefined };}
   getLastCheck() {
     if (this.lastCheck)
       return moment().diff(this.lastCheck);

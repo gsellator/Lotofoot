@@ -1,6 +1,7 @@
-import { postApi, putApi } from "../../actions/Pages/ApiAction";
+import { getApi, postApi, putApi } from "../../actions/Pages/ApiAction";
 import { navigateAction } from "fluxible-router";
 import Actions from "../../constants/Actions";
+import GameModalHelper from "../../components/Helpers/GameModalHelper";
 
 const PredictionBlockAction = {
   create(context, { route, scoreTeamA, scoreTeamB, gameId }, done) {
@@ -24,8 +25,10 @@ const PredictionBlockAction = {
     }
     return context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE})
     .then(() => {
-      const newroute = context.getStore("RouteStore").makePath('home');
-      context.executeAction(navigateAction, { url: newroute });
+      GameModalHelper.altCloseGameModal(context);
+      return context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+    })
+    .then(() => {
       done();
     });
   },
@@ -49,8 +52,10 @@ const PredictionBlockAction = {
 
     return context.executeAction(putApi, { predictionId, route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE })
     .then(() => {
-      const newroute = context.getStore("RouteStore").makePath('home');
-      context.executeAction(navigateAction, { url: newroute });
+      GameModalHelper.altCloseGameModal(context);
+      return context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+    })
+    .then(() => {
       done();
     });
   },

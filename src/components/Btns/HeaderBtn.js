@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { navigateAction } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Labels from "../../Labels";
+import GameModalHelper from "../../components/Helpers/GameModalHelper";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/HeaderBtn.scss");
@@ -14,14 +15,9 @@ class HeaderBtn extends Component {
     getStore: PropTypes.func.isRequired
   }
 
-  goToGame(gameId){
-    const newroute = this.context.getStore("RouteStore").makePath('game', { gameId });
-    this.context.executeAction(navigateAction, { url: newroute });
-  }
-
   render() {
     const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const routeName = route.getIn(["name"]);
+    const routeName = route.name;
     const { data } = this.props;
 
     return (
@@ -30,7 +26,7 @@ class HeaderBtn extends Component {
           <div className="icn-20 title"></div>
         }
         {data && data.status === 'TIMED' &&
-          <div className="Live" onTouchTap={this.goToGame.bind(this, data._id)}>
+          <div className="Live" onTouchTap={GameModalHelper.openGameModalFct.bind(this, data._id)}>
             <div className="icn-10 next"></div>
 
             <div className="Cartouche">
@@ -54,7 +50,7 @@ class HeaderBtn extends Component {
           </div>
         }
         {data && data.status === 'IN_PROGRESS' &&
-          <div className="Live" onTouchTap={this.goToGame.bind(this, data._id)}>
+          <div className="Live" onTouchTap={GameModalHelper.openGameModalFct.bind(this, data._id)}>
             <div className="icn-10 live"></div>
 
             <div className="Cartouche">

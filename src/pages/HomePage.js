@@ -1,79 +1,24 @@
 import React, { PropTypes, Component } from "react";
-import { connectToStores } from "fluxible-addons-react";
-import { NavLink, navigateAction, RouteStore } from "fluxible-router";
-import Labels from "../Labels";
-import Actions from "../constants/Actions";
-import { getApi } from "../actions/Pages/ApiAction";
-
-import HelpBlock from "../components/Help/HelpBlock";
-import GameBlock from "../components/Games/GameBlock";
-import GamesFilters from "../components/Games/GamesFilters";
-import GamesTab from "../components/Games/GamesTab";
-import GroupRanking from "../components/Games/GroupRanking";
-
-if (process.env.BROWSER) {
-  require("../style/Pages/HomePage.scss");
-}
-
+import { navigateAction } from "fluxible-router";
 
 class HomePage extends Component {
   static contextTypes = {
-    executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
+    getStore: PropTypes.func.isRequired,
+    executeAction: PropTypes.func.isRequired
   }
 
-  componentDidMount(){
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT});
-    this.context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
-    this.context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+  componentDidMount() {
+    const newroute = this.context.getStore("RouteStore").makePath('games');
+    this.context.executeAction(navigateAction, { url: newroute });
   }
 
   render() {
-    const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const msg = route.getIn(["query", "msg"]);
-    const { filter, games, predictions } = this.props;
-
-    let gameBlock;
-    //    gameBlock = <GameBlock />;
-
     return (
       <div className="HomePage">
-        {!(games && predictions) && <div className="LoaderContainer"><div className="Loader" /></div>}
-
-        {(games && predictions) &&
-          <div>
-            {msg === 'new' &&
-              <div className="Paper HomeHelp">
-                <div>
-                  <HelpBlock />
-                </div>
-                <div className="HelpSpacer">
-                  <NavLink className="TxtBtn" routeName="home">Fermer les règles</NavLink>
-                </div>
-              </div>
-            }
-            {gameBlock}
-
-            <GamesFilters />
-            <GamesTab />
-
-            {filter === 'group' && false &&
-              <GroupRanking />
-            }
-          </div>
-        }
+        <div className="LoaderContainer"><div className="Loader" /></div>
       </div>
     );
   }
 }
-
-HomePage = connectToStores(HomePage, ["GamesTabStore"], (context) => {
-  return {
-    filter: context.getStore("GamesTabStore").getFilter(),
-    games: context.getStore("GamesTabStore").getGames(),
-    predictions: context.getStore("GamesTabStore").getPredictions(),
-  };
-}, {getStore: PropTypes.func});
 
 export default HomePage;

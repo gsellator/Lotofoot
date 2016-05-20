@@ -28,7 +28,7 @@ const UserRegisterAction = {
         context.setCookie('lotofoot_token', accessToken, {expires: expiresDate, path: '/'})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
         context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, user);
-        const newroute = context.getStore("RouteStore").makePath('homeNew');
+        const newroute = context.getStore("RouteStore").makePath('gamesNew');
         context.executeAction(navigateAction, { url: newroute });
         done();
       }

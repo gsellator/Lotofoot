@@ -6,7 +6,8 @@ import RecoverInitPage from "./pages/RecoverInitPage";
 import RecoverPage from "./pages/RecoverPage";
 
 import HomePage from "./pages/HomePage";
-import GamePage from "./pages/GamePage";
+import GamesPage from "./pages/GamesPage";
+//import GamePage from "./pages/GamePage";
 import RankingPage from "./pages/RankingPage";
 import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
@@ -44,18 +45,24 @@ export default {
     handler: HomePage,
     action: InitActions.me
   },
-  homeNew: {
-    path: "/?msg=new",
+  games: {
+    path: "/games",
     method: "get",
-    handler: HomePage,
+    handler: GamesPage,
     action: InitActions.me
   },
-  game: {
-    path: "/games/:gameId",
+  gamesNew: {
+    path: "/games?msg=new",
     method: "get",
-    handler: GamePage,
-    action: InitActions.game
+    handler: GamesPage,
+    action: InitActions.me
   },
+//  game: {
+//    path: "/games/:gameId",
+//    method: "get",
+//    handler: GamePage,
+//    action: InitActions.game
+//  },
   ranking: {
     path: "/ranking",
     method: "get",

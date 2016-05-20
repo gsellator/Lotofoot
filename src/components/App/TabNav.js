@@ -15,7 +15,7 @@ class TabNav extends Component {
   }
 
   render() {
-    const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
+    const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
 
     return (
       <nav className="TabNav">

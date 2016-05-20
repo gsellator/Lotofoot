@@ -9,8 +9,8 @@ const ApiAction = {
     const accessToken = context.getCookie('lotofoot_token');
     const userId = context.getStore('LoginPageStore').getCredentials()._id;
 
-    const gameId = immutable.Map.isMap(route) ? route.getIn(["params", "gameId"]) : null;
-    const predictionId = immutable.Map.isMap(route) ? route.getIn(["params", "predictionId"]) : null;
+    const gameId = route.query.game;
+    const predictionId = route.params.predictionId;
 
     let endpoint = ApiUris[view]
     .replace(':gameId', gameId)
@@ -37,9 +37,9 @@ const ApiAction = {
   postApi(context, { route, view, body, action }, done) {
     const accessToken = context.getCookie('lotofoot_token');
     let endpoint = ApiUris[view]
-    .replace(':gameId', route.getIn(["params", "gameId"]))
-    .replace(':predictionId', route.getIn(["params", "predictionId"]))
-    .replace(':userId', route.getIn(["params", "userId"]));
+    .replace(':gameId', route.params.gameId)
+    .replace(':predictionId', route.params.predictionId)
+    .replace(':userId', route.params.userId);
 
     if (accessToken && endpoint.includes('?'))
       endpoint = endpoint + '&access_token=' + accessToken;
@@ -61,9 +61,9 @@ const ApiAction = {
   putApi(context, { route, view, body, action, predictionId }, done) {
     const accessToken = context.getCookie('lotofoot_token');
     let endpoint = ApiUris[view]
-    .replace(':gameId', route.getIn(["params", "gameId"]))
-    .replace(':predictionId', predictionId || route.getIn(["params", "predictionId"]))
-    .replace(':userId', route.getIn(["params", "userId"]));
+    .replace(':gameId', route.params.gameId)
+    .replace(':predictionId', predictionId || route.params.predictionId)
+    .replace(':userId', route.params.userId);
 
     if (accessToken && endpoint.includes('?'))
       endpoint = endpoint + '&access_token=' + accessToken;

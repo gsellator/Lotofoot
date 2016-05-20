@@ -14,15 +14,16 @@ class PredictionBlockStore extends BaseStore {
 
   constructor(dispatcher) {
     super(dispatcher);
-    this.data;
+    this.data = {};
     this.pending = false;
   }
 
   handleApiOk({ data, route }) {
+    const game = route.query.game;
     if (data && data[0] && data[0]._id){
-      this.data = data[0];
+      this.data[game] = data[0];
     } else {
-      this.data = {};
+      this.data[game] = undefined;
     }
     this.pending = false;
     this.emitChange();
@@ -30,37 +31,37 @@ class PredictionBlockStore extends BaseStore {
 
   handlePendingSwitch() {
     this.pending = true;
-    this.data = {};
     this.emitChange();
   }
 
   handleApiOkCreate({ data, route }){
+    const game = route.query.game;
     if (data && data._id){
-      this.data = data;
+      this.data[game] = data;
     } else {
-      this.data = {};
+      this.data[game] = undefined;
     }
-    this.pending = false;
+    setTimeout(() => {
+      this.pending = false;
+    }, 4000);
     this.emitChange();
   }
 
   handleApiOkModify({ data, route }){
+    const game = route.query.game;
     if (data && data._id){
-      this.data = data;
+      this.data[game] = data;
     } else {
-      this.data = {};
+      this.data[game] = undefined;
     }
-    this.pending = false;
+    setTimeout(() => {
+      this.pending = false;
+    }, 4000);
     this.emitChange();
   }
 
-  getData() {
-    return this.data;
-  }
-
-  getPending() {
-    return this.pending;
-  }
+  getData(game) {return this.data[game] ? this.data[game] : { scoreTeamA: undefined, scoreTeamB: undefined };}
+  getPending() {return this.pending;}
 
   dehydrate() {
     return {
