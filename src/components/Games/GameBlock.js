@@ -34,12 +34,12 @@ class GameBlock extends Component {
               }
               {data.status === 'IN_PROGRESS' &&
                 <div className="Date">
-                  {Labels.game + ' ' + data.friendlyId + ' - ' + Labels.finished}
+                  {Labels.game + ' ' + data.friendlyId + ' - ' + Labels.inProgress}
                 </div>
               }
               {data.status === 'FINISHED' &&
                 <div className="Date">
-                  {Labels.game + ' ' + data.friendlyId + ' -' + Labels.inProgress}
+                  {Labels.game + ' ' + data.friendlyId + ' - ' + Labels.finished}
                 </div>
               }
 
@@ -59,13 +59,11 @@ class GameBlock extends Component {
                   </div>
                 }
                 <div className="ScoreContainer">
-                  {!data.scoreTeamA && false && 'test'}
                   {data.status === 'TIMED' &&
                     <div className="Score">
                       <span>{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
                     </div>
                   }
-                  {data.scoreTeamA && false && 'test'}
                   {data.status === 'IN_PROGRESS' &&
                     <div>
                       <div className="Score">
@@ -73,11 +71,6 @@ class GameBlock extends Component {
                         <span>&#8239;-&#8239;</span>
                         <span>{(data.scoreTeamB || '0') + ')'}</span>
                       </div>
-                      {false &&
-                        <div className="Time">
-                          27:01
-                        </div>
-                      }
                     </div>
                   }
                   {data.status === 'FINISHED' &&
