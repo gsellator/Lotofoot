@@ -21,8 +21,9 @@ class GameBlock extends Component {
 
     return (
       <div className="Paper GameBlock">
+        {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
         {data &&
-          <NavLink routeName="game" navParams={{gameId: data._id}}>
+          <div>
             <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
 
             <div className="GameBlockData">
@@ -111,7 +112,7 @@ class GameBlock extends Component {
                 <div className="chn-24 bein-sports-1"></div>
               </div>
             </div>
-          </NavLink>
+          </div>
         }
       </div>
     );
@@ -119,8 +120,10 @@ class GameBlock extends Component {
 }
 
 GameBlock = connectToStores(GameBlock, ["GameBlockStore"], (context) => {
+  const route = context.getStore("RouteStore").getCurrentRoute();
+  const game = route.query.game;
   return {
-    data: context.getStore("GameBlockStore").getData()
+    data: context.getStore("GameBlockStore").getData(game)
   };
 }, {getStore: PropTypes.func});
 

@@ -21,6 +21,24 @@
   &.inactive{background: transparent; border: solid $grey-3 1px; line-height: 28px;}
 }
 
+.PaperBtn{
+  display: inline-block;
+  vertical-align: top;
+  background: $grey-2;
+  cursor: pointer;
+  height: 42px; width: 100%;
+  line-height: 40px;
+  font-size: 15px;
+  color: $grey-dark;
+  border: solid transparent 1px;
+
+  &:hover{background-color: $grey-3;}
+  &:focus{background-color: $grey-3; outline: none; border: $fluo-blue solid 1px;}
+  &:active{background: $grey-2; color: $footix-blue}
+  &.active{background: $blue-medium;}
+  &.inactive{background: transparent; border: solid $grey-3 1px; line-height: 28px;}
+}
+
 .GroupTxtBtn{
   margin: 0 2px 4px 2px;
   display: inline-block;

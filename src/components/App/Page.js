@@ -5,13 +5,15 @@ import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { getAccessToken } from "../../actions/Pages/LoginAction";
 import { closeNav } from "../../actions/Pages/NavAction";
 import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";
+import NotificationComponent from './Notification';
 
 import MainMenu from "../../components/App/MainMenu";
 import Nav from "../../components/App/Nav";
 import TabNav from "../../components/App/TabNav";
 import Dialog from "../../components/Dialog/Dialog";
 import AccountDialog from "../../components/Dialog/AccountDialog";
-import NotificationComponent from './Notification';
+import GameModal from "../../components/Games/GameModal";
+
 
 if (process.env.BROWSER) {
   require("../../style/App/Page.scss");
@@ -33,10 +35,10 @@ class Page extends Component {
   }
 
   render() {
-    const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
-    const { hasDialog, hasAccountDialog } = this.props;
+    const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
+    const { hasDialog, hasAccountDialog, hasGameModal } = this.props;
 
-    let mainMenu, nav, tabnav, body, dialog, accountDialog;
+    let mainMenu, nav, tabnav, body, dialog, accountDialog, gameModal;
     if (pageName != 'login' && pageName != 'userRegister' && pageName != 'recoverInit' && pageName != 'recover') {
       mainMenu = <MainMenu />;
       nav = <Nav />;
@@ -44,6 +46,7 @@ class Page extends Component {
     }
     if (hasDialog) {dialog = <Dialog key="1"/>;}
     if (hasAccountDialog) {accountDialog = <AccountDialog />;}
+    if (hasGameModal) {gameModal = <GameModal />;}
 
     return (
       <div className={'Page ' + pageName} onTouchTap={this.ckickHandler.bind(this)}>
@@ -67,6 +70,10 @@ class Page extends Component {
           { this.props.children }
         </div>
 
+        <ReactCSSTransitionGroup transitionName="GameModalAnim" transitionEnterTimeout={500} transitionLeaveTimeout={800}>
+          {gameModal}
+        </ReactCSSTransitionGroup>
+
         <ReactCSSTransitionGroup transitionName="DialogAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           {dialog}
         </ReactCSSTransitionGroup>
@@ -83,6 +90,7 @@ Page = connectToStores(Page, ["LoginPageStore", "NavStore", "DialogStore", "Acco
     hasNav: context.getStore("NavStore").hasNav(),
     hasDialog: context.getStore("DialogStore").hasDialog(),
     hasAccountDialog: context.getStore("AccountDialogStore").hasAccountDialog(),
+    hasGameModal: context.getStore("GameModalStore").getHasGameModal(),
   };
 }, {getStore: PropTypes.func});
 

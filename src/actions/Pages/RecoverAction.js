@@ -7,7 +7,7 @@ const TIMEOUT = 20000;
 const LoginAction = {
   recoverInit(context, { route }, done) {
     context.dispatch(Actions.RECOVER_INIT, {});
-    let endpoint = ApiUris['RecoverTest'].replace(':recovertoken', route.getIn(["params", "recovertoken"]));
+    let endpoint = ApiUris['RecoverTest'].replace(':recovertoken', route.params.recovertoken);
 
     context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
       (err, data) => {
@@ -23,7 +23,7 @@ const LoginAction = {
 
   recoverUpdate(context, { route, password }, done) {
     context.dispatch(Actions.RECOVER_PENDING);
-    let endpoint = ApiUris['RecoverUpdate'].replace(':recovertoken', route.getIn(["params", "recovertoken"]));
+    let endpoint = ApiUris['RecoverUpdate'].replace(':recovertoken', route.params.recovertoken);
     context.service.create("ApiService", { endpoint }, { password }, { timeout: TIMEOUT },
       (err, data) => {
         if (err) {

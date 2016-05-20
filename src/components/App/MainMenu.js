@@ -4,7 +4,6 @@ import { connectToStores } from "fluxible-addons-react";
 import { switchNav } from "../../actions/Pages/NavAction";
 import config from "../../config";
 
-import BackBtn from "../Btns/BackBtn";
 import RefreshBtn from "../Btns/RefreshBtn";
 import HeaderBtn from "../Btns/HeaderBtn";
 import AccountBtn from "../Btns/AccountBtn";
@@ -24,41 +23,30 @@ class MainMenu extends Component {
     this.context.executeAction(switchNav);
   }
 
-  goHome(){
-    const newroute = this.context.getStore("RouteStore").makePath('home');
+  goToGames(){
+    const newroute = this.context.getStore("RouteStore").makePath('games');
     this.context.executeAction(navigateAction, { url: newroute });
   }
 
   render() {
     const route = this.context.getStore(RouteStore).getCurrentRoute();
-    const routeName = route.getIn(["name"]);
-    const view = route.getIn(["params", "view"]);
-
-    let backBtn, headerBtn, refreshBtn, accountBtn;
-    backBtn = <BackBtn />;
-    headerBtn = <HeaderBtn />;
-    refreshBtn = <RefreshBtn />;
-    accountBtn = <AccountBtn />;
+    const routeName = route.name;
+    const view = route.params.view;
 
     return (
       <menu className="MainMenu">
         <div className="Left">
-          {routeName != 'game' &&
-            <div>
-              <div className="Desktop" onTouchTap={this.switchNavClick.bind(this)}>
-                <div className={'icn-36 main ' + config.appName}></div>
-              </div>
-              <div className="Mobile" onTouchTap={this.goHome.bind(this)}>
-                <div className={'icn-26 main ' + config.appName}></div>
-              </div>
+          <div>
+            <div className="Desktop" onTouchTap={this.switchNavClick.bind(this)}>
+              <div className={'icn-36 main ' + config.appName}></div>
             </div>
-          }
-          {routeName == 'game' &&
-            backBtn
-          }
+            <div className="Mobile" onTouchTap={this.goToGames.bind(this)}>
+              <div className={'icn-26 main ' + config.appName}></div>
+            </div>
+          </div>
         </div>
         <div className="Center">
-          {headerBtn}
+          <HeaderBtn />
         </div>
         <div className="Right">
           <div className="pixel loader"></div>
@@ -74,8 +62,8 @@ class MainMenu extends Component {
           <div className="pixel saint-denis"></div>
           <div className="pixel saint-etienne"></div>
           <div className="pixel toulouse"></div>
-          {accountBtn}
-          {refreshBtn}
+          <RefreshBtn />
+          <AccountBtn />
         </div>
       </menu>
     );

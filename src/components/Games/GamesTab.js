@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
+import GameModalHelper from "../Helpers/GameModalHelper";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
 import Labels from "../../Labels";
@@ -33,7 +34,7 @@ class GamesTab extends Component {
                   )
                 else
                   return (
-                    <NavLink className="Row" routeName="game" navParams={{gameId: item._id}}>
+                    <div className="Row" onTouchTap={GameModalHelper.openGameModalFct.bind(this, item._id)}>
                       <div className="RowLine">
                         <div className="Head">
                           <div className="Rank">
@@ -117,7 +118,7 @@ class GamesTab extends Component {
                         <div className="Head">
                         </div>
                       </div>
-                    </NavLink>
+                    </div>
                   )
               })()}
             </div>

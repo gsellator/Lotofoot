@@ -1,18 +1,24 @@
 import React, { PropTypes, Component } from "react";
 import Labels from "../../Labels";
+import GameModalHelper from "../Helpers/GameModalHelper";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/BackBtn.scss");
 }
 
 class BackBtn extends Component {
-  goBack(){
-    window.history.go(-1)
+  static contextTypes = {
+    executeAction: PropTypes.func.isRequired,
+    getStore: PropTypes.func.isRequired,
   }
+
+  //  goBack(){
+  //    window.history.go(-1)
+  //  }
 
   render() {
     return (
-      <div className="BackBtn" onTouchTap={this.goBack.bind(this)} title={Labels.back}>
+      <div className="BackBtn" onTouchTap={GameModalHelper.closeGameModal.bind(this)} title={Labels.back}>
         <div className="icn-26 back"></div>
         <div className="Label">{Labels.games}</div>
       </div>

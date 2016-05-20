@@ -11,14 +11,14 @@ class GameBlockStore extends BaseStore {
 
   constructor(dispatcher) {
     super(dispatcher);
-    this.data;
+    this.data = {};
   }
 
   handleApiOk({ data, route }) {
-    if (data){
-      this.data = data;
+    if (data && data._id){
+      this.data[data._id] = data;
     } else {
-      this.data = {};
+      this.data[data._id] = {};
     }
     this.emitChange();
   }
@@ -32,9 +32,7 @@ class GameBlockStore extends BaseStore {
     this.emitChange();
   }
 
-  getData() {
-    return this.data;
-  }
+  getData(_id) {return this.data[_id];}
 
   dehydrate() {
     return {

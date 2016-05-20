@@ -21,7 +21,7 @@ class HeaderBtn extends Component {
 
   render() {
     const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const routeName = route.getIn(["name"]);
+    const routeName = route.name;
     const { data } = this.props;
 
     return (

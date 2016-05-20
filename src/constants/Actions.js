@@ -51,6 +51,7 @@ const Actions = keyMirror({
 
   GAMESTAB_SET_FILTER: null,
   GAMESTAB_SET_SUBFILTER: null,
+  GAMEMODAL_SWITCH: null,
 });
 
 export default Actions;

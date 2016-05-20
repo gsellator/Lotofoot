@@ -26,6 +26,7 @@ const Labels = {
   help: 'Aide',
   home: 'Tous les matchs',
   homeMini: 'Matchs',
+  gamesMini: 'Matchs',
   inProgress: 'En cours',
   key: 'Clé',
   knockoutPhase: 'Phase finale',

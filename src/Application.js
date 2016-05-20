@@ -38,7 +38,7 @@ class Application extends Component {
     // prop coming from HtmlHeadStore
     documentTitle: PropTypes.string
   }
-  
+
   trackPage(accessToken, url) {
     const credentials = this.props.credentials;
     const group = credentials.group;
@@ -51,26 +51,26 @@ class Application extends Component {
   componentDidMount(){
     const { currentRoute } = this.props;
     const accessToken = cookie.load('lotofoot_token');
-    this.trackPage(accessToken, currentRoute.get('url'));
+    this.trackPage(accessToken, currentRoute.url);
   }
 
   componentDidUpdate(prevProps) {
     const { documentTitle, currentRoute } = this.props;
     const accessToken = cookie.load('lotofoot_token');
-    
+
     if (prevProps.documentTitle !== documentTitle) {
       document.title = documentTitle;
     }
-    
+
     if (!Immutable.is(prevProps.currentRoute, currentRoute)) {
-      this.trackPage(accessToken, currentRoute.get('url'));
+      this.trackPage(accessToken, currentRoute.url);
     }
   }
 
   render() {
     const { currentRoute, currentNavigateError, isNavigateComplete } = this.props;
 
-    let Handler = currentRoute && currentRoute.get("handler");
+    let Handler = currentRoute && currentRoute.handler;
 
     let content;
 
@@ -83,12 +83,12 @@ class Application extends Component {
     } else if (!Handler) {
       // No handler: this is another case where a route is not found (e.g. is not defined in the routes.js config)
       content = <NotFoundPage />;
-    } else if (!isNavigateComplete) {
-      // Show a loading page while waiting the route's action to finish
-      content = <LoadingPage />;
+//    } else if (!isNavigateComplete) {
+//      // Show a loading page while waiting the route's action to finish
+//      content = <LoadingPage />;
     } else {
       // Here you go with the actual page content
-      const params = currentRoute.get("params").toJS();
+      const params = currentRoute.params;
       content = <Handler {...params} />;
     }
     return (

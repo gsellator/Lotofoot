@@ -24,7 +24,7 @@ class Nav extends Component {
 
   render() {
     const { hasNav } = this.props;
-    const pageName = this.context.getStore(RouteStore).getCurrentRoute().getIn(["name"]);
+    const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
 
     return (
       <div className="Nav">
@@ -48,7 +48,7 @@ class Nav extends Component {
         <ReactCSSTransitionGroup transitionName="NavFullAnim" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {hasNav &&
             <nav className="NavFull">
-              <div className="MainLink" onTouchTap={NavHelper.navToSectClick.bind(this, 'home')}>
+              <div className="MainLink" onTouchTap={NavHelper.navToSectClick.bind(this, 'games')}>
                 <div className="icn-36 main full"></div>
               </div>
 

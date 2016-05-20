@@ -30,7 +30,7 @@ const LoginAction = {
         expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
         context.setCookie('lotofoot_token', accessToken, {expires: expiresDate, path: '/'})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
-        const newroute = context.getStore("RouteStore").makePath('home');
+        const newroute = context.getStore("RouteStore").makePath('games');
         context.executeAction(navigateAction, { url: newroute });
         done();
       }
