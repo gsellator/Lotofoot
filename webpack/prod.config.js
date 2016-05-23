@@ -52,6 +52,8 @@ module.exports = {
         // Useful to reduce the size of client-side libraries, e.g. react
         NODE_ENV: JSON.stringify("production"),
         APP_NAME: JSON.stringify(appName),
+        
+        BROWSERSLIST: JSON.stringify("./browserslist"),
       }
     }),
 
