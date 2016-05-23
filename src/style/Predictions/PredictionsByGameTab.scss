@@ -14,7 +14,7 @@
     margin: 0 -12px;
     padding: 6px 12px;
     position: relative;
-    display: flex;
+    display: flex; display: -webkit-flex;
     justify-content: space-between;
     &:not(:last-child){border-bottom: solid $grey-3 1px;}
 
@@ -44,7 +44,7 @@
 
     .Center{
       flex: 1;
-      display: flex;
+      display: flex; display: -webkit-flex;
       justify-content: space-between;
       height: 22px;
       margin: 1px 0;

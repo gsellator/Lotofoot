@@ -9,7 +9,7 @@
   .FilterSelector{
     //    margin: 0 -12px 0 -12px;
     background: $footix-blue;
-    display: flex;
+    display: flex; display: -webkit-flex;
 
     .FilterBtn{
       flex: 1;
@@ -44,7 +44,7 @@
   }
 
   .SubfilterSelector{
-    display: flex;
+    display: flex; display: -webkit-flex;
     justify-content: space-between;
     overflow-x: auto;
     overflow-y: hidden;
