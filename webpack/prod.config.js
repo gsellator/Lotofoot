@@ -26,7 +26,8 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
       { test: /\.js$/, exclude: /node_modules/, loaders: [strip.loader("debug"), "babel"] },
 //      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass") }
-      { test: /\.scss$/, loader: "style!css!autoprefixer!sass" }
+//      { test: /\.scss$/, loader: "style!css!autoprefixer!sass" }
+      { test: /\.scss$/, loader: "style!css!autoprefixer!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true" }
     ]
   },
   progress: true,
@@ -36,7 +37,7 @@ module.exports = {
     // new webpack.NormalModuleReplacementPlugin(/debug/, process.cwd() + "/webpack/utils/noop.js"),
 
     // css files from the extract-text-plugin loader
-    new ExtractTextPlugin("[name]-[chunkhash].css"),
+//    new ExtractTextPlugin("[name]-[chunkhash].css"),
 
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
