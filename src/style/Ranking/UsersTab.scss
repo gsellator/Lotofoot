@@ -11,16 +11,12 @@
   }
 
   .User{
-//    margin: 0 -12px;
     padding: 6px 12px;
     position: relative;
     display: flex;
     justify-content: space-around;
 
     &:not(:last-child){border-bottom: solid $grey-3 1px;}
-    //    cursor: pointer;
-    //    &:hover{background-color: $grey-0;}
-    //    &:active{background-color: $grey-1;}
 
     &.Me{
       background: $blue-light;
@@ -32,10 +28,6 @@
       width: 34px;
       text-align: left;
     }
-
-//    .Firstname{
-//    }
-
 
     .Points{
       flex: 1;
