@@ -5,6 +5,7 @@ var path = require("path");
 var webpack = require("webpack");
 var writeStats = require("./utils/write-stats");
 var notifyStats = require("./utils/notify-stats");
+var autoprefixer = require('autoprefixer');
 
 var assetsPath = path.resolve(__dirname, "../public/assets");
 
@@ -32,9 +33,11 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
       { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
       { test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel?cacheDirectory"] },
-      { test: /\.scss$/, loader: "style!css!autoprefixer!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true" }
+      { test: /\.scss$/, loader: "style!css!postcss-loader!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true" }
     ]
   },
+  postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
+
   progress: true,
   plugins: [
 
@@ -46,7 +49,7 @@ module.exports = {
       "process.env": {
         NODE_ENV: JSON.stringify("development"),
         APP_NAME: JSON.stringify(appName),
-        BROWSER: JSON.stringify(true)
+        BROWSER: JSON.stringify(true),
       }
     }),
 

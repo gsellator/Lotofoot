@@ -25,11 +25,11 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
       { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
       { test: /\.js$/, exclude: /node_modules/, loaders: [strip.loader("debug"), "babel"] },
-//      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer!sass") }
-//      { test: /\.scss$/, loader: "style!css!autoprefixer!sass" }
-      { test: /\.scss$/, loader: "style!css!autoprefixer!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true" }
+      { test: /\.scss$/, loader: "style!css!postcss-loader!sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true" }
     ]
   },
+  postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
+
   progress: true,
   plugins: [
 
@@ -53,8 +53,6 @@ module.exports = {
         // Useful to reduce the size of client-side libraries, e.g. react
         NODE_ENV: JSON.stringify("production"),
         APP_NAME: JSON.stringify(appName),
-        
-        BROWSERSLIST: JSON.stringify("./browserslist"),
       }
     }),
 
