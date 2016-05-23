@@ -13,7 +13,7 @@
 
     .UserRegisterPageContent{
       height: 100%;
-      display: flex; display: -webkit-flex;
+      display: flex;
       flex-direction: column;
       justify-content: center;
 
@@ -34,7 +34,7 @@
         }
 
         .Input{
-          display: flex; display: -webkit-flex;
+          display: flex;
 
           .Label{
             width: 124px;

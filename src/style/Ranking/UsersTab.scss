@@ -14,7 +14,7 @@
 //    margin: 0 -12px;
     padding: 6px 12px;
     position: relative;
-    display: flex; display: -webkit-flex;
+    display: flex;
     justify-content: space-around;
 
     &:not(:last-child){border-bottom: solid $grey-3 1px;}

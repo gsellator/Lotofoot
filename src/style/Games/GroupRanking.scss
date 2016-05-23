@@ -10,7 +10,7 @@
   }
 
   .Row{
-    display: flex; display: -webkit-flex;
+    display: flex;
     justify-content: space-between;
     margin: 0 -12px;
     &:not(:last-child){border-bottom: solid $grey-5 1px;}

@@ -28,7 +28,7 @@
   .GameBlockData{
     position: absolute;
     top: 0; right: 0; bottom: 36px; left: 0;
-    display: flex; display: -webkit-flex;
+    display: flex;
     justify-content: center;
     flex-direction: column;
 
@@ -48,7 +48,7 @@
 
     .TeamBlock{
       text-align: center;
-      display: flex; display: -webkit-flex;
+      display: flex;
       justify-content: center;
 
       .Team{
@@ -73,7 +73,7 @@
 
       .ScoreContainer{
         height: 100px;
-        display: flex; display: -webkit-flex;
+        display: flex;
         justify-content: center;
         flex-direction: column;
 
@@ -103,7 +103,7 @@
     right: 0; bottom: 0; left: 0;
     height: 36px;
     background: rgba(255, 255, 255, 0.66);
-    display: flex; display: -webkit-flex;
+    display: flex;
     justify-content: space-between;
 
     .Left{
