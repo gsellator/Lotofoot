@@ -5,6 +5,7 @@ var webpack = require("webpack");
 var writeStats = require("./utils/write-stats");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var strip = require("strip-loader");
+var autoprefixer = require('autoprefixer');
 
 var assetsPath = path.join(__dirname, "../public/assets");
 var appName = process.env.APP_NAME || 'lotofoot-dev';
