@@ -67,10 +67,10 @@ module.exports = {
     // Write out stats.json file to build directory.
     new StatsWriterPlugin({
       transform: function (data) {
-        return {
+        return JSON.stringify({
           main: data.assetsByChunkName.main[0],
           css: data.assetsByChunkName.main[1]
-        };
+        }, null, 2);
       }
     })
   ]
