@@ -3,7 +3,6 @@
 var path = require("path");
 var webpack = require("webpack");
 var writeStats = require("./utils/write-stats");
-//var StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var strip = require("strip-loader");
 var autoprefixer = require('autoprefixer');
@@ -27,8 +26,7 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
       { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
       { test: /\.js$/, exclude: /node_modules/, loaders: [strip.loader("debug"), "babel"] },
-//      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer?browsers=iOS 7!sass") },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!postcss!sass") },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css?-autoprefixer!postcss!sass") },
     ]
   },
   postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
@@ -52,30 +50,13 @@ module.exports = {
     // optimizations
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-//    new webpack.optimize.UglifyJsPlugin({
-////      compress: {
-////        warnings: false
-////      }
-//      mangle: true,
-//      output: {
-//          comments: false
-//      },
-//      compress: {
-//          warnings: false
-//      }
-//    }),
-    
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+
     // stats
     function() { this.plugin("done", writeStats); }
-
-    // Write out stats.json file to build directory.
-//    new StatsWriterPlugin({
-//      transform: function (data) {
-//        return JSON.stringify({
-//          main: data.assetsByChunkName.main[0],
-//          css: data.assetsByChunkName.main[1]
-//        }, null, 2);
-//      }
-//    })
   ]
 };
