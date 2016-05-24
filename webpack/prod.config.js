@@ -2,7 +2,8 @@
 
 var path = require("path");
 var webpack = require("webpack");
-var StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
+var writeStats = require("./utils/write-stats");
+//var StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var strip = require("strip-loader");
 var autoprefixer = require('autoprefixer');
@@ -63,15 +64,18 @@ module.exports = {
 //          warnings: false
 //      }
 //    }),
+    
+    // stats
+    function() { this.plugin("done", writeStats); }
 
     // Write out stats.json file to build directory.
-    new StatsWriterPlugin({
-      transform: function (data) {
-        return JSON.stringify({
-          main: data.assetsByChunkName.main[0],
-          css: data.assetsByChunkName.main[1]
-        }, null, 2);
-      }
-    })
+//    new StatsWriterPlugin({
+//      transform: function (data) {
+//        return JSON.stringify({
+//          main: data.assetsByChunkName.main[0],
+//          css: data.assetsByChunkName.main[1]
+//        }, null, 2);
+//      }
+//    })
   ]
 };
