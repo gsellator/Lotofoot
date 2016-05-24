@@ -2,41 +2,37 @@
 
 var path = require("path");
 var webpack = require("webpack");
-var writeStats = require("./utils/write-stats");
+var StatsWriterPlugin = require("webpack-stats-plugin").StatsWriterPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var strip = require("strip-loader");
-//var autoprefixer = require('autoprefixer');
+var autoprefixer = require('autoprefixer');
 
-var assetsPath = path.join(__dirname, "../public/assets");
+var dist = path.join(__dirname, "../public/assets");
 var appName = process.env.APP_NAME || 'lotofoot-dev';
 
 module.exports = {
   devtool: "source-map",
-  entry: {
-    "main": "./src/client.js"
-  },
+  entry: "./src/client.js",
+
   output: {
-    path: assetsPath,
+    path: dist,
     filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[hash].js",
+    chunkFilename: "[name]-[chunkhash].js",
     publicPath: "/assets/"
   },
+
   module: {
     loaders: [
       { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
       { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
       { test: /\.js$/, exclude: /node_modules/, loaders: [strip.loader("debug"), "babel"] },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer?browsers=iOS 7!sass") },
+//      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer?browsers=iOS 7!sass") },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css!postcss!sass") },
     ]
   },
-//  postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
+  postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
 
-  progress: true,
   plugins: [
-
-    // ignore debug statements (uncommented for demo app)
-    // new webpack.NormalModuleReplacementPlugin(/debug/, process.cwd() + "/webpack/utils/noop.js"),
-
     // css files from the extract-text-plugin loader
     new ExtractTextPlugin("[name]-[chunkhash].css"),
 
@@ -46,12 +42,7 @@ module.exports = {
     // set global vars
     new webpack.DefinePlugin({
       "process.env": {
-
-        // Mainly used to require CSS files with webpack, which can happen only on browser
-        // Used as `if (process.env.BROWSER)...`
         BROWSER: JSON.stringify(true),
-
-        // Useful to reduce the size of client-side libraries, e.g. react
         NODE_ENV: JSON.stringify("production"),
         APP_NAME: JSON.stringify(appName),
       }
@@ -60,14 +51,27 @@ module.exports = {
     // optimizations
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-          warnings: false
-        }
-    }),
+//    new webpack.optimize.UglifyJsPlugin({
+////      compress: {
+////        warnings: false
+////      }
+//      mangle: true,
+//      output: {
+//          comments: false
+//      },
+//      compress: {
+//          warnings: false
+//      }
+//    }),
 
-    // stats
-    function() { this.plugin("done", writeStats); }
-
+    // Write out stats.json file to build directory.
+    new StatsWriterPlugin({
+      transform: function (data) {
+        return {
+          main: data.assetsByChunkName.main[0],
+          css: data.assetsByChunkName.main[1]
+        };
+      }
+    })
   ]
 };
