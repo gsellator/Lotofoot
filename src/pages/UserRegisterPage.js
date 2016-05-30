@@ -4,6 +4,7 @@ import { NavLink } from "fluxible-router";
 import { postApi } from "../actions/Pages/ApiAction";
 import { registerUser } from "../actions/Pages/UserRegisterAction";
 import Labels from "../Labels";
+import config from "../config";
 
 if (process.env.BROWSER) {
   require("../style/Pages/UserRegisterPage.scss");
@@ -66,7 +67,7 @@ class UserRegisterPage extends Component {
         <div className="UserRegisterPageContainer">
           <div className="UserRegisterPageContent">
             <form onSubmit={this.registerUser.bind(this)}>
-              <div className="LoginLogo"></div>
+              <div className={'LoginLogo ' + config.appName}></div>
               <div className="Input">
                 <div className="Label">Email</div>
                 <input type="email" value={username} onChange={this.usernameChanged.bind(this)} ref="usernameInput" required
