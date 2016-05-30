@@ -53,7 +53,7 @@ const Labels = {
   send: 'Envoyer',
   semiFinal: 'Demi finale',
   title: 'Titre',
-  username: 'Email',
+  username: 'Email ou Pseudo',
   usernameExample: 'adresse@me.com',
   validate: 'Valider',
 

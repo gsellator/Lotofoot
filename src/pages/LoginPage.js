@@ -3,6 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 import { loginUser } from "../actions/Pages/LoginAction";
 import Labels from "../Labels";
+import config from "../config";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");
@@ -33,9 +34,9 @@ class LoginPage extends Component {
         <div className="LoginPageContainer">
           <div className="LoginPageContent">
             <form onSubmit={this.login.bind(this)}>
-              <div className="LoginLogo"></div>
+              <div className={'LoginLogo ' + config.appName}></div>
               <div>
-                <input type="email" ref="loginInput" placeholder={Labels.username} required
+                <input type="string" ref="loginInput" placeholder={Labels.username} required
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
               </div>
               <div>

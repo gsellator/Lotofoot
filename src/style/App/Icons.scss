@@ -2,7 +2,7 @@
 
 @mixin uiux-icons{
   background: url('../../assets/uiux_icons.png') 0 0 no-repeat;
-  background-size: 720px 220px;
+  background-size: 840px 220px;
 }
 
 @mixin uiux-flags{
@@ -64,6 +64,7 @@
   &.main{
     background-position: -225px -180px;
 
+    &.lotofoot-lecab{background-position: -255px -180px;}
     &.lotofoot-dev, &.lotofoot-pre{
       position: relative;
       &:before {
@@ -83,6 +84,7 @@
   &.main{
     background-position: -0px -0px;
 
+    &.lotofoot-lecab{background-position: -720px -0px;}
     &.lotofoot-dev, &.lotofoot-pre{
       position: relative;
       &:before {
@@ -94,7 +96,7 @@
     }
   }
 
-  &.main.full{background-position: -0px -0px; width: 120px;}
+  &.full{width: 120px;}
 
   &:hover{background-position-y:-36px;}
   &:active{background-position-y:-72px;}

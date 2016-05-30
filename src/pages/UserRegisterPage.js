@@ -4,6 +4,7 @@ import { NavLink } from "fluxible-router";
 import { postApi } from "../actions/Pages/ApiAction";
 import { registerUser } from "../actions/Pages/UserRegisterAction";
 import Labels from "../Labels";
+import config from "../config";
 
 if (process.env.BROWSER) {
   require("../style/Pages/UserRegisterPage.scss");
@@ -42,6 +43,10 @@ class UserRegisterPage extends Component {
     this.setState({username: e.target.value});
   }
 
+  emailChanged(e) {
+    this.setState({email: e.target.value});
+  }
+
   passwordChanged(e) {
     this.setState({password: e.target.value});
   }
@@ -49,7 +54,8 @@ class UserRegisterPage extends Component {
   registerUser(e) {
     e.preventDefault();
     const body = {
-      email: this.state.username,
+      email: this.state.email,
+      username: this.state.username,
       password: this.state.password,
       firstName: this.state.firstname,
       lastName: this.state.lastname,
@@ -59,17 +65,22 @@ class UserRegisterPage extends Component {
 
   render() {
     const { pending } = this.props;
-    const { firstname, lastname, username, password } = this.state;
+    const { firstname, lastname, username, password, email } = this.state;
 
     return (
       <div className="UserRegisterPage LandingBack">
         <div className="UserRegisterPageContainer">
           <div className="UserRegisterPageContent">
             <form onSubmit={this.registerUser.bind(this)}>
-              <div className="LoginLogo"></div>
+              <div className={'LoginLogo ' + config.appName}></div>
               <div className="Input">
                 <div className="Label">Email</div>
-                <input type="email" value={username} onChange={this.usernameChanged.bind(this)} ref="usernameInput" required
+                <input type="email" value={email} onChange={this.emailChanged.bind(this)} ref="emailInput" required
+                placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
+              </div>
+              <div className="Input">
+                <div className="Label">Pseudo</div>
+                <input type="pseudo" value={username} onChange={this.usernameChanged.bind(this)} ref="usernameInput" required
                 placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
               </div>
               <div className="Input">

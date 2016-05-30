@@ -41,11 +41,8 @@ class Application extends Component {
 
   trackPage(accessToken, url) {
     const credentials = this.props.credentials;
-    const group = credentials.group;
-    const username = credentials.username;
-    const role = credentials.role;
     const log = moment().format('YYYY-MM-DD HH:mm:ss - ') + ' - ' + window.location.href;
-    trackPageView(url, group, username, role, accessToken, log);
+    trackPageView({ email: credentials.email, url, log });
   }
 
   componentDidMount(){

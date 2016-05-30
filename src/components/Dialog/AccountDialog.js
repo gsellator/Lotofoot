@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
-import config from "../../config";
 import Labels from "../../Labels";
 import Filters from "../Helpers/Filters";
 
@@ -22,8 +21,8 @@ class AccountDialog extends Component {
 
   render() {
     const { credentials } = this.props;
-    const hasPaidString = credentials.hasPaid ? Labels.hasPaid : Labels.hasNotPaid;
-    const hasPaidNode = (<span>{hasPaidString}</span>);
+    const hasPaidString = undefined;// = credentials.hasPaid ? Labels.hasPaid : Labels.hasNotPaid;
+
     return (
       <div className="AccountDialog">
         <div className="AccountDialogArrow-1"></div>
@@ -35,7 +34,6 @@ class AccountDialog extends Component {
               {Filters.capitalize(credentials.firstName) + ' ' + Filters.capitalize(credentials.lastname)}
               <span>{credentials.username}</span>
               <span>{credentials.email}</span>
-              {hasPaidNode}
             </div>
           </div>
 
