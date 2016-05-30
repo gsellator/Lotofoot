@@ -4,6 +4,7 @@ import ga from "./ga";
 import typekit from "./typekit";
 import { provideContext } from "fluxible-addons-react";
 
+
 class HtmlDocument extends React.Component {
   static propTypes = {
     context: PropTypes.object.isRequired,

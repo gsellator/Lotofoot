@@ -21,7 +21,8 @@ class AccountDialog extends Component {
 
   render() {
     const { credentials } = this.props;
-    const hasPaidString = credentials.hasPaid ? Labels.hasPaid : Labels.hasNotPaid;
+    const hasPaidString = undefined;// = credentials.hasPaid ? Labels.hasPaid : Labels.hasNotPaid;
+
     return (
       <div className="AccountDialog">
         <div className="AccountDialogArrow-1"></div>
@@ -31,8 +32,8 @@ class AccountDialog extends Component {
             <div className="icn-100 account"></div>
             <div className="AccountDialogInfos">
               {Filters.capitalize(credentials.firstName) + ' ' + Filters.capitalize(credentials.lastname)}
+              <span>{credentials.username}</span>
               <span>{credentials.email}</span>
-              <span>{hasPaidString}</span>
             </div>
           </div>
 

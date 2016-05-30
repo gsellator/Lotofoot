@@ -6,6 +6,7 @@ import Sections from "../../constants/Sections";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import NavHelper from '../Helpers/NavHelper';
 import Labels from "../../Labels";
+import config from "../../config";
 
 if (process.env.BROWSER) {
   require("../../style/App/Nav.scss");
@@ -49,7 +50,7 @@ class Nav extends Component {
           {hasNav &&
             <nav className="NavFull">
               <div className="MainLink" onTouchTap={NavHelper.navToSectClick.bind(this, 'games')}>
-                <div className="icn-36 main full"></div>
+                <div className={'icn-36 main full ' + config.appName}></div>
               </div>
 
               {Sections.map(sect =>
