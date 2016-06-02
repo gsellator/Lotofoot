@@ -35,6 +35,10 @@ class LoginPage extends Component {
           <div className="LoginPageContent">
             <form onSubmit={this.login.bind(this)}>
               <div className={'LoginLogo ' + config.appName}></div>
+              <div className="ButtonGroup">
+                <NavLink className="Button" routeName="userRegister">{Labels.createAccount}</NavLink>
+              </div>
+
               <div>
                 <input type="string" ref="loginInput" placeholder={Labels.username} required
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
@@ -53,8 +57,6 @@ class LoginPage extends Component {
               }
 
               <div>
-                <NavLink className="LoginLink" routeName="userRegister">{Labels.createAccount}</NavLink>
-                <span className="LoginLinkSpacer"> - </span>
                 <NavLink className="LoginLink" routeName="recoverInit">{Labels.forgottenPassword}</NavLink>
               </div>
             </form>

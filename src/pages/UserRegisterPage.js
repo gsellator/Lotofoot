@@ -28,7 +28,7 @@ class UserRegisterPage extends Component {
   }
 
   componentDidMount(){
-    this.refs.usernameInput.focus();
+    this.refs.emailInput.focus();
   }
 
   firstnameChanged(e) {
