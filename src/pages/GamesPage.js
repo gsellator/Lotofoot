@@ -60,7 +60,7 @@ class GamesPage extends Component {
                   <HelpBlock />
                 </div>
                 <div className="HelpSpacer">
-                  <NavLink className="TxtBtn" routeName="games">Fermer les règles</NavLink>
+                  <NavLink className="PaperBtn" routeName="games">Fermer les règles</NavLink>
                 </div>
               </div>
             }
