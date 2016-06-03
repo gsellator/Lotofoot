@@ -35,9 +35,17 @@ class LoginPage extends Component {
           <div className="LoginPageContent">
             <form onSubmit={this.login.bind(this)}>
               <div className={'LoginLogo ' + config.appName}></div>
-              <div className="ButtonGroup">
-                <NavLink className="Button" routeName="userRegister">{Labels.createAccount}</NavLink>
-              </div>
+
+              {config.appName === 'lotofoot-lecab' &&
+                <div>
+                  <div>
+                    <NavLink className="Button" routeName="userRegister">{Labels.createAccount}</NavLink>
+                  </div>
+                  <div className="ButtonGroup">
+                    <span className="LoginLinkSpacer">Seuls les chauffeurs-partenaires LeCab pourront recevoir les lots mis en jeu</span>
+                  </div>
+                </div>
+              }
 
               <div>
                 <input type="string" ref="loginInput" placeholder={Labels.username} required

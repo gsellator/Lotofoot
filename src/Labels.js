@@ -139,13 +139,12 @@ const Labels = {
   ukraine: 'Ukraine',
   wales: 'Pays de Galles',
 
-  helpL1: `Amis Footix, le but de ce lotofoot est de pronostiquer le vainqueur et le score de chaque match de l'Euro. Nous tenons compte du score final du match, prolongations incluses. ` +
+  helpL1: `Amis Footix, le but de ce lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de l'Euro. ` +
     `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
-  helpL2: `Le nombre de points que vos pronostics vous rapportent dépend :`,
-  helpL3: `- Du stade de la compétition auquel appartient le match (groupes, quarts de finale...)`,
-  helpL4: `- De l'exactitude de votre pronostic (bon vainqueur, bon vainqueur et bonne différence de buts, bon vainqueur avec le score exact)`,
-  helpL5: `Les points mis en jeu sont les suivants :`,
-  helpL6: `Les pronostics peuvent être modifiés jusqu'au début du match. Bonne chance !`,
+  helpL1Alt: `Le but du lotofoot LeCab est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de l'Euro. ` +
+    `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
+  helpL2: `Pour chaque match, votre score dépendra du stade de la compétition (groupes, quarts de finale...) et de la qualité de votre pronostic (bon vainqueur, bonne différence de buts, score exact). Les points mis en jeu sont :`,
+  helpL6: `Les pronostics peuvent être modifiés jusqu'au début des match. Bonne chance !`,
   helpLabel1: 'Bon gagnant',
   helpLabel2: 'Gagnant & bonne diff de buts',
   helpLabel3: 'Gagnant & bon score',

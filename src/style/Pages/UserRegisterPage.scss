@@ -108,6 +108,20 @@
           &:hover{opacity: 1;}
           &:active{opacity: 0.7;}
         }
+
+        .ButtonGroup{
+          border-bottom: dotted $grey-dark 1px;
+          padding-bottom: 18px;
+        }
+
+        .LoginLinkSpacer{
+          display: inline-block;
+          vertical-align: top;
+          color: $grey-dark;
+          opacity: 0.5;
+          line-height: 16px;
+          margin: 18px 6px 0 6px;
+        }
       }
     }
   }
