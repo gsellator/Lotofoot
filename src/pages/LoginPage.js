@@ -42,7 +42,7 @@ class LoginPage extends Component {
                     <NavLink className="Button" routeName="userRegister">{Labels.createAccount}</NavLink>
                   </div>
                   <div className="ButtonGroup">
-                    <span className="LoginLinkSpacer">Seuls les chauffeurs-partenaires LeCab pourront recevoir les lots à gagner</span>
+                    <span className="LoginLinkSpacer">Seuls les chauffeurs-partenaires LeCab pourront recevoir les lots mis en jeu</span>
                   </div>
                 </div>
               }
