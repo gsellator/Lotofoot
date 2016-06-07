@@ -27,8 +27,8 @@ class HelpBlock extends Component {
           <div style={{marginTop: '12px'}}>
             Les lots mis en jeu par LeCab sont les suivants :<br/>
             - 1e : Macbook Air<br/>
-            - 2e : Bon essence d'une valeur de 300 euros + 1 maillot de foot personnalisé de l'équipe de France<br/>
-            - 3e : 2 places pour le match du PSG de votre choix en loge au Parc des Princes<br/>
+            - 2e : 2 places pour le match du PSG de votre choix en loge au Parc des Princes<br/>
+            - 3e : Bon essence d'une valeur de 300 euros + 1 maillot de foot personnalisé de l'équipe de France<br/>
           </div>
         }
 
