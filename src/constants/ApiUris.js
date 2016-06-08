@@ -2,7 +2,7 @@ const ApiUris = {
   UsersLogin: '/users/login',
   UsersMe: '/users/me',
   UsersRegister: '/users/register',
-  Users: '/users',
+  Users: '/users?limit=300',
 
   RecoverInit: '/reset-password',
   RecoverTest: '/reset-password/:recovertoken',
