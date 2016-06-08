@@ -19,11 +19,13 @@ class PredictionBlockStore extends BaseStore {
   }
 
   handleApiOk({ data, route }) {
-    const game = route.query.game;
-    if (data && data[0] && data[0]._id){
-      this.data[game] = data[0];
-    } else {
-      this.data[game] = undefined;
+    if (route){
+      const game = route.query.game;
+      if (data && data[0] && data[0]._id){
+        this.data[game] = data[0];
+      } else {
+        this.data[game] = undefined;
+      }
     }
     this.pending = false;
     this.emitChange();
@@ -35,28 +37,36 @@ class PredictionBlockStore extends BaseStore {
   }
 
   handleApiOkCreate({ data, route }){
-    const game = route.query.game;
-    if (data && data._id){
-      this.data[game] = data;
+    if (route){
+      const game = route.query.game;
+      if (data && data._id){
+        this.data[game] = data;
+      } else {
+        this.data[game] = undefined;
+      }
+      setTimeout(() => {
+        this.pending = false;
+      }, 4000);
     } else {
-      this.data[game] = undefined;
-    }
-    setTimeout(() => {
       this.pending = false;
-    }, 4000);
+    }
     this.emitChange();
   }
 
   handleApiOkModify({ data, route }){
-    const game = route.query.game;
-    if (data && data._id){
-      this.data[game] = data;
+    if (route){
+      const game = route.query.game;
+      if (data && data._id){
+        this.data[game] = data;
+      } else {
+        this.data[game] = undefined;
+      }
+      setTimeout(() => {
+        this.pending = false;
+      }, 4000);
     } else {
-      this.data[game] = undefined;
-    }
-    setTimeout(() => {
       this.pending = false;
-    }, 4000);
+    }
     this.emitChange();
   }
 

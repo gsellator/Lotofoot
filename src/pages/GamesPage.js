@@ -69,7 +69,7 @@ class GamesPage extends Component {
             <GamesFilters />
             <GamesTab />
 
-            {filter === 'group' && false &&
+            {filter === 'group' &&
               <GroupRanking />
             }
           </div>
