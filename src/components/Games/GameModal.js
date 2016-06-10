@@ -68,7 +68,7 @@ class GameModal extends Component {
   }
 }
 
-GameModal = connectToStores(GameModal, ["GameModalStore"], (context) => {
+GameModal = connectToStores(GameModal, ["GameBlockStore"], (context) => {
   const route = context.getStore("RouteStore").getCurrentRoute();
   const game = route.query.game;
   return {
