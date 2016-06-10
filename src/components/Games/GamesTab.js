@@ -102,7 +102,7 @@ class GamesTab extends Component {
                           }
                         </div>
                         <div className="Left">
-                          {item.status === 'TIMED' && predictions[item._id] &&
+                          {predictions[item._id] &&
                             <div className="PredictionLabel">
                               <span className="icn-16 chip" />
                               <span>{'Mon pronostic : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
@@ -112,6 +112,11 @@ class GamesTab extends Component {
                             <div className="PredictionLabel">
                               <span className="Desktop">{Labels.clickToPredict}</span>
                               <span className="Mobile">{Labels.tabToPredict}</span>
+                            </div>
+                          }
+                          {item.status != 'TIMED' && !predictions[item._id] &&
+                            <div className="PredictionLabel">
+                              <span>{Labels.tooLate2}</span>
                             </div>
                           }
                         </div>

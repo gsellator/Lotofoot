@@ -32,7 +32,9 @@ class PredictionsByGameTab extends Component {
           {data && data.map((item, i) =>
             <div key={i} className="Prediction">
               <div className="Left">
-                <div className="Group">{Filters.capitalize(users[item.user])}</div>
+                <div className="Group">
+                  {users[item.user] && Filters.capitalize(users[item.user].firstName) + ' ' + Filters.capitalize(users[item.user].lastName)}
+                </div>
               </div>
               <div className="Center">
                 {teamsData[item.game.teamA] &&
