@@ -63,6 +63,7 @@ const Labels = {
   clickToPredict: 'Cliquez pour pronostiquer',
   tabToPredict: 'Tapez pour pronostiquer',
   tooLate: 'Il est trop tard, vous ne pouvez plus parier sur ce match',
+  tooLate2: 'Il est trop tard, les paris sont fermés',
   myPrediction: 'Mon pronostic',
   inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte',
   finishedGain: 'Ce pronostic vous rapporte',
