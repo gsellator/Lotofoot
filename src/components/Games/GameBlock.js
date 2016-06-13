@@ -51,7 +51,7 @@ class GameBlock extends Component {
 
               <div className="TeamBlock">
                 {data.teamA &&
-                  <div className={(data.winner === 'teamA' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
+                  <div className="Team">
                     <div className="Flag">
                       <div className={'flag-60 ' + data.teamA.slug} />
                     </div>
@@ -84,7 +84,7 @@ class GameBlock extends Component {
                   }
                 </div>
                 {data.teamB &&
-                  <div className={(data.winner === 'teamB' || data.winner === 'nobody') ? 'Team Winner' : 'Team'}>
+                  <div className="Team">
                     <div className="Flag">
                       <div className={'flag-60 ' + data.teamB.slug} />
                     </div>

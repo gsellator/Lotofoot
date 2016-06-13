@@ -79,7 +79,7 @@ class GamesTabStore extends BaseStore {
           }
         } else if (this.predictions) {
           for (let item of this.games){
-            if (!this.predictions[item._id])
+            if (item.status === 'TIMED' && !this.predictions[item._id])
               tmpGamesSource[tmpGamesSource.length] = item;
           }
         }
