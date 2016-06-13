@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
+import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
 import { getApi } from "../actions/Pages/ApiAction";
 
@@ -27,14 +28,14 @@ class RankingPage extends Component {
     const { data } = this.props;
 
     return (
-      <div className="RankingPage">
+      <Bouncefix className="RankingPage">
         {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
         {data &&
           <div className="RankingPageContainer">
             <UsersTab />
           </div>
         }
-      </div>
+      </Bouncefix>
     );
   }
 }
