@@ -70,7 +70,7 @@ class PredictionBlockStore extends BaseStore {
     this.emitChange();
   }
 
-  getData(game) {return this.data[game] ? this.data[game] : { scoreTeamA: undefined, scoreTeamB: undefined };}
+  getData(game) {return this.data[game] ? this.data[game] : { scoreTeamA: undefined, scoreTeamB: undefined, winner: undefined };}
   getPending() {return this.pending;}
 
   dehydrate() {

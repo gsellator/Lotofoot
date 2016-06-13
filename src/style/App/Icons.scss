@@ -7,7 +7,7 @@
 
 @mixin uiux-flags{
   background: url('../../assets/uiux_flags.png') 0 0 no-repeat;
-  background-size: 2390px 77px;
+  background-size: 2490px 77px;
 }
 
 .icn-10{
@@ -161,6 +161,7 @@
 .flag-60{
   @include uiux-flags;
   width: 90px; height: 60px;
+  background-position: -2400px -0px;
 
   &.albania{background-position: -0px -0px;}
   &.austria{background-position: -100px -0px;}
@@ -191,6 +192,7 @@
 .flag-12{
   @include uiux-flags;
   width: 18px; height: 12px;
+  background-position: -2400px -0px;
 
   &.albania{background-position: -0px -65px;}
   &.austria{background-position: -100px -65px;}

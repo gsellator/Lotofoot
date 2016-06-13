@@ -18,8 +18,6 @@
     text-align: center;
 
     .Inputs{
-      padding: 0 6px 0 0;
-
       input, span{
         font-family: $font-family-numbers;
         font-size: $font-size-numbers;
@@ -27,6 +25,23 @@
         text-rendering: $text-rendering-numbers;
         height: 40px;
       }
+
+      input{
+        width: 52px;
+        text-align: center;
+      }
+    }
+
+    .InputsBtns{
+      border-top: dotted $grey-5 1px;
+      margin-top: 12px;
+      padding-top: 12px;
+
+      span{
+        font-size: 15px;
+        line-height: 28px;
+      }
+
     }
 
     .Btns{

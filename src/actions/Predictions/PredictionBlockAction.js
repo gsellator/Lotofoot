@@ -4,24 +4,28 @@ import Actions from "../../constants/Actions";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";
 
 const PredictionBlockAction = {
-  create(context, { route, scoreTeamA, scoreTeamB, gameId }, done) {
+  create(context, { route, scoreTeamA, scoreTeamB, winner, gamePhase, gameId }, done) {
     context.dispatch(Actions.PENDING_PREDICTIONS_CREATE);
 
-    if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB))){
+    if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB)))
+      return context.dispatch(Actions.APIOK_PREDICTIONS_CREATE, {});
+
+    let tmpWinner = winner || 'nobody';
+    if (scoreTeamA > scoreTeamB)
+      tmpWinner = 'teamA';
+    else if (scoreTeamA < scoreTeamB)
+      tmpWinner = 'teamB';
+
+    if (gamePhase != 0 && tmpWinner === 'nobody'){
+      context.dispatch(Actions.DIALOG_SHOW, 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.');
       return context.dispatch(Actions.APIOK_PREDICTIONS_CREATE, {});
     }
-
-    let winner = 'nobody';
-    if (scoreTeamA > scoreTeamB)
-      winner = 'teamA';
-    else if (scoreTeamA < scoreTeamB)
-      winner = 'teamB';
 
     const body = {
       game: { _id: gameId },
       scoreTeamA: scoreTeamA,
       scoreTeamB: scoreTeamB,
-      winner: winner
+      winner: tmpWinner
     }
     return context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE})
     .then(() => {
@@ -33,21 +37,27 @@ const PredictionBlockAction = {
     });
   },
 
-  update(context, { route, scoreTeamA, scoreTeamB, predictionId }, done) {
+  update(context, { route, scoreTeamA, scoreTeamB, winner, gamePhase, predictionId }, done) {
     context.dispatch(Actions.PENDING_PREDICTION_UPDATE);
 
-    if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB))){return;}
+    if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB)))
+      return context.dispatch(Actions.APIOK_PREDICTION_UPDATE, {});
 
-    let winner = 'nobody';
+    let tmpWinner = winner || 'nobody';
     if (scoreTeamA > scoreTeamB)
-      winner = 'teamA';
+      tmpWinner = 'teamA';
     else if (scoreTeamA < scoreTeamB)
-      winner = 'teamB';
+      tmpWinner = 'teamB';
+
+    if (gamePhase != 0 && tmpWinner === 'nobody'){
+      context.dispatch(Actions.DIALOG_SHOW, 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.');
+      return context.dispatch(Actions.APIOK_PREDICTION_UPDATE, {});
+    }
 
     const body = {
       scoreTeamA: scoreTeamA,
       scoreTeamB: scoreTeamB,
-      winner: winner
+      winner: tmpWinner
     }
 
     return context.executeAction(putApi, { predictionId, route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE })
