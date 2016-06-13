@@ -34,7 +34,7 @@ class GamesTab extends Component {
                   )
                 else
                   return (
-                    <div className="Row" onTouchTap={GameModalHelper.openGameModalFct.bind(this, item._id)}>
+                    <div className={'Row ' + item.status} onTouchTap={GameModalHelper.openGameModalFct.bind(this, item._id)}>
                       <div className="RowLine">
                         <div className="Head">
                           <div className="Rank">

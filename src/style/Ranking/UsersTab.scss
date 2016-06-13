@@ -6,6 +6,18 @@
   text-align: center;
   padding: 0;
 
+  .IlluContainer{
+    padding: 12px 24px 0 24px;
+    background: url('../../assets/uiux_help-back.jpg') center center no-repeat;
+    background-size: cover;
+
+    .Illu{
+      height: 420px;
+      background: url('../../assets/podium.svg') center top no-repeat;
+      background-size: contain;
+    }
+  }
+
   .AltPaperTitle{
     border-bottom: solid $grey-3 1px;;
   }
@@ -40,5 +52,24 @@
 @media (max-width: $break-medium){
   .Paper.UsersTab{
     border-radius: 0;
+
+    .IlluContainer{
+      padding: 12px 12px 0 12px;
+
+      .Illu{
+        height: 320px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $break-small){
+  .Paper.UsersTab{
+    .IlluContainer{
+      .Illu{
+        height: 240px;
+      }
+    }
   }
 }

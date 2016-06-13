@@ -19,6 +19,9 @@ class UsersTab extends Component {
 
     return (
       <div className="Paper UsersTab">
+        <div className="IlluContainer">
+          <div className="Illu" />
+        </div>
         {credentials && credentials._id &&
           <div>
             {data && data.map((item, i) =>

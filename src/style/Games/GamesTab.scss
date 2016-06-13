@@ -21,6 +21,12 @@
       border-bottom: solid $grey-5 1px;
       cursor: pointer;
       background: white;
+
+      &.FINISHED{
+        background-color: $blue-ultralight;
+        opacity: 0.8;
+      }
+
       &:hover{background-color: $grey-1;}
       &:active{background-color: $grey-0;}
 
@@ -32,17 +38,6 @@
           flex-basis: 33px;
           flex-shrink: 0;
           text-align: left;
-
-          //          .Pin{
-          //            display: inline-block;
-          //            vertical-align: top;
-          //            width: 8px; height: 8px;
-          //            margin: 11px 5px;
-          //            border-radius: 4px;
-          //            background-color: $footix-blue;
-          //            &.Alt{background-color: $footix-yellow;}
-          //            &.Trsp{background-color: transparent;}
-          //          }
 
           .Rank{
             display: inline-block;
@@ -72,8 +67,7 @@
           text-overflow: ellipsis;
           overflow: hidden;
           font-weight: 500;
-          color: $grey-9;
-          &.Winner{color: black;}
+          color: $grey-medium;
         }
 
         .Left{
@@ -95,9 +89,9 @@
           .Time{
             font-size: 15px;
             font-weight: 500;
-            color: $grey-9;
             line-height: 30px;
             height: 30px;
+            color: $grey-medium;
           }
 
           .Score{
@@ -106,11 +100,10 @@
             span{
               font-family: $font-family-numbers;
               text-rendering: $text-rendering-numbers;
-              color: $grey-9;
               line-height: 30px;
               font-size: 13px;
               font-weight: 500;
-              color: black;
+              color: $grey-medium;
             }
           }
         }
