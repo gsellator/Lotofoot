@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
+import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
 import { getApi } from "../actions/Pages/ApiAction";
 import config from "../config";
@@ -24,7 +25,7 @@ class HelpPage extends Component {
 
   render() {
     return (
-      <div className="HelpPage">
+      <Bouncefix className="HelpPage">
         <div className="Paper">
           <div className="HelpPageCtnt">
             <div className="IlluContainer">
@@ -43,7 +44,7 @@ class HelpPage extends Component {
             }
           </div>
         </div>
-      </div>
+      </Bouncefix>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
+import Bouncefix from 'react-bouncefix';
 import Labels from "../Labels";
 import Actions from "../constants/Actions";
 import { getApi } from "../actions/Pages/ApiAction";
@@ -49,7 +50,7 @@ class GamesPage extends Component {
     //    gameBlock = <GameBlock />;
 
     return (
-      <div className="GamesPage">
+      <Bouncefix className="GamesPage">
         {!(games && predictions) && <div className="LoaderContainer"><div className="Loader" /></div>}
 
         {(games && predictions) &&
@@ -74,7 +75,7 @@ class GamesPage extends Component {
             }
           </div>
         }
-      </div>
+      </Bouncefix>
     );
   }
 }
