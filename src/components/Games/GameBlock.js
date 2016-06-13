@@ -24,7 +24,7 @@ class GameBlock extends Component {
         {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
         {data &&
           <div>
-            <div className={'Stadium ' + data.stadium.toLowerCase()}></div>
+            <div className={data.stadium ? 'Stadium ' + data.stadium.toLowerCase().replace('é', 'e') : 'Stadium'}></div>
 
             <div className="GameBlockData">
               {data.status === 'TIMED' &&
@@ -50,6 +50,14 @@ class GameBlock extends Component {
               {data.phase === 4 && <div className="Phase">{Labels.Final}</div>}
 
               <div className="TeamBlock">
+                {!data.teamA &&
+                  <div className="Team">
+                    <div className="Flag">
+                      <div className="flag-60" />
+                    </div>
+                    <div className="Label">{Labels[data.futureTeamA]}</div>
+                  </div>
+                }
                 {data.teamA &&
                   <div className="Team">
                     <div className="Flag">
@@ -89,6 +97,14 @@ class GameBlock extends Component {
                       <div className={'flag-60 ' + data.teamB.slug} />
                     </div>
                     <div className="Label">{Labels[data.teamB.slug.replace('-', '')]}</div>
+                  </div>
+                }
+                {!data.teamB &&
+                  <div className="Team">
+                    <div className="Flag">
+                      <div className="flag-60" />
+                    </div>
+                    <div className="Label">{Labels[data.futureTeamB]}</div>
                   </div>
                 }
               </div>

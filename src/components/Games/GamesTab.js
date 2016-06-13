@@ -106,6 +106,14 @@ class GamesTab extends Component {
                             <div className="PredictionLabel">
                               <span className="icn-16 chip" />
                               <span>{'Mon pronostic : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
+                              {item.phase != 0 && predictions[item._id].scoreTeamA == predictions[item._id].scoreTeamB &&
+                                <span>
+                                  {predictions[item._id].winner === 'teamA' && !item.teamA && ' (' + Labels[item.futureTeamA] + ')'}
+                                  {predictions[item._id].winner === 'teamA' && item.teamA && ' (' + Labels[item.teamA.slug.replace('-', '')] + ')'}
+                                  {predictions[item._id].winner === 'teamB' && !item.teamB && ' (' + Labels[item.futureTeamB] + ')'}
+                                  {predictions[item._id].winner === 'teamB' && item.teamB && ' (' + Labels[item.teamB.slug.replace('-', '')] + ')'}
+                                </span>
+                              }
                             </div>
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
