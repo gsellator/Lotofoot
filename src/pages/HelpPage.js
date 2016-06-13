@@ -38,7 +38,7 @@ class HelpPage extends Component {
             }
             {config.appName === 'lotofoot-lecab' &&
               <div className="Footer">
-                En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">lecab@lotofoot.io</a>.
+                En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:lecab@lotofoot.io">lecab@lotofoot.io</a>.
               </div>
             }
           </div>
