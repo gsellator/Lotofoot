@@ -18,7 +18,7 @@ class GamesTabStore extends BaseStore {
     this.games;
     this.predictions;
     this.filter = 'match';
-    this.subfilter = '-';
+    this.subfilter = '1';
   }
 
   handleApiOkGames({ data, route }) {
@@ -73,10 +73,16 @@ class GamesTabStore extends BaseStore {
         if (this.subfilter === '-'){
           tmpGamesSource = this.games;
         } else if (this.subfilter == 1) {
-          for (let item of this.games){
-            if (item.status === 'TIMED')
-              tmpGamesSource[tmpGamesSource.length] = item;
+          let firstMatchIndex = this.games.length - 1;
+          for (let i=0; i<this.games.length; i++){
+            if (this.games[i].status === 'TIMED' && i<firstMatchIndex)
+              firstMatchIndex = i;
           }
+          if (firstMatchIndex>2)
+            firstMatchIndex = firstMatchIndex - 3;
+          else
+            firstMatchIndex = 0;
+          tmpGamesSource = this.games.slice(firstMatchIndex, this.games.length);
         } else if (this.predictions) {
           for (let item of this.games){
             if (item.status === 'TIMED' && !this.predictions[item._id])
