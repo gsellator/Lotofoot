@@ -16,7 +16,7 @@ const PredictionBlockAction = {
     else if (scoreTeamA < scoreTeamB)
       tmpWinner = 'teamB';
 
-    if (gamePhase != 0 && tmpWinner = 'nobody' && winner)
+    if (gamePhase != 0 && tmpWinner === 'nobody' && winner)
       tmpWinner = winner;
 
     if (gamePhase != 0 && tmpWinner === 'nobody'){
