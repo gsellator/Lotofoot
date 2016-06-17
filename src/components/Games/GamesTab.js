@@ -44,7 +44,7 @@ class GamesTab extends Component {
                         {item.teamA &&
                           <div className="Left">
                             <div className={'flag-12 ' + item.teamA.slug} />
-                            <div className={(item.winner === 'teamA' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{Labels[item.teamA.slug.replace('-', '')]}</div>
+                            <div className="TeamLabel">{Labels[item.teamA.slug.replace('-', '')]}</div>
                           </div>
                         }
                         {!item.teamA &&
@@ -78,7 +78,7 @@ class GamesTab extends Component {
                         {item.teamB &&
                           <div className="Right">
                             <div className={'flag-12 ' + item.teamB.slug} />
-                            <div className={(item.winner === 'teamB' || item.winner === 'nobody') ? 'TeamLabel Winner' : 'TeamLabel'}>{Labels[item.teamB.slug.replace('-', '')]}</div>
+                            <div className="TeamLabel">{Labels[item.teamB.slug.replace('-', '')]}</div>
                           </div>
                         }
                         {!item.teamB &&
