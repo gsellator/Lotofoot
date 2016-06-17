@@ -1,0 +1,25 @@
+@keyframes cartoon {
+  0%    {background-position: -0px -0px;}
+  12.5% {background-position: -50px -0px;}
+  25%   {background-position: -100px -0px;}
+  37.5% {background-position: -150px -0px;}
+  50%   {background-position: -200px -0px;}
+  62.5% {background-position: -250px -0px;}
+  75%   {background-position: -300px -0px;}
+  87.5% {background-position: -350px -0px;}
+  100%  {background-position: -400 -0px;}
+}
+
+.FootixLoader{
+  margin: 24px auto;
+  width: 50px; height: 58px;
+  background-image: url('../../assets/uiux_footix.png');
+  background-repeat: no-repeat;
+  background-size: 400px 58px;
+  background-position: -0px -0px;
+
+  animation-name: cartoon;
+  animation-duration: 0.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-start;
+}

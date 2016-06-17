@@ -15,7 +15,8 @@ class HomePage extends Component {
   render() {
     return (
       <div className="HomePage">
-        <div className="LoaderContainer"><div className="Loader" /></div>
+      {false && <div className="LoaderContainer"><div className="Loader" /></div>}
+      {true && <div className="FootixLoader" />}
       </div>
     );
   }

@@ -72,6 +72,7 @@ class LoginPage extends Component {
           <div className="pixel loader"></div>
           <div className="pixel uiux_loader"></div>
           <div className="pixel uiux_icons"></div>
+          <div className="pixel uiux_footix"></div>
           <div className="pixel bordeaux"></div>
           <div className="pixel lens"></div>
           <div className="pixel lille"></div>

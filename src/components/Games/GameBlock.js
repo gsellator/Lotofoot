@@ -21,7 +21,8 @@ class GameBlock extends Component {
 
     return (
       <div className="Paper GameBlock">
-        {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {true && !data && <div className="FootixLoader" />}
         {data &&
           <div>
             <div className={data.stadium ? 'Stadium ' + data.stadium.toLowerCase().replace('é', 'e') : 'Stadium'}></div>

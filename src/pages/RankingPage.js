@@ -29,7 +29,8 @@ class RankingPage extends Component {
 
     return (
       <Bouncefix className="RankingPage">
-        {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {true && !data && <div className="FootixLoader" />}
         {data &&
           <div className="RankingPageContainer">
             <UsersTab />
