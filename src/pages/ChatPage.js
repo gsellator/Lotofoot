@@ -34,7 +34,8 @@ class ChatPage extends Component {
 
     return (
       <div>
-        {!data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {true && !data && <div className="FootixLoader" />}
         <div   ref="ChatPage">
           <Bouncefix className="ChatPage">
             {data &&

@@ -31,6 +31,7 @@ class HelpPage extends Component {
             <div className="IlluContainer">
               <div className="Illu" />
             </div>
+            <div className="FootixLoader" />
             <HelpBlock />
             {(config.appName === 'lotofoot' || config.appName === 'lotofoot-dev' || config.appName === 'lotofoot-pre') &&
               <div className="Footer">

@@ -51,7 +51,8 @@ class GamesPage extends Component {
 
     return (
       <Bouncefix className="GamesPage">
-        {!(games && predictions) && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {false && !(games && predictions) && <div className="LoaderContainer"><div className="Loader" /></div>}
+        {true && !(games && predictions) && <div className="FootixLoader" />}
 
         {(games && predictions) &&
           <div>

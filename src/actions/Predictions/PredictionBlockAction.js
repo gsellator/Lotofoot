@@ -46,11 +46,14 @@ const PredictionBlockAction = {
     if (isNaN(parseInt(scoreTeamA)) || isNaN(parseInt(scoreTeamB)))
       return context.dispatch(Actions.APIOK_PREDICTION_UPDATE, {});
 
-    let tmpWinner = winner || 'nobody';
+    let tmpWinner = 'nobody';
     if (scoreTeamA > scoreTeamB)
       tmpWinner = 'teamA';
     else if (scoreTeamA < scoreTeamB)
       tmpWinner = 'teamB';
+
+    if (gamePhase != 0 && tmpWinner === 'nobody' && winner)
+      tmpWinner = winner;
 
     if (gamePhase != 0 && tmpWinner === 'nobody'){
       context.dispatch(Actions.DIALOG_SHOW, 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.');
