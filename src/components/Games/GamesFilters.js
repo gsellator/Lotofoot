@@ -40,14 +40,14 @@ class GamesFilters extends Component {
 
         {filter === 'match' &&
           <div className="SubfilterSelector">
-            <div className={subfilter === '-' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, '-')}>
-              <div className="SubfilterLabel">{Labels.all}</div>
-            </div>
             <div className={subfilter === '1' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, '1')}>
               <div className="SubfilterLabel">{Labels.toCome}</div>
             </div>
             <div className={subfilter === '2' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, '2')}>
               <div className="SubfilterLabel">{Labels.toPredict}</div>
+            </div>
+            <div className={subfilter === '-' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, '-')}>
+              <div className="SubfilterLabel">{Labels.all}</div>
             </div>
           </div>
         }
