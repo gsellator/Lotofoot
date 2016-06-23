@@ -50,12 +50,14 @@ class GameModal extends Component {
           </div>
         </Bouncefix>
         <Bouncefix className="ModalBody">
-          <GameBlock />
-          <PredictionBlock />
+          <div>
+            <GameBlock />
+            <PredictionBlock />
 
-          {data && (data.status === 'IN_PROGRESS' || data.status === 'FINISHED') &&
-            <PredictionsByGameTab />
-          }
+            {data && (data.status === 'IN_PROGRESS' || data.status === 'FINISHED') &&
+              <PredictionsByGameTab />
+            }
+          </div>
         </Bouncefix>
       </div>
     );
