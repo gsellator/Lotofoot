@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
+import Bouncefix from 'react-bouncefix';
 import Actions from "../../constants/Actions";
 import { getApi } from "../../actions/Pages/ApiAction";
 
@@ -43,26 +44,19 @@ class GameModal extends Component {
 
     return (
       <div className="GameModal">
-        <div className="MainMenu">
+        <Bouncefix className="MainMenu">
           <div className="Left">
             <BackBtn />
           </div>
-          <div className="Center">
-            <HeaderBtn />
-          </div>
-          <div className="Right">
-            <RefreshBtn />
-            <AccountBtn />
-          </div>
-        </div>
-        <div className="ModalBody">
+        </Bouncefix>
+        <Bouncefix className="ModalBody">
           <GameBlock />
           <PredictionBlock />
 
           {data && (data.status === 'IN_PROGRESS' || data.status === 'FINISHED') &&
             <PredictionsByGameTab />
           }
-        </div>
+        </Bouncefix>
       </div>
     );
   }
