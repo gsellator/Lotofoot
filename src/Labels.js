@@ -47,6 +47,7 @@ const Labels = {
   recoverInitText: 'Saisissez votre adresse e-mail pour que nous puissions vous envoyer un lien permettant de réinitialiser votre mot de passe',
   recoverInitTitleOk: 'Consultez vos emails',
   recoverInitTextOk: 'Nous avons bien reçu votre demande. Un email vous permettant de réinitialiser votre mot de passe vous a été envoyé à l\'adresse ',
+  recoverInitTextOk2: 'Pensez à consulter les spams/courriers indésirables.',
   resetPassword: 'Réinitialiser mon mot de passe',
   recoverTitle: 'Choisissez un nouveau mot de passe',
   rules: 'Règles du jeu',

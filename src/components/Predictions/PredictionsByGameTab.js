@@ -33,7 +33,7 @@ class PredictionsByGameTab extends Component {
             <div key={i} className="Prediction">
               <div className="Left">
                 <div className="Group">
-                  {users[item.user] && Filters.capitalize(users[item.user].firstName) + ' ' + Filters.capitalize(users[item.user].lastName)}
+                  {users && users[item.user] && Filters.capitalize(users[item.user].firstName) + ' ' + Filters.capitalize(users[item.user].lastName)}
                 </div>
               </div>
               <div className="Center">

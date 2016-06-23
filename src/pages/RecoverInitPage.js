@@ -63,6 +63,9 @@ class RecoverInitPage extends Component {
                   <div className="text">
                     {Labels.recoverInitTextOk + username + '.'}
                   </div>
+                  <div className="text">
+                    {Labels.recoverInitTextOk2}
+                  </div>
                 </div>
               }
 
