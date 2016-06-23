@@ -36,6 +36,7 @@
       border-top: dotted $grey-5 1px;
       margin-top: 12px;
       padding-top: 12px;
+      transform: translateZ(0);
 
       span{
         font-size: 15px;
@@ -65,5 +66,6 @@
 @media (max-width: $break-medium){
   .Paper.PredictionBlock{
     border-radius: 0;
+    margin-bottom: 12px;
   }
 }

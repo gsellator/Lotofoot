@@ -28,7 +28,7 @@
   .MainMenu{
     box-shadow: none;
     z-index: 220;
-    transform: translateZ(0);
+//    transform: translateZ(0);
   }
 
   .ModalBody{
@@ -46,7 +46,7 @@
   .GameModal{
     .ModalBody{
       top: 42px; bottom: 44px; left: 0;
-      padding: 0 0 12px 0;
+      padding: 0;
     }
   }
 }

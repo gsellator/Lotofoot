@@ -129,8 +129,9 @@
 }
 
 @media (max-width: $break-medium){
-  .PredictionsByGameTab{
+  .Paper.PredictionsByGameTab{
     border-radius: 0;
+    margin-bottom: 12px;
 
     .Match{
       .Left{
