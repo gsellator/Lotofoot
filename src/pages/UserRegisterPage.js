@@ -96,7 +96,7 @@ class UserRegisterPage extends Component {
               <div className="Input">
                 <div className="Label">Mot de passe</div>
                 <input type="password" value={password} onChange={this.passwordChanged.bind(this)} required
-                autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
+                placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
               </div>
               {!pending &&
                 <button type="submit">{Labels.createAccount}</button>
