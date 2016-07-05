@@ -1,23 +1,21 @@
 // Webpack config for creating the production bundle.
-
 var path = require("path");
 var webpack = require("webpack");
+var extractTextPlugin = require("extract-text-webpack-plugin");
 var writeStats = require("./utils/write-stats");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var strip = require("strip-loader");
 var autoprefixer = require('autoprefixer');
+var strip = require("strip-loader");
 
-var dist = path.join(__dirname, "../public/assets");
 var appName = process.env.APP_NAME || 'lotofoot-dev';
+var dist = path.resolve(__dirname, "../public/assets");
 
 module.exports = {
   devtool: "source-map",
   entry: "./src/client.js",
-
   output: {
-    path: dist,
     filename: "[name]-[hash].js",
     chunkFilename: "[name]-[chunkhash].js",
+    path: dist,
     publicPath: "/assets/"
   },
 
@@ -26,14 +24,14 @@ module.exports = {
       { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
       { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
       { test: /\.js$/, exclude: /node_modules/, loaders: [strip.loader("debug"), "babel"] },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style", "css?-autoprefixer!postcss!sass") },
+      { test: /\.scss$/, loader: extractTextPlugin.extract("style", "css?-autoprefixer!postcss!sass") },
     ]
   },
   postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
 
   plugins: [
     // css files from the extract-text-plugin loader
-    new ExtractTextPlugin("[name]-[chunkhash].css"),
+    new extractTextPlugin("[name]-[chunkhash].css"),
 
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
@@ -41,9 +39,9 @@ module.exports = {
     // set global vars
     new webpack.DefinePlugin({
       "process.env": {
-        BROWSER: JSON.stringify(true),
         NODE_ENV: JSON.stringify("production"),
         APP_NAME: JSON.stringify(appName),
+        BROWSER: JSON.stringify(true),
       }
     }),
 
