@@ -15,7 +15,6 @@ const config = {
   devtool: "cheap-module-eval-source-map",
   entry: {
     "main": [
-      "babel-polyfill",
       "webpack-dev-server/client?http://" + host + ":" + port,
       "webpack/hot/only-dev-server",
       "./src/client.js"

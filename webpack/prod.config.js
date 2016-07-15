@@ -11,7 +11,7 @@ var dist = path.resolve(__dirname, "../public/assets");
 
 module.exports = {
   devtool: "source-map",
-  entry: ['babel-polyfill', "./src/client.js"],
+  entry: "./src/client.js",
   output: {
     filename: "[name]-[hash].js",
     chunkFilename: "[name]-[chunkhash].js",
