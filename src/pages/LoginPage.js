@@ -48,7 +48,7 @@ class LoginPage extends Component {
               }
 
               <div>
-                <input type="text" ref="loginInput" placeholder={Labels.username} required
+                <input type="email" ref="loginInput" placeholder={Labels.username} required
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
               </div>
               <div>

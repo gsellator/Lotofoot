@@ -14,7 +14,7 @@ export default {
       debug("Received response %s from %s", res && res.status, url);
       if (err) {
         if (err.status) {err.statusCode = err.status;}
-        if (res && res.error && res.error.text) {err.message = res.error.text;}
+        err.output = (err.response && err.response.body) ? err.response.body : { error_description: err.message };
         return done(err);
       }
       done(null, res.body);
@@ -30,7 +30,7 @@ export default {
     .end((err, res) => {
       if (err) {
         if (err.status) {err.statusCode = err.status;}
-        if (res && res.error && res.error.text) {err.message = res.error.text;}
+        err.output = (err.response && err.response.body) ? err.response.body : { error_description: err.message };
         return done(err);
       }
       debug("Received response %s from", res && res.status);
@@ -47,7 +47,7 @@ export default {
     .end((err, res) => {
       if (err) {
         if (err.status) {err.statusCode = err.status;}
-        if (res && res.error && res.error.text) {err.message = res.error.text;}
+        err.output = (err.response && err.response.body) ? err.response.body : { error_description: err.message };
         return done(err);
       }
       debug("Received response %s from", res && res.status);
