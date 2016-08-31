@@ -12,7 +12,7 @@ const appName = process.env.APP_NAME || 'lotofoot-dev';
 const dist = path.resolve(__dirname, "../public/assets");
 
 const config = {
-  devtool: "cheap-module-eval-source-map",
+  devtool: "eval-source-map",
   entry: {
     "main": [
       "webpack-dev-server/client?http://" + host + ":" + port,
