@@ -28,7 +28,7 @@ const ApiAction = {
           context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
           return done();
         }
 
@@ -56,7 +56,7 @@ const ApiAction = {
           context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
           return done();
         }
 
@@ -87,7 +87,7 @@ const ApiAction = {
           context.dispatch(Actions.DIALOG_SHOW, { error: err.body.error, errorTxt: err.body.error_description });
           return done();
         } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
           return done();
         }
 

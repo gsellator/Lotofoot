@@ -17,12 +17,12 @@ const LoginAction = {
       (err, data) => {
         if (err && err.output) {
           console.log('recoverInitSend Error', err.output.error_description);
-          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'L\'email que vous avez indiqué est incorrect' });
+          context.dispatch(Actions.DIALOG_SHOW, { error: 'L\'email que vous avez indiqué est incorrect', errorTxt: 'L\'email que vous avez indiqué est incorrect' });
           context.dispatch(Actions.RECOVERINIT_FAILED, username);
           done();
         } else if (err) {
           console.log('recoverInitSend Error', err.message);
-          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'L\'email que vous avez indiqué est incorrect' });
+          context.dispatch(Actions.DIALOG_SHOW, { error: 'L\'email que vous avez indiqué est incorrect', errorTxt: 'L\'email que vous avez indiqué est incorrect' });
           context.dispatch(Actions.RECOVERINIT_FAILED, username);
           done();
         }

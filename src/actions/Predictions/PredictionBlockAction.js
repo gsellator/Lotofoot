@@ -20,7 +20,7 @@ const PredictionBlockAction = {
       tmpWinner = winner;
 
     if (gamePhase != 0 && tmpWinner === 'nobody'){
-      context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.' });
+      context.dispatch(Actions.DIALOG_SHOW, { error: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.', errorTxt: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.' });
       return context.dispatch(Actions.APIOK_PREDICTIONS_CREATE, {});
     }
 
@@ -56,7 +56,7 @@ const PredictionBlockAction = {
       tmpWinner = winner;
 
     if (gamePhase != 0 && tmpWinner === 'nobody'){
-      context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.' });
+      context.dispatch(Actions.DIALOG_SHOW, { error: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.', errorTxt: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.' });
       return context.dispatch(Actions.APIOK_PREDICTION_UPDATE, {});
     }
 
