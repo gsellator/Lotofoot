@@ -83,6 +83,9 @@ const ApiAction = {
         if (err && err.output) {
           context.dispatch(Actions.DIALOG_SHOW, err.output.error_description);
           return done();
+        } else if (err && err.body) {
+          context.dispatch(Actions.DIALOG_SHOW, err.body.error_description);
+          return done();
         } else if (err) {
           context.dispatch(Actions.DIALOG_SHOW, err.message);
           return done();
