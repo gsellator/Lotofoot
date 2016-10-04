@@ -12,13 +12,13 @@ const UserRegisterAction = {
       (err, data) => {
         context.dispatch(Actions.APIOK_USER_REGISTER);
         if (err && err.output) {
-          context.dispatch(Actions.DIALOG_SHOW, err.output.error_description);
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.output.error_description });
           return done();
         } else if (err) {
           if (err.message === 'Unauthorized' || err.message === 'Not Found') {
-            context.dispatch(Actions.DIALOG_SHOW, 'La connexion a échoué, mot de passe ou identifiant incorrect.');
+            context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'La connexion a échoué, mot de passe ou identifiant incorrect.' });
           } else {
-            context.dispatch(Actions.DIALOG_SHOW, err.message);
+            context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
           }
           return done();
         }

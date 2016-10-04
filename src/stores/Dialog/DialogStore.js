@@ -5,53 +5,55 @@ class DialogStore extends BaseStore {
   static storeName = "DialogStore"
 
   static handlers = {
+    [Actions.DIALOG_SHOW]: "handleShow",
     [Actions.DIALOG_LOGIN_FAILURE]: "handleLoginFailure",
     [Actions.DIALOG_SUBMIT]: "handleSubmit",
-    [Actions.DIALOG_SHOW]: "handleShow"
   }
 
   constructor(dispatcher) {
     super(dispatcher);
-
     this._hasDialog = false;
-    this._txt = '';
+    this._error = '';
+    this._errorTxt = '';
   }
 
-  handleLoginFailure(txt) {
+  handleShow({ error, errorTxt }) {
     this._hasDialog = true;
-    this._txt = txt;
+    this._error = error;
+    this._errorTxt = errorTxt;
+    this.emitChange();
+  }
+
+  handleLoginFailure({ error, errorTxt }) {
+    this._hasDialog = true;
+    this._error = error;
+    this._errorTxt = errorTxt;
     this.emitChange();
   }
 
   handleSubmit() {
     this._hasDialog = false;
+    this._error = '';
+    this._errorTxt = '';
     this.emitChange();
   }
 
-  handleShow(txt) {
-    this._hasDialog = true;
-    this._txt = txt;
-    this.emitChange();
-  }
-
-  hasDialog() {
-    return this._hasDialog;
-  }
-
-  getTxt() {
-    return this._txt;
-  }
+  hasDialog() {return this._hasDialog;}
+  getError() {return this._error;}
+  getErrorTxt() {return this._errorTxt;}
 
   dehydrate() {
     return {
       _hasDialog: this._hasDialog,
-      _txt: this._txt
+      _error: this._error,
+      _errorTxt: this._errorTxt
     };
   }
 
   rehydrate(state) {
     this._hasDialog = state._hasDialog;
-    this._txt = state._txt;
+    this._error = state._error;
+    this._errorTxt = state._errorTxt;
   }
 }
 

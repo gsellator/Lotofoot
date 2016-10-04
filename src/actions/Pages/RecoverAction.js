@@ -13,12 +13,12 @@ const RecoverAction = {
       (err, data) => {
         if (err && err.output) {
           console.log('RecoverAction > recoverInit Error', err.output.error_description);
-          context.dispatch(Actions.DIALOG_SHOW, 'Ce lien n\'est plus valide, demandez-en un nouveau !');
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'Ce lien n\'est plus valide, demandez-en un nouveau !' });
           context.dispatch(Actions.RECOVER_INIT_FAILED);
           done();
         } else if (err) {
           console.log('RecoverAction > recoverInit Error', err.message);
-          context.dispatch(Actions.DIALOG_SHOW, 'Ce lien n\'est plus valide, demandez-en un nouveau !');
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'Ce lien n\'est plus valide, demandez-en un nouveau !' });
           context.dispatch(Actions.RECOVER_INIT_FAILED);
           done();
         }
@@ -35,12 +35,12 @@ const RecoverAction = {
       (err, data) => {
         if (err && err.output) {
           console.log('RecoverAction > recoverUpdate Error', err.output.error_description);
-          context.dispatch(Actions.DIALOG_SHOW, 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.');
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.' });
           context.dispatch(Actions.RECOVER_FAILED, '');
           done();
         } else if (err) {
           console.log('RecoverAction > recoverUpdate Error', err.message);
-          context.dispatch(Actions.DIALOG_SHOW, 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.');
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.' });
           context.dispatch(Actions.RECOVER_FAILED, '');
           done();
         }

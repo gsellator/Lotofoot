@@ -25,10 +25,10 @@ const ApiAction = {
     context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
       (err, data) => {
         if (err && err.output) {
-          context.dispatch(Actions.DIALOG_SHOW, err.output.error_description);
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, err.message);
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
           return done();
         }
 
@@ -53,10 +53,10 @@ const ApiAction = {
     context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
         if (err && err.output) {
-          context.dispatch(Actions.DIALOG_SHOW, err.output.error_description);
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, err.message);
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
           return done();
         }
 
@@ -81,13 +81,13 @@ const ApiAction = {
     context.service.update("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
         if (err && err.output) {
-          context.dispatch(Actions.DIALOG_SHOW, err.output.error_description);
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err && err.body) {
-          context.dispatch(Actions.DIALOG_SHOW, err.body.error_description);
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.body.error, errorTxt: err.body.error_description });
           return done();
         } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, err.message);
+          context.dispatch(Actions.DIALOG_SHOW, { error: '', errorTxt: err.message });
           return done();
         }
 

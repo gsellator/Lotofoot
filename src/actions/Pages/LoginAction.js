@@ -11,13 +11,13 @@ const LoginAction = {
     context.service.create("ApiService", { endpoint }, { username: username, password: password }, { timeout: TIMEOUT },
       (err, data) => {
         if (err && err.output) {
-          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.output.error_description);
+          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: '', errorTxt: err.output.error_description });
           return done();
         } else if (err) {
           if (err.message === 'Unauthorized' || err.message === 'Not Found') {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'La connexion a échoué, mot de passe ou identifiant incorrect.');
+            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: '', errorTxt: 'La connexion a échoué, mot de passe ou identifiant incorrect.' });
           } else {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, err.message);
+            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: '', errorTxt: err.message });
           }
           return done();
         }

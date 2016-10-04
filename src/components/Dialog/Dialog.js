@@ -22,14 +22,14 @@ class Dialog extends Component {
   }
 
   render() {
-    const { txt } = this.props;
+    const { error, errorTxt } = this.props;
 
     return (
       <div className="Dialog">
         <div className="DialogWindow">
           <form onSubmit={this.submitDialog.bind(this)}>
             <div className="DialogWindowTxt">
-              <span>{txt}</span>
+              <span>{errorTxt}</span>
             </div>
             <div>
               <button ref="DialogWindowButton" type="submit" className="DialogWindowButton">{Labels.ok}</button>
@@ -43,7 +43,8 @@ class Dialog extends Component {
 
 Dialog = connectToStores(Dialog, ["DialogStore"], (context) => {
   return {
-    txt: context.getStore("DialogStore").getTxt()
+    error: context.getStore("DialogStore").getError(),
+    errorTxt: context.getStore("DialogStore").getErrorTxt()
   };
 }, {getStore: PropTypes.func});
 
