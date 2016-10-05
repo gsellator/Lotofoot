@@ -24,10 +24,14 @@ const ApiAction = {
 
     context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
       (err, data) => {
-        if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, err.message);
+        if (err && err.output) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
+          return done();
+        } else if (err) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
           return done();
         }
+
         context.dispatch(action, { data, route });
         return done();
       }
@@ -48,10 +52,14 @@ const ApiAction = {
 
     context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
-        if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, err.message);
+        if (err && err.output) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
+          return done();
+        } else if (err) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
           return done();
         }
+
         context.dispatch(action, { data, route });
         return done();
       }
@@ -72,10 +80,17 @@ const ApiAction = {
 
     context.service.update("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
-        if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, err.message);
+        if (err && err.output) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
+          return done();
+        } else if (err && err.body) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.body.error, errorTxt: err.body.error_description });
+          return done();
+        } else if (err) {
+          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
           return done();
         }
+
         context.dispatch(action, { data, route });
         return done();
       }

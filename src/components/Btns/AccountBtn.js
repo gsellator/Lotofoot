@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from "react";
-import { switchAccountDialog } from "../../actions/Dialog/AccountDialogAction";
+import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
@@ -12,7 +12,7 @@ class AccountBtn extends Component {
   }
 
   switchAccountDialog(e) {
-    this.context.executeAction(switchAccountDialog);
+    this.context.executeAction(AccountDialogAction.switchAccountDialog);
     e.stopPropagation();
   }
 

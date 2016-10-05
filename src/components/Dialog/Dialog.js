@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-import { submitDialog } from "../../actions/Dialog/DialogAction";
+import DialogAction from "../../actions/Dialog/DialogAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
@@ -18,18 +18,18 @@ class Dialog extends Component {
 
   submitDialog(e) {
     e.preventDefault();
-    this.context.executeAction(submitDialog);
+    this.context.executeAction(DialogAction.submitDialog);
   }
 
   render() {
-    const { txt } = this.props;
+    const { error, errorTxt } = this.props;
 
     return (
       <div className="Dialog">
         <div className="DialogWindow">
           <form onSubmit={this.submitDialog.bind(this)}>
             <div className="DialogWindowTxt">
-              <span>{txt}</span>
+              <span>{errorTxt}</span>
             </div>
             <div>
               <button ref="DialogWindowButton" type="submit" className="DialogWindowButton">{Labels.ok}</button>
@@ -43,7 +43,8 @@ class Dialog extends Component {
 
 Dialog = connectToStores(Dialog, ["DialogStore"], (context) => {
   return {
-    txt: context.getStore("DialogStore").getTxt()
+    error: context.getStore("DialogStore").getError(),
+    errorTxt: context.getStore("DialogStore").getErrorTxt()
   };
 }, {getStore: PropTypes.func});
 

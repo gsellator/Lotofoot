@@ -1,6 +1,7 @@
-require("babel/polyfill");
+import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
+import app from "./app";
 
 // Add promise support for browser not supporting it
 import es6Promise from "es6-promise";
@@ -13,9 +14,6 @@ const debug = window.debug("lotofoot");
 const mountNode = document.getElementById("root");
 const dehydratedState = window.App;
 function renderApp() {
-
-  const app = require("./app");
-
   debug("Rehydrating state...", dehydratedState);
 
   app.rehydrate(dehydratedState, (err, context) => {

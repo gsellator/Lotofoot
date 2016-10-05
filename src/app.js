@@ -61,7 +61,7 @@ if (process.env.BROWSER) {
 const app = new Fluxible({ component: Application });
 
 // Make fetchr services respond to /api endpoint
-app.plug(fetchrPlugin({ xhrPath: "/api" }));
+app.plug(fetchrPlugin({ xhrPath: "/api", xhrTimeout: "300" }));
 
 // Plug Hairfie cookie plugin for server-side and front-side cookue access
 app.plug(cookiePlugin());

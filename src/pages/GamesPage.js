@@ -4,7 +4,7 @@ import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import Bouncefix from 'react-bouncefix';
 import Labels from "../Labels";
 import Actions from "../constants/Actions";
-import { getApi } from "../actions/Pages/ApiAction";
+import ApiAction from "../actions/Pages/ApiAction";
 
 import HelpBlock from "../components/Help/HelpBlock";
 import GameBlock from "../components/Games/GameBlock";
@@ -36,9 +36,9 @@ class GamesPage extends Component {
     if (!this.state.loaded && this.props.userId){
       this.setState({loaded: true});
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT});
-      this.context.executeAction(getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
-      this.context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+      this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT});
+      this.context.executeAction(ApiAction.getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
+      this.context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
     }
   }
 

@@ -1,4 +1,4 @@
-import { getApi, postApi, putApi } from "../../actions/Pages/ApiAction";
+import ApiAction from "../../actions/Pages/ApiAction";
 import { navigateAction } from "fluxible-router";
 import Actions from "../../constants/Actions";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";
@@ -20,7 +20,7 @@ const PredictionBlockAction = {
       tmpWinner = winner;
 
     if (gamePhase != 0 && tmpWinner === 'nobody'){
-      context.dispatch(Actions.DIALOG_SHOW, 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.');
+      context.dispatch(Actions.DIALOG_SHOW, { error: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.', errorTxt: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.' });
       return context.dispatch(Actions.APIOK_PREDICTIONS_CREATE, {});
     }
 
@@ -30,10 +30,10 @@ const PredictionBlockAction = {
       scoreTeamB: scoreTeamB,
       winner: tmpWinner
     }
-    return context.executeAction(postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE})
+    return context.executeAction(ApiAction.postApi, { route, view: 'Predictions', body, action: Actions.APIOK_PREDICTIONS_CREATE})
     .then(() => {
       GameModalHelper.altCloseGameModal(context);
-      return context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+      return context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
     })
     .then(() => {
       done();
@@ -56,7 +56,7 @@ const PredictionBlockAction = {
       tmpWinner = winner;
 
     if (gamePhase != 0 && tmpWinner === 'nobody'){
-      context.dispatch(Actions.DIALOG_SHOW, 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.');
+      context.dispatch(Actions.DIALOG_SHOW, { error: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.', errorTxt: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.' });
       return context.dispatch(Actions.APIOK_PREDICTION_UPDATE, {});
     }
 
@@ -66,10 +66,10 @@ const PredictionBlockAction = {
       winner: tmpWinner
     }
 
-    return context.executeAction(putApi, { predictionId, route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE })
+    return context.executeAction(ApiAction.putApi, { predictionId, route, view: 'Prediction', body, action: Actions.APIOK_PREDICTION_UPDATE })
     .then(() => {
       GameModalHelper.altCloseGameModal(context);
-      return context.executeAction(getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
+      return context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
     })
     .then(() => {
       done();

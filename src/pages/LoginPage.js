@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
-import { loginUser } from "../actions/Pages/LoginAction";
+import LoginAction from "../actions/Pages/LoginAction";
 import Labels from "../Labels";
 import config from "../config";
 
@@ -23,7 +23,7 @@ class LoginPage extends Component {
     e.preventDefault();
     const username = this.refs.loginInput.value.replace(/ /g,'');
     const password = this.refs.passwordInput.value;
-    this.context.executeAction(loginUser, { username, password });
+    this.context.executeAction(LoginAction.loginUser, { username, password });
   }
 
   render() {
@@ -48,7 +48,7 @@ class LoginPage extends Component {
               }
 
               <div>
-                <input type="string" ref="loginInput" placeholder={Labels.username} required
+                <input type="email" ref="loginInput" placeholder={Labels.username} required
                   autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
               </div>
               <div>

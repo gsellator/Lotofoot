@@ -1,7 +1,10 @@
+console.log("START index.js");
+
 delete process.env.BROWSER;
 
-// Register babel to have ES6 support on the server
-require("babel/register");
-
-// Start the server app
-require("./src/server");
+if (process.env.NODE_ENV === "development") {
+  require("babel-register");
+  require("./src/server");
+} else {
+  require("./lib/server");
+}

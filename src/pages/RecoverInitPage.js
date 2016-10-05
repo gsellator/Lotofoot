@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
-import { recoverInitSend } from "../actions/Pages/RecoverInitAction";
+import RecoverInitAction from "../actions/Pages/RecoverInitAction";
 import Labels from "../Labels";
 
 if (process.env.BROWSER) {
@@ -13,7 +13,7 @@ class RecoverInitPage extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired
   }
-  
+
   componentDidMount(){
     if (!this.props.success)
       this.refs.usernameInput.focus();
@@ -22,7 +22,7 @@ class RecoverInitPage extends Component {
   sendUsername(e) {
     e.preventDefault();
     const username = this.refs.usernameInput.value;
-    this.context.executeAction(recoverInitSend, { username });
+    this.context.executeAction(RecoverInitAction.recoverInitSend, { username });
   }
 
   render() {

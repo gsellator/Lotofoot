@@ -3,9 +3,8 @@ import { connectToStores } from "fluxible-addons-react";
 import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
-import { getAccessToken } from "../../actions/Pages/LoginAction";
-import { closeNav } from "../../actions/Pages/NavAction";
-import { closeAccountDialog } from "../../actions/Dialog/AccountDialogAction";
+import NavAction from "../../actions/Pages/NavAction";
+import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
 import NotificationComponent from './Notification';
 
 import MainMenu from "../../components/App/MainMenu";
@@ -30,9 +29,9 @@ class Page extends Component {
 
   ckickHandler(e){
     if (this.props.hasNav)
-      this.context.executeAction(closeNav);
+      this.context.executeAction(NavAction.closeNav);
     if (this.props.hasAccountDialog)
-      this.context.executeAction(closeAccountDialog);
+      this.context.executeAction(AccountDialogAction.closeAccountDialog);
   }
 
   render() {

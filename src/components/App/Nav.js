@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
-import { switchNav } from "../../actions/Pages/NavAction";
+import NavAction from "../../actions/Pages/NavAction";
 import Sections from "../../constants/Sections";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import NavHelper from '../Helpers/NavHelper';
@@ -19,7 +19,7 @@ class Nav extends Component {
   }
 
   switchNav(e) {
-    this.context.executeAction(switchNav);
+    this.context.executeAction(NavAction.switchNav);
     e.stopPropagation();
   }
 

@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
-import { postApi } from "../actions/Pages/ApiAction";
-import { registerUser } from "../actions/Pages/UserRegisterAction";
+import UserRegisterAction from "../actions/Pages/UserRegisterAction";
 import Labels from "../Labels";
 import config from "../config";
 
@@ -60,7 +59,7 @@ class UserRegisterPage extends Component {
       firstName: this.state.firstname,
       lastName: this.state.lastname,
     }
-    this.context.executeAction(registerUser, { body });
+    this.context.executeAction(UserRegisterAction.registerUser, { body });
   }
 
   render() {

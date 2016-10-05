@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { RouteStore, navigateAction } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import Bouncefix from 'react-bouncefix';
-import { switchNav } from "../../actions/Pages/NavAction";
+import NavAction from "../../actions/Pages/NavAction";
 import config from "../../config";
 
 import RefreshBtn from "../Btns/RefreshBtn";
@@ -21,7 +21,7 @@ class MainMenu extends Component {
 
   switchNavClick(e) {
     e.stopPropagation();
-    this.context.executeAction(switchNav);
+    this.context.executeAction(NavAction.switchNav);
   }
 
   goToGames(){

@@ -15,14 +15,22 @@ const MeAction = {
 
       let endpoint = ApiUris['UsersMe'] + '?access_token=' + accessToken;
       context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT }, (err, data) => {
-        if (err) {
+        if (err && err.output) {
           if (lastCheck){
-            if (err.output) {console.log('Me error', err.output.message);}
-            else {console.log('Me error', err.message);}
+            console.log('Me error', err.output.error_description);
             return resolve();
+          } else {
+            context.executeAction(navigateAction, { url: '/logout' })
+            return reject(err);
           }
-          context.executeAction(navigateAction, { url: '/logout' })
-          return reject(err);
+        } else if (err) {
+          if (lastCheck){
+            console.log('Me error', err.message);
+            return resolve();
+          } else {
+            context.executeAction(navigateAction, { url: '/logout' })
+            return reject(err);
+          }
         }
 
         return resolve(context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, { accessToken, credentials: data }));

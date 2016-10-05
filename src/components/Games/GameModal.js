@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import Bouncefix from 'react-bouncefix';
 import Actions from "../../constants/Actions";
-import { getApi } from "../../actions/Pages/ApiAction";
+import ApiAction from "../../actions/Pages/ApiAction";
 
 import BackBtn from "../Btns/BackBtn";
 import RefreshBtn from "../Btns/RefreshBtn";
@@ -31,11 +31,11 @@ class GameModal extends Component {
 
   componentDidMount() {
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME });
-    this.context.executeAction(getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER });
-    this.context.executeAction(getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS });
-    this.context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS });
-    this.context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME });
+    this.context.executeAction(ApiAction.getApi, { route, view: 'Game', action: Actions.APIOK_GAME });
+    this.context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER });
+    this.context.executeAction(ApiAction.getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS });
+    this.context.executeAction(ApiAction.getApi, { route, view: 'Users', action: Actions.APIOK_USERS });
+    this.context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME });
   }
 
   render() {

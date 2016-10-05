@@ -10,17 +10,14 @@ const LoginAction = {
     let endpoint = ApiUris['UsersLogin'];
     context.service.create("ApiService", { endpoint }, { username: username, password: password }, { timeout: TIMEOUT },
       (err, data) => {
-        if (err) {
-          let errObject = JSON.parse(err.message);
-          let errMsg = errObject ? errObject.message : 'err.message';
-          if (errMsg === 'Unauthorized' || errMsg === 'Not Found') {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'La connexion a échoué, mot de passe ou identifiant incorrect.');
-          } else if (errMsg === '"email" is not allowed to be empty. "email" must be a valid email' ||
-        errMsg === '"password" is not allowed to be empty. "password" length must be at least 3 characters long' ||
-        errMsg === '"email" is not allowed to be empty. "email" must be a valid email and "password" is not allowed to be empty. "password" length must be at least 3 characters long') {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, 'Veuillez renseigner les deux champs.');
+        if (err && err.output) {
+          context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: err.output.error, errorTxt: err.output.error_description });
+          return done();
+        } else if (err) {
+          if (err.message === 'Unauthorized' || err.message === 'Not Found') {
+            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: 'La connexion a échoué, mot de passe ou identifiant incorrect.', errorTxt: 'La connexion a échoué, mot de passe ou identifiant incorrect.' });
           } else {
-            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, errMsg);
+            context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: err.message, errorTxt: err.message });
           }
           return done();
         }
