@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore } from "fluxible-router";
-import { create, update } from "../../actions/Predictions/PredictionBlockAction";
+import PredictionBlockAction from "../../actions/Predictions/PredictionBlockAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
@@ -50,11 +50,11 @@ class PredictionBlock extends Component {
     if (!this.props.data._id){
       // Create prediction
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(create, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, gameId: this.props.gameData._id });
+      this.context.executeAction(PredictionBlockAction.create, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, gameId: this.props.gameData._id });
     } else {
       // Update prediction
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(update, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, predictionId: this.props.data._id });
+      this.context.executeAction(PredictionBlockAction.update, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, predictionId: this.props.data._id });
     }
   }
 

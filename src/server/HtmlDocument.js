@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { trackingId } from "../config";
+import config from "../config";
 import ga from "./ga";
 import typekit from "./typekit";
 import { provideContext } from "fluxible-addons-react";
@@ -91,8 +91,8 @@ class HtmlDocument extends React.Component {
             <link key={k} rel="stylesheet" type="text/css" href={href} />)
           }
 
-          {trackingId &&
-            <script dangerouslySetInnerHTML={{__html: ga.prod.replace("{trackingId}", trackingId)}} />
+          {config.trackingId &&
+            <script dangerouslySetInnerHTML={{__html: ga.prod.replace("{trackingId}", config.trackingId)}} />
           }
 
           <script dangerouslySetInnerHTML={{__html: typekit}} />

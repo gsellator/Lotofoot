@@ -9,7 +9,7 @@ import { navigateAction } from "fluxible-router";
 let webpackStats;
 
 if (process.env.NODE_ENV === "production") {
-  webpackStats = require("./webpack-stats.json");
+  webpackStats = require("../../src/server/webpack-stats.json");
 }
 
 function renderApp(req, res, context, next) {

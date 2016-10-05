@@ -1,14 +1,14 @@
 // Actions to run when the router matches a route. Used in app/routes.js
 import Actions from "../constants/Actions";
-import { loadMe } from "../actions/Pages/MeAction";
-import { getApi } from "../actions/Pages/ApiAction";
-import { recoverInitInit } from "../actions/Pages/RecoverInitAction";
-import { recoverInit } from "../actions/Pages/RecoverAction";
+import MeAction from "../actions/Pages/MeAction";
+import ApiAction from "../actions/Pages/ApiAction";
+import RecoverInitAction from "../actions/Pages/RecoverInitAction";
+import RecoverAction from "../actions/Pages/RecoverAction";
 
 const InitActions = {
   recoverInit(context, route, done) {
     Promise.all([
-      context.executeAction(recoverInitInit, {}),
+      context.executeAction(RecoverInitAction.recoverInitInit, {}),
     ])
     .then(() => {
       done();
@@ -20,7 +20,7 @@ const InitActions = {
 
   recover(context, route, done) {
     Promise.all([
-      context.executeAction(recoverInit, { route }),
+      context.executeAction(RecoverAction.recoverInit, { route }),
     ])
     .then(() => {
       done();
@@ -31,7 +31,7 @@ const InitActions = {
   },
 
   me(context, route, done) {
-    context.executeAction(loadMe, {})
+    context.executeAction(MeAction.loadMe, {})
     .then(() => {
       done();
     }, (err) => {
@@ -41,15 +41,15 @@ const InitActions = {
   },
 
   game(context, route, done) {
-    context.executeAction(loadMe, {})
+    context.executeAction(MeAction.loadMe, {})
     .then(() => {
       return Promise.all([
-        context.executeAction(getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
-        context.executeAction(getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER }),
+        context.executeAction(ApiAction.getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
+        context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER }),
 
-        context.executeAction(getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
-        context.executeAction(getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
-        context.executeAction(getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
+        context.executeAction(ApiAction.getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
+        context.executeAction(ApiAction.getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
+        context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
       ]);
     })
     .then(() => {

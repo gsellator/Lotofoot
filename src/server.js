@@ -11,6 +11,8 @@ import render from "./server/render";
 import notifier from './server/notifier';
 var request = require('superagent-promise')(require('superagent'), Promise);
 
+import ApiService from "./services/ApiService";
+
 // Initialize express server
 const server = express();
 
@@ -19,7 +21,7 @@ server.use(morgan(server.get("env") === "production" ? "combined" : "dev"));
 server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(compression());
-server.use(favicon(path.resolve(__dirname, "./assets/uiux_favicon.png")));
+server.use(favicon(path.resolve("./src/assets/uiux_favicon.png")));
 
 // Google
 server.get('/robots.txt', function(req, res) {
@@ -46,7 +48,7 @@ server.use(csurf({ cookie: true }));
 // Configure fetchr (for doing api calls server and client-side)
 // and register its services
 const fetchr = app.getPlugin("FetchrPlugin");
-fetchr.registerService(require("./services/ApiService"));
+fetchr.registerService(ApiService);
 
 // Use the fetchr middleware (will enable requests from /api)
 

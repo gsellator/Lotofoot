@@ -3,7 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
-import { getApi } from "../actions/Pages/ApiAction";
+import ApiAction from "../actions/Pages/ApiAction";
 
 import MessagesTab from "../components/Chat/MessagesTab";
 import MessageEdit from "../components/Chat/MessageEdit";
@@ -20,8 +20,8 @@ class ChatPage extends Component {
 
   componentDidMount() {
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
-    this.context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES });
+    this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
+    this.context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES });
     this.componentDidUpdate();
   }
 

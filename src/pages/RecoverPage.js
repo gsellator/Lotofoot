@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore, navigateAction, NavLink } from "fluxible-router";
-import { recoverUpdate } from "../actions/Pages/RecoverAction";
+import RecoverAction from "../actions/Pages/RecoverAction";
 import Labels from "../Labels";
 
 if (process.env.BROWSER) {
@@ -32,7 +32,7 @@ class RecoverPage extends Component {
     e.preventDefault();
     const route = this.context.getStore(RouteStore).getCurrentRoute();
     const password = this.refs.passwordInput.value;
-    this.context.executeAction(recoverUpdate, { route, password });
+    this.context.executeAction(RecoverAction.recoverUpdate, { route, password });
   }
 
   render() {

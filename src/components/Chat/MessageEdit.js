@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from "react";
 import { RouteStore } from "fluxible-router";
 import TextareaAutosize from "react-textarea-autosize";
 import Labels from "../../Labels";
-import { createMessage } from "../../actions/Chat/MessageEditAction";
+import MessageEditAction from "../../actions/Chat/MessageEditAction";
 
 if (process.env.BROWSER) {
   require("../../style/Chat/MessageEdit.scss");
@@ -32,7 +32,7 @@ class MessageEdit extends Component {
       let event = new Event('input', { bubbles: true });
       this.refs.MessageInput.childNodes[0].dispatchEvent(event);
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(createMessage, { route, body });
+      this.context.executeAction(MessageEditAction.createMessage, { route, body });
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-import { submitDialog } from "../../actions/Dialog/DialogAction";
+import DialogAction from "../../actions/Dialog/DialogAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
@@ -18,7 +18,7 @@ class Dialog extends Component {
 
   submitDialog(e) {
     e.preventDefault();
-    this.context.executeAction(submitDialog);
+    this.context.executeAction(DialogAction.submitDialog);
   }
 
   render() {

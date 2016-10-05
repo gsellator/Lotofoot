@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { connectToStores } from "fluxible-addons-react";
-import { setSubfilter, setFilter } from "../../actions/Games/GamesTabAction";
+import GamesTabAction from "../../actions/Games/GamesTabAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
@@ -14,11 +14,11 @@ class GamesFilters extends Component {
   }
 
   setFilter(newFilter) {
-    this.context.executeAction(setFilter, { newFilter });
+    this.context.executeAction(GamesTabAction.setFilter, { newFilter });
   }
 
   setSubfilter(newSubfilter) {
-    this.context.executeAction(setSubfilter, { newSubfilter });
+    this.context.executeAction(GamesTabAction.setSubfilter, { newSubfilter });
   }
 
   render() {

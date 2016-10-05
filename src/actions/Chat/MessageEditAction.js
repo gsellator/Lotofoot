@@ -1,13 +1,13 @@
 import Actions from "../../constants/Actions";
-import { getApi, postApi } from "../../actions/Pages/ApiAction";
+import ApiAction from "../../actions/Pages/ApiAction";
 
 const MessageEditAction = {
   createMessage(context, { route, body }) {
-    return context.executeAction(postApi, { route, view: 'Messages', body, action: Actions.APIOK_MESSAGE_CREATE})
+    return context.executeAction(ApiAction.postApi, { route, view: 'Messages', body, action: Actions.APIOK_MESSAGE_CREATE})
     .then((data) => {
       return Promise.all([
-        context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
-        context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES }),
+        context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
+        context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES }),
       ]);
     }, (err) =>{
       console.log('MessageEditAction error');
@@ -15,7 +15,7 @@ const MessageEditAction = {
   },
 
   getMessages(context, { route = {}, body }) {
-    return context.executeAction(getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
+    return context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
     .then(() => {
       return;
     }, (err) => {

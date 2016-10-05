@@ -3,7 +3,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
 import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
-import { getApi } from "../actions/Pages/ApiAction";
+import ApiAction from "../actions/Pages/ApiAction";
 import config from "../config";
 
 import HelpBlock from "../components/Help/HelpBlock";
@@ -20,7 +20,7 @@ class HelpPage extends Component {
 
   componentDidMount(){
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
+    this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
   }
 
   render() {
