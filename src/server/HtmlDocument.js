@@ -30,7 +30,12 @@ class HtmlDocument extends React.Component {
     let prefStr = 'http://localhost:3001';
     let meta1, meta2, meta3, meta4;
 
-    if (process.env.APP_NAME === 'lotofoot-pre'){
+    if (process.env.NODE_ENV === 'development'){
+      meta1 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120-pre.png'} />;
+      meta2 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192-pre.png'} />;
+      meta3 = <link rel="manifest" href={prefStr + '/assets/icns_manifest-pre.json'} />;
+      meta4 = <meta name="msapplication-config" content={prefStr + '/assets/icns_browserconfig.xml'} />;
+    } else if (process.env.APP_NAME === 'lotofoot-pre'){
       prefStr = '';
       meta1 = <link rel="apple-touch-icon" sizes="120x120" href="/assets/icns_120x120-pre.png" />;
       meta2 = <link rel="icon" type="image/png" sizes="192x192" href="/assets/icns_192x192-pre.png" />;
