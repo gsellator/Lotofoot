@@ -1,6 +1,6 @@
 {
   "name": "Lotofoot.io",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Pronostiquez les matchs de l'Euro 2016",
   "main": "index.js",
   "private": true,
