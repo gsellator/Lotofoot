@@ -11,7 +11,7 @@ const UserRegisterAction = {
     context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
       (err, data) => {
         context.dispatch(Actions.APIOK_USER_REGISTER);
-        if (err && err.output) {
+        if (err && err.output && err.output.error_description) {
           context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err) {

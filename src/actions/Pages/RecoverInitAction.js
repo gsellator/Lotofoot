@@ -15,7 +15,7 @@ const LoginAction = {
     let endpoint = ApiUris['RecoverInit'];
     context.service.create("ApiService", { endpoint }, { email: username }, { timeout: TIMEOUT },
       (err, data) => {
-        if (err && err.output) {
+        if (err && err.output && err.output.error_description) {
           console.log('recoverInitSend Error', err.output.error_description);
           context.dispatch(Actions.DIALOG_SHOW, { error: 'L\'email que vous avez indiqué est incorrect', errorTxt: 'L\'email que vous avez indiqué est incorrect' });
           context.dispatch(Actions.RECOVERINIT_FAILED, username);
