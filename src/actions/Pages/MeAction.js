@@ -15,7 +15,7 @@ const MeAction = {
 
       let endpoint = ApiUris['UsersMe'] + '?access_token=' + accessToken;
       context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT }, (err, data) => {
-        if (err && err.output) {
+        if (err && err.output && err.output.error_description) {
           if (lastCheck){
             console.log('Me error', err.output.error_description);
             return resolve();

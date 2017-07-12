@@ -43,15 +43,8 @@ class HtmlHeadStore extends BaseStore {
     return `${BASE_URL}${route.url}`;
   }
 
-  handleNavigateSuccess(route) {
-    switch (route.name) {
-      case "games":
-        this.title = 'Lotofoot.io';
-        this.description = 'Pronostiquez les matchs de l\'Euro 2016';
-        break;
-      default:
-        this.setInitialState();
-    }
+  handleNavigateSuccess() {
+    this.setInitialState();
     this.emitChange();
   }
 

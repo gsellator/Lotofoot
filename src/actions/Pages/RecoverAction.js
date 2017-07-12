@@ -11,7 +11,7 @@ const RecoverAction = {
 
     context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
       (err, data) => {
-        if (err && err.output) {
+        if (err && err.output && err.output.error_description) {
           console.log('RecoverAction > recoverInit Error', err.output.error_description);
           context.dispatch(Actions.DIALOG_SHOW, { error: 'Ce lien n\'est plus valide, demandez-en un nouveau !', errorTxt: 'Ce lien n\'est plus valide, demandez-en un nouveau !' });
           context.dispatch(Actions.RECOVER_INIT_FAILED);
@@ -33,7 +33,7 @@ const RecoverAction = {
     let endpoint = ApiUris['RecoverUpdate'].replace(':recovertoken', route.params.recovertoken);
     context.service.create("ApiService", { endpoint }, { password }, { timeout: TIMEOUT },
       (err, data) => {
-        if (err && err.output) {
+        if (err && err.output && err.output.error_description) {
           console.log('RecoverAction > recoverUpdate Error', err.output.error_description);
           context.dispatch(Actions.DIALOG_SHOW, { error: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.', errorTxt: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.' });
           context.dispatch(Actions.RECOVER_FAILED, '');

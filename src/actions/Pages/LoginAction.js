@@ -10,7 +10,7 @@ const LoginAction = {
     let endpoint = ApiUris['UsersLogin'];
     context.service.create("ApiService", { endpoint }, { username: username, password: password }, { timeout: TIMEOUT },
       (err, data) => {
-        if (err && err.output) {
+        if (err && err.output && err.output.error_description) {
           context.dispatch(Actions.DIALOG_LOGIN_FAILURE, { error: err.output.error, errorTxt: err.output.error_description });
           return done();
         } else if (err) {
