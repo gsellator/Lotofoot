@@ -7,6 +7,10 @@ import app from "./app";
 import es6Promise from "es6-promise";
 es6Promise.polyfill();
 
+// Add tapEvent for fast click on iOS
+import injectTapEventPlugin from "react-tap-event-plugin";
+injectTapEventPlugin();
+
 window.debug = require("debug");
 
 const debug = window.debug("lotofoot");

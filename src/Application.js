@@ -11,9 +11,6 @@ import NotFoundPage from "./pages/NotFoundPage";
 //import ErrorPage from "./pages/ErrorPage";
 import LoadingPage from "./pages/LoadingPage";
 
-import injectTapEventPlugin from "react-tap-event-plugin";
-injectTapEventPlugin();
-
 var request = require('superagent-promise')(require('superagent'), Promise);
 
 if (process.env.BROWSER) {
