@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
@@ -7,18 +8,18 @@ import NavAction from "../../actions/Pages/NavAction";
 import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
 import NotificationComponent from './Notification';
 
-import MainMenu from "../../components/App/MainMenu";
-import Nav from "../../components/App/Nav";
-import TabNav from "../../components/App/TabNav";
+import MainMenu from "./MainMenu";
+import Nav from "./Nav";
+import TabNav from "./TabNav";
 import Dialog from "../../components/Dialog/Dialog";
 import AccountDialog from "../../components/Dialog/AccountDialog";
 import GameModal from "../../components/Games/GameModal";
 
 
 if (process.env.BROWSER) {
-  require("../../style/App/Page.scss");
-  require("../../style/App/Icons.scss");
-  require("../../style/App/Btn.scss");
+  require("../../style/Pages/Page.scss");
+  require("../../style/Pages/Icons.scss");
+  require("../../style/Pages/Btn.scss");
 }
 
 class Page extends Component {
@@ -84,9 +85,9 @@ class Page extends Component {
   }
 }
 
-Page = connectToStores(Page, ["LoginPageStore", "NavStore", "DialogStore", "AccountDialogStore"], (context) => {
+Page = connectToStores(Page, ["LoginStore", "NavStore", "DialogStore", "AccountDialogStore"], (context) => {
   return {
-    credentials: context.getStore("LoginPageStore").getCredentials(),
+    credentials: context.getStore("LoginStore").getCredentials(),
     hasNav: context.getStore("NavStore").hasNav(),
     hasDialog: context.getStore("DialogStore").hasDialog(),
     hasAccountDialog: context.getStore("AccountDialogStore").hasAccountDialog(),

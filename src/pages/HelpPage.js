@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 import config from "../config";
@@ -25,7 +25,7 @@ class HelpPage extends Component {
 
   render() {
     return (
-      <Bouncefix className="HelpPage">
+      <div className="HelpPage">
         <div className="Paper">
           <div className="HelpPageCtnt">
             <div className="IlluContainer">
@@ -45,14 +45,14 @@ class HelpPage extends Component {
             }
           </div>
         </div>
-      </Bouncefix>
+      </div>
     );
   }
 }
 
-//HelpPage = connectToStores(HelpPage, ["LoginPageStore"], (context) => {
+//HelpPage = connectToStores(HelpPage, ["LoginStore"], (context) => {
 //  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
+//    credentials: context.getStore("LoginStore").getCredentials()
 //  };
 //}, {getStore: PropTypes.func});
 

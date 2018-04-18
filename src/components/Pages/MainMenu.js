@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { RouteStore, navigateAction } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
-import Bouncefix from 'react-bouncefix';
 import NavAction from "../../actions/Pages/NavAction";
 import config from "../../config";
 
@@ -10,7 +10,7 @@ import HeaderBtn from "../Btns/HeaderBtn";
 import AccountBtn from "../Btns/AccountBtn";
 
 if (process.env.BROWSER) {
-  require("../../style/App/MainMenu.scss");
+  require("../../style/Pages/MainMenu.scss");
 }
 
 class MainMenu extends Component {
@@ -35,7 +35,7 @@ class MainMenu extends Component {
     const view = route.params.view;
 
     return (
-      <Bouncefix className="MainMenu">
+      <div className="MainMenu">
         <menu className="MainMenuContent">
           <div className="Left">
             <div>
@@ -69,7 +69,7 @@ class MainMenu extends Component {
             <RefreshBtn />
           </div>
         </menu>
-      </Bouncefix>
+      </div>
     );
   }
 }

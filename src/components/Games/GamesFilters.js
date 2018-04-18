@@ -1,6 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import GamesTabAction from "../../actions/Games/GamesTabAction";
+import GamesTabAction from "../../actions/Pages/GamesTabAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {

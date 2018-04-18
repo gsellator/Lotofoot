@@ -1,7 +1,7 @@
 import Actions from "../../constants/Actions";
 import ApiAction from "../../actions/Pages/ApiAction";
 
-const MessageEditAction = {
+export default {
   createMessage(context, { route, body }) {
     return context.executeAction(ApiAction.postApi, { route, view: 'Messages', body, action: Actions.APIOK_MESSAGE_CREATE})
     .then((data) => {
@@ -24,5 +24,3 @@ const MessageEditAction = {
     });
   }
 };
-
-export default MessageEditAction;

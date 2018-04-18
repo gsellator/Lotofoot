@@ -1,62 +1,60 @@
-import path from "path";
 import express from "express";
-import compression from "compression";
+import morgan from "morgan";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import compression from "compression";
+import path from "path";
 import favicon from "serve-favicon";
-import morgan from "morgan";
 import csurf from "csurf";
-import app from "./app";
-import render from "./server/render";
-import notifier from './server/notifier';
-var request = require('superagent-promise')(require('superagent'), Promise);
 
+import config from "./config";
+import app from "./app";
+
+import logout from "./server/logout";
+import forceSsl from "./server/forceSsl";
+import robots from "./server/robots";
+import sitemap from "./server/sitemap";
+import render from "./server/render";
+
+import notifierServer from "./server/notifierServer";
 import ApiService from "./services/ApiService";
 
 // Initialize express server
 const server = express();
-
-// Usual express stuff
 server.use(morgan(server.get("env") === "production" ? "combined" : "dev"));
 server.use(bodyParser.json());
 server.use(cookieParser());
 server.use(compression());
+
+// Favicon
 server.use(favicon(path.resolve("./src/assets/uiux_favicon.png")));
 
-// Google
-server.get('/robots.txt', function(req, res) {
-  res.header('Content-Type', 'text/plain');
-  res.status(200).send('User-agent: *\nDisallow: /maintenance\nDisallow: /error\nDisallow: /mire');
-});
-
 // Logout
-server.get('/logout', function(req, res) {
-  res.writeHead(302, {
-    'Set-Cookie': 'lotofoot_token=' + '; Path=/',
-    'Content-Type': 'text/plain',
-    'Location': '/'
-  });
-  res.end();
-});
+server.get('/logout', logout);
 
-// Notifications
-server.post('/notifier/update', (req, res) => {notifier.notify(req, res, io)});
+// Notifier
+let io;
+server.post('/notifier/update', (req, res) => {notifierServer.post(req, res, io);});
 
-// This is used by the fetchr plugin
-server.use(csurf({ cookie: true }));
+// SSL
+if (server.get("env") === "production") {
+  server.use(forceSsl);
+}
 
+// Google
+server.get('/robots.txt', robots);
+server.get('/sitemap.xml', sitemap);
+
+// APIs reverse proxy
 // Configure fetchr (for doing api calls server and client-side)
-// and register its services
+server.use(csurf({ cookie: true }));
 const fetchr = app.getPlugin("FetchrPlugin");
 fetchr.registerService(ApiService);
 
 // Use the fetchr middleware (will enable requests from /api)
-
 server.use(fetchr.getXhrPath(), fetchr.getMiddleware());
 
 // On production, use the public directory for static files
-// This directory is created by webpack on build time.
-
 if (server.get("env") === "production") {
   server.use(express.static(path.resolve(__dirname, "../public"), {
     maxAge: 365 * 24 * 60 * 60
@@ -69,21 +67,20 @@ if (server.get("env") === "development") {
 }
 
 // Render the app server-side and send it as response
-server.use(function(req, res, next) {
+server.use((req, res, next) => {
   const context = app.createContext({ req, res });
-  let lotofoot_token = req.cookies.lotofoot_token;
+  let cookie = req.cookies[config.cookie];
 
-  if (lotofoot_token) {
+  if (cookie) {
     // There user is logged, acces to the login page is forbidden
-    if (req.url.indexOf('/login') == 0) {res.redirect(303, '/'); return;}
+    if (req.url.indexOf('/login') == 0) {return res.redirect(303, '/');}
     next();
   } else{
     // There is no accessToken, we ask for credentials
     if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {next();}
-    else {res.redirect(303, '/login'); return;}
+    else {return res.redirect(303, '/login');}
   }
 });
-
 server.use(render);
 
 // Generic server errors (e.g. not caught by components)
@@ -91,11 +88,13 @@ server.use((err, req, res, next) => {  // eslint-disable-line no-unused-vars
   console.log("Error on request %s %s", req.method, req.url);
   console.log(err);
   console.log(err.stack);
-  res.status(500).send("Cette page n'est pas disponible");
+  if (err && err.statusCode == 404)
+    return res.redirect(303, '/');
+  else
+    return res.redirect(303, '/500');
 });
 
-// Finally, start the express server
-
+// Start the express server
 server.set("port", process.env.PORT || 3000);
 
 let activeServer = server.listen(server.get("port"), () => {
@@ -103,7 +102,7 @@ let activeServer = server.listen(server.get("port"), () => {
 });
 
 // Start the websocket server
-let io = require('socket.io')({
+io = require('socket.io')({
   transports  : [ 'xhr-polling' ],
   pollingDuration  : 10,
 }).listen(activeServer);

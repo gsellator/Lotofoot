@@ -1,10 +1,9 @@
-import { RouteStore, navigateAction } from "fluxible-router";
 import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
+import config from "../../config";
 const TIMEOUT = 20000;
 
-
-const RecoverAction = {
+export default {
   recoverInit(context, { route }, done) {
     context.dispatch(Actions.RECOVER_INIT, {});
     let endpoint = ApiUris['RecoverTest'].replace(':recovertoken', route.params.recovertoken);
@@ -50,7 +49,7 @@ const RecoverAction = {
         const user = data.user;
         var expiresDate = new Date();
         expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
-        context.setCookie('lotofoot_token', accessToken, {expires: expiresDate, path: '/'})
+        context.setCookie(config.cookie, accessToken, {expires: expiresDate, path: '/'})
         context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
         context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, user);
         done();
@@ -58,5 +57,3 @@ const RecoverAction = {
     );
   },
 };
-
-export default RecoverAction;

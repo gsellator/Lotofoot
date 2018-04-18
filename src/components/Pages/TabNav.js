@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
 import Sections from "../../constants/Sections";
 import NavHelper from '../Helpers/NavHelper';
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {
-  require("../../style/App/TabNav.scss");
+  require("../../style/Pages/TabNav.scss");
 }
 
 class TabNav extends Component {
@@ -19,7 +19,7 @@ class TabNav extends Component {
     const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
 
     return (
-      <Bouncefix className="TabNav">
+      <div className="TabNav">
         <nav className="TabNavContent">
           {
             Sections.map(sect =>
@@ -39,7 +39,7 @@ class TabNav extends Component {
             </div>
           </div>
         </nav>
-      </Bouncefix>
+      </div>
     );
   }
 }

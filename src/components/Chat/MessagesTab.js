@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { navigateAction, RouteStore } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
@@ -50,9 +51,9 @@ class MessagesTab extends Component {
   }
 }
 
-MessagesTab = connectToStores(MessagesTab, ["LoginPageStore", "MessagesTabStore"], (context) => {
+MessagesTab = connectToStores(MessagesTab, ["LoginStore", "MessagesTabStore"], (context) => {
   return {
-    credentials: context.getStore("LoginPageStore").getCredentials(),
+    credentials: context.getStore("LoginStore").getCredentials(),
     data: context.getStore("MessagesTabStore").getData()
   };
 }, {getStore: PropTypes.func});

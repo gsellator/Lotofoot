@@ -1,6 +1,8 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
+
 import LoginAction from "../actions/Pages/LoginAction";
 import Labels from "../Labels";
 import config from "../config";
@@ -12,7 +14,8 @@ if (process.env.BROWSER) {
 
 class LoginPage extends Component {
   static contextTypes = {
-    executeAction: PropTypes.func.isRequired
+    executeAction: PropTypes.func.isRequired,
+    getStore: PropTypes.func.isRequired,
   }
 
   componentDidMount(){
@@ -20,10 +23,11 @@ class LoginPage extends Component {
   }
 
   login(e) {
+    const route = this.context.getStore("RouteStore").getCurrentRoute();
     e.preventDefault();
     const username = this.refs.loginInput.value.replace(/ /g,'');
     const password = this.refs.passwordInput.value;
-    this.context.executeAction(LoginAction.loginUser, { username, password });
+    this.context.executeAction(LoginAction.login, { route, username, password });
   }
 
   render() {
@@ -89,9 +93,9 @@ class LoginPage extends Component {
   }
 }
 
-LoginPage = connectToStores(LoginPage, ["LoginPageStore"], (context) => {
+LoginPage = connectToStores(LoginPage, ["LoginStore"], (context) => {
   return {
-    pending: context.getStore("LoginPageStore").getPending(),
+    pending: context.getStore("LoginStore").getPending(),
   };
 }, {getStore: PropTypes.func});
 

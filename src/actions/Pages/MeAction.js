@@ -1,15 +1,16 @@
+import { navigateAction } from "fluxible-router";
 import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
-import { navigateAction } from "fluxible-router";
+import config from "../../config";
 const TIMEOUT = 20000;
 
-const MeAction = {
+export default {
   loadMe(context, {}) {
-    return new Promise(function(resolve, reject) {
-      const accessToken = context.getCookie('lotofoot_token');
+    return new Promise((resolve, reject) => {
+      const accessToken = context.getCookie(config.cookie);
       if (!accessToken){return resolve(context.executeAction(navigateAction, { url: '/login' }));}
 
-      const lastCheck = context.getStore("LoginPageStore").getLastCheck();
+      const lastCheck = context.getStore("LoginStore").getLastCheck();
       if (lastCheck && lastCheck < 200000)
         return resolve();
 
@@ -25,7 +26,7 @@ const MeAction = {
           }
         } else if (err) {
           if (lastCheck){
-            console.log('Me error', err.message);
+            console.log('Me error', err && err.message);
             return resolve();
           } else {
             context.executeAction(navigateAction, { url: '/logout' })
@@ -38,6 +39,3 @@ const MeAction = {
     })
   }
 };
-
-
-export default MeAction;

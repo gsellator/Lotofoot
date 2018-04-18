@@ -1,7 +1,8 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore } from "fluxible-router";
-import PredictionBlockAction from "../../actions/Predictions/PredictionBlockAction";
+import PredictionBlockAction from "../../actions/Pages/PredictionBlockAction";
 import Labels from "../../Labels";
 
 if (process.env.BROWSER) {

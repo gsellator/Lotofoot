@@ -1,8 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, navigateAction, RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
-import Labels from "../Labels";
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 
@@ -50,7 +49,7 @@ class GamesPage extends Component {
     //    gameBlock = <GameBlock />;
 
     return (
-      <Bouncefix className="GamesPage">
+      <div className="GamesPage">
         {false && !(games && predictions) && <div className="LoaderContainer"><div className="Loader" /></div>}
         {true && !(games && predictions) && <div className="FootixLoader" />}
 
@@ -76,14 +75,14 @@ class GamesPage extends Component {
             }
           </div>
         }
-      </Bouncefix>
+      </div>
     );
   }
 }
 
-GamesPage = connectToStores(GamesPage, ["LoginPageStore", "GamesTabStore"], (context) => {
+GamesPage = connectToStores(GamesPage, ["LoginStore", "GamesTabStore"], (context) => {
   return {
-    userId: context.getStore('LoginPageStore').getCredentials()._id,
+    userId: context.getStore('LoginStore').getCredentials()._id,
     filter: context.getStore("GamesTabStore").getFilter(),
     games: context.getStore("GamesTabStore").getGames(),
     predictions: context.getStore("GamesTabStore").getPredictions(),

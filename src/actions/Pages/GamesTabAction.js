@@ -1,6 +1,6 @@
 import Actions from "../../constants/Actions";
 
-const GamesTabAction = {
+export default {
   setFilter(context, { newFilter }, done) {
     context.dispatch(Actions.GAMESTAB_SET_FILTER, newFilter);
     done();
@@ -11,5 +11,3 @@ const GamesTabAction = {
     done();
   },
 };
-
-export default GamesTabAction;

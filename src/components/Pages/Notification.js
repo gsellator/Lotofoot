@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import io from "socket.io-client";
-import MessageEditAction from "../../actions/Chat/MessageEditAction";
+import MessageEditAction from "../../actions/Pages/MessageEditAction";
 
 class NotificationComponent extends Component {
   static contextTypes = {

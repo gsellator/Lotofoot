@@ -3,7 +3,10 @@ import keyMirror from "keymirror";
 const Actions = keyMirror({
   LOGIN_PENDING: null,
   LOGIN_SUCCESS: null,
+  LOGIN_FAILURE: null,
   LOGIN_UPDATE_CREDENTIALS: null,
+  LOGOUT_SUCCESS: null,
+
   RECOVERINIT_PENDING: null,
   RECOVERINIT_FAILED: null,
   RECOVERINIT_SUCCESS: null,
@@ -14,7 +17,6 @@ const Actions = keyMirror({
   RECOVER_SUCCESS: null,
 
   // FRONT
-  DIALOG_LOGIN_FAILURE: null,
   DIALOG_SHOW: null,
   DIALOG_SUBMIT: null,
   ACCOUNT_DIALOG_SWITCH: null,

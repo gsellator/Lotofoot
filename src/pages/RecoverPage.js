@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { RouteStore, navigateAction, NavLink } from "fluxible-router";
 import RecoverAction from "../actions/Pages/RecoverAction";

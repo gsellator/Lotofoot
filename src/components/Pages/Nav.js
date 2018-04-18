@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import NavAction from "../../actions/Pages/NavAction";
@@ -9,7 +10,7 @@ import Labels from "../../Labels";
 import config from "../../config";
 
 if (process.env.BROWSER) {
-  require("../../style/App/Nav.scss");
+  require("../../style/Pages/Nav.scss");
 }
 
 class Nav extends Component {

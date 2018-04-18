@@ -1,4 +1,4 @@
-const Labels = {
+export default {
   account: 'Mon compte',
   actions: 'Actions',
   app: 'Application',
@@ -151,5 +151,3 @@ const Labels = {
   helpLabel2: 'Gagnant & bonne diff de buts',
   helpLabel3: 'Gagnant & bon score',
 };
-
-export default Labels;

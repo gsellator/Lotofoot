@@ -1,4 +1,4 @@
-console.log("START index.js");
+require("babel-polyfill");
 
 delete process.env.BROWSER;
 

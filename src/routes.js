@@ -23,7 +23,7 @@ export default {
     method: "get",
     handler: UserRegisterPage,
   },
-  
+
   // RECOVER
   recoverInit: {
     path: "/recover",

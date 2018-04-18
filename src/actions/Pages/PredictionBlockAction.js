@@ -1,9 +1,8 @@
 import ApiAction from "../../actions/Pages/ApiAction";
-import { navigateAction } from "fluxible-router";
 import Actions from "../../constants/Actions";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";
 
-const PredictionBlockAction = {
+export default {
   create(context, { route, scoreTeamA, scoreTeamB, winner, gamePhase, gameId }, done) {
     context.dispatch(Actions.PENDING_PREDICTIONS_CREATE);
 
@@ -76,5 +75,3 @@ const PredictionBlockAction = {
     });
   },
 };
-
-export default PredictionBlockAction;

@@ -19,8 +19,7 @@ import PredictionsByGameTabStore from "./stores/Predictions/PredictionsByGameTab
 import UsersTabStore from "./stores/Ranking/UsersTabStore";
 import TeamsDicoStore from "./stores/Teams/TeamsDicoStore";
 
-import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
-import LoginPageStore from "./stores/Pages/LoginPageStore";
+import LoginStore from "./stores/Pages/LoginStore";
 import NavStore from "./stores/Pages/NavStore";
 import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
 import RecoverPageStore from "./stores/Pages/RecoverPageStore";
@@ -84,8 +83,7 @@ app.registerStore(PredictionsByGameTabStore);
 app.registerStore(UsersTabStore);
 app.registerStore(TeamsDicoStore);
 
-app.registerStore(HtmlHeadStore);
-app.registerStore(LoginPageStore);
+app.registerStore(LoginStore);
 app.registerStore(NavStore);
 app.registerStore(RecoverInitPageStore);
 app.registerStore(RecoverPageStore);

@@ -6,7 +6,6 @@ class DialogStore extends BaseStore {
 
   static handlers = {
     [Actions.DIALOG_SHOW]: "handleShow",
-    [Actions.DIALOG_LOGIN_FAILURE]: "handleLoginFailure",
     [Actions.DIALOG_SUBMIT]: "handleSubmit",
   }
 
@@ -24,17 +23,8 @@ class DialogStore extends BaseStore {
     this.emitChange();
   }
 
-  handleLoginFailure({ error, errorTxt }) {
-    this._hasDialog = true;
-    this._error = error;
-    this._errorTxt = errorTxt;
-    this.emitChange();
-  }
-
   handleSubmit() {
     this._hasDialog = false;
-    this._error = '';
-    this._errorTxt = '';
     this.emitChange();
   }
 

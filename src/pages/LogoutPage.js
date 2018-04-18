@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
 
 class LogoutPage extends Component {
   componentDidMount() {
     window.location.href = "/logout"
   }
-  
+
   render() {
     return (
       <div className="LogoutPage">

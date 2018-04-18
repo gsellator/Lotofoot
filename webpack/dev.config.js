@@ -4,44 +4,85 @@ import webpack from "webpack";
 import WebpackErrorNotificationPlugin from "webpack-error-notification";
 import writeStats from "./utils/write-stats";
 import notifyStats from "./utils/notify-stats";
-import autoprefixer from "autoprefixer";
 
-const host = "localhost";
-const port = parseInt(process.env.PORT) + 1 || 3001;
 const appName = process.env.APP_NAME || 'lotofoot-dev';
-const dist = path.resolve(__dirname, "../public/assets");
+const dist = path.resolve(__dirname, '../public/assets');
+const host = 'localhost';
+const port = parseInt(process.env.PORT) + 1 || 3001;
 
 const config = {
-  devtool: "eval-source-map",
+  devtool: 'eval-source-map',
   entry: {
-    "main": [
-      "babel-polyfill",
-      "webpack-dev-server/client?http://" + host + ":" + port,
-      "webpack/hot/only-dev-server",
-      "./src/client.js"
+    main: [
+      'webpack-dev-server/client?http://' + host + ':' + port,
+      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch',
+      './src/client.js'
     ]
   },
   output: {
-    filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[hash].js",
+    filename: '[name]-[hash].js',
     path: dist,
-    publicPath: "http://" + host + ":" + port + "/assets/"
+    publicPath: 'http://' + host + ':' + port + '/assets/'
   },
+
   module: {
-    loaders: [
-      { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
-      { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
-      { test: /\.js$/, exclude: /node_modules/, loaders: ["react-hot", "babel?cacheDirectory"] },
-      { test: /\.scss$/, loaders: ["style", "css", "postcss", "sass?outputStyle=expanded&sourceMap=true&sourceMapContents=true"] },
+    rules: [
+      {
+        test: /\.(jpe?g|png|gif|svg|xml|json|css|js)$/,
+        include: /src\/assets\/static/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/,
+        exclude: /src\/assets\/static/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: [/node_modules/, /src\/assets\/static/],
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'autoprefixer-loader',
+            options: {
+              browsers: ['Last 2 versions', 'iOS 7']
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true,
+            }
+          },
+        ]
+      },
     ]
   },
-  postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
 
-  progress: true,
   plugins: [
     // hot reload
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("development"),

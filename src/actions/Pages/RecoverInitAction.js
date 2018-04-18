@@ -1,10 +1,8 @@
-import { RouteStore, navigateAction } from "fluxible-router";
 import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
 const TIMEOUT = 20000;
 
-
-const LoginAction = {
+export default {
   recoverInitInit(context, { username }, done) {
     context.dispatch(Actions.RECOVERINIT_INIT, {});
     done();
@@ -33,5 +31,3 @@ const LoginAction = {
     );
   },
 };
-
-export default LoginAction;
