@@ -8,7 +8,7 @@ import config from "../config";
 
 if (process.env.BROWSER) {
   require("../style/Pages/UserRegisterPage.scss");
-  require("../style/Pages/LandingBack.scss");
+//  require("../style/Pages/LandingBack.scss");
 }
 
 class UserRegisterPage extends Component {

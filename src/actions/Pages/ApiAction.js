@@ -72,11 +72,11 @@ export default {
           if (err && err.output && err.output.error_description) {
             context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
             context.dispatch(action, { route, url });
-            return resolve();
+            return reject();
           } else if (err) {
             context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
             context.dispatch(action, { route, url });
-            return resolve();
+            return reject();
           }
 
           context.dispatch(action, { data, route, url });

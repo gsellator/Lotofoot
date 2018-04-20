@@ -29,7 +29,7 @@ export default {
     path: "/recover",
     method: "get",
     handler: RecoverInitPage,
-    action: InitActions.recoverInit
+    //action: InitActions.recoverInit
   },
   recover: {
     path: "/recover/:recovertoken",

@@ -7,6 +7,7 @@ const Actions = keyMirror({
   LOGIN_UPDATE_CREDENTIALS: null,
   LOGOUT_SUCCESS: null,
 
+  RECOVERINIT_INIT: null,
   RECOVERINIT_PENDING: null,
   RECOVERINIT_FAILED: null,
   RECOVERINIT_SUCCESS: null,

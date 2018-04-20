@@ -29,8 +29,7 @@ class RankingPage extends Component {
 
     return (
       <div className="RankingPage">
-        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !data && <div className="FootixLoader" />}
+        {!data && <div className="FootixLoader" />}
         {data &&
           <div className="RankingPageContainer">
             <UsersTab />

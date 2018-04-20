@@ -3,42 +3,64 @@ export default {
   actions: 'Actions',
   app: 'Application',
   allPredictions: 'Tous les pronostics',
+  all: 'Tous',
+
   back: 'Revenez en arrière',
   backHome: 'Retour à l\'accueil',
+
   cancel: 'Annuler',
   chat: 'Chat',
   chatMini: 'Chat',
   create: 'Créer',
   createAccount: 'Créer mon compte',
+  clickToPredict: 'Cliquez pour pronostiquer',
+
   delete: 'Supprimer',
   description: 'Description',
+
   eightFinal: 'Huitième de finale',
+
   final: 'Finale',
   firstname: 'Prénom',
   finished: 'Terminé',
   forgottenPassword: 'Mot de passe oublié',
+  finishedGain: 'Ce pronostic vous rapporte',
+
   games: 'Matchs',
   game: 'Match',
   group: 'Groupe',
   groups: 'Groupes',
+  gamesMini: 'Matchs',
+
   hasPaid: '✅  Cotisation à jour',
   hasNotPaid: '💲  Je dois 5€',
   help: 'Aide',
   home: 'Tous les matchs',
   homeMini: 'Matchs',
-  gamesMini: 'Matchs',
+
   inProgress: 'En cours',
+  inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte',
+
   key: 'Clé',
   knockoutPhase: 'Phase finale',
+
   lastname: 'Nom',
   logout: 'Se déconnecter',
   login: 'Connexion',
+
   menu: 'Menu',
   modify: 'Modifier',
+  myPrediction: 'Mon pronostic',
+
   ok: 'OK',
+
   password: 'Mot de passe',
   predictions: 'Mes pronostics',
+  point: 'point',
+  points: 'points',
+
   quarterFinal: 'Quart de finale',
+
   ranking: 'Classement général',
   rankingMini: 'Classement',
   refresh: 'Recharger la page',
@@ -51,25 +73,21 @@ export default {
   resetPassword: 'Réinitialiser mon mot de passe',
   recoverTitle: 'Choisissez un nouveau mot de passe',
   rules: 'Règles du jeu',
+
   send: 'Envoyer',
   semiFinal: 'Demi finale',
-  title: 'Titre',
-  username: 'Email',
-  usernameExample: 'adresse@me.com',
-  validate: 'Valider',
 
-  all: 'Tous',
+  title: 'Titre',
   toCome: 'À venir',
   toPredict: 'À pronostiquer',
-  clickToPredict: 'Cliquez pour pronostiquer',
   tabToPredict: 'Tapez pour pronostiquer',
   tooLate: 'Il est trop tard, vous ne pouvez plus parier sur ce match',
   tooLate2: 'Il est trop tard, les paris sont fermés',
-  myPrediction: 'Mon pronostic',
-  inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte',
-  finishedGain: 'Ce pronostic vous rapporte',
-  point: 'point',
-  points: 'points',
+
+  username: 'Email',
+  usernameExample: 'adresse@me.com',
+
+  validate: 'Valider',
 
   ga: 'Groupe A',
   gb: 'Groupe B',

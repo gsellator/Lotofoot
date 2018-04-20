@@ -65,8 +65,7 @@ class PredictionBlock extends Component {
 
     return (
       <div className="Paper PredictionBlock">
-        {false && !(data && gameData) && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !(data && gameData) && <div className="FootixLoader" />}
+        {!(data && gameData) && <div className="FootixLoader" />}
         {data && !data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Title">
             {Labels.tooLate}
@@ -105,8 +104,7 @@ class PredictionBlock extends Component {
               <div className="icn-60 footix"></div>
             </div>
             <div>
-              {false && pending && <div className="LoaderContainer"><div className="Loader" /></div>}
-              {true && pending && <div className="FootixLoader" />}
+              {pending && <div className="FootixLoader" />}
               {!pending &&
                 <div className="Prediction">
                   <div className="Inputs">

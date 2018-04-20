@@ -34,8 +34,7 @@ class ChatPage extends Component {
 
     return (
       <div>
-        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !data && <div className="FootixLoader" />}
+        {!data && <div className="FootixLoader" />}
         <div   ref="ChatPage">
           <div className="ChatPage">
             {data &&

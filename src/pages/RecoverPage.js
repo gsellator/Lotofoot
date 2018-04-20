@@ -7,7 +7,7 @@ import Labels from "../Labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/RecoverPage.scss");
-  require("../style/Pages/LandingBack.scss");
+//  require("../style/Pages/LandingBack.scss");
 }
 
 class RecoverPage extends Component {
@@ -40,49 +40,13 @@ class RecoverPage extends Component {
     const { pending, success, username } = this.props;
 
     return (
-      <div className="RecoverPage LandingBack">
-        <div className="RecoverPageContainer">
-          <div className="RecoverPageContent">
-            <form onSubmit={this.sendPassword.bind(this)}>
-              {!success &&
-                <div>
-                  <div className="title">
-                    {Labels.recoverTitle}
-                  </div>
-                  <div>
-                    <input type="password"
-                      ref="passwordInput"
-                      placeholder={Labels.newPassword}
-                      autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
-                  </div>
-                  {!pending &&
-                    <button type="submit">{Labels.resetPassword}</button>
-                  }
-                  {pending &&
-                    <button type="submit">
-                      <div className="Loader"></div>
-                    </button>
-                  }
-                </div>
-              }
-              {success &&
-                <div>
-                  <div className="title">
-                    Bien reçu !
-                  </div>
-                  <div className="text">
-                    Votre mot de passe a été modifié.
-                  </div>
-                  <div>
-                    <NavLink className="TxtBtn" routeName="games">
-                      Accéder au lotofoot
-                    </NavLink>
-                  </div>
-                </div>
-              }
-            </form>
-          </div>
-        </div>
+      <div className="LoginPage ScrollPage NoPadding">
+        <RecoverInit
+          pending={pending}
+          success={success}
+          username={username}
+          Labels={Labels}
+          sendUsername={RecoverAction.recoverInitSend} />
       </div>
     );
   }

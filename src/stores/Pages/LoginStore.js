@@ -27,8 +27,6 @@ class LoginStore extends BaseStore {
   }
 
   handleLoginSuccess({ data, route, url }) {
-    console.log('Login success', data)
-    
     this.pending = false;
 
     if (data && data.token){
