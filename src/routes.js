@@ -1,7 +1,7 @@
 import InitActions from "./pages/InitActions";
 
 import LoginPage from "./pages/LoginPage";
-import UserRegisterPage from "./pages/UserRegisterPage";
+import RegisterPage from "./pages/RegisterPage";
 import RecoverInitPage from "./pages/RecoverInitPage";
 import RecoverPage from "./pages/RecoverPage";
 
@@ -18,10 +18,10 @@ export default {
     method: "get",
     handler: LoginPage
   },
-  userRegister: {
+  register: {
     path: "/login/create",
     method: "get",
-    handler: UserRegisterPage,
+    handler: RegisterPage,
   },
 
   // RECOVER
@@ -29,7 +29,7 @@ export default {
     path: "/recover",
     method: "get",
     handler: RecoverInitPage,
-    //action: InitActions.recoverInit
+    action: InitActions.recoverInit
   },
   recover: {
     path: "/recover/:recovertoken",

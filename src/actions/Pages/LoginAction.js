@@ -6,13 +6,13 @@ import ApiUris from "../../constants/ApiUris";
 import config from "../../config";
 
 export default {
-  login(context, { route, username, password }, done) {
+  login(context, { route, email, password }, done) {
     Promise.all([
       context.executeAction(ApiAction.flushApi, { action: Actions.LOGIN_PENDING }),
     ])
     .then(() => {
       return Promise.all([
-        context.executeAction(ApiAction.postApi, { route, view: 'UsersLogin', action: Actions.LOGIN_SUCCESS, body: { username: username, password: password } }),
+        context.executeAction(ApiAction.postApi, { route, view: 'UsersLogin', action: Actions.LOGIN_SUCCESS, body: { username: email, password } }),
       ]);
     })
     .then(() => {

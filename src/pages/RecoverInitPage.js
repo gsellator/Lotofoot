@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 
-import RecoverInit from "react-daily-widgets/dist/js/RecoverInit";
+import RecoverInit from "../components/Widgets/RecoverInit";
 
 import RecoverAction from "../actions/Pages/RecoverAction";
 import Labels from "../Labels";
 
 if (process.env.BROWSER) {
-  require("../style/Pages/RecoverInitPage.scss");
+  require("../style/Pages/LoginPage.scss");
 }
 
 class RecoverInitPage extends Component {
@@ -17,16 +17,16 @@ class RecoverInitPage extends Component {
   }
 
   render() {
-    const { pending, success, username } = this.props;
+    const { pending, success, email } = this.props;
 
     return (
       <div className="LoginPage ScrollPage NoPadding">
         <RecoverInit
           pending={pending}
           success={success}
-          username={username}
+          email={email}
           Labels={Labels}
-          sendUsername={RecoverAction.recoverInitSend} />
+          sendemail={RecoverAction.recoverInitSend} />
       </div>
     );
   }
@@ -36,7 +36,7 @@ RecoverInitPage = connectToStores(RecoverInitPage, ["RecoverInitPageStore"], (co
   return {
     pending: context.getStore("RecoverInitPageStore").getPending(),
     success: context.getStore("RecoverInitPageStore").getSuccess(),
-    username: context.getStore("RecoverInitPageStore").getUsername(),
+    email: context.getStore("RecoverInitPageStore").getEmail(),
   };
 }, {getStore: PropTypes.func});
 

@@ -17,7 +17,6 @@ import ErrorPage from "./pages/ErrorPage";
 
 if (process.env.BROWSER) {
   require("./style/Pages/Application.scss");
-  //require("./style/Pages/Paper.scss");
 }
 
 class Application extends Component {

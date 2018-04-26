@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { RouteStore, navigateAction, NavLink } from "fluxible-router";
+import { navigateAction, NavLink } from "fluxible-router";
+
+import Recover from "../components/Widgets/Recover";
+
 import RecoverAction from "../actions/Pages/RecoverAction";
 import Labels from "../Labels";
 
 if (process.env.BROWSER) {
-  require("../style/Pages/RecoverPage.scss");
-//  require("../style/Pages/LandingBack.scss");
+  require("../style/Pages/LoginPage.scss");
 }
 
 class RecoverPage extends Component {
@@ -16,37 +18,24 @@ class RecoverPage extends Component {
     executeAction: PropTypes.func.isRequired
   }
 
-  componentDidMount(){
-    if (!this.props.initFailure && !this.props.success)
-      this.refs.passwordInput.focus();
-    this.componentDidUpdate();
-  }
-
   componentDidUpdate(){
     if (this.props.initFailure){
-      const newroute = this.context.getStore(RouteStore).makePath('recoverInit');
+      const newroute = this.context.getStore('RouteStore').makePath('recoverInit');
       this.context.executeAction(navigateAction, { url: newroute });
     }
   }
 
-  sendPassword(e) {
-    e.preventDefault();
-    const route = this.context.getStore(RouteStore).getCurrentRoute();
-    const password = this.refs.passwordInput.value;
-    this.context.executeAction(RecoverAction.recoverUpdate, { route, password });
-  }
-
   render() {
-    const { pending, success, username } = this.props;
+    const { pending, success, email } = this.props;
 
     return (
       <div className="LoginPage ScrollPage NoPadding">
-        <RecoverInit
+        <Recover
           pending={pending}
           success={success}
-          username={username}
+          email={email}
           Labels={Labels}
-          sendUsername={RecoverAction.recoverInitSend} />
+          sendPassword={RecoverAction.recoverUpdate} />
       </div>
     );
   }
@@ -55,9 +44,9 @@ class RecoverPage extends Component {
 RecoverPage = connectToStores(RecoverPage, ["RecoverPageStore"], (context) => {
   return {
     initFailure: context.getStore("RecoverPageStore").getInitFailure(),
+    email: context.getStore("RecoverPageStore").getEmail(),
     pending: context.getStore("RecoverPageStore").getPending(),
     success: context.getStore("RecoverPageStore").getSuccess(),
-    username: context.getStore("RecoverPageStore").getUsername(),
   };
 }, {getStore: PropTypes.func});
 

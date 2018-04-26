@@ -24,13 +24,13 @@ class Recover extends Component {
     this.context.executeAction(this.props.sendPassword, {
       route,
       recoverToken: route.params.recovertoken,
-      username: this.props.username,
+      email: this.props.email,
       password: this.refs.passwordInput.value
     });
   }
 
   render() {
-    let { pending, success, username, groupName, Labels } = this.props;
+    let { pending, success, email, Labels } = this.props;
 
     return (
       <div className="Login">
@@ -41,13 +41,8 @@ class Recover extends Component {
                 <div className="title">
                   {Labels.recoverTitle}
                 </div>
-                {groupName === 'tf1' &&
-                  <div className="text">
-                    {Labels.recoverPageRegex}
-                  </div>
-                }
                 <div>
-                  <input type="password" ref="passwordInput" placeholder={groupName === 'tf1' ? Labels.passwordTf1 : Labels.password} required
+                  <input type="password" ref="passwordInput" placeholder={Labels.password} required
                     autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
                 </div>
                 {!pending &&
@@ -64,13 +59,13 @@ class Recover extends Component {
             {success &&
               <div>
                <div className="title">
-                  {Labels.renewSuccessTitle}
+                  {Labels.recoverSuccessTitle}
                 </div>
                 <div className="text">
-                  {Labels.renewSuccessText}
+                  {Labels.recoverSuccessText}
                 </div>
-                <NavLink className="OnBoardBtn" routeName="index">
-                  {Labels.renewSuccessAction}
+                <NavLink className="OnBoardBtn" routeName="home">
+                  {Labels.recoverSuccessAction}
                 </NavLink>
               </div>
             }

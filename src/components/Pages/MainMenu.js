@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { RouteStore, navigateAction } from "fluxible-router";
+import { navigateAction } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import NavAction from "../../actions/Pages/NavAction";
 import config from "../../config";
@@ -30,7 +30,7 @@ class MainMenu extends Component {
   }
 
   render() {
-    const route = this.context.getStore(RouteStore).getCurrentRoute();
+    const route = this.context.getStore('RouteStore').getCurrentRoute();
     const routeName = route.name;
     const view = route.params.view;
 

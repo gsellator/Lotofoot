@@ -28,13 +28,7 @@ class LoginPage extends Component {
           pending={pending}
           appName={config.appName}
           loginUser={LoginAction.login}
-          recoverUri="http://www.lotofoot.io/recover"
-          labels={{
-            username: Labels.username,
-            password: Labels.password,
-            login: Labels.login,
-            forgottenPassword: Labels.forgottenPassword,
-          }} />
+          labels={Labels} />
       </div>
     );
   }

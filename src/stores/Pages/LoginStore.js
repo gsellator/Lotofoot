@@ -10,6 +10,7 @@ class LoginStore extends BaseStore {
     [Actions.LOGIN_SUCCESS]: "handleLoginSuccess",
     [Actions.LOGIN_FAILURE]: "handleLoginFailure",
     [Actions.LOGIN_UPDATE_CREDENTIALS]: "handleUpdateCredentials",
+    [Actions.RECOVER_SUCCESS]: "handleLoginSuccess",
   }
 
   constructor(dispatcher) {

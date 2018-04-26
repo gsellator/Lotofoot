@@ -16,6 +16,7 @@ const getUri = ({
   const endpoint = ApiUris[view]
     .replace(':gameId', route.query.game)
     .replace(':predictionId', predictionId || route.params.predictionId)
+    .replace(':recovertoken', route.params.recovertoken)
     .replace(':userId', userId || route.params.userId);
 
   if (endpoint.includes('?'))

@@ -80,12 +80,7 @@ class HelpBlock extends Component {
           </table>
         </div>
 
-        {config.appName != 'lotofoot-lecab' &&
-          <div>{Labels.helpL6}</div>
-        }
-        {config.appName === 'lotofoot-lecab' &&
-          <div>{'Seuls les chauffeurs-partenaires LeCab pourront recevoir les lots mis en jeu. ' + Labels.helpL6}</div>
-        }
+        <div>{Labels.helpL6}</div>
       </div>
     );
   }

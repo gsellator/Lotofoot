@@ -73,6 +73,9 @@ export default {
   resetPassword: 'Réinitialiser mon mot de passe',
   recoverTitle: 'Choisissez un nouveau mot de passe',
   rules: 'Règles du jeu',
+  recoverSuccessTitle: 'Bien reçu !',
+  recoverSuccessText: 'Votre mot de passe a été modifié.',
+  recoverSuccessAction: 'Accéder au lotofoot',
 
   send: 'Envoyer',
   semiFinal: 'Demi finale',
@@ -84,8 +87,8 @@ export default {
   tooLate: 'Il est trop tard, vous ne pouvez plus parier sur ce match',
   tooLate2: 'Il est trop tard, les paris sont fermés',
 
-  username: 'Email',
-  usernameExample: 'adresse@me.com',
+  email: 'Email',
+  emailExample: 'adresse@me.com',
 
   validate: 'Valider',
 

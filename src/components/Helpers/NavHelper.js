@@ -1,5 +1,5 @@
 import GameModalHelper from "../../components/Helpers/GameModalHelper";
-import { RouteStore, navigateAction } from "fluxible-router";
+import { navigateAction } from "fluxible-router";
 
 const NavHelper = {
   navToSectClick(sect){

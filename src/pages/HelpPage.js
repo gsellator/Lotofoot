@@ -33,16 +33,9 @@ class HelpPage extends Component {
             </div>
             <div className="FootixLoader" />
             <HelpBlock />
-            {(config.appName === 'lotofoot' || config.appName === 'lotofoot-dev' || config.appName === 'lotofoot-pre') &&
-              <div className="Footer">
-                En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>.
-              </div>
-            }
-            {config.appName === 'lotofoot-lecab' &&
-              <div className="Footer">
-                En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:lecab@lotofoot.io">lecab@lotofoot.io</a>.
-              </div>
-            }
+            <div className="Footer">
+              En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>.
+            </div>
           </div>
         </div>
       </div>

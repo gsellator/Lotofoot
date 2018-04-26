@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
 import NavAction from "../../actions/Pages/NavAction";
 import Sections from "../../constants/Sections";
@@ -26,7 +25,7 @@ class Nav extends Component {
 
   render() {
     const { hasNav } = this.props;
-    const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
+    const pageName = this.context.getStore('RouteStore').getCurrentRoute().name;
 
     return (
       <div className="Nav">

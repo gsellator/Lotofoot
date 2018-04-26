@@ -1,12 +1,13 @@
 import { BaseStore } from "fluxible/addons";
 import Actions from "../../constants/Actions";
 
-class UserRegisterPageStore extends BaseStore {
-  static storeName = "UserRegisterPageStore"
+class RegisterPageStore extends BaseStore {
+  static storeName = "RegisterPageStore"
 
   static handlers = {
-    [Actions.PENDING_USER_REGISTER]: "handlePending",
-    [Actions.APIOK_USER_REGISTER]: "handleLoginSuccess",
+    [Actions.REGISTER_INIT]: "handleInit",
+    [Actions.REGISTER_PENDING]: "handlePending",
+    [Actions.REGISTER_SUCCESS]: "handleLoginSuccess",
   }
 
   constructor(dispatcher) {
@@ -14,19 +15,22 @@ class UserRegisterPageStore extends BaseStore {
     this.pending = false;
   }
 
+  handleInit() {
+    this.pending = false;
+    this.emitChange();
+  }
+
   handlePending() {
     this.pending = true;
     this.emitChange();
   }
 
-  handleLoginSuccess(access_token) {
+  handleLoginSuccess({ data, route, url }) {
     this.pending = false;
     this.emitChange();
   }
 
-  getPending() {
-    return this.pending;
-  }
+  getPending() {return this.pending;}
 
   dehydrate() {
     return {
@@ -39,4 +43,4 @@ class UserRegisterPageStore extends BaseStore {
   }
 }
 
-export default UserRegisterPageStore;
+export default RegisterPageStore;

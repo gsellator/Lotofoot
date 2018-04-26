@@ -6,7 +6,7 @@ import ApiAction from "../actions/Pages/ApiAction";
 const InitActions = {
   recoverInit(context, route, done) {
     Promise.all([
-      context.executeAction(RecoverInitAction.recoverInitInit, {}),
+      context.executeAction(ApiAction.flushApi, { action: Actions.RECOVERINIT_INIT }),
     ])
     .then(() => {
       done();

@@ -31,7 +31,7 @@ class HtmlDocument extends Component {
     let prefStr = '';
     let meta1, meta2, meta3, meta4, meta5, meta6;
 
-    if (process.env.NODE_ENV === 'development'){
+    if (config.appEnv === 'dev'){
       prefStr = 'http://localhost:3001';
       meta1 = <meta name="google-site-verification" content="u_jMeVlqwU6m_mQM6s6L9WCoOWeeB3t-kv9MM1obJ_M" />;
       meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120-pre.png'} />;
@@ -39,14 +39,7 @@ class HtmlDocument extends Component {
       meta4 = <link rel="manifest" href={prefStr + '/assets/icns_manifest-pre.json'} />;
       meta5 = <meta name="msapplication-config" content={prefStr + '/assets/icns_browserconfig.xml'} />;
       meta6 = <meta name="robots" content="noindex,nofollow" />;
-    } else if (process.env.APP_NAME === 'lotofoot-pre'){
-      meta1 = <meta name="google-site-verification" content="u_jMeVlqwU6m_mQM6s6L9WCoOWeeB3t-kv9MM1obJ_M" />;
-      meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120-pre.png'} />;
-      meta3 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192-pre.png'} />;
-      meta4 = <link rel="manifest" href={prefStr + '/assets/icns_manifest-pre.json'} />;
-      meta5 = <meta name="msapplication-config" content="/assets/icns_browserconfig.xml" />;
-      meta6 = <meta name="robots" content="noindex,nofollow" />;
-    } else if (process.env.APP_NAME === 'lotofoot' || process.env.APP_NAME === 'lotofoot-lecab'){
+    } else if (config.appEnv === 'prod'){
       meta1 = <meta name="google-site-verification" content="u_jMeVlqwU6m_mQM6s6L9WCoOWeeB3t-kv9MM1obJ_M" />;
       meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120.png'} />;
       meta3 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192.png'} />;

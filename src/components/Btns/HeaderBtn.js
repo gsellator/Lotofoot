@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Labels from "../../Labels";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";

@@ -23,7 +23,7 @@ import LoginStore from "./stores/Pages/LoginStore";
 import NavStore from "./stores/Pages/NavStore";
 import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
 import RecoverPageStore from "./stores/Pages/RecoverPageStore";
-import UserRegisterPageStore from "./stores/Pages/UserRegisterPageStore";
+import RegisterPageStore from "./stores/Pages/RegisterPageStore";
 
 
 if (process.env.BROWSER) {
@@ -87,6 +87,6 @@ app.registerStore(LoginStore);
 app.registerStore(NavStore);
 app.registerStore(RecoverInitPageStore);
 app.registerStore(RecoverPageStore);
-app.registerStore(UserRegisterPageStore);
+app.registerStore(RegisterPageStore);
 
 export default app;

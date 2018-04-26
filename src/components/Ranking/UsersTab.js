@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
 import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {

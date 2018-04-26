@@ -20,7 +20,7 @@
   }
 
   &.login .Page-body{top: 0; left: 0;}
-  &.userRegister .Page-body{top: 0; left: 0;}
+  &.register .Page-body{top: 0; left: 0;}
   &.recoverInit .Page-body{top: 0; left: 0;}
   &.recover .Page-body{top: 0; left: 0;}
 }
@@ -36,7 +36,7 @@
     }
 
     &.login .Page-body{bottom: 0;}
-    &.userRegister .Page-body{bottom: 0;}
+    &.register .Page-body{bottom: 0;}
     &.recoverInit .Page-body{bottom: 0;}
     &.recover .Page-body{bottom: 0;}
   }

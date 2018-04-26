@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { RouteStore } from "fluxible-router";
 import Sections from "../../constants/Sections";
 import NavHelper from '../Helpers/NavHelper';
 import Labels from "../../Labels";
@@ -16,7 +15,7 @@ class TabNav extends Component {
   }
 
   render() {
-    const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
+    const pageName = this.context.getStore('RouteStore').getCurrentRoute().name;
 
     return (
       <div className="TabNav">

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { NavLink, navigateAction, RouteStore } from "fluxible-router";
+import { NavLink } from "fluxible-router";
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 

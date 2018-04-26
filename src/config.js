@@ -1,14 +1,19 @@
-export default {
-  appLabel: 'Lotofoot.io',
-  appTitle: 'Lotofoot.io | Pronostiquez entre amis',
-  appDescription: 'Pronostiquez entre amis sur les matchs de la coupe du monde 2018',
-  cookie: 'lotofoot_token',
+// Load different configs for production or development
+let configFile = "dev.js";
 
-  //apiUri: process.env.API_URI || 'http://localhost:5000/api',
-  //apiUri: process.env.API_URI || 'https://lotofoot-api-dev.herokuapp.com/api',
-  apiUri: process.env.API_URI || 'https://lotofoot-api.herokuapp.com',
+switch(process.env.APP_NAME) {
+  case 'lotofoot-pre':
+    configFile = "lotofoot-pre.js";
+  break;
+  case 'lotofoot':
+    configFile = "lotofoot.js";
+  break;
+  case 'lotofoot-lecab':
+    configFile = "lotofoot-lecab.js";
+  break;
+  case 'lotofoot-sf':
+    configFile = "lotofoot-sf.js";
+  break;
+}
 
-  appName: process.env.APP_NAME || 'lotofoot-dev',
-  billing: process.env.BILLING || false,
-  trackingId: process.env.TRACKING_ID || 'UA-45826787-6'
-};
+export default require("./config/" + configFile).default;

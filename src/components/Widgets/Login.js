@@ -16,13 +16,13 @@ class Login extends Component {
 
   componentDidMount(){
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    const username = route.query.username;
+    const email = route.query.email;
     const password = route.query.password;
-    if (username) {this.refs.loginInput.value = username;}
+    if (email) {this.refs.loginInput.value = email;}
     if (password) {this.refs.passwordInput.value = password;}
 
-    if (username && password) {
-      this.context.executeAction(this.props.loginUser, { username, password });
+    if (email && password) {
+      this.context.executeAction(this.props.loginUser, { email, password });
     }
 
     this.refs.loginInput.focus();
@@ -31,21 +31,28 @@ class Login extends Component {
   send(e) {
     e.preventDefault();
     const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const username = this.refs.loginInput.value.replace(/ /g,'');
+    const email = this.refs.loginInput.value.replace(/ /g,'');
     const password = this.refs.passwordInput.value;
-    this.context.executeAction(this.props.loginUser, { route, username, password });
+    this.context.executeAction(this.props.loginUser, { route, email, password });
   }
 
   render() {
-    let { pending, appName, recoverUri, labels } = this.props;
+    let { pending, appName, labels } = this.props;
 
     return (
       <div className="Login">
         <div className="Box">
           <form onSubmit={this.send.bind(this)}>
             <div className={'app-icn-l ' + appName}></div>
+            
+            <div className="RegisterCall">
+              <NavLink className="LoginButton" routeName="register">
+                {labels.createAccount}
+              </NavLink>
+            </div>
+            
             <div>
-              <input type="email" ref="loginInput" placeholder={labels.username} required
+              <input type="email" ref="loginInput" placeholder={labels.email} required
                 autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
             </div>
             <div>
@@ -62,7 +69,9 @@ class Login extends Component {
             }
           </form>
           <div>
-            <NavLink className="LoginLink" routeName="recoverInit">{labels.forgottenPassword}</NavLink>
+            <NavLink className="LoginLink" routeName="recoverInit">
+              {labels.forgottenPassword}
+            </NavLink>
           </div>
         </div>
       </div>

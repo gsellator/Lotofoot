@@ -5,16 +5,17 @@ const Actions = keyMirror({
   LOGIN_SUCCESS: null,
   LOGIN_FAILURE: null,
   LOGIN_UPDATE_CREDENTIALS: null,
-  LOGOUT_SUCCESS: null,
+  //LOGOUT_SUCCESS: null,
+
+  REGISTER_INIT: null,
+  REGISTER_PENDING: null,
+  REGISTER_SUCCESS: null,
 
   RECOVERINIT_INIT: null,
   RECOVERINIT_PENDING: null,
-  RECOVERINIT_FAILED: null,
   RECOVERINIT_SUCCESS: null,
-  RECOVER_INIT: null,
-  RECOVER_INIT_FAILED: null,
+  RECOVER_INIT_OK: null,
   RECOVER_PENDING: null,
-  RECOVER_FAILED: null,
   RECOVER_SUCCESS: null,
 
   // FRONT
@@ -31,8 +32,6 @@ const Actions = keyMirror({
   NAVIGATE_FAILURE: null,
 
   // APP
-  APIOK_USER_REGISTER: null,
-  PENDING_USER_REGISTER: null,
   APIOK_USERS: null,
 
   APIOK_TEAMS: null,

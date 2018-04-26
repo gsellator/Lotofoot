@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { RouteStore } from "fluxible-router";
 import TextareaAutosize from "react-textarea-autosize";
 import Labels from "../../Labels";
 import MessageEditAction from "../../actions/Pages/MessageEditAction";

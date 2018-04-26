@@ -65,15 +65,6 @@
     background-position: -225px -180px;
 
     &.lotofoot-lecab{background-position: -255px -180px;}
-    &.lotofoot-dev, &.lotofoot-pre{
-      position: relative;
-      &:before {
-        content: "*";
-        position: absolute;
-        top: -8px; right: -8px;
-        font-size: 20px;
-      }
-    }
   }
 }
 
@@ -87,12 +78,6 @@
     &.lotofoot-lecab{background-position: -720px -0px;}
     &.lotofoot-dev, &.lotofoot-pre{
       position: relative;
-      &:before {
-        content: "*";
-        position: absolute;
-        top: -8px; right: -8px;
-        font-size: 20px;
-      }
     }
   }
 

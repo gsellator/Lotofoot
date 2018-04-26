@@ -16,7 +16,7 @@ class AccountDialog extends Component {
   }
 
   logout() {
-    const newroute = this.context.getStore(RouteStore).makePath('logout');
+    const newroute = this.context.getStore('RouteStore').makePath('logout');
     this.context.executeAction(navigateAction, { url: newroute });
   }
 
@@ -33,7 +33,7 @@ class AccountDialog extends Component {
             <div className="icn-100 account"></div>
             <div className="AccountDialogInfos">
               {Filters.capitalize(credentials.firstName) + ' ' + Filters.capitalize(credentials.lastname)}
-              <span>{credentials.username}</span>
+              <span>{credentials.email}</span>
               <span>{credentials.email}</span>
             </div>
           </div>

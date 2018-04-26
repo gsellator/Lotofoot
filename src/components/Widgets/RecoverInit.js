@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
+import { NavLink } from "fluxible-router";
+
 import LoaderSmall from "./LoaderSmall";
 
 if (process.env.BROWSER) {
@@ -7,6 +9,11 @@ if (process.env.BROWSER) {
 }
 
 class RecoverInit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { email: '' };
+  }
+
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired,
@@ -14,18 +21,19 @@ class RecoverInit extends Component {
 
   componentDidMount(){
     if (!this.props.success)
-      this.refs.usernameInput.focus();
+      this.refs.emailInput.focus();
   }
 
   send(e) {
     e.preventDefault();
     const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const username = this.refs.usernameInput.value.replace(/ /g,'');
-    this.context.executeAction(this.props.sendUsername, { route, username });
+    const email = this.refs.emailInput.value.replace(/ /g,'');
+    this.context.executeAction(this.props.sendemail, { route, email });
+    this.setState({ email });
   }
 
   render() {
-    let { pending, success, username, Labels } = this.props;
+    let { pending, success, email, Labels } = this.props;
 
     return (
       <div className="Login">
@@ -40,7 +48,7 @@ class RecoverInit extends Component {
                   {Labels.recoverInitText}
                 </div>
                 <div>
-                  <input type="email" ref="usernameInput" placeholder={Labels.usernameExample} required
+                  <input type="email" ref="emailInput" placeholder={Labels.emailExample} required
                     autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
                 </div>
                 {!pending &&
@@ -60,16 +68,16 @@ class RecoverInit extends Component {
                   {Labels.recoverInitTitleOk}
                 </div>
                 <div className="text">
-                  {Labels.recoverInitTextOk + username + '.'}
+                  {Labels.recoverInitTextOk + this.state.email + '.'}
                 </div>
               </div>
             }
           </form>
           <div>
             {!success &&
-              <a className="LoginLink" href="/login">
-                {Labels.logToDaily}
-              </a>
+              <NavLink className="LoginLink" routeName="login">
+                {Labels.backHome}
+              </NavLink>
             }
           </div>
         </div>

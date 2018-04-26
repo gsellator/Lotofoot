@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { RouteStore } from "fluxible-router";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 import NavAction from "../../actions/Pages/NavAction";
@@ -36,11 +35,11 @@ class Page extends Component {
   }
 
   render() {
-    const pageName = this.context.getStore(RouteStore).getCurrentRoute().name;
+    const pageName = this.context.getStore('RouteStore').getCurrentRoute().name;
     const { hasDialog, hasAccountDialog, hasGameModal } = this.props;
 
     let mainMenu, nav, tabnav, body, dialog, accountDialog, gameModal;
-    if (pageName != 'login' && pageName != 'userRegister' && pageName != 'recoverInit' && pageName != 'recover') {
+    if (pageName != 'login' && pageName != 'register' && pageName != 'recoverInit' && pageName != 'recover') {
       mainMenu = <MainMenu />;
       nav = <Nav />;
       tabnav = <TabNav />;
