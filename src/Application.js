@@ -5,9 +5,6 @@ import { handleHistory } from "fluxible-router";
 import Immutable from "immutable";
 
 import dailyStyles from "daily-styles";
-import dailyIcons from "daily-icons";
-import Pixels from "daily-icons/dist/js/Pixels";
-import frenchTvLogos from "french-tv-logos";
 
 import config from "./config";
 import trackPageView from "./utils/trackPageView";
@@ -76,8 +73,6 @@ class Application extends Component {
     return (
       <Page>
         { content }
-
-        <Pixels />
       </Page>
     );
   }

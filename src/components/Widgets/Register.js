@@ -12,6 +12,7 @@ class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: '',
       firstname: '',
       lastname: '',
       password: ''
@@ -23,16 +24,16 @@ class Register extends Component {
     getStore: PropTypes.func.isRequired,
   }
 
+  emailChanged(e) {
+    this.setState({email: e.target.value});
+  }
+
   firstnameChanged(e) {
     this.setState({firstname: e.target.value});
   }
 
   lastnameChanged(e) {
     this.setState({lastname: e.target.value});
-  }
-
-  emailChanged(e) {
-    this.setState({email: e.target.value});
   }
 
   passwordChanged(e) {
@@ -51,7 +52,7 @@ class Register extends Component {
   }
 
   render() {
-    const { appName, pending, Labels } = this.props;
+    const { appName, pending, labels } = this.props;
     const { email, password, firstname, lastname } = this.state;
 
     return (
@@ -63,29 +64,29 @@ class Register extends Component {
             <div className="Input">
               <div className="Label">Email</div>
               <input type="email" value={email} onChange={this.emailChanged.bind(this)} ref="emailInput" required
-              placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
+              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
             </div>
 
             <div className="Input">
               <div className="Label">Prénom</div>
               <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)} required
-              placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
+              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
             </div>
 
             <div className="Input">
               <div className="Label">Nom</div>
               <input type="text" value={lastname} onChange={this.lastnameChanged.bind(this)} required
-              placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
+              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
             </div>
 
             <div className="Input">
               <div className="Label">Mot de passe</div>
               <input type="password" value={password} onChange={this.passwordChanged.bind(this)} required
-              placeholder={Labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
+              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
             </div>
 
             {!pending &&
-              <button type="submit">{Labels.createAccount}</button>
+              <button type="submit">{labels.createAccount}</button>
             }
             {pending &&
               <button type="submit">
@@ -100,7 +101,7 @@ class Register extends Component {
             }
 
             <div>
-              <NavLink className="LoginLink" routeName="login">{Labels.backHome}</NavLink>
+              <NavLink className="LoginLink" routeName="login">{labels.backHome}</NavLink>
             </div>
           </form>
         </div>

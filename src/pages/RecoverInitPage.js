@@ -5,7 +5,7 @@ import { connectToStores } from "fluxible-addons-react";
 import RecoverInit from "../components/Widgets/RecoverInit";
 
 import RecoverAction from "../actions/Pages/RecoverAction";
-import Labels from "../Labels";
+import labels from "../labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");
@@ -25,7 +25,7 @@ class RecoverInitPage extends Component {
           pending={pending}
           success={success}
           email={email}
-          Labels={Labels}
+          labels={labels}
           sendemail={RecoverAction.recoverInitSend} />
       </div>
     );

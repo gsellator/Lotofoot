@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import Sections from "../../constants/Sections";
 import NavHelper from '../Helpers/NavHelper';
-import Labels from "../../Labels";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Pages/TabNav.scss");
@@ -24,8 +24,8 @@ class TabNav extends Component {
             Sections.map(sect =>
               <div className="TabNavBtn" key={sect.name}>
                 <div className={sect.name.indexOf(pageName) == 0 ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, sect.name)}>
-                  <div className={'icn-26 ' + sect.name} title={Labels[sect.name]} />
-                  <div className="Label">{Labels[sect.name + 'Mini']}</div>
+                  <div className={'icn-26 ' + sect.name} title={labels[sect.name]} />
+                  <div className="Label">{labels[sect.name + 'Mini']}</div>
                 </div>
               </div>
             )
@@ -33,8 +33,8 @@ class TabNav extends Component {
 
           <div className="TabNavBtn">
             <div className={pageName.indexOf('help') == 0 ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, 'help')}>
-              <div className="icn-26 help" title={Labels.help} />
-              <div className="Label">{Labels.help}</div>
+              <div className="icn-26 help" title={labels.help} />
+              <div className="Label">{labels.help}</div>
             </div>
           </div>
         </nav>

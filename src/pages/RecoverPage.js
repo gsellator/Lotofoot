@@ -6,7 +6,7 @@ import { navigateAction, NavLink } from "fluxible-router";
 import Recover from "../components/Widgets/Recover";
 
 import RecoverAction from "../actions/Pages/RecoverAction";
-import Labels from "../Labels";
+import labels from "../labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");
@@ -34,7 +34,7 @@ class RecoverPage extends Component {
           pending={pending}
           success={success}
           email={email}
-          Labels={Labels}
+          labels={labels}
           sendPassword={RecoverAction.recoverUpdate} />
       </div>
     );

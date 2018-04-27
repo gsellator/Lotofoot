@@ -30,7 +30,7 @@ class Recover extends Component {
   }
 
   render() {
-    let { pending, success, email, Labels } = this.props;
+    let { pending, success, email, labels } = this.props;
 
     return (
       <div className="Login">
@@ -39,14 +39,14 @@ class Recover extends Component {
             {!success &&
               <div>
                 <div className="title">
-                  {Labels.recoverTitle}
+                  {labels.recoverTitle}
                 </div>
                 <div>
-                  <input type="password" ref="passwordInput" placeholder={Labels.password} required
+                  <input type="password" ref="passwordInput" placeholder={labels.password} required
                     autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
                 </div>
                 {!pending &&
-                  <button type="submit">{Labels.resetPassword}</button>
+                  <button type="submit">{labels.resetPassword}</button>
                 }
                 {pending &&
                   <button type="submit">
@@ -59,13 +59,13 @@ class Recover extends Component {
             {success &&
               <div>
                <div className="title">
-                  {Labels.recoverSuccessTitle}
+                  {labels.recoverSuccessTitle}
                 </div>
                 <div className="text">
-                  {Labels.recoverSuccessText}
+                  {labels.recoverSuccessText}
                 </div>
                 <NavLink className="OnBoardBtn" routeName="home">
-                  {Labels.recoverSuccessAction}
+                  {labels.recoverSuccessAction}
                 </NavLink>
               </div>
             }

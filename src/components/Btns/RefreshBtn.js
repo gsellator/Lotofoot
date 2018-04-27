@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import Labels from "../../Labels";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/RefreshBtn.scss");
@@ -13,7 +13,7 @@ class RefreshBtn extends Component {
 
   render() {
     return (
-      <div className="RefreshBtn" onTouchTap={this.reload.bind(this)} title={Labels.refresh}>
+      <div className="RefreshBtn" onTouchTap={this.reload.bind(this)} title={labels.refresh}>
         <div className="icn-26 refresh"></div>
       </div>
     );

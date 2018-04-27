@@ -1,49 +1,28 @@
 import InitActions from "./pages/InitActions";
 
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import RecoverInitPage from "./pages/RecoverInitPage";
-import RecoverPage from "./pages/RecoverPage";
-
 import HomePage from "./pages/HomePage";
 import GamesPage from "./pages/GamesPage";
 import RankingPage from "./pages/RankingPage";
 import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
+
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import RecoverInitPage from "./pages/RecoverInitPage";
+import RecoverPage from "./pages/RecoverPage";
+
 import LogoutPage from "./pages/LogoutPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ErrorPage from "./pages/ErrorPage";
 
 export default {
-  login: {
-    path: "/login",
-    method: "get",
-    handler: LoginPage
-  },
-  register: {
-    path: "/login/create",
-    method: "get",
-    handler: RegisterPage,
-  },
-
-  // RECOVER
-  recoverInit: {
-    path: "/recover",
-    method: "get",
-    handler: RecoverInitPage,
-    action: InitActions.recoverInit
-  },
-  recover: {
-    path: "/recover/:recovertoken",
-    method: "get",
-    handler: RecoverPage,
-    action: InitActions.recover
-  },
-
   home: {
     path: "/",
     method: "get",
     handler: HomePage,
     action: InitActions.me
   },
+
   games: {
     path: "/games",
     method: "get",
@@ -75,9 +54,44 @@ export default {
     action: InitActions.me
   },
 
+  // Public
+  login: {
+    path: "/login",
+    method: "get",
+    handler: LoginPage
+  },
+  register: {
+    path: "/login/create",
+    method: "get",
+    handler: RegisterPage,
+    action: InitActions.register
+  },
+  recoverInit: {
+    path: "/recover",
+    method: "get",
+    handler: RecoverInitPage,
+    action: InitActions.recoverInit
+  },
+  recover: {
+    path: "/recover/:recovertoken",
+    method: "get",
+    handler: RecoverPage,
+    action: InitActions.recover
+  },
+
   logout: {
     path: "/logout",
     method: "get",
     handler: LogoutPage
   },
+  notfound: {
+    path: "/404",
+    method: "get",
+    handler: NotFoundPage
+  },
+  error: {
+    path: "/500",
+    method: "get",
+    handler: ErrorPage
+  }
 };

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import Labels from "../../Labels";
+import labels from "../../labels";
 import config from "../../config";
 
 if (process.env.BROWSER) {
@@ -15,12 +15,12 @@ class HelpBlock extends Component {
       <div className="HelpBlock">
         {config.appName != 'lotofoot-lecab' &&
           <div>
-            {Labels.helpL1}
+            {labels.helpL1}
           </div>
         }
         {config.appName === 'lotofoot-lecab' &&
           <div>
-            {Labels.helpL1Alt}
+            {labels.helpL1Alt}
           </div>
         }
 
@@ -33,45 +33,45 @@ class HelpBlock extends Component {
           </div>
         }
 
-        <div style={{marginTop: '12px'}}>{Labels.helpL2}</div>
+        <div style={{marginTop: '12px'}}>{labels.helpL2}</div>
 
         <div className="HelpTable">
           <table>
             <thead>
               <tr>
                 <th></th>
-                <th>{Labels.helpLabel1}</th>
-                <th>{Labels.helpLabel2}</th>
-                <th>{Labels.helpLabel3}</th>
+                <th>{labels.helpLabel1}</th>
+                <th>{labels.helpLabel2}</th>
+                <th>{labels.helpLabel3}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th>{Labels.groups}</th>
+                <th>{labels.groups}</th>
                 <td>1</td>
                 <td>2</td>
                 <td>3</td>
               </tr>
               <tr>
-                <th>{Labels.p1}</th>
+                <th>{labels.p1}</th>
                 <td>2</td>
                 <td>4</td>
                 <td>6</td>
               </tr>
               <tr>
-                <th>{Labels.p2}</th>
+                <th>{labels.p2}</th>
                 <td>3</td>
                 <td>5</td>
                 <td>8</td>
               </tr>
               <tr>
-                <th>{Labels.p3}</th>
+                <th>{labels.p3}</th>
                 <td>4</td>
                 <td>6</td>
                 <td>10</td>
               </tr>
               <tr>
-                <th>{Labels.p4}</th>
+                <th>{labels.p4}</th>
                 <td>5</td>
                 <td>7</td>
                 <td>12</td>
@@ -80,7 +80,7 @@ class HelpBlock extends Component {
           </table>
         </div>
 
-        <div>{Labels.helpL6}</div>
+        <div>{labels.helpL6}</div>
       </div>
     );
   }

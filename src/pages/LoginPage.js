@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { CSSTransitionGroup } from 'react-transition-group';
 
 import Login from "../components/Widgets/Login";
 
 import LoginAction from "../actions/Pages/LoginAction";
 import config from "../config";
-import Labels from "../Labels";
+import labels from "../labels";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");
@@ -28,7 +27,7 @@ class LoginPage extends Component {
           pending={pending}
           appName={config.appName}
           loginUser={LoginAction.login}
-          labels={Labels} />
+          labels={labels} />
       </div>
     );
   }

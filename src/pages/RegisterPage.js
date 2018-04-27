@@ -6,7 +6,7 @@ import { NavLink } from "fluxible-router";
 import Register from "../components/Widgets/Register";
 
 import RegisterAction from "../actions/Pages/RegisterAction";
-import Labels from "../Labels";
+import labels from "../labels";
 import config from "../config";
 
 if (process.env.BROWSER) {
@@ -28,7 +28,7 @@ class RegisterPage extends Component {
         <Register
           appName={config.appName}
           pending={pending}
-          Labels={Labels} />
+          labels={labels} />
       </div>
     );
   }

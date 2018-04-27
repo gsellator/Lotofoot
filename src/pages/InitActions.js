@@ -28,6 +28,18 @@ const InitActions = {
     });
   },
 
+  register(context, route, done) {
+    Promise.all([
+      context.executeAction(ApiAction.flushApi, { action: Actions.REGISTER_INIT }),
+    ])
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
   me(context, route, done) {
     context.executeAction(MeAction.loadMe, {})
     .then(() => {

@@ -5,7 +5,7 @@ import { NavLink } from "fluxible-router";
 import GameModalHelper from "../Helpers/GameModalHelper";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
-import Labels from "../../Labels";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Games/GamesTab.scss");
@@ -45,12 +45,12 @@ class GamesTab extends Component {
                         {item.teamA &&
                           <div className="Left">
                             <div className={'flag-12 ' + item.teamA.slug} />
-                            <div className="TeamLabel">{Labels[item.teamA.slug.replace('-', '')]}</div>
+                            <div className="TeamLabel">{labels[item.teamA.slug.replace('-', '')]}</div>
                           </div>
                         }
                         {!item.teamA &&
                           <div className="Left">
-                            <div className="TeamLabel Alt">{Labels[item.futureTeamA]}</div>
+                            <div className="TeamLabel Alt">{labels[item.futureTeamA]}</div>
                           </div>
                         }
                         <div className="Center">
@@ -79,12 +79,12 @@ class GamesTab extends Component {
                         {item.teamB &&
                           <div className="Right">
                             <div className={'flag-12 ' + item.teamB.slug} />
-                            <div className="TeamLabel">{Labels[item.teamB.slug.replace('-', '')]}</div>
+                            <div className="TeamLabel">{labels[item.teamB.slug.replace('-', '')]}</div>
                           </div>
                         }
                         {!item.teamB &&
                           <div className="Right">
-                            <div className="TeamLabel Alt">{Labels[item.futureTeamB]}</div>
+                            <div className="TeamLabel Alt">{labels[item.futureTeamB]}</div>
                           </div>
                         }
 
@@ -109,23 +109,23 @@ class GamesTab extends Component {
                               <span>{'Mon pronostic : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
                               {item.phase != 0 && predictions[item._id].scoreTeamA == predictions[item._id].scoreTeamB &&
                                 <span>
-                                  {predictions[item._id].winner === 'teamA' && !item.teamA && ' (' + Labels[item.futureTeamA] + ')'}
-                                  {predictions[item._id].winner === 'teamA' && item.teamA && ' (' + Labels[item.teamA.slug.replace('-', '')] + ')'}
-                                  {predictions[item._id].winner === 'teamB' && !item.teamB && ' (' + Labels[item.futureTeamB] + ')'}
-                                  {predictions[item._id].winner === 'teamB' && item.teamB && ' (' + Labels[item.teamB.slug.replace('-', '')] + ')'}
+                                  {predictions[item._id].winner === 'teamA' && !item.teamA && ' (' + labels[item.futureTeamA] + ')'}
+                                  {predictions[item._id].winner === 'teamA' && item.teamA && ' (' + labels[item.teamA.slug.replace('-', '')] + ')'}
+                                  {predictions[item._id].winner === 'teamB' && !item.teamB && ' (' + labels[item.futureTeamB] + ')'}
+                                  {predictions[item._id].winner === 'teamB' && item.teamB && ' (' + labels[item.teamB.slug.replace('-', '')] + ')'}
                                 </span>
                               }
                             </div>
                           }
                           {item.status === 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              <span className="Desktop">{Labels.clickToPredict}</span>
-                              <span className="Mobile">{Labels.tabToPredict}</span>
+                              <span className="Desktop">{labels.clickToPredict}</span>
+                              <span className="Mobile">{labels.tabToPredict}</span>
                             </div>
                           }
                           {item.status != 'TIMED' && !predictions[item._id] &&
                             <div className="PredictionLabel">
-                              <span>{Labels.tooLate2}</span>
+                              <span>{labels.tooLate2}</span>
                             </div>
                           }
                         </div>

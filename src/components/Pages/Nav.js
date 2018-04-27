@@ -5,7 +5,7 @@ import NavAction from "../../actions/Pages/NavAction";
 import Sections from "../../constants/Sections";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import NavHelper from '../Helpers/NavHelper';
-import Labels from "../../Labels";
+import labels from "../../labels";
 import config from "../../config";
 
 if (process.env.BROWSER) {
@@ -34,7 +34,7 @@ class Nav extends Component {
               Sections.map(sect =>
                 <div key={sect.name}>
                   <div className={sect.name.indexOf(pageName) == 0 ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, sect.name)}>
-                    <div className={'icn-26 ' + sect.name} title={Labels[sect.name]}></div>
+                    <div className={'icn-26 ' + sect.name} title={labels[sect.name]}></div>
                   </div>
                 </div>
               )
@@ -42,7 +42,7 @@ class Nav extends Component {
 
             <div  className={(pageName == 'settings' || pageName == 'help') ? 'NavLink active' : 'NavLink'} onTouchTap={this.switchNav.bind(this)}>
               <div>
-                <div className="icn-26 more" title={Labels.menu}></div>
+                <div className="icn-26 more" title={labels.menu}></div>
               </div>
             </div>
           </nav>
@@ -57,7 +57,7 @@ class Nav extends Component {
                 <div key={sect.name}>
                   <div className={pageName == sect.name ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, sect.name)}>
                     <div className={'icn-26 ' + sect.name}></div>
-                    <span className="NavLinkTxt">{Labels[sect.name]}</span>
+                    <span className="NavLinkTxt">{labels[sect.name]}</span>
                   </div>
                 </div>
               )}
@@ -65,7 +65,7 @@ class Nav extends Component {
               <div className="NavLinkSpacer"></div>
               <div className={pageName == 'help' ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, 'help')}>
                 <div className="icn-26 help"></div>
-                <span className="NavLinkTxt">{Labels.rules}</span>
+                <span className="NavLinkTxt">{labels.rules}</span>
               </div>
             </nav>
           }

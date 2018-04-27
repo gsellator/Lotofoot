@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
-import Labels from "../../Labels";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Predictions/PredictionsByGameTab.scss");
@@ -23,7 +23,7 @@ class PredictionsByGameTab extends Component {
       <div className="Paper PredictionsByGameTab">
         <div className="AltPaperTitle">
           <div className="Label">
-            {Labels.allPredictions}
+            {labels.allPredictions}
           </div>
           <div className="icn-60 footix"></div>
         </div>

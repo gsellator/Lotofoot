@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { navigateAction, RouteStore } from "fluxible-router";
 import { connectToStores } from "fluxible-addons-react";
-import Labels from "../../Labels";
+import labels from "../../labels";
 import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
@@ -22,7 +22,6 @@ class AccountDialog extends Component {
 
   render() {
     const { credentials } = this.props;
-    const hasPaidString = undefined;// = credentials.hasPaid ? Labels.hasPaid : Labels.hasNotPaid;
 
     return (
       <div className="AccountDialog">
@@ -39,7 +38,7 @@ class AccountDialog extends Component {
           </div>
 
         <div className="AccountDialogActions">
-          <a className="TxtBtn" onTouchTap={this.logout.bind(this)}>{Labels.logout}</a>
+          <a className="TxtBtn" onTouchTap={this.logout.bind(this)}>{labels.logout}</a>
         </div>
         </div>
       </div>

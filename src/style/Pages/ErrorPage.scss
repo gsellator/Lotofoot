@@ -1,0 +1,34 @@
+@import '../constants/breaks';
+@import '../constants/colors';
+
+.ErrorPage{
+  .Texts{
+    text-align: center;
+    margin-top: 24px;
+
+    .Text{
+      font-size: 20px;
+    }
+
+    .OnBoardBtn{
+      margin-top: 12px;
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .ErrorPage{
+    .Texts{
+      text-align: center;
+      margin-top: 18px;
+
+      .Text{
+        font-size: 18px;
+      }
+
+      .OnBoardBtn{
+        margin-top: 9px;
+      }
+    }
+  }
+}

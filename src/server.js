@@ -77,7 +77,12 @@ server.use((req, res, next) => {
     next();
   } else{
     // There is no accessToken, we ask for credentials
-    if (req.url.indexOf('/login') == 0 || req.url.indexOf('/recover') == 0) {next();}
+    if (
+      req.url.indexOf('/login') == 0 ||
+      req.url.indexOf('/recover') == 0 ||
+      req.url.indexOf('/404') == 0 ||
+      req.url.indexOf('/500') == 0
+    ) {next();}
     else {return res.redirect(303, '/login');}
   }
 });

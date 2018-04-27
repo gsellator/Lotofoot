@@ -33,7 +33,7 @@ class RecoverInit extends Component {
   }
 
   render() {
-    let { pending, success, email, Labels } = this.props;
+    let { pending, success, email, labels } = this.props;
 
     return (
       <div className="Login">
@@ -42,17 +42,17 @@ class RecoverInit extends Component {
             {!success &&
               <div>
                 <div className="title">
-                  {Labels.recoverInitTitle}
+                  {labels.recoverInitTitle}
                 </div>
                 <div className="text">
-                  {Labels.recoverInitText}
+                  {labels.recoverInitText}
                 </div>
                 <div>
-                  <input type="email" ref="emailInput" placeholder={Labels.emailExample} required
+                  <input type="email" ref="emailInput" placeholder={labels.emailExample} required
                     autoComplete="on" spellCheck="false" autoCorrect="off" autoCapitalize="off" />
                 </div>
                 {!pending &&
-                  <button type="submit">{Labels.resetPassword}</button>
+                  <button type="submit">{labels.resetPassword}</button>
                 }
                 {pending &&
                   <button type="submit">
@@ -65,10 +65,10 @@ class RecoverInit extends Component {
             {success &&
               <div>
                 <div className="title">
-                  {Labels.recoverInitTitleOk}
+                  {labels.recoverInitTitleOk}
                 </div>
                 <div className="text">
-                  {Labels.recoverInitTextOk + this.state.email + '.'}
+                  {labels.recoverInitTextOk + this.state.email + '.'}
                 </div>
               </div>
             }
@@ -76,7 +76,7 @@ class RecoverInit extends Component {
           <div>
             {!success &&
               <NavLink className="LoginLink" routeName="login">
-                {Labels.backHome}
+                {labels.backHome}
               </NavLink>
             }
           </div>

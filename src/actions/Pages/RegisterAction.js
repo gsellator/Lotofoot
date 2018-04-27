@@ -5,6 +5,38 @@ import config from "../../config";
 const TIMEOUT = 20000;
 
 export default {
+  registerUser(context, { route, recoverToken, username, password }, done) {
+    Promise.all([
+      context.executeAction(ApiHubAction.flushApi, { action: Actions.RECOVER_PENDING }),
+    ])
+    .then(() => {
+      return Promise.all([
+        context.executeAction(ApiHubAction.postApi, { route, view: 'RecoverUpdate', action: Actions.RECOVER_SUCCESS, body: 'grant_type=password&username=' + username + '&password=' + password, isGrant: true }),
+      ]);
+    })
+    .then(() => {
+      // Auto login succeded
+      const accessToken = context.getStore('LoginStore').getAccessToken();
+      const expiresIn = context.getStore('LoginStore').getExpiresIn();
+
+      let expiresDate = new Date();
+      expiresDate.setTime(expiresDate.getTime() + (expiresIn * 1000));
+
+      if (config.appEnv === 'prod') {
+        context.setCookie(config.cookie, accessToken, {expires: expiresDate, path: '/', secure: true});
+      } else {
+        context.setCookie(config.cookie, accessToken, {expires: expiresDate, path: '/'});
+      }
+
+      done();
+    }, (err) => {
+      done();
+      console.log('recoverUpdate Error : ', err && err.message);
+    });
+  },
+  
+  
+  
   registerUser(context, { body }, done) {
     context.dispatch(Actions.PENDING_USER_REGISTER);
 

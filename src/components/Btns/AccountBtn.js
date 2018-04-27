@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
-import Labels from "../../Labels";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Btns/AccountBtn.scss");
@@ -19,7 +19,7 @@ class AccountBtn extends Component {
 
   render() {
     return (
-      <div onTouchTap={this.switchAccountDialog.bind(this)} className="AccountBtn" title={Labels.logout}>
+      <div onTouchTap={this.switchAccountDialog.bind(this)} className="AccountBtn" title={labels.logout}>
         <div className="icn-26 account"></div>
       </div>
     );
