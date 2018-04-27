@@ -23,7 +23,7 @@ class HeaderBtn extends Component {
     return (
       <div className="HeaderBtn">
         {(!data || (data && data.status === 'FINISHED')) &&
-          <div className="icn-20 title"></div>
+          <div className="btn-20 title"></div>
         }
         {data && data.status === 'TIMED' &&
           <div className="Live" onTouchTap={GameModalHelper.openGameModalFct.bind(this, data._id)}>

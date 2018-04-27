@@ -20,7 +20,7 @@ class AccountBtn extends Component {
   render() {
     return (
       <div onTouchTap={this.switchAccountDialog.bind(this)} className="AccountBtn" title={labels.logout}>
-        <div className="icn-26 account"></div>
+        <div className="btn-26 account"></div>
       </div>
     );
   }

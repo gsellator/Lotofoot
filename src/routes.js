@@ -6,6 +6,7 @@ import RankingPage from "./pages/RankingPage";
 import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
 
+import DemoPage from "./pages/DemoPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import RecoverInitPage from "./pages/RecoverInitPage";
@@ -55,6 +56,11 @@ export default {
   },
 
   // Public
+  demo: {
+    path: "/demo",
+    method: "get",
+    handler: DemoPage,
+  },
   login: {
     path: "/login",
     method: "get",

@@ -5,6 +5,7 @@ export default (req, res) => {
   if (config.appEnv === 'prod')
     res.status(200).send(`User-agent: *
 Allow: /
+Allow: /demo
 Allow: /login
 Allow: /assets/
 Disallow: /*/

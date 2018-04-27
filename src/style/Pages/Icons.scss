@@ -1,110 +1,8 @@
 @import '../constants/breaks';
 
-@mixin uiux-icons{
-  background: url('../../assets/uiux_icons.png') 0 0 no-repeat;
-  background-size: 840px 220px;
-}
-
-@mixin uiux-flags{
-  background: url('../../assets/uiux_flags.png') 0 0 no-repeat;
-  background-size: 2490px 77px;
-}
-
-.icn-10{
-  @include uiux-icons;
-  width: 10px; height: 10px;
-
-  &.live{background-position: -275px -92px; width: 24px;}
-  &.next{background-position: -305px -92px; width: 32px;}
-}
-
-.icn-16{
-  @include uiux-icons;
-  width: 16px; height: 16px;
-
-  &.pin{background-position: -125px -92px;}
-  &.chip{background-position: -175px -92px;}
-}
-
-.icn-20{
-  @include uiux-icons;
-  width: 20px; height: 20px;
-  background-position: -485px 0;
-
-  &.back{background-position: -510px 0;}
-  &.title{background-position: -535px 0; width: 80px;}
-
-  &:hover{background-position-y:-30px;}
-  &:active{background-position-y:-60px;}
-}
-
-.icn-26{
-  @include uiux-icons;
-  width: 26px; height: 26px;
-  background-position: -125px 0;
-
-  &.more{background-position: -125px 0;}
-  &.menu{background-position: -155px 0;}
-  &.games{background-position: -185px 0;}
-  &.ranking{background-position: -215px 0;}
-  &.chat{background-position: -245px 0;}
-  &.help{background-position: -275px 0;}
-  &.account{background-position: -305px 0;}
-  &.refresh{background-position: -335px 0;}
-  &.back{background-position: -365px 0; width: 16px;}
-
-  &:hover{background-position-y:-30px;}
-  &:active, &.active{background-position-y:-60px;}
-}
-
-.icn-26{
-  @include uiux-icons;
-  width: 26px; height: 26px;
-
-  &.main{
-    background-position: -225px -180px;
-
-    &.lotofoot-lecab{background-position: -255px -180px;}
-  }
-}
-
-.icn-36{
-  @include uiux-icons;
-  width: 36px; height: 36px;
-
-  &.main{
-    background-position: -0px -0px;
-
-    &.lotofoot-lecab{background-position: -720px -0px;}
-    &.lotofoot-dev, &.lotofoot-pre{
-      position: relative;
-    }
-  }
-
-  &.full{width: 120px;}
-
-  &:hover{background-position-y:-36px;}
-  &:active{background-position-y:-72px;}
-}
-
-.icn-60{
-  @include uiux-icons;
-  width: 60px; height: 60px;
-
-  &.footix{background-position: -225px -115px;}
-}
-
-.icn-100{
-  @include uiux-icons;
-  width: 100px; height: 100px;
-
-  &.account{background-position: -120px -115px;}
-}
-
 .pixel{
   width: 0; height: 0;
   &.loader{background: url('../../assets/loader.svg');}
-  &.uiux_loader{background: url('../../assets/uiux_loader.png');}
   &.uiux_icons{background: url('../../assets/uiux_icons.png');}
   &.uiux_footix{background: url('../../assets/uiux_footix.png');}
   &.bordeaux{background: url('../../assets/staduims/bordeaux.jpg');}
@@ -119,61 +17,132 @@
   &.toulouse{background: url('../../assets/staduims/toulouse.jpg');}
 }
 
-.chn-24{
-  @include uiux-icons;
-  display: inline-block;
-  vertical-align: top;
-  width: 24px; height: 24px;
-
-  &.tf1{background-position: -0px -115px;}
-  &.m6{background-position: -30px -115px;}
-  &.tmc{background-position: -60px -115px;}
-  &.bein-sports-1{background-position: -90px -115px;}
+@mixin uiux-btns{
+  background: url('../../assets/uiux_btns.png') 0 0 no-repeat;
+  background-size: 360px 282px;
 }
 
-.chn-18{
+@mixin uiux-icons{
+  background: url('../../assets/uiux_icons.png') 0 0 no-repeat;
+  background-size: 256px 390px;
+}
+
+@mixin uiux-flags{
+  background: url('../../assets/uiux_flags.png') 0 0 no-repeat;
+  background-size: 2490px 77px;
+}
+
+
+.btn-20{
+  @include uiux-btns;
+  width: 20px; height: 20px;
+  background-position: -0px -0px;
+
+  &.back{background-position: -25px 0;}
+  &.title{background-position: -50px 0; width: 80px;}
+
+  &:hover{background-position-y: -24px;}
+  &:active{background-position-y: -48px;}
+}
+
+.btn-26{
+  @include uiux-btns;
+  width: 26px; height: 26px;
+  background-position: -0px -75px;
+
+  &.more{background-position: -0px -75px;}
+  &.games{background-position: -30px -75px;}
+  &.ranking{background-position: -60px -75px;}
+  &.chat{background-position: -90px -75px;}
+  &.help{background-position: -120px -75px;}
+  &.account{background-position: -150px -75px;}
+  &.refresh{background-position: -180px -75px;}
+  &.back{background-position: -210px -75px; width: 16px;}
+  &.main{
+    background-position: -230px -75px;
+    &.full{width: 90px;}
+  }
+
+  &:hover{background-position-y: -105px;}
+  &:active, &.active{background-position-y: -135px;}
+}
+
+.btn-36{
+  @include uiux-btns;
+  width: 36px; height: 36px;
+
+  &.main{
+    background-position: -0px -166px;
+    &.full{width: 120px;}
+  }
+
+  &:hover{background-position-y:-206px;}
+  &:active{background-position-y:-246px;}
+}
+
+
+.icn-10{
+  @include uiux-icons;
+  width: 10px; height: 10px;
+
+  &.live{background-position: -0px -0px; width: 24px;}
+  &.next{background-position: -30px -0px; width: 32px;}
+}
+
+.icn-16{
+  @include uiux-icons;
+  width: 16px; height: 16px;
+
+  &.pin{background-position: -0px -20px;}
+  &.chip{background-position: -50px -20px;}
+}
+
+.icn-18{
   @include uiux-icons;
   display: inline-block;
   vertical-align: top;
   width: 18px; height: 18px;
 
-  &.tf1{background-position: -0px -145px;}
-  &.m6{background-position: -30px -145px;}
-  &.tmc{background-position: -60px -145px;}
-  &.bein-sports-1{background-position: -90px -145px;}
+  &.tf1{background-position: -0px -50px;}
+  &.m6{background-position: -22px -50px;}
+  &.tmc{background-position: -44px -50px;}
+  &.bein-sports-1{background-position: -66px -50px;}
 }
 
+.icn-24{
+  @include uiux-icons;
+  display: inline-block;
+  vertical-align: top;
+  width: 24px; height: 24px;
 
-.flag-60{
-  @include uiux-flags;
-  width: 90px; height: 60px;
-  background-position: -2400px -0px;
-
-  &.albania{background-position: -0px -0px;}
-  &.austria{background-position: -100px -0px;}
-  &.belgium{background-position: -200px -0px;}
-  &.croatia{background-position: -300px -0px;}
-  &.england{background-position: -400px -0px;}
-  &.france{background-position: -500px -0px;}
-  &.germany{background-position: -600px -0px;}
-  &.hungary{background-position: -700px -0px;}
-  &.iceland{background-position: -800px -0px;}
-  &.ireland{background-position: -900px -0px;}
-  &.italy{background-position: -1000px -0px;}
-  &.northern-ireland{background-position: -1100px -0px;}
-  &.poland{background-position: -1200px -0px;}
-  &.portugal{background-position: -1300px -0px;}
-  &.romania{background-position: -1400px -0px;}
-  &.russia{background-position: -1500px -0px;}
-  &.slovakia{background-position: -1600px -0px;}
-  &.spain{background-position: -1700px -0px;}
-  &.sweden{background-position: -1800px -0px;}
-  &.switzerland{background-position: -1900px -0px;}
-  &.czech-republic{background-position: -2000px -0px;}
-  &.ukraine{background-position: -2100px -0px;}
-  &.turkey{background-position: -2200px -0px;}
-  &.wales{background-position: -2300px -0px;}
+  &.tf1{background-position: -0px -80px;}
+  &.m6{background-position: -30px -80px;}
+  &.tmc{background-position: -60px -80px;}
+  &.bein-sports-1{background-position: -90px -80px;}
 }
+
+.icn-60{
+  @include uiux-icons;
+  width: 60px; height: 60px;
+
+  &.footix{background-position: -0px -120px;}
+}
+
+.icn-70{
+  @include uiux-icons;
+  width: 240px; height: 70px;
+  background-position: -0px -200px;
+
+  &.lotofoot{background-position: -0px -200px;}
+}
+
+.icn-100{
+  @include uiux-icons;
+  width: 100px; height: 100px;
+
+  &.account{background-position: -0px -290px;}
+}
+
 
 .flag-12{
   @include uiux-flags;
@@ -204,4 +173,35 @@
   &.ukraine{background-position: -2100px -65px;}
   &.turkey{background-position: -2200px -65px;}
   &.wales{background-position: -2300px -65px;}
+}
+
+.flag-60{
+  @include uiux-flags;
+  width: 90px; height: 60px;
+  background-position: -2400px -0px;
+
+  &.albania{background-position: -0px -0px;}
+  &.austria{background-position: -100px -0px;}
+  &.belgium{background-position: -200px -0px;}
+  &.croatia{background-position: -300px -0px;}
+  &.england{background-position: -400px -0px;}
+  &.france{background-position: -500px -0px;}
+  &.germany{background-position: -600px -0px;}
+  &.hungary{background-position: -700px -0px;}
+  &.iceland{background-position: -800px -0px;}
+  &.ireland{background-position: -900px -0px;}
+  &.italy{background-position: -1000px -0px;}
+  &.northern-ireland{background-position: -1100px -0px;}
+  &.poland{background-position: -1200px -0px;}
+  &.portugal{background-position: -1300px -0px;}
+  &.romania{background-position: -1400px -0px;}
+  &.russia{background-position: -1500px -0px;}
+  &.slovakia{background-position: -1600px -0px;}
+  &.spain{background-position: -1700px -0px;}
+  &.sweden{background-position: -1800px -0px;}
+  &.switzerland{background-position: -1900px -0px;}
+  &.czech-republic{background-position: -2000px -0px;}
+  &.ukraine{background-position: -2100px -0px;}
+  &.turkey{background-position: -2200px -0px;}
+  &.wales{background-position: -2300px -0px;}
 }

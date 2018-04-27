@@ -8,7 +8,7 @@ export default {
   loadMe(context, {}) {
     return new Promise((resolve, reject) => {
       const accessToken = context.getCookie(config.cookie);
-      if (!accessToken){return resolve(context.executeAction(navigateAction, { url: '/login' }));}
+      if (!accessToken){return resolve(context.executeAction(navigateAction, { url: '/demo' }));}
 
       const lastCheck = context.getStore("LoginStore").getLastCheck();
       if (lastCheck && lastCheck < 200000)

@@ -15,6 +15,15 @@ export default (req, res) => {
     </image:image>
   </url>
   <url>
+    <loc>` + config.appUri + `/demo</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>` + config.appUri + `/assets/icns-` + config.appName + `.svg</image:loc>
+      <image:caption>` + config.appLabel + `</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>` + config.appUri + `/login</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>

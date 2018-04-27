@@ -43,14 +43,14 @@ class Login extends Component {
       <div className="Login">
         <div className="Box">
           <form onSubmit={this.send.bind(this)}>
-            <div className={'app-icn-l ' + appName}></div>
-            
+            <div className={'icn-70 ' + appName}></div>
+
             <div className="RegisterCall">
               <NavLink className="LoginButton" routeName="register">
                 {labels.createAccount}
               </NavLink>
             </div>
-            
+
             <div>
               <input type="email" ref="loginInput" placeholder={labels.email} required
                 autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>

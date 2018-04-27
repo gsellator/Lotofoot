@@ -9,7 +9,7 @@ if (process.env.BROWSER) {
 class ErrorPage extends Component {
   render() {
     return (
-      <div className="ScrollPage ErrorPage">
+      <div className="ScrollPage ErrorPage Full">
         <div className="Paper">
           <Mire mainLabel={labels.dailyMaj} />
 

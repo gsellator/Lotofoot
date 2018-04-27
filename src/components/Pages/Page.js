@@ -1,23 +1,26 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
+//import config from "../../config";
 import NavAction from "../../actions/Pages/NavAction";
-import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
+//import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
+//import NotifierAction from "../../actions/Pages/NotifierAction";
 import NotificationComponent from './Notification';
 
 import MainMenu from "./MainMenu";
-import Nav from "./Nav";
+import Navs from "../../components/Pages/Navs";
 import TabNav from "./TabNav";
-import Dialog from "../../components/Dialog/Dialog";
-import AccountDialog from "../../components/Dialog/AccountDialog";
-import GameModal from "../../components/Games/GameModal";
 
+//import Dialog from "../../components/Dialog/Dialog";
+//import AccountDialog from "../../components/Dialog/AccountDialog";
+//import GameModal from "../../components/Games/GameModal";
+//import DialogWrap from "../../components/Dialog/DialogWrap";
 
 if (process.env.BROWSER) {
   require("../../style/Pages/Page.scss");
   require("../../style/Pages/Icons.scss");
+  require("../../style/Pages/Emojis.scss");
   require("../../style/Pages/Btn.scss");
 }
 
@@ -28,70 +31,48 @@ class Page extends Component {
   }
 
   ckickHandler(e){
-    if (this.props.hasNav)
+    if (this.context.getStore("NavStore").hasNav())
       this.context.executeAction(NavAction.closeNav);
-    if (this.props.hasAccountDialog)
-      this.context.executeAction(AccountDialogAction.closeAccountDialog);
   }
 
   render() {
-    const pageName = this.context.getStore('RouteStore').getCurrentRoute().name;
-    const { hasDialog, hasAccountDialog, hasGameModal } = this.props;
+    const route = this.context.getStore("RouteStore").getCurrentRoute();
+    const pageName = route.name;
+    const game = route.query.game;
+    const isPublic = Boolean(
+      pageName === 'login' ||
+      pageName === 'demo' ||
+      pageName === 'register' ||
+      pageName === 'recoverInit' ||
+      pageName === 'recover' ||
+      pageName === 'notfound' ||
+      pageName === 'error'
+    );
 
-    let mainMenu, nav, tabnav, body, dialog, accountDialog, gameModal;
-    if (pageName != 'login' && pageName != 'register' && pageName != 'recoverInit' && pageName != 'recover') {
-      mainMenu = <MainMenu />;
-      nav = <Nav />;
-      tabnav = <TabNav />;
-    }
-    if (hasDialog) {dialog = <Dialog key="1"/>;}
-    if (hasAccountDialog) {accountDialog = <AccountDialog />;}
-    if (hasGameModal) {gameModal = <GameModal />;}
+    let pageClassName = 'Page';
+    if (isPublic) {pageClassName += ' Public';}
 
     return (
-      <div className={'Page ' + pageName} onTouchTap={this.ckickHandler.bind(this)}>
+      <div className={pageClassName} onTouchTap={this.ckickHandler.bind(this)}>
+        <MainMenu
+          isPublic={isPublic} />
 
-        <ReactCSSTransitionGroup transitionName="MainMenuAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          {mainMenu}
-        </ReactCSSTransitionGroup>
-
-        <ReactCSSTransitionGroup transitionName="AccountDialogAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          {accountDialog}
-        </ReactCSSTransitionGroup>
-
-        <ReactCSSTransitionGroup transitionName="NavAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          {nav}
-        </ReactCSSTransitionGroup>
-        <ReactCSSTransitionGroup transitionName="TabNavAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          {tabnav}
-        </ReactCSSTransitionGroup>
+        {false && !isPublic &&
+          <Nav />
+        }
+        {false && !isPublic &&
+          <TabNav />
+        }
 
         <div className="Page-body">
           { this.props.children }
         </div>
 
-        <ReactCSSTransitionGroup transitionName="GameModalAnim" transitionEnterTimeout={500} transitionLeaveTimeout={800}>
-          {gameModal}
-        </ReactCSSTransitionGroup>
-
-        <ReactCSSTransitionGroup transitionName="DialogAnim" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-          {dialog}
-        </ReactCSSTransitionGroup>
-
-        <NotificationComponent />
+        {false && <ShowcardWrap />}
+        {false && <DialogWrap />}
       </div>
     );
   }
 }
-
-Page = connectToStores(Page, ["LoginStore", "NavStore", "DialogStore", "AccountDialogStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginStore").getCredentials(),
-    hasNav: context.getStore("NavStore").hasNav(),
-    hasDialog: context.getStore("DialogStore").hasDialog(),
-    hasAccountDialog: context.getStore("AccountDialogStore").hasAccountDialog(),
-    hasGameModal: context.getStore("GameModalStore").getHasGameModal(),
-  };
-}, {getStore: PropTypes.func});
 
 export default Page;

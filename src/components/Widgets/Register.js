@@ -59,7 +59,7 @@ class Register extends Component {
       <div className="Login">
         <div className="Box">
           <form onSubmit={this.registerUser.bind(this)}>
-            <div className={'app-icn-l ' + appName}></div>
+            <div className={'icn-70 ' + appName}></div>
 
             <div className="Input">
               <div className="Label">Email</div>

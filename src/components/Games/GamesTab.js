@@ -89,7 +89,7 @@ class GamesTab extends Component {
                         }
 
                         <div className="Head">
-                          {item.channel && <div className={'chn-18 ' + item.channel} />}
+                          {item.channel && <div className={'icn-18 ' + item.channel} />}
                         </div>
                       </div>
 

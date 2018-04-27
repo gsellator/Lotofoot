@@ -9,14 +9,18 @@
   padding: 8px 6px;
 
   &:hover{
-    .icn-20{background-position-y:-30px;}
+    .btn-20{
+      background-position-y: -24px;
+    }
   }
 
   &:active{
-    .icn-20{background-position-y:-60px;}
+    .btn-20{
+      background-position-y: -48px;
+    }
   }
 
-  .icn-20{
+  .btn-20{
     margin: 4px 0;
   }
 
@@ -27,7 +31,7 @@
   .Live{
     cursor: pointer;
 
-    .icn-20{
+    .btn-20{
       margin: 0;
     }
 

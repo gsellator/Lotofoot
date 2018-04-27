@@ -39,9 +39,9 @@
       padding: 12px 20px 12px 24px;
       &:first-child{margin-top: 6px;}
 
-      &:focus{outline: none; .icn-26{background-position-y:-30px;}}
-      &:hover .icn-26 {background-position-y:-30px;}
-      &:active .icn-26, &.active .icn-26{background-position-y:-60px;}
+      &:focus{outline: none; .btn-26{background-position-y: -105px;}}
+      &:hover .btn-26 {background-position-y: -105px;}
+      &:active .btn-26, &.active .btn-26{background-position-y: -135px;}
     }
   }
 
@@ -78,9 +78,9 @@
       padding: 0;
       margin-bottom: 11px;
       cursor: pointer;
-      .icn-36{margin: 11px 19px;}
-      &:hover .icn-36{background-position-y:-36px;}
-      &:active .icn-36{background-position-y:-72px;}
+      .btn-36{margin: 11px 19px;}
+      &:hover .btn-36{background-position-y:-206px;}
+      &:active .btn-36{background-position-y:-246px;}
     }
 
     .NavLink{
@@ -92,7 +92,7 @@
         background-color: $grey-2
       }
 
-      .icn-26{
+      .btn-26{
         display: inline-block;
         vertical-align: top;
       }

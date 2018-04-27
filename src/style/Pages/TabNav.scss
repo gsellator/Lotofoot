@@ -39,7 +39,7 @@
     .NavLink{
       cursor: pointer;
 
-      .icn-26{
+      .btn-26{
         margin: 3px auto 0 auto;
       }
       .Label{
@@ -50,17 +50,23 @@
 
       &:focus{
         outline: none;
-        .icn-26{background-position-y:-30px;}
+        .btn-26{
+          background-position-y: -105px;
+        }
         .Label{color: $grey-9}
       }
 
       &:hover{
-        .icn-26 {background-position-y:-30px;}
+        .btn-26 {
+          background-position-y:-135px;
+        }
         .Label{color: $grey-9}
       }
 
       &:active, &.active{
-        .icn-26{background-position-y:-60px;}
+        .btn-26{
+          background-position-y: -135px;
+        }
         .Label{color: $footix-blue}
       }
     }

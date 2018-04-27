@@ -27,7 +27,7 @@ server.use(cookieParser());
 server.use(compression());
 
 // Favicon
-server.use(favicon(path.resolve("./src/assets/uiux_favicon.png")));
+server.use(favicon(path.resolve("./src/assets/static/icns_fav_32x32.png")));
 
 // Logout
 server.get('/logout', logout);
@@ -73,17 +73,18 @@ server.use((req, res, next) => {
 
   if (cookie) {
     // There user is logged, acces to the login page is forbidden
-    if (req.url.indexOf('/login') == 0) {return res.redirect(303, '/');}
+    if (req.url.indexOf('/login') == 0 || req.url == '/demo') {return res.redirect(303, '/');}
     next();
   } else{
     // There is no accessToken, we ask for credentials
     if (
       req.url.indexOf('/login') == 0 ||
       req.url.indexOf('/recover') == 0 ||
-      req.url.indexOf('/404') == 0 ||
-      req.url.indexOf('/500') == 0
+      req.url == '/demo' ||
+      req.url == '/404' ||
+      req.url == '/500'
     ) {next();}
-    else {return res.redirect(303, '/login');}
+    else {return res.redirect(303, '/demo');}
   }
 });
 server.use(render);

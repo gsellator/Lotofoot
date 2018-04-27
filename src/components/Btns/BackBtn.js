@@ -20,7 +20,7 @@ class BackBtn extends Component {
   render() {
     return (
       <div className="BackBtn" onTouchTap={GameModalHelper.closeGameModal.bind(this)} title={labels.back}>
-        <div className="icn-26 back"></div>
+        <div className="btn-26 back"></div>
         <div className="Label">{labels.games}</div>
       </div>
     );
