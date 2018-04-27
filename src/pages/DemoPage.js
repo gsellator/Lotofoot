@@ -8,6 +8,10 @@ import { connectToStores } from "fluxible-addons-react";
 
 import config from "../config";
 
+if (process.env.BROWSER) {
+  require("../style/Pages/DemoPage.scss");
+}
+
 class DemoPage extends Component {
   static contextTypes = {
     getStore: PropTypes.func.isRequired,
@@ -17,30 +21,24 @@ class DemoPage extends Component {
   render() {
     return (
       <div>
-        <div className="ScrollPage NoPadding">
+        <div className="ScrollPage NoPadding DemoPage">
 
-          <div style={{
-            fontSize: '16px',
-              lineHeight: '18px',
-            margin: '36px 0',
-            textAlign: 'center'
-          }}>
+          <div className="SmallText">
             <span>La france a gagné !</span>
             <span className="uiux-emojis 🙂 m-1"></span>
             <span className="uiux-emojis 🤫 m-1"></span>
             <span> Trop lol !</span>
           </div>
-          
-          <div style={{
-            fontSize: '16px',
-              lineHeight: '38px',
-            margin: '36px 0',
-            textAlign: 'center'
-          }}>
+
+          <div className="SmallText" style={{ lineHeight: '38px' }}>
             <span>La france a gagné !</span>
             <span className="uiux-emojis 🙂 m-2"></span>
             <span className="uiux-emojis 🤫 m-2"></span>
             <span> Trop lol !</span>
+          </div>
+
+          <div className="SmallText" style={{ lineHeight: '38px' }}>
+            <span className="uiux-emojis 🙂 m-6"></span>
           </div>
 
           {false &&
