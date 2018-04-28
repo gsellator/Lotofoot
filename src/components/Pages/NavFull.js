@@ -57,8 +57,6 @@ class NavFull extends Component {
     const pageName = route.name;
     const view = route.params.view;
 
-    console.log(sections);
-    
     return (
       <nav className="NavFull">
         <div className="MainLink">

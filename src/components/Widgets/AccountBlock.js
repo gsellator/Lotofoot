@@ -8,7 +8,7 @@ if (process.env.BROWSER) {
 class AccountBlock extends Component {
   render() {
     const { labels, data, url, email } = this.props;
-console.log(data)
+
     return (
       <div className="AccountBlock Paper">
         <div className="Account">

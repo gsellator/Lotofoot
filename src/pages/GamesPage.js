@@ -11,10 +11,6 @@ import GamesFilters from "../components/Games/GamesFilters";
 import GamesTab from "../components/Games/GamesTab";
 import GroupRanking from "../components/Games/GroupRanking";
 
-if (process.env.BROWSER) {
-  require("../style/Pages/GamesPage.scss");
-}
-
 class GamesPage extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +45,7 @@ class GamesPage extends Component {
     //    gameBlock = <GameBlock />;
 
     return (
-      <div className="GamesPage">
+      <div className="ScrollPage">
         {!(games && predictions) && <div className="FootixLoader" />}
 
         {(games && predictions) &&

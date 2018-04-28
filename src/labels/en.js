@@ -36,6 +36,7 @@ export default {
   gamesMini: 'Matches',
 
   help: 'Help',
+  helpMini: 'Help',
   home: 'All matches',
   homeMini: 'Matches',
 

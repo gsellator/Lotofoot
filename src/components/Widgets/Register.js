@@ -93,10 +93,6 @@ class Register extends Component {
                 <div className="Loader"></div>
               </button>
             }
-
-            <div>
-              <NavLink className="LoginLink" routeName="login">{labels.backHome}</NavLink>
-            </div>
           </form>
         </div>
       </div>

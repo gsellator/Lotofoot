@@ -25,7 +25,7 @@ class HelpPage extends Component {
 
   render() {
     return (
-      <div className="HelpPage">
+      <div className="ScrollPage HelpPage">
         <div className="Paper">
           <div className="HelpPageCtnt">
             <div className="IlluContainer">

@@ -13,10 +13,10 @@ import PredictionsByGameTab from "../Predictions/PredictionsByGameTab";
 
 if (process.env.BROWSER) {
   require("../../style/Pages/MainMenu.scss");
-  require("../../style/Games/GameModal.scss");
+  require("../../style/Modal/Modal.scss");
 }
 
-class GameModal extends Component {
+class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = { curUrl: '' };
@@ -41,7 +41,7 @@ class GameModal extends Component {
     const { data } = this.props;
 
     return (
-      <div className="GameModal">
+      <div className="Modal">
         <div className="MainMenu">
           <div className="Left">
             <BackBtn />
@@ -62,7 +62,7 @@ class GameModal extends Component {
   }
 }
 
-GameModal = connectToStores(GameModal, ["GameBlockStore"], (context) => {
+Modal = connectToStores(Modal, ["GameBlockStore"], (context) => {
   const route = context.getStore("RouteStore").getCurrentRoute();
   const game = route.query.game;
   return {
@@ -70,4 +70,4 @@ GameModal = connectToStores(GameModal, ["GameBlockStore"], (context) => {
   };
 }, {getStore: PropTypes.func});
 
-export default GameModal;
+export default Modal;

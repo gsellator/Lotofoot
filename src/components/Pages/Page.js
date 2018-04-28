@@ -8,13 +8,11 @@ import NavAction from "../../actions/Pages/NavAction";
 import NotificationComponent from './Notification';
 
 import MainMenu from "./MainMenu";
-//import Nav from "../../components/Pages/Nav";
 import Navs from "../../components/Pages/Navs";
 import TabNav from "./TabNav";
 
-//import Dialog from "../../components/Dialog/Dialog";
-//import GameModal from "../../components/Games/GameModal";
-//import DialogWrap from "../../components/Dialog/DialogWrap";
+import ModalWrap from "../../components/Modal/ModalWrap";
+import DialogWrap from "../../components/Dialog/DialogWrap";
 
 if (process.env.BROWSER) {
   require("../../style/Pages/Page.scss");
@@ -68,8 +66,8 @@ class Page extends Component {
           { this.props.children }
         </div>
 
-        {false && <ShowcardWrap />}
-        {false && <DialogWrap />}
+        {<ModalWrap />}
+        <DialogWrap />
       </div>
     );
   }

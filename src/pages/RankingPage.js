@@ -6,11 +6,6 @@ import ApiAction from "../actions/Pages/ApiAction";
 
 import UsersTab from "../components/Ranking/UsersTab";
 
-if (process.env.BROWSER) {
-  require("../style/Pages/RankingPage.scss");
-}
-
-
 class RankingPage extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
@@ -27,7 +22,7 @@ class RankingPage extends Component {
     const { data } = this.props;
 
     return (
-      <div className="RankingPage">
+      <div className="ScrollPage">
         {!data && <div className="FootixLoader" />}
         {data &&
           <div className="RankingPageContainer">

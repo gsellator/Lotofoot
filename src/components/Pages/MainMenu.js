@@ -62,12 +62,14 @@ class MainMenu extends Component {
           <menu className="MainMenuContent">
             <div className="Left">
               <div>
-                <div className="Desktop">
-                  <div className={'btn-36 main full ' + config.appName}></div>
-                </div>
-                <div className="Mobile">
-                  <div className="btn-26 main full"></div>
-                </div>
+                <NavLink className="LoginLink" routeName="demo">
+                  <div className="Desktop">
+                    <div className={'btn-36 main full ' + config.appName}></div>
+                  </div>
+                  <div className="Mobile">
+                    <div className="btn-26 main full"></div>
+                  </div>
+                </NavLink>
               </div>
             </div>
             <div className="Center">

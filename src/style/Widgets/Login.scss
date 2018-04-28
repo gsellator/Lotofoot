@@ -15,6 +15,10 @@
     border-radius: 16px;
     text-align: center;
 
+    .icn-70{
+      margin: auto;
+    }
+
     .title{
       font-size: 20px;
       margin-bottom: 6px;
@@ -94,27 +98,27 @@
       }
     }
 
-    .RegisterCall{
-      margin: 12px 0 24px 0;
-      padding-bottom: 24px;
-      border-bottom: dotted $grey-dark 1px;
-
-      .LoginButton{
-        display: inline-block;
-        vertical-align: top;
-        line-height: 38px;
-        width: 100%; height: 40px;
-        background-color: transparent;
-        border: 1px solid $grey-dark;
-        border-radius: 2px;
-        cursor: pointer;
-        transition: all .3s ease;
-        color: $grey-dark;
-        &:hover{background-color: $grey-2;}
-        &:active{background-color: $grey-1;}
-        &:focus {background-color: $grey-2; outline: 0;}
-      }
-    }
+    //    .RegisterCall{
+    //      margin: 12px 0 24px 0;
+    //      padding-bottom: 24px;
+    //      border-bottom: dotted $grey-dark 1px;
+    //
+    //      .LoginButton{
+    //        display: inline-block;
+    //        vertical-align: top;
+    //        line-height: 38px;
+    //        width: 100%; height: 40px;
+    //        background-color: transparent;
+    //        border: 1px solid $grey-dark;
+    //        border-radius: 2px;
+    //        cursor: pointer;
+    //        transition: all .3s ease;
+    //        color: $grey-dark;
+    //        &:hover{background-color: $grey-2;}
+    //        &:active{background-color: $grey-1;}
+    //        &:focus {background-color: $grey-2; outline: 0;}
+    //      }
+    //    }
   }
 
   &.Anim-enter{

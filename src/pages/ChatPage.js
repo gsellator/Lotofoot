@@ -25,7 +25,7 @@ class ChatPage extends Component {
   }
 
   componentDidUpdate() {
-    this.refs.ChatPage.childNodes[0].scrollTop = this.refs.ChatPage.childNodes[0].scrollHeight;
+    this.refs.ChatPage.scrollTop = this.refs.ChatPage.scrollHeight;
   }
 
   render() {
@@ -33,15 +33,16 @@ class ChatPage extends Component {
 
     return (
       <div>
-        {!data && <div className="FootixLoader" />}
-        <div   ref="ChatPage">
-          <div className="ChatPage">
-            {data &&
-              <div className="ChatPageContainer">
-                <MessagesTab />
-              </div>
-            }
-          </div>
+        {!data &&
+          <div className="FootixLoader" />
+        }
+
+        <div ref="ChatPage" className="ScrollPage ChatPage">
+          {data &&
+            <div className="ChatPageContainer">
+              <MessagesTab />
+            </div>
+          }
         </div>
         <MessageEdit />
       </div>

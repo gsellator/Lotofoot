@@ -73,13 +73,6 @@ class RecoverInit extends Component {
               </div>
             }
           </form>
-          <div>
-            {!success &&
-              <NavLink className="LoginLink" routeName="login">
-                {labels.backHome}
-              </NavLink>
-            }
-          </div>
         </div>
       </div>
     );
