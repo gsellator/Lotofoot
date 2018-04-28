@@ -6,7 +6,7 @@
   padding: 16px 0 16px 3px;
   white-space: nowrap;
 
-  .icn-26{
+  .btn-26{
     display: inline-block;
     vertical-align: top;
   }
@@ -20,12 +20,12 @@
   }
 
   &:hover{
-    .icn-26{background-position-y:-30px;}
+    .btn-26{background-position-y:-105px;}
     .Label{color: $grey-9;}
   }
 
   &:active{
-    .icn-26{background-position-y:-60px;}
+    .btn-26{background-position-y:-135px;}
     .Label{color: $footix-blue;}
   }
 }

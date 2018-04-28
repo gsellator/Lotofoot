@@ -1,0 +1,96 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.TabNav{
+  transform: translate3d(0, 50px, 0);
+  position: absolute;
+  right: 0; bottom: 0; left: 0;
+  height: 44px;
+  background: white;
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+  z-index: 210;
+  overflow: auto;
+
+  .TabNavContent{
+    height: 44px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  &.TabNavAnim-enter{
+    transform: translate3d(0, 50px, 0);
+  }
+
+  &.TabNavAnim-enter.TabNavAnim-enter-active{
+    transform: translate3d(0, 50px, 0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+
+  &.TabNavAnim-leave{
+    transform: translate3d(0, 50px, 0);
+  }
+
+  &.TabNavAnim-leave.TabNavAnim-leave-active{
+    transform: translate3d(0, 50px, 0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+
+  .TabNavBtn{
+    flex: 1;
+
+    .NavLink{
+      cursor: pointer;
+
+      .btn-26{
+        margin: 3px auto 0 auto;
+      }
+      .Label{
+        text-align: center;
+        font-size: 11px;
+        line-height: 11px;
+      }
+
+      &:focus{
+        outline: none;
+        .btn-26{
+          background-position-y: -105px;
+        }
+        .Label{color: $grey-9}
+      }
+
+      &:hover{
+        .btn-26 {
+          background-position-y:-135px;
+        }
+        .Label{color: $grey-9}
+      }
+
+      &:active, &.active{
+        .btn-26{
+          background-position-y: -135px;
+        }
+        .Label{color: $footix-blue}
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .TabNav{
+    transform: translate3d(0, 0, 0);
+
+    &.TabNavAnim-enter{
+      transform: translate3d(0, 50px, 0);
+    }
+
+    &.TabNavAnim-enter.TabNavAnim-enter-active{
+      transform: translate3d(0, 0, 0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+
+    &.TabNavAnim-leave{
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.TabNavAnim-leave.TabNavAnim-leave-active{
+      transform: translate3d(0, 50px, 0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+  }
+}

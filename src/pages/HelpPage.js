@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 import config from "../config";
@@ -25,7 +25,7 @@ class HelpPage extends Component {
 
   render() {
     return (
-      <Bouncefix className="HelpPage">
+      <div className="ScrollPage HelpPage">
         <div className="Paper">
           <div className="HelpPageCtnt">
             <div className="IlluContainer">
@@ -33,26 +33,19 @@ class HelpPage extends Component {
             </div>
             <div className="FootixLoader" />
             <HelpBlock />
-            {(config.appName === 'lotofoot' || config.appName === 'lotofoot-dev' || config.appName === 'lotofoot-pre') &&
-              <div className="Footer">
-                En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>.
-              </div>
-            }
-            {config.appName === 'lotofoot-lecab' &&
-              <div className="Footer">
-                En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:lecab@lotofoot.io">lecab@lotofoot.io</a>.
-              </div>
-            }
+            <div className="Footer">
+              En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>.
+            </div>
           </div>
         </div>
-      </Bouncefix>
+      </div>
     );
   }
 }
 
-//HelpPage = connectToStores(HelpPage, ["LoginPageStore"], (context) => {
+//HelpPage = connectToStores(HelpPage, ["LoginStore"], (context) => {
 //  return {
-//    credentials: context.getStore("LoginPageStore").getCredentials()
+//    credentials: context.getStore("LoginStore").getCredentials()
 //  };
 //}, {getStore: PropTypes.func});
 

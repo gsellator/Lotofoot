@@ -1,34 +1,59 @@
-import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
+import { AppContainer } from 'react-hot-loader';
 import app from "./app";
 
 // Add promise support for browser not supporting it
 import es6Promise from "es6-promise";
 es6Promise.polyfill();
 
-window.debug = require("debug");
+// Add tapEvent for fast click on iOS
+import injectTapEventPlugin from "react-tap-event-plugin";
+injectTapEventPlugin();
 
-const debug = window.debug("lotofoot");
-
-const mountNode = document.getElementById("root");
+let componentContext;
 const dehydratedState = window.App;
-function renderApp() {
-  debug("Rehydrating state...", dehydratedState);
+const container = document.getElementById("root");
 
-  app.rehydrate(dehydratedState, (err, context) => {
-    if (err) {
-      throw err;
-    }
+app.rehydrate(dehydratedState, (err, context) => {
+  if (err) {
+    throw err;
+  }
+  const Application = app.getComponent();
+  componentContext = context.getComponentContext();
 
-    debug("State has been rehydrated");
+  ReactDOM.hydrate(
+    <AppContainer>
+      <Application context={context.getComponentContext()} />
+    </AppContainer>,
+    container
+  );
 
-    const Application = app.getComponent();
+  if (module.hot) {
+    const newApp = require('./app').default;
+    const NewApplication = newApp.getComponent();
 
-    ReactDOM.render(<Application context={context.getComponentContext()} />, mountNode, () => {
-      debug("Application has been mounted");
-    });
-  });
+    ReactDOM.unmountComponentAtNode(container);
+    ReactDOM.render(
+      <AppContainer>
+        <NewApplication context={componentContext} />
+      </AppContainer>,
+      container
+    );
+  }
+});
+
+if (module.hot) {
+  module.hot.accept('./app', () => {
+    const newApp = require('./app').default;
+    const NewApplication = newApp.getComponent();
+
+    ReactDOM.unmountComponentAtNode(container);
+    ReactDOM.render(
+      <AppContainer>
+        <NewApplication context={componentContext} />
+      </AppContainer>,
+      container
+    );
+  })
 }
-
-renderApp();

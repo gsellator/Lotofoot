@@ -1,8 +1,7 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { NavLink, navigateAction, RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
-import Labels from "../Labels";
+import { NavLink } from "fluxible-router";
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 
@@ -11,10 +10,6 @@ import GameBlock from "../components/Games/GameBlock";
 import GamesFilters from "../components/Games/GamesFilters";
 import GamesTab from "../components/Games/GamesTab";
 import GroupRanking from "../components/Games/GroupRanking";
-
-if (process.env.BROWSER) {
-  require("../style/Pages/GamesPage.scss");
-}
 
 class GamesPage extends Component {
   constructor(props) {
@@ -50,9 +45,8 @@ class GamesPage extends Component {
     //    gameBlock = <GameBlock />;
 
     return (
-      <Bouncefix className="GamesPage">
-        {false && !(games && predictions) && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !(games && predictions) && <div className="FootixLoader" />}
+      <div className="ScrollPage">
+        {!(games && predictions) && <div className="FootixLoader" />}
 
         {(games && predictions) &&
           <div>
@@ -76,14 +70,14 @@ class GamesPage extends Component {
             }
           </div>
         }
-      </Bouncefix>
+      </div>
     );
   }
 }
 
-GamesPage = connectToStores(GamesPage, ["LoginPageStore", "GamesTabStore"], (context) => {
+GamesPage = connectToStores(GamesPage, ["LoginStore", "GamesTabStore"], (context) => {
   return {
-    userId: context.getStore('LoginPageStore').getCredentials()._id,
+    userId: context.getStore('LoginStore').getCredentials()._id,
     filter: context.getStore("GamesTabStore").getFilter(),
     games: context.getStore("GamesTabStore").getGames(),
     predictions: context.getStore("GamesTabStore").getPredictions(),

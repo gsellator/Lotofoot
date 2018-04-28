@@ -8,6 +8,9 @@ const Sections = [
   {
     name: 'chat',
   },
+  {
+    name: 'help',
+  },
 ];
 
 export default Sections;

@@ -1,20 +1,18 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import Bouncefix from 'react-bouncefix';
 import Actions from "../../constants/Actions";
 import ApiAction from "../../actions/Pages/ApiAction";
 
 import BackBtn from "../Btns/BackBtn";
-import RefreshBtn from "../Btns/RefreshBtn";
 import HeaderBtn from "../Btns/HeaderBtn";
-import AccountBtn from "../Btns/AccountBtn";
 
 import GameBlock from "../Games/GameBlock";
 import PredictionBlock from "../Predictions/PredictionBlock";
 import PredictionsByGameTab from "../Predictions/PredictionsByGameTab";
 
 if (process.env.BROWSER) {
-  require("../../style/App/MainMenu.scss");
+  require("../../style/Pages/MainMenu.scss");
   require("../../style/Games/GameModal.scss");
 }
 
@@ -44,12 +42,12 @@ class GameModal extends Component {
 
     return (
       <div className="GameModal">
-        <Bouncefix className="MainMenu">
+        <div className="MainMenu">
           <div className="Left">
             <BackBtn />
           </div>
-        </Bouncefix>
-        <Bouncefix className="ModalBody">
+        </div>
+        <div className="ModalBody">
           <div>
             <GameBlock />
             <PredictionBlock />
@@ -58,7 +56,7 @@ class GameModal extends Component {
               <PredictionsByGameTab />
             }
           </div>
-        </Bouncefix>
+        </div>
       </div>
     );
   }

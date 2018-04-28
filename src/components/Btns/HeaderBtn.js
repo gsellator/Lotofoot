@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
-import Labels from "../../Labels";
+import labels from "../../labels";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";
 
 if (process.env.BROWSER) {
@@ -23,7 +23,7 @@ class HeaderBtn extends Component {
     return (
       <div className="HeaderBtn">
         {(!data || (data && data.status === 'FINISHED')) &&
-          <div className="icn-20 title"></div>
+          <div className="btn-20 title"></div>
         }
         {data && data.status === 'TIMED' &&
           <div className="Live" onTouchTap={GameModalHelper.openGameModalFct.bind(this, data._id)}>
@@ -31,7 +31,7 @@ class HeaderBtn extends Component {
 
             <div className="Cartouche">
               <span className="Flag">
-                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} title={Labels[data.teamA.slug.replace('-', '')]} />}
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} title={labels[data.teamA.slug.replace('-', '')]} />}
               </span>
               {FormatDate.isToday(data.datetime) &&
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
@@ -44,7 +44,7 @@ class HeaderBtn extends Component {
                 </span>
               }
               <span className="Flag">
-                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} title={Labels[data.teamB.slug.replace('-', '')]} />}
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} title={labels[data.teamB.slug.replace('-', '')]} />}
               </span>
             </div>
           </div>
@@ -55,7 +55,7 @@ class HeaderBtn extends Component {
 
             <div className="Cartouche">
               <span className="Flag">
-                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} title={Labels[data.teamA.slug.replace('-', '')]} />}
+                {data.teamA && <div className={'flag-12 ' + data.teamA.slug} title={labels[data.teamA.slug.replace('-', '')]} />}
               </span>
               <span className="Score">
                 {data.scoreTeamA || '0'}
@@ -65,7 +65,7 @@ class HeaderBtn extends Component {
                 {data.scoreTeamB || '0'}
               </span>
               <span className="Flag">
-                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} title={Labels[data.teamB.slug.replace('-', '')]} />}
+                {data.teamB && <div className={'flag-12 ' + data.teamB.slug} title={labels[data.teamB.slug.replace('-', '')]} />}
               </span>
             </div>
           </div>

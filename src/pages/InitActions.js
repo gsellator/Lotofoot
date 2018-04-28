@@ -2,13 +2,11 @@
 import Actions from "../constants/Actions";
 import MeAction from "../actions/Pages/MeAction";
 import ApiAction from "../actions/Pages/ApiAction";
-import RecoverInitAction from "../actions/Pages/RecoverInitAction";
-import RecoverAction from "../actions/Pages/RecoverAction";
 
 const InitActions = {
   recoverInit(context, route, done) {
     Promise.all([
-      context.executeAction(RecoverInitAction.recoverInitInit, {}),
+      context.executeAction(ApiAction.flushApi, { action: Actions.RECOVERINIT_INIT }),
     ])
     .then(() => {
       done();
@@ -20,7 +18,19 @@ const InitActions = {
 
   recover(context, route, done) {
     Promise.all([
-      context.executeAction(RecoverAction.recoverInit, { route }),
+      context.executeAction(ApiAction.getApi, { route, view: 'RecoverTest', action: Actions.RECOVER_INIT_OK }),
+    ])
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('InitActions Error : ', err.message);
+    });
+  },
+
+  register(context, route, done) {
+    Promise.all([
+      context.executeAction(ApiAction.flushApi, { action: Actions.REGISTER_INIT }),
     ])
     .then(() => {
       done();

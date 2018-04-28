@@ -1,6 +1,6 @@
 import React from "react";
 import { navigateAction } from "fluxible-router";
-import GameModalAction from "../../actions/Games/GameModalAction";
+import GameModalAction from "../../actions/Pages/GameModalAction";
 
 const GameModalHelper = {
   openGameModalFct(game) {

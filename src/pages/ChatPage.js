@@ -1,7 +1,6 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 
@@ -26,7 +25,7 @@ class ChatPage extends Component {
   }
 
   componentDidUpdate() {
-    this.refs.ChatPage.childNodes[0].scrollTop = this.refs.ChatPage.childNodes[0].scrollHeight;
+    this.refs.ChatPage.scrollTop = this.refs.ChatPage.scrollHeight;
   }
 
   render() {
@@ -34,16 +33,16 @@ class ChatPage extends Component {
 
     return (
       <div>
-        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !data && <div className="FootixLoader" />}
-        <div   ref="ChatPage">
-          <Bouncefix className="ChatPage">
-            {data &&
-              <div className="ChatPageContainer">
-                <MessagesTab />
-              </div>
-            }
-          </Bouncefix>
+        {!data &&
+          <div className="FootixLoader" />
+        }
+
+        <div ref="ChatPage" className="ScrollPage ChatPage">
+          {data &&
+            <div className="ChatPageContainer">
+              <MessagesTab />
+            </div>
+          }
         </div>
         <MessageEdit />
       </div>

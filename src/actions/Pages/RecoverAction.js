@@ -1,62 +1,50 @@
-import { RouteStore, navigateAction } from "fluxible-router";
+import ApiAction from "../../actions/Pages/ApiAction";
 import Actions from "../../constants/Actions";
-import ApiUris from "../../constants/ApiUris";
-const TIMEOUT = 20000;
+import config from "../../config";
 
-
-const RecoverAction = {
-  recoverInit(context, { route }, done) {
-    context.dispatch(Actions.RECOVER_INIT, {});
-    let endpoint = ApiUris['RecoverTest'].replace(':recovertoken', route.params.recovertoken);
-
-    context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
-      (err, data) => {
-        if (err && err.output && err.output.error_description) {
-          console.log('RecoverAction > recoverInit Error', err.output.error_description);
-          context.dispatch(Actions.DIALOG_SHOW, { error: 'Ce lien n\'est plus valide, demandez-en un nouveau !', errorTxt: 'Ce lien n\'est plus valide, demandez-en un nouveau !' });
-          context.dispatch(Actions.RECOVER_INIT_FAILED);
-          done();
-        } else if (err) {
-          console.log('RecoverAction > recoverInit Error', err.message);
-          context.dispatch(Actions.DIALOG_SHOW, { error: 'Ce lien n\'est plus valide, demandez-en un nouveau !', errorTxt: 'Ce lien n\'est plus valide, demandez-en un nouveau !' });
-          context.dispatch(Actions.RECOVER_INIT_FAILED);
-          done();
-        }
-
-        done();
-      }
-    );
+export default {
+  recoverInitSend(context, { route, email }, done) {
+    return Promise.all([
+      context.executeAction(ApiAction.flushApi, { action: Actions.RECOVERINIT_PENDING }),
+    ])
+    .then(() => {
+      return Promise.all([
+        context.executeAction(ApiAction.postApi, { route, view: 'RecoverInit', body: { email }, action: Actions.RECOVERINIT_SUCCESS }),
+      ]);
+    })
+    .then(() => {
+      done();
+    }, (err) => {
+      done();
+      console.log('recoverInitSend Error : ', err && err.message);
+    });
   },
 
-  recoverUpdate(context, { route, password }, done) {
-    context.dispatch(Actions.RECOVER_PENDING);
-    let endpoint = ApiUris['RecoverUpdate'].replace(':recovertoken', route.params.recovertoken);
-    context.service.create("ApiService", { endpoint }, { password }, { timeout: TIMEOUT },
-      (err, data) => {
-        if (err && err.output && err.output.error_description) {
-          console.log('RecoverAction > recoverUpdate Error', err.output.error_description);
-          context.dispatch(Actions.DIALOG_SHOW, { error: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.', errorTxt: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.' });
-          context.dispatch(Actions.RECOVER_FAILED, '');
-          done();
-        } else if (err) {
-          console.log('RecoverAction > recoverUpdate Error', err.message);
-          context.dispatch(Actions.DIALOG_SHOW, { error: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.', errorTxt: 'Une erreur est survenue lors du changement de votre mot de passe, veuillez réessayer.' });
-          context.dispatch(Actions.RECOVER_FAILED, '');
-          done();
-        }
+  recoverUpdate(context, { route, recoverToken, email, password }, done) {
+    Promise.all([
+      context.executeAction(ApiAction.flushApi, { action: Actions.RECOVER_PENDING }),
+    ])
+    .then(() => {
+      return Promise.all([
+        context.executeAction(ApiAction.postApi, { route, view: 'RecoverUpdate', action: Actions.RECOVER_SUCCESS, body: { password }, isGrant: true }),
+      ]);
+    })
+    .then(() => {
+      // Auto login succeded
+      const accessToken = context.getStore('LoginStore').getAccessToken();
+      let expiresDate = new Date();
+      expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
 
-        context.dispatch(Actions.RECOVER_SUCCESS, '');
-        const accessToken = data.token;
-        const user = data.user;
-        var expiresDate = new Date();
-        expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
-        context.setCookie('lotofoot_token', accessToken, {expires: expiresDate, path: '/'})
-        context.dispatch(Actions.LOGIN_SUCCESS, accessToken);
-        context.dispatch(Actions.LOGIN_UPDATE_CREDENTIALS, user);
-        done();
+      if (config.appEnv === 'prod') {
+        context.setCookie(config.cookie, accessToken, {expires: expiresDate, path: '/', secure: true});
+      } else {
+        context.setCookie(config.cookie, accessToken, {expires: expiresDate, path: '/'});
       }
-    );
+
+      done();
+    }, (err) => {
+      done();
+      console.log('recoverUpdate Error : ', err && err.message);
+    });
   },
 };
-
-export default RecoverAction;

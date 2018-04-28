@@ -1,9 +1,9 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { NavLink, navigateAction, RouteStore } from "fluxible-router";
 import FormatDate from "../Helpers/FormatDate";
 import Filters from "../Helpers/Filters";
-import Labels from "../../Labels";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Games/GameBlock.scss");
@@ -21,8 +21,7 @@ class GameBlock extends Component {
 
     return (
       <div className="Paper GameBlock">
-        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !data && <div className="FootixLoader" />}
+        {!data && <div className="FootixLoader" />}
         {data &&
           <div>
             <div className={data.stadium ? 'Stadium ' + data.stadium.toLowerCase().replace('é', 'e') : 'Stadium'}></div>
@@ -30,25 +29,25 @@ class GameBlock extends Component {
             <div className="GameBlockData">
               {data.status === 'TIMED' &&
                 <div className="Date">
-                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - ' + Labels.game + ' ' + data.friendlyId}
+                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - ' + labels.game + ' ' + data.friendlyId}
                 </div>
               }
               {data.status === 'IN_PROGRESS' &&
                 <div className="Date">
-                  {Labels.game + ' ' + data.friendlyId + ' - ' + Labels.inProgress}
+                  {labels.game + ' ' + data.friendlyId + ' - ' + labels.inProgress}
                 </div>
               }
               {data.status === 'FINISHED' &&
                 <div className="Date">
-                  {Labels.game + ' ' + data.friendlyId + ' - ' + Labels.finished}
+                  {labels.game + ' ' + data.friendlyId + ' - ' + labels.finished}
                 </div>
               }
 
-              {data.phase === 0 && <div className="Phase">{Labels.group + ' ' + Filters.capitalize(data.group)}</div>}
-              {data.phase === 1 && <div className="Phase">{Labels.eightFinal}</div>}
-              {data.phase === 2 && <div className="Phase">{Labels.quarterFinal}</div>}
-              {data.phase === 3 && <div className="Phase">{Labels.semiFinal}</div>}
-              {data.phase === 4 && <div className="Phase">{Labels.Final}</div>}
+              {data.phase === 0 && <div className="Phase">{labels.group + ' ' + Filters.capitalize(data.group)}</div>}
+              {data.phase === 1 && <div className="Phase">{labels.eightFinal}</div>}
+              {data.phase === 2 && <div className="Phase">{labels.quarterFinal}</div>}
+              {data.phase === 3 && <div className="Phase">{labels.semiFinal}</div>}
+              {data.phase === 4 && <div className="Phase">{labels.Final}</div>}
 
               <div className="TeamBlock">
                 {!data.teamA &&
@@ -56,7 +55,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className="flag-60" />
                     </div>
-                    <div className="Label">{Labels[data.futureTeamA]}</div>
+                    <div className="Label">{labels[data.futureTeamA]}</div>
                   </div>
                 }
                 {data.teamA &&
@@ -64,7 +63,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className={'flag-60 ' + data.teamA.slug} />
                     </div>
-                    <div className="Label">{Labels[data.teamA.slug.replace('-', '')]}</div>
+                    <div className="Label">{labels[data.teamA.slug.replace('-', '')]}</div>
                   </div>
                 }
                 <div className="ScoreContainer">
@@ -97,7 +96,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className={'flag-60 ' + data.teamB.slug} />
                     </div>
-                    <div className="Label">{Labels[data.teamB.slug.replace('-', '')]}</div>
+                    <div className="Label">{labels[data.teamB.slug.replace('-', '')]}</div>
                   </div>
                 }
                 {!data.teamB &&
@@ -105,7 +104,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className="flag-60" />
                     </div>
-                    <div className="Label">{Labels[data.futureTeamB]}</div>
+                    <div className="Label">{labels[data.futureTeamB]}</div>
                   </div>
                 }
               </div>
@@ -118,8 +117,8 @@ class GameBlock extends Component {
                 <div className="Label">{data.stadium}</div>
               </div>
               <div className="Right">
-                {data.channel && <div className={'chn-24 ' + data.channel}></div>}
-                <div className="chn-24 bein-sports-1"></div>
+                {data.channel && <div className={'icn-24 ' + data.channel}></div>}
+                <div className="icn-24 bein-sports-1"></div>
               </div>
             </div>
           </div>

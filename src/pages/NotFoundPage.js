@@ -1,8 +1,29 @@
-import React from "react";
+import React, { Component } from "react";
+import labels from "../labels";
+import Mire from "react-daily-widgets/dist/js/Mire";
 
-class NotFoundPage extends React.Component {
+if (process.env.BROWSER) {
+  require("../style/Pages/NotFoundPage.scss");
+}
+
+class NotFoundPage extends Component {
   render() {
-    return <h1>Page introuvable</h1>;
+    return (
+      <div className="ScrollPage NotFoundPage Full">
+        <div className="Paper">
+          <Mire mainLabel={labels.dailyMaj} />
+
+          <div className="Texts">
+            <div className="Text">
+              {labels.notfoundPageL1}
+            </div>
+            <a className="OnBoardBtn" href="/">
+              {labels.notfoundPageL2}
+            </a>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 

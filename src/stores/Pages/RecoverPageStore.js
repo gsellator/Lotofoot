@@ -5,31 +5,24 @@ class RecoverPageStore extends BaseStore {
   static storeName = "RecoverPageStore"
 
   static handlers = {
-    [Actions.RECOVER_INIT]: "handleInit",
-    [Actions.RECOVER_INIT_FAILED]: "handleInitFailed",
+    [Actions.RECOVER_INIT_OK]: "handleInitOk",
     [Actions.RECOVER_PENDING]: "handlePending",
-    [Actions.RECOVER_FAILED]: "handleFailed",
     [Actions.RECOVER_SUCCESS]: "handleSuccess",
   }
 
   constructor(dispatcher) {
     super(dispatcher);
     this.initFailure = false;
+    this.email = undefined;
     this.pending = false;
     this.success = false;
-    this.username;
   }
 
-  handleInit() {
-    this.initFailure = false;
+  handleInitOk({ data, route, url }) {
+    this.initFailure = data && data._id ? false : true;
+//    this.email = data && data.email ? data.email : undefined;
     this.pending = false;
     this.success = false;
-    this.username = undefined;
-    this.emitChange();
-  }
-
-  handleInitFailed() {
-    this.initFailure = true;
     this.emitChange();
   }
 
@@ -39,49 +32,31 @@ class RecoverPageStore extends BaseStore {
     this.emitChange();
   }
 
-  handleFailed() {
-    this.pending = false;
-    this.success = false;
-    this.emitChange();
-  }
-
-  handleSuccess(username) {
+  handleSuccess({ data, route, url }) {
     this.pending = false;
     this.success = true;
-    this.username = username;
     this.emitChange();
   }
 
-  getPending() {
-    return this.pending;
-  }
-
-  getInitFailure() {
-    return this.initFailure;
-  }
-
-  getSuccess() {
-    return this.success;
-  }
-
-  getUsername() {
-    return this.username;
-  }
+  getPending() {return this.pending;}
+  getEmail() {return this.email;}
+  getInitFailure() {return this.initFailure;}
+  getSuccess() {return this.success;}
 
   dehydrate() {
     return {
       pending: this.pending,
+      email: this.email,
       initFailure: this.initFailure,
       success: this.success,
-      username: this.username,
     };
   }
 
   rehydrate(state) {
     this.pending = state.pending;
+    this.email = state.email;
     this.initFailure = state.initFailure;
     this.success = state.success;
-    this.username = state.username;
   }
 }
 

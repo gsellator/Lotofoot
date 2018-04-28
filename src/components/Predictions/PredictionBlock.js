@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { RouteStore } from "fluxible-router";
-import PredictionBlockAction from "../../actions/Predictions/PredictionBlockAction";
-import Labels from "../../Labels";
+import PredictionBlockAction from "../../actions/Pages/PredictionBlockAction";
+import labels from "../../labels";
 
 if (process.env.BROWSER) {
   require("../../style/Predictions/PredictionBlock.scss");
@@ -64,11 +64,10 @@ class PredictionBlock extends Component {
 
     return (
       <div className="Paper PredictionBlock">
-        {false && !(data && gameData) && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !(data && gameData) && <div className="FootixLoader" />}
+        {!(data && gameData) && <div className="FootixLoader" />}
         {data && !data._id && gameData && gameData.status != 'TIMED' &&
           <div className="Title">
-            {Labels.tooLate}
+            {labels.tooLate}
           </div>
         }
 
@@ -76,7 +75,7 @@ class PredictionBlock extends Component {
           <div>
             <div className="AltPaperTitle">
               <div className="Label">
-                {Labels.myPrediction}
+                {labels.myPrediction}
               </div>
               <div className="icn-60 footix"></div>
             </div>
@@ -88,9 +87,9 @@ class PredictionBlock extends Component {
               </div>
             </div>
             <div className="Points">
-              {gameData.status === 'IN_PROGRESS' && <span>{Labels.inProgressGain + ' '}</span>}
-              {gameData.status === 'FINISHED' &&<span>{Labels.finishedGain + ' '}</span>}
-              <span>{data.score < 2 ? data.score + ' ' + Labels.point + '.' : data.score + ' ' + Labels.point + '.'}</span>
+              {gameData.status === 'IN_PROGRESS' && <span>{labels.inProgressGain + ' '}</span>}
+              {gameData.status === 'FINISHED' &&<span>{labels.finishedGain + ' '}</span>}
+              <span>{data.score < 2 ? data.score + ' ' + labels.point + '.' : data.score + ' ' + labels.point + '.'}</span>
             </div>
           </div>
         }
@@ -99,13 +98,12 @@ class PredictionBlock extends Component {
           <div>
             <div className="AltPaperTitle">
               <div className="Label">
-                {Labels.myPrediction}
+                {labels.myPrediction}
               </div>
               <div className="icn-60 footix"></div>
             </div>
             <div>
-              {false && pending && <div className="LoaderContainer"><div className="Loader" /></div>}
-              {true && pending && <div className="FootixLoader" />}
+              {pending && <div className="FootixLoader" />}
               {!pending &&
                 <div className="Prediction">
                   <div className="Inputs">
@@ -120,18 +118,18 @@ class PredictionBlock extends Component {
                       </span>
                       <span>
                         <div className={this.state.winner === 'teamA' ? 'TabBtn Active' : 'TabBtn'} onTouchTap={this.handleChangeWinner.bind(this, 'teamA')}>
-                          {!gameData.teamA && Labels[gameData.futureTeamA]}
-                          {gameData.teamA && Labels[gameData.teamA.slug.replace('-', '')]}
+                          {!gameData.teamA && labels[gameData.futureTeamA]}
+                          {gameData.teamA && labels[gameData.teamA.slug.replace('-', '')]}
                         </div>
                         <div className={this.state.winner === 'teamB' ? 'TabBtn Active' : 'TabBtn'} onTouchTap={this.handleChangeWinner.bind(this, 'teamB')}>
-                          {!gameData.teamB && Labels[gameData.futureTeamB]}
-                          {gameData.teamB && Labels[gameData.teamB.slug.replace('-', '')]}
+                          {!gameData.teamB && labels[gameData.futureTeamB]}
+                          {gameData.teamB && labels[gameData.teamB.slug.replace('-', '')]}
                         </div>
                       </span>
                     </div>
                   }
                   <div className="Btns">
-                    <div className="PaperBtn" onTouchTap={this.postPrediction.bind(this)}>{Labels.validate}</div>
+                    <div className="PaperBtn" onTouchTap={this.postPrediction.bind(this)}>{labels.validate}</div>
                   </div>
                 </div>
               }

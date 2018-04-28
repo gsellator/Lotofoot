@@ -1,101 +1,128 @@
 import Actions from "../../constants/Actions";
 import ApiUris from "../../constants/ApiUris";
-import _ from 'lodash';
-import immutable from 'immutable';
+import config from "../../config";
 const TIMEOUT = 20000;
 
-const ApiAction = {
-  getApi(context, { route, view, action }, done) {
-    const accessToken = context.getCookie('lotofoot_token');
-    const userId = context.getStore('LoginPageStore').getCredentials()._id;
+const getUri = ({
+  route,
+  view,
+  accessToken,
+  userId,
+  predictionId,
+}) => {
+  if (!ApiUris[view])
+    return undefined;
 
-    const gameId = route.query.game;
-    const predictionId = route.params.predictionId;
-
-    let endpoint = ApiUris[view]
-    .replace(':gameId', gameId)
-    .replace(':predictionId', predictionId)
-    .replace(':userId', userId);
-
-    if (accessToken && endpoint.includes('?'))
-      endpoint = endpoint + '&access_token=' + accessToken;
-    else if (accessToken)
-      endpoint = endpoint + '?access_token=' + accessToken;
-
-    context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
-      (err, data) => {
-        if (err && err.output && err.output.error_description) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
-          return done();
-        } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
-          return done();
-        }
-
-        context.dispatch(action, { data, route });
-        return done();
-      }
-    );
-  },
-
-  postApi(context, { route, view, body, action }, done) {
-    const accessToken = context.getCookie('lotofoot_token');
-    let endpoint = ApiUris[view]
-    .replace(':gameId', route.params.gameId)
-    .replace(':predictionId', route.params.predictionId)
-    .replace(':userId', route.params.userId);
-
-    if (accessToken && endpoint.includes('?'))
-      endpoint = endpoint + '&access_token=' + accessToken;
-    else if (accessToken)
-      endpoint = endpoint + '?access_token=' + accessToken;
-
-    context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
-      (err, data) => {
-        if (err && err.output && err.output.error_description) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
-          return done();
-        } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
-          return done();
-        }
-
-        context.dispatch(action, { data, route });
-        return done();
-      }
-    );
-  },
-
-  putApi(context, { route, view, body, action, predictionId }, done) {
-    const accessToken = context.getCookie('lotofoot_token');
-    let endpoint = ApiUris[view]
-    .replace(':gameId', route.params.gameId)
+  const endpoint = ApiUris[view]
+    .replace(':gameId', route.query.game)
     .replace(':predictionId', predictionId || route.params.predictionId)
-    .replace(':userId', route.params.userId);
+    .replace(':recovertoken', route.params.recovertoken)
+    .replace(':userId', userId || route.params.userId);
 
-    if (accessToken && endpoint.includes('?'))
-      endpoint = endpoint + '&access_token=' + accessToken;
-    else if (accessToken)
-      endpoint = endpoint + '?access_token=' + accessToken;
-
-    context.service.update("ApiService", { endpoint }, body, { timeout: TIMEOUT },
-      (err, data) => {
-        if (err && err.output && err.output.error_description) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
-          return done();
-        } else if (err && err.body) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.body.error, errorTxt: err.body.error_description });
-          return done();
-        } else if (err) {
-          context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
-          return done();
-        }
-
-        context.dispatch(action, { data, route });
-        return done();
-      }
-    );
-  },
+  if (endpoint.includes('?'))
+    return endpoint + '&access_token=' + accessToken;
+  return endpoint + '?access_token=' + accessToken;
 };
 
-export default ApiAction;
+export default {
+  getUri,
+
+  getApi(context, { route, view, action, url }) {
+    return new Promise((resolve, reject) => {
+      const accessToken = context.getCookie(config.cookie);
+      const userId = context.getStore('LoginStore').getCredentials()._id;
+      const endpoint = getUri({
+        route,
+        view,
+        accessToken,
+        userId,
+      });
+
+      context.service.read("ApiService", { endpoint }, { timeout: TIMEOUT },
+        (err, data) => {
+          if (err && err.output && err.output.error_description) {
+            context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
+            context.dispatch(action, { route, url });
+            return resolve();
+          } else if (err) {
+            context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
+            context.dispatch(action, { route, url });
+            return resolve();
+          }
+
+          context.dispatch(action, { data, route, url });
+          return resolve();
+        }
+      );
+    });
+  },
+
+  postApi(context, { route, view, body, action, url }) {
+    return new Promise((resolve, reject) => {
+      const accessToken = context.getCookie(config.cookie);
+      const userId = context.getStore('LoginStore').getCredentials()._id;
+      const endpoint = getUri({
+        route,
+        view,
+        accessToken,
+        userId,
+      });
+
+      context.service.create("ApiService", { endpoint }, body, { timeout: TIMEOUT },
+        (err, data) => {
+          if (err && err.output && err.output.error_description) {
+            context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
+            context.dispatch(action, { route, url });
+            return reject();
+          } else if (err) {
+            context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
+            context.dispatch(action, { route, url });
+            return reject();
+          }
+
+          context.dispatch(action, { data, route, url });
+          return resolve();
+        }
+      );
+    });
+  },
+
+  putApi(context, { route, view, body, action, predictionId }) {
+    return new Promise((resolve, reject) => {
+      const accessToken = context.getCookie(config.cookie);
+      const userId = context.getStore('LoginStore').getCredentials()._id;
+      const endpoint = getUri({
+        route,
+        view,
+        accessToken,
+        userId,
+        predictionId,
+      });
+
+      context.service.update("ApiService", { endpoint }, body, { timeout: TIMEOUT },
+        (err, data) => {
+          if (err && err.output && err.output.error_description) {
+            context.dispatch(Actions.DIALOG_SHOW, { error: err.output.error, errorTxt: err.output.error_description });
+            context.dispatch(action, { route, url });
+            return resolve();
+          } else if (err) {
+            context.dispatch(Actions.DIALOG_SHOW, { error: err.message, errorTxt: err.message });
+            context.dispatch(action, { route, url });
+            return resolve();
+          }
+
+          context.dispatch(action, { data, route, url });
+          return resolve();
+        }
+      );
+    })
+  },
+
+  flushApi(context, { action, url }) {
+    context.dispatch(action, { url });
+  },
+
+  emptyApiCall(context, { route, action, url }) {
+    context.dispatch(action, { route, url });
+  },
+};

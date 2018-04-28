@@ -1,0 +1,81 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.MainMenu {
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 58px;
+  z-index: 210;
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+  background: white;
+  user-select: none;
+  overflow-x: auto;
+
+  .MainMenuContent{
+    display: flex;
+    justify-content: space-between;
+    margin: 0; padding: 0;
+    height: 58px;
+    overflow: hidden;
+  }
+
+  .Left{
+    flex: 1;
+    padding-left: 6px;
+
+    .Desktop{
+      cursor: pointer;
+      padding: 11px 13px;
+
+      &:hover .btn-36{background-position-y: -206px;}
+      &:active .btn-36{background-position-y: -246px;}
+    }
+
+    .Mobile{
+      display: none;
+      cursor: pointer;
+      padding: 8px 6px;
+    }
+  }
+
+  .Right{
+    flex: 1;
+    text-align: right;
+    padding-right: 6px;
+  }
+
+  .MenuLink{
+    display: inline-block;
+    vertical-align: top;
+    margin: 9px 0 9px 0;
+    line-height: 36px;
+    color: $grey-dark;
+    border: solid $grey-dark 2px;
+    border-radius: 6px;
+    padding: 0 6px;
+
+    &:first-child{
+      margin-right: 6px;
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .MainMenu{
+    height: 42px;
+
+    .MainMenuContent{
+      height: 42px;
+    }
+
+    .Left{
+      .Desktop{
+        display: none;
+      }
+
+      .Mobile{
+        display: block;
+      }
+    }
+  }
+}

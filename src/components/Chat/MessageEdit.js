@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from "react";
-import { RouteStore } from "fluxible-router";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import TextareaAutosize from "react-textarea-autosize";
-import Labels from "../../Labels";
-import MessageEditAction from "../../actions/Chat/MessageEditAction";
+import labels from "../../labels";
+import MessageEditAction from "../../actions/Pages/MessageEditAction";
 
 if (process.env.BROWSER) {
   require("../../style/Chat/MessageEdit.scss");
@@ -46,7 +46,7 @@ class MessageEdit extends Component {
             <TextareaAutosize maxRows={5} />
           </div>
           <div className="Button">
-            <button type="submit">{Labels.send}</button>
+            <button type="submit">{labels.send}</button>
           </div>
         </form>
       </div>

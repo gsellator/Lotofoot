@@ -1,5 +1,6 @@
 const ApiUris = {
   UsersLogin: '/users/login',
+  //UsersLogout: '/logout',
   UsersMe: '/users/me',
   UsersRegister: '/users/register',
   Users: '/users?limit=300',

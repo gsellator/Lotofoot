@@ -4,34 +4,79 @@ var webpack = require("webpack");
 var extractTextPlugin = require("extract-text-webpack-plugin");
 var writeStats = require("./utils/write-stats");
 var autoprefixer = require('autoprefixer');
-var strip = require("strip-loader");
 
 var appName = process.env.APP_NAME || 'lotofoot-dev';
-var dist = path.resolve(__dirname, "../public/assets");
+var dist = path.resolve(__dirname, '../public/assets');
 
 module.exports = {
-  devtool: "source-map",
-  entry: ['babel-polyfill', "./src/client.js"],
+  devtool: 'source-map',
+  entry: {
+    main: [
+      './src/client.js',
+    ]
+  },
   output: {
-    filename: "[name]-[hash].js",
-    chunkFilename: "[name]-[chunkhash].js",
+    filename: '[name]-[hash].js',
+    chunkFilename: '[name]-[chunkhash].js',
     path: dist,
-    publicPath: "/assets/"
+    publicPath: '/assets/'
   },
 
   module: {
-    loaders: [
-      { test: /\.(jpe?g|png|gif|svg|xml|json)$/, include: /src\/assets\/static/, loader: "file?name=[name].[ext]" },
-      { test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/, exclude: /src\/assets\/static/, loader: "file" },
-      { test: /\.js$/, exclude: /node_modules/, loaders: [strip.loader("debug"), "babel"] },
-      { test: /\.scss$/, loader: extractTextPlugin.extract("style", "css?-autoprefixer!postcss!sass") },
+    rules: [
+      {
+        test: /\.(jpe?g|png|gif|svg|xml|json|css|js)$/,
+        include: /src\/assets\/static/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/,
+        exclude: /src\/assets\/static/,
+        loader: 'file-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: [/node_modules/, /src\/assets\/static/],
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+        ]
+      },
+
+
+      {
+        test: /\.scss$/,
+        loader: extractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader"
+            },
+            {
+              loader: "autoprefixer-loader",
+              options: {
+                browsers: ['Last 2 versions', 'iOS 7']
+              }
+            },
+            {
+              loader: "sass-loader"
+            }
+          ],
+        })
+      },
+
     ]
   },
-  postcss: [ autoprefixer({ browsers: ['Last 2 versions', 'iOS 7'] }) ],
 
   plugins: [
     // css files from the extract-text-plugin loader
-    new extractTextPlugin("[name]-[chunkhash].css"),
+    new extractTextPlugin({
+      filename: "[name]-[chunkhash].css",
+    }),
 
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
@@ -46,8 +91,7 @@ module.exports = {
     }),
 
     // optimizations
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
@@ -55,6 +99,8 @@ module.exports = {
     }),
 
     // stats
-    function() { this.plugin("done", writeStats); }
+    function() {
+      this.plugin('done', writeStats);
+    }
   ]
 };

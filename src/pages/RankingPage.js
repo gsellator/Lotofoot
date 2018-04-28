@@ -1,16 +1,10 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
-import Bouncefix from 'react-bouncefix';
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 
 import UsersTab from "../components/Ranking/UsersTab";
-
-if (process.env.BROWSER) {
-  require("../style/Pages/RankingPage.scss");
-}
-
 
 class RankingPage extends Component {
   static contextTypes = {
@@ -28,15 +22,14 @@ class RankingPage extends Component {
     const { data } = this.props;
 
     return (
-      <Bouncefix className="RankingPage">
-        {false && !data && <div className="LoaderContainer"><div className="Loader" /></div>}
-        {true && !data && <div className="FootixLoader" />}
+      <div className="ScrollPage">
+        {!data && <div className="FootixLoader" />}
         {data &&
           <div className="RankingPageContainer">
             <UsersTab />
           </div>
         }
-      </Bouncefix>
+      </div>
     );
   }
 }

@@ -1,24 +1,19 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { provideContext, connectToStores } from "fluxible-addons-react";
-import { handleHistory, RouteStore } from "fluxible-router";
-import moment from "moment";
+import { handleHistory } from "fluxible-router";
 import Immutable from "immutable";
-import cookie from 'react-cookie';
 
+import dailyStyles from "daily-styles";
+
+import config from "./config";
 import trackPageView from "./utils/trackPageView";
-import Page from "./components/App/Page";
+import Page from "./components/Pages/Page";
 import NotFoundPage from "./pages/NotFoundPage";
-//import ErrorPage from "./pages/ErrorPage";
-import LoadingPage from "./pages/LoadingPage";
-
-import injectTapEventPlugin from "react-tap-event-plugin";
-injectTapEventPlugin();
-
-var request = require('superagent-promise')(require('superagent'), Promise);
+import ErrorPage from "./pages/ErrorPage";
 
 if (process.env.BROWSER) {
-  require("./style/App/Application.scss");
-  require("./style/App/Paper.scss");
+  require("./style/Pages/Application.scss");
 }
 
 class Application extends Component {
@@ -33,34 +28,24 @@ class Application extends Component {
     currentNavigateError: PropTypes.shape({
       statusCode: PropTypes.number.isRequired,
       message: PropTypes.string.isRequired
-    }),
-
-    // prop coming from HtmlHeadStore
-    documentTitle: PropTypes.string
+    })
   }
 
-  trackPage(accessToken, url) {
-    const credentials = this.props.credentials;
-    const log = moment().format('YYYY-MM-DD HH:mm:ss - ') + ' - ' + window.location.href;
-    trackPageView({ email: credentials.email, url, log });
+  getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
   }
 
   componentDidMount(){
-    const { currentRoute } = this.props;
-    const accessToken = cookie.load('lotofoot_token');
-    this.trackPage(accessToken, currentRoute.url);
+    trackPageView({ route: this.props.currentRoute, credentials: this.props.credentials, accessToken: this.getCookie(config.cookie) });
   }
 
   componentDidUpdate(prevProps) {
-    const { documentTitle, currentRoute } = this.props;
-    const accessToken = cookie.load('lotofoot_token');
-
-    if (prevProps.documentTitle !== documentTitle) {
-      document.title = documentTitle;
-    }
+    const { currentRoute } = this.props;
 
     if (!Immutable.is(prevProps.currentRoute, currentRoute)) {
-      this.trackPage(accessToken, currentRoute.url);
+      trackPageView({ route: currentRoute, credentials: this.props.credentials, accessToken: this.getCookie(config.cookie) });
     }
   }
 
@@ -76,13 +61,10 @@ class Application extends Component {
       content = <NotFoundPage />;
     } else if (currentNavigateError) {
       // Generic error, usually always with statusCode 500
-      // content = <ErrorPage err={currentNavigateError} />;
+      content = <ErrorPage err={currentNavigateError} />;
     } else if (!Handler) {
       // No handler: this is another case where a route is not found (e.g. is not defined in the routes.js config)
       content = <NotFoundPage />;
-//    } else if (!isNavigateComplete) {
-//      // Show a loading page while waiting the route's action to finish
-//      content = <LoadingPage />;
     } else {
       // Here you go with the actual page content
       const params = currentRoute.params;
@@ -90,16 +72,30 @@ class Application extends Component {
     }
     return (
       <Page>
-      { content }
+        { content }
+
+        <div className="pixel loader"></div>
+        <div className="pixel uiux_loader"></div>
+        <div className="pixel uiux_icons"></div>
+        <div className="pixel uiux_footix"></div>
+        <div className="pixel bordeaux"></div>
+        <div className="pixel lens"></div>
+        <div className="pixel lille"></div>
+        <div className="pixel lyon"></div>
+        <div className="pixel marseille"></div>
+        <div className="pixel nice"></div>
+        <div className="pixel paris"></div>
+        <div className="pixel saint-denis"></div>
+        <div className="pixel saint-etienne"></div>
+        <div className="pixel toulouse"></div>
       </Page>
     );
   }
 }
 
-Application = connectToStores(Application, ["HtmlHeadStore", "LoginPageStore"], (context) => {
+Application = connectToStores(Application, ["LoginStore"], (context) => {
   return {
-    documentTitle: context.getStore("HtmlHeadStore").getTitle(),
-    credentials: context.getStore("LoginPageStore").getCredentials()
+    credentials: context.getStore("LoginStore").getCredentials()
   };
 }, {getStore: PropTypes.func});
 

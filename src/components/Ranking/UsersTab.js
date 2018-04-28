@@ -1,6 +1,6 @@
-import React, { PropTypes, Component } from "react";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import { navigateAction, RouteStore } from "fluxible-router";
 import Filters from "../Helpers/Filters";
 
 if (process.env.BROWSER) {
@@ -44,9 +44,9 @@ class UsersTab extends Component {
   }
 }
 
-UsersTab = connectToStores(UsersTab, ["LoginPageStore", "UsersTabStore"], (context) => {
+UsersTab = connectToStores(UsersTab, ["LoginStore", "UsersTabStore"], (context) => {
   return {
-    credentials: context.getStore("LoginPageStore").getCredentials(),
+    credentials: context.getStore("LoginStore").getCredentials(),
     data: context.getStore("UsersTabStore").getData()
   };
 }, {getStore: PropTypes.func});

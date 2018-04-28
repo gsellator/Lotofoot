@@ -6,7 +6,6 @@ import cookiePlugin from 'fluxible-plugin-cookie';
 import routes from "./routes";
 import Application from "./Application";
 
-import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
 import MessagesTabStore from "./stores/Chat/MessagesTabStore";
@@ -19,12 +18,11 @@ import PredictionsByGameTabStore from "./stores/Predictions/PredictionsByGameTab
 import UsersTabStore from "./stores/Ranking/UsersTabStore";
 import TeamsDicoStore from "./stores/Teams/TeamsDicoStore";
 
-import HtmlHeadStore from "./stores/Pages/HtmlHeadStore";
-import LoginPageStore from "./stores/Pages/LoginPageStore";
+import LoginStore from "./stores/Pages/LoginStore";
 import NavStore from "./stores/Pages/NavStore";
 import RecoverInitPageStore from "./stores/Pages/RecoverInitPageStore";
 import RecoverPageStore from "./stores/Pages/RecoverPageStore";
-import UserRegisterPageStore from "./stores/Pages/UserRegisterPageStore";
+import RegisterPageStore from "./stores/Pages/RegisterPageStore";
 
 
 if (process.env.BROWSER) {
@@ -71,7 +69,6 @@ const AppRouteStore = RouteStore.withStaticRoutes(routes);
 app.registerStore(AppRouteStore);
 
 // Register app-specific stores
-app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
 app.registerStore(MessagesTabStore);
@@ -84,11 +81,10 @@ app.registerStore(PredictionsByGameTabStore);
 app.registerStore(UsersTabStore);
 app.registerStore(TeamsDicoStore);
 
-app.registerStore(HtmlHeadStore);
-app.registerStore(LoginPageStore);
+app.registerStore(LoginStore);
 app.registerStore(NavStore);
 app.registerStore(RecoverInitPageStore);
 app.registerStore(RecoverPageStore);
-app.registerStore(UserRegisterPageStore);
+app.registerStore(RegisterPageStore);
 
 export default app;

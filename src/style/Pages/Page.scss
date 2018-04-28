@@ -1,0 +1,13 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.Page .Page-body {
+  top: 58px;
+  background: $grey-0;
+}
+
+@media (max-width: $break-medium){
+  .Page .Page-body {
+    top: 42px;
+  }
+}

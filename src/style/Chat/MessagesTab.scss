@@ -39,16 +39,31 @@
       }
 
       .Text{
-        font-weight: 300;
-        font-size: 14px;
-        line-height: 17px;
+        display: inline-block;
+        vertical-align: top;
+
+        span{
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 18px;
+        }
+
+        .WithEmojis{
+          line-height: 30px;
+
+          span{
+            line-height: 28px;
+          }
+        }
+        
+//        .    text-align: center;
       }
 
       .Phylactery{
         position: absolute;
         width: 9px;
         bottom: 6px; left: -9px;
-        background-position: -160px -92px;
+        background-position: -35px -20px;
       }
     }
 
@@ -58,13 +73,13 @@
       .MessageBlock{
         background: $footix-blue;
 
-        .Name, .Text, .Date{
+        .Name, .Text, .Text span, .Date{
           color: white;
         }
 
         .Phylactery{
           left: initial; right: -9px;
-          background-position: -145px -92px;
+          background-position: -20px -20px;
         }
       }
     }

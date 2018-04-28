@@ -1,5 +1,6 @@
-import React, { PropTypes, Component } from "react";
-import Labels from "../../Labels";
+import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import labels from "../../labels";
 import GameModalHelper from "../Helpers/GameModalHelper";
 
 if (process.env.BROWSER) {
@@ -18,9 +19,9 @@ class BackBtn extends Component {
 
   render() {
     return (
-      <div className="BackBtn" onTouchTap={GameModalHelper.closeGameModal.bind(this)} title={Labels.back}>
-        <div className="icn-26 back"></div>
-        <div className="Label">{Labels.games}</div>
+      <div className="BackBtn" onTouchTap={GameModalHelper.closeGameModal.bind(this)} title={labels.back}>
+        <div className="btn-26 back"></div>
+        <div className="Label">{labels.games}</div>
       </div>
     );
   }
