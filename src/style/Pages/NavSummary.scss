@@ -1,0 +1,53 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+
+.NavSummary{
+  position: absolute;
+  left: 0; top: 58px; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 70px;
+  padding: 6px 0 0 4px;
+  background: white;
+  z-index: 100;
+  user-select: none;
+  overflow-x: hidden; overflow-y: auto;
+  overflow-scrolling: touch; -webkit-overflow-scrolling: touch;
+
+  .NavLink{
+    transform: translateZ(0);
+    cursor: pointer;
+    padding: 12px 0px;
+    margin: 0;
+    border: none;
+    user-select: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0;
+    background: transparent;
+
+    .btn-26{
+      display: inline-block;
+    }
+
+    &:hover{
+      .btn-26{background-position-y: -105px;}
+    }
+
+    &:focus{
+      outline: none;
+      .btn-26{background-position-y: -105px;}
+    }
+
+    &:active, &.active{
+      .btn-26{background-position-y: -135px;}
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .NavSummary{
+    display: none;
+  }
+}

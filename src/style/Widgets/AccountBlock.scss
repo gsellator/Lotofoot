@@ -1,0 +1,50 @@
+@import '../constants/breaks';
+@import '../constants/colors';
+
+.AccountBlock{
+  .Account{
+    overflow: hidden;
+    padding: 12px 0 0 0;
+
+    .AccountCtnt{
+      width: 300px;
+      margin: auto;
+
+      .icn-100{
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .AccountInfos{
+        display: inline-block;
+        vertical-align: top;
+        width: 182px;
+        padding: 10px 0 0 12px;
+        font-size: 14px;
+        text-align: left;
+
+        span{
+          display: block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          &:first-child{font-weight: 300;}
+          &.TxtBtn{margin-top: 12px;}
+        }
+
+        .TxtBtn{margin-top: 12px;}
+      }
+    }
+
+    .AccountActions{
+      margin: 12px -12px 0 -12px;
+      padding-top: 12px;
+      border-top: dotted $grey-5 1px;
+      text-align: center;
+
+      .TxtBtn{
+        margin-bottom: 0;
+      }
+    }
+  }
+}

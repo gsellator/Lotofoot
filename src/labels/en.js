@@ -83,6 +83,7 @@ export default {
 
   send: 'Send',
   semiFinal: 'Semi Final',
+  sendFeedback: 'Send feedback',
 
   title: 'Title',
   toCome: 'Next',
@@ -167,8 +168,6 @@ export default {
   wales: 'Wales',
 
   helpL1: `Amis Footix, le but de ce lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de l'Euro. ` +
-    `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
-  helpL1Alt: `Le but du lotofoot LeCab est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de l'Euro. ` +
     `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
   helpL2: `Pour chaque match, votre score dépendra du stade de la compétition (groups, quarts de finale...) et de la qualité de votre pronostic (bon vainqueur, bonne différence de buts, score exact). Les points mis en jeu sont :`,
   helpL6: `Les pronostics peuvent être modifiés jusqu'au début des match. Bonne chance !`,

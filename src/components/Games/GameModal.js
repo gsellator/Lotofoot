@@ -7,7 +7,6 @@ import ApiAction from "../../actions/Pages/ApiAction";
 import BackBtn from "../Btns/BackBtn";
 import RefreshBtn from "../Btns/RefreshBtn";
 import HeaderBtn from "../Btns/HeaderBtn";
-import AccountBtn from "../Btns/AccountBtn";
 
 import GameBlock from "../Games/GameBlock";
 import PredictionBlock from "../Predictions/PredictionBlock";

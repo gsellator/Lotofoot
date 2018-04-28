@@ -5,6 +5,7 @@ import GamesPage from "./pages/GamesPage";
 import RankingPage from "./pages/RankingPage";
 import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
+import AccountPage from "./pages/AccountPage";
 
 import DemoPage from "./pages/DemoPage";
 import LoginPage from "./pages/LoginPage";
@@ -53,6 +54,12 @@ export default {
     method: "get",
     handler: HelpPage,
     action: InitActions.me
+  },
+  account: {
+    path: "/account",
+    method: "get",
+    handler: AccountPage,
+    action: InitActions.getContext
   },
 
   // Public

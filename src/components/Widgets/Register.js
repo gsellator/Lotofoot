@@ -94,12 +94,6 @@ class Register extends Component {
               </button>
             }
 
-            {appName === 'lotofoot-lecab' &&
-              <div className="ButtonGroup">
-                <span className="LoginLinkSpacer">Seuls les chauffeurs-partenaires LeCab pourront recevoir les lots mis en jeu</span>
-              </div>
-            }
-
             <div>
               <NavLink className="LoginLink" routeName="login">{labels.backHome}</NavLink>
             </div>

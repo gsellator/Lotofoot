@@ -6,7 +6,6 @@ import cookiePlugin from 'fluxible-plugin-cookie';
 import routes from "./routes";
 import Application from "./Application";
 
-import AccountDialogStore from "./stores/Dialog/AccountDialogStore";
 import DialogStore from "./stores/Dialog/DialogStore";
 
 import MessagesTabStore from "./stores/Chat/MessagesTabStore";
@@ -70,7 +69,6 @@ const AppRouteStore = RouteStore.withStaticRoutes(routes);
 app.registerStore(AppRouteStore);
 
 // Register app-specific stores
-app.registerStore(AccountDialogStore);
 app.registerStore(DialogStore);
 
 app.registerStore(MessagesTabStore);

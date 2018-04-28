@@ -14,6 +14,34 @@ class MessagesTab extends Component {
     getStore: PropTypes.func.isRequired
   }
 
+  getTextBlock(text) {
+    // 🙂  d83d de42
+    // 🙁  d83d de41
+    // 😎  d83d de0e
+    // 😱  d83d de31
+    // 🤓  d83e dd13
+    // 🤫  d83e dd2b
+
+    const reg = /(\ud83d[\ude42\ude41\ude0e\ude31]|\ud83e[\udd13\udd2b])/g;
+    const emojisCount = (text.match(reg) || []).length;
+
+    let emojiSize = '2';
+    if (text.length === 2 * emojisCount && text.length <= 4)
+      emojiSize = '4';
+
+    const semiHtml = text.replace(reg, '<br/><span class="uiux-emojis m-' + emojiSize + ' $&" /><br/>');
+    const array = semiHtml.split('<br/>');
+
+    return (
+      <span className={emojisCount > 0 ? 'WithEmojis' : ''}>
+        {array && array.map((item, i) => (text[0] === '<') ?
+          <span key={i}>{item}</span> :
+          <span key={i} dangerouslySetInnerHTML={{ __html: item }} />
+        )}
+      </span>
+    );
+  }
+
   render() {
     const { credentials, data } = this.props;
 
@@ -34,9 +62,11 @@ class MessagesTab extends Component {
                           {FormatDate.dtetimeToFromNow(item.createdAt, 'DD/MM')}
                         </div>
                       </div>
+
                       <div className="Text">
-                        {item.text}
+                        {item.text && item.text != '' && this.getTextBlock(item.text)}
                       </div>
+
                       <div className="icn-16 Phylactery" />
                     </div>
                   </div>

@@ -14,17 +14,17 @@ $max: 6;
 .uiux-emojis{
   display: inline-block;
   vertical-align: top;
-  margin: 0 0 0 3px;
-  width: 20px; height: 20px;
+  margin: 0 2px 0 2px;
+  width: 20px; height: 15px;
   background-image: url('../../assets/uiux_emojis.svg');
   background-repeat: no-repeat;
-  background-size: 245px 20px;
+  background-size: 245px 15px;
   background-position: 0 0;
 
   @for $i from 2 through 6 {
     &.m-#{$i} {
-      width: 20px*$i; height: 20px*$i;
-      background-size: 245px*$i 20px*$i;
+      width: 20px*$i; height: 15px*$i;
+      background-size: 245px*$i 15px*$i;
     }
   }
 }
@@ -34,5 +34,4 @@ $max: 6;
 @include svg-icon('🤓', 2);
 @include svg-icon('😱', 3);
 @include svg-icon('🤫', 4);
-@include svg-icon('🤫2', 5);
-
+@include svg-icon('😎', 5);

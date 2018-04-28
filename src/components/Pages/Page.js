@@ -4,16 +4,15 @@ import { connectToStores } from "fluxible-addons-react";
 
 //import config from "../../config";
 import NavAction from "../../actions/Pages/NavAction";
-//import AccountDialogAction from "../../actions/Dialog/AccountDialogAction";
 //import NotifierAction from "../../actions/Pages/NotifierAction";
 import NotificationComponent from './Notification';
 
 import MainMenu from "./MainMenu";
+//import Nav from "../../components/Pages/Nav";
 import Navs from "../../components/Pages/Navs";
 import TabNav from "./TabNav";
 
 //import Dialog from "../../components/Dialog/Dialog";
-//import AccountDialog from "../../components/Dialog/AccountDialog";
 //import GameModal from "../../components/Games/GameModal";
 //import DialogWrap from "../../components/Dialog/DialogWrap";
 
@@ -22,6 +21,7 @@ if (process.env.BROWSER) {
   require("../../style/Pages/Icons.scss");
   require("../../style/Pages/Emojis.scss");
   require("../../style/Pages/Btn.scss");
+  require("../../style/Pages/Footix.scss");
 }
 
 class Page extends Component {
@@ -57,10 +57,10 @@ class Page extends Component {
         <MainMenu
           isPublic={isPublic} />
 
-        {false && !isPublic &&
-          <Nav />
+        {!isPublic &&
+          <Navs />
         }
-        {false && !isPublic &&
+        {!isPublic &&
           <TabNav />
         }
 

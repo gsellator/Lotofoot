@@ -8,7 +8,6 @@ import config from "../../config";
 import labels from "../../labels";
 
 import HeaderBtn from "../Btns/HeaderBtn";
-import AccountBtn from "../Btns/AccountBtn";
 
 if (process.env.BROWSER) {
   require("../../style/Pages/MainMenu.scss");
