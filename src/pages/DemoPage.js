@@ -31,7 +31,7 @@ class DemoPage extends Component {
         body = <StationfBody />;
       break;
     }
-    
+
     return (
       <div>
         <div className="ScrollPage NoPadding DemoPage">
