@@ -7,7 +7,7 @@ export default {
   name: "ApiService",
 
   read: (req, resource, { endpoint }, conf, done) => {
-    const url = config.apiUri + '/api' + endpoint;
+    const url = config.apiUri + endpoint;
     debug("Sending GET request to %s", url);
     request.get(url)
     .timeout(conf.timeout)
@@ -23,7 +23,7 @@ export default {
   },
 
   create(req, resource, { endpoint }, body, conf, done) {
-    const url = config.apiUri + '/api' + endpoint;
+    const url = config.apiUri + endpoint;
     debug("Sending POST request to %s", url);
     request.post(url)
     .timeout(conf.timeout)
@@ -40,7 +40,7 @@ export default {
   },
 
   update(req, resource, { endpoint }, body, conf, done) {
-    const url = config.apiUri + '/api' + endpoint;
+    const url = config.apiUri + endpoint;
     debug("Sending PUT request to %s", url);
     request.put(url)
     .timeout(conf.timeout)
