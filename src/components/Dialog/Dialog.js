@@ -55,7 +55,7 @@ class Dialog extends Component {
       msg = <div className="Txt">
         <span>Le chargement de certaines données a pris trop de temps. Essayez de recharger la page et contactez-nous si le problème persiste.</span>
       </div>;
-    } else if (error && error === 'Unauthorized'){
+    } else if (error && (error === 'Unauthorized' || error === 'Not Found')){
       msg = <div className="Txt">
         <span>La connexion a échoué, mot de passe ou identifiant incorrect.</span>
       </div>;
@@ -70,7 +70,7 @@ class Dialog extends Component {
         <button ref="MainButton" type="submit" className="Button">Fermer</button>
         <div className="Button Green" onClick={this.reload.bind(this)}>Recharger la page</div>
       </div>;
-    } else if (error && error === 'Unauthorized'){
+    } else if (error && (error === 'Unauthorized' || error === 'Not Found')){
       btns = <div className="ButtonsBlock">
         <button ref="MainButton" type="submit" className="Button">Fermer</button>
         <a className="Button Green" href="/recover">Mot de passe oublié</a>

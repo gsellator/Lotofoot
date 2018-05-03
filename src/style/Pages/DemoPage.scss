@@ -2,8 +2,10 @@
 @import '../constants/breaks';
 
 .DemoPage {
+  text-align: center;
 
+  .Zabivaka{
+    max-width: 300px;
+    margin: auto;
+  }
 }
-
-//@media (max-width: $break-medium){
-//}
