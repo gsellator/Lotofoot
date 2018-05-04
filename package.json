@@ -49,6 +49,7 @@
     "fluxible-plugin-fetchr": "0.3.11",
     "fluxible-router": "1.5.1",
     "french-tv-logos": "^1.4.38",
+    "hoek": "^4.2.1",
     "immutable": "3.8.2",
     "keymirror": "0.1.1",
     "lodash": "4.17.4",
