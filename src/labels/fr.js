@@ -14,10 +14,13 @@ export default {
   create: 'Créer',
   createAccount: 'Créer mon compte',
   clickToPredict: 'Cliquez pour pronostiquer',
+  contactUs: 'Contactez-nous',
 
   delete: 'Supprimer',
   description: 'Description',
   dailyMaj: 'LOTOFOOT',
+  development: 'Développement',
+  contribute: 'Contrubuez au projet',
 
   eightFinal: 'Huitième de finale',
   errorPageL1: 'Une erreur est survenue lors de l\'affichage de cette page...',
@@ -42,6 +45,7 @@ export default {
 
   inProgress: 'En cours',
   inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte',
+  illustrations: 'Illustrations',
 
   key: 'Clé',
   knockoutPhase: 'Phase finale',
@@ -85,6 +89,7 @@ export default {
   send: 'Envoyer',
   semiFinal: 'Demi finale',
   sendFeedback: 'Envoyer un feedback',
+  signUp: 'Inscription',
 
   title: 'Titre',
   toCome: 'À venir',

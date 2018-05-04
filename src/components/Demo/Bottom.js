@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
+import { NavLink } from "fluxible-router";
+import FormatDate from "daily-helpers/dist/FormatDate";
+
 import labels from "../../labels";
 
 if (process.env.BROWSER) {
@@ -14,9 +17,40 @@ class Bottom extends Component {
 
   render() {
     return (
-      <div className="Bottom">
-        Bottom
-      </div>
+      <footer className="Bottom">
+        <div className="Content">
+          <div className="First">
+            <div className="Column">
+              <a className="Title" href="https://github.com/ghislaindj/lotofoot-api" target="_blank">
+                {labels.contribute.toUpperCase()}
+              </a>
+              <a className="Item" href="https://github.com/ghislaindj/lotofoot-api" target="_blank">
+                API
+              </a>
+              <a className="Item" href="https://github.com/gsellator/lotofoot" target="_blank">
+                Front
+              </a>
+            </div>
+
+            <div className="Column">
+              <a className="Title" href={'mailto:' + labels.contactEmail}>
+                {labels.contactUs.toUpperCase()}
+              </a>
+              <a className="Item" href={'mailto:' + labels.contactEmail}>
+                {labels.contactEmail}
+              </a>
+            </div>
+          </div>
+
+          <div className="Credit">
+            <span className="Role">{labels.illustrations}</span>
+            <a className="Name" href="https://fiacrebleu.com/" target="_blank">Fiacrebleu</a>
+            <span className="Role">{labels.development}</span>
+            <a className="Name" href="https://github.com/ghislaindj" target="_blank">@ghislaindj</a>
+            <a className="Name" href="https://github.com/gsellator" target="_blank">@Gsellator</a>
+          </div>
+        </div>
+      </footer>
     );
   }
 }

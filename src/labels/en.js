@@ -14,10 +14,14 @@ export default {
   create: 'Create',
   createAccount: 'Create my account',
   clickToPredict: 'Click to bet',
+  contactEmail: 'hello@lotofoot.io',
+  contactUs: 'Contact us',
+  contribute: 'contribute to this project',
 
   delete: 'Delete',
   description: 'Description',
   dailyMaj: 'LOTOFOOT',
+  development: 'Development',
 
   eightFinal: 'Eighth finals',
   errorPageL1: 'An error occurred while viewing this page...',
@@ -26,7 +30,7 @@ export default {
   final: 'Final',
   firstname: 'First name',
   finished: 'Finished',
-  forgottenPassword: 'Forgotten password',
+  forgottenPassword: 'Forgot your password?',
   finishedGain: 'This bet earns you',
 
   games: 'Matches',
@@ -42,13 +46,14 @@ export default {
 
   inProgress: 'In Progress',
   inProgressGain: 'For now, this bet earns you',
+  illustrations: 'Illustrations',
 
   key: 'Key',
   knockoutPhase: 'Knockout Phase',
 
   lastname: 'Last name',
   logout: 'Logout',
-  login: 'Sign in',
+  login: 'Log in',
 
   menu: 'Menu',
   modify: 'Modify',
@@ -85,6 +90,7 @@ export default {
   send: 'Send',
   semiFinal: 'Semi Final',
   sendFeedback: 'Send feedback',
+  signUp: 'Sign up',
 
   title: 'Title',
   toCome: 'Next',

@@ -1,0 +1,66 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.Body{
+  position: relative;
+  height: calc(100% - 120px);
+  min-height: 600px;
+
+  .IlluContainer{
+    padding: 24px;
+    background: url('../../assets/uiux_help-back.jpg') center center no-repeat;
+    background-size: cover;
+
+    .Illu{
+      height: 320px;
+      background: url('../../assets/footix-2018.svg') center top no-repeat;
+      background-size: contain;
+    }
+  }
+
+  .TextsContainer{
+    display: flex;
+    height: calc(100% - 368px);
+    text-align: center;
+    padding: 0 12px;
+
+    .Texts{
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .Body{
+    min-height: 450px;
+
+    .IlluContainer{
+      padding: 12px;
+
+      .Illu{
+        height: 220px;
+      }
+    }
+
+    .TextsContainer{
+      height: calc(100% - 244px);
+    }
+  }
+}
+
+@media (max-width: $break-small){
+  .Body{
+    min-height: 400px;
+
+    .IlluContainer{
+      .Illu{
+        height: 180px;
+      }
+    }
+
+    .TextsContainer{
+      height: calc(100% - 204px);
+    }
+  }
+}

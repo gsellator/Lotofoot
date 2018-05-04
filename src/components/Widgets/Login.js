@@ -15,7 +15,6 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      
       eyesPos: 0,
       armsPos: false,
     };
@@ -24,22 +23,6 @@ class Login extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired,
-  }
-
-//  componentDidMount(){
-//    this.refs.loginInput.focus();
-//  }
-
-  setEyesPos(){
-    this.setState({ eyesPos: this.state.eyesPos < 18 ? this.state.eyesPos + 1 : 0 })
-  }
-
-  resetEyesPos(){
-    this.setState({ eyesPos: 0 })
-  }
-
-  setArmsPos(){
-    this.setState({ armsPos: !this.state.armsPos })
   }
 
   emailChanged(e) {
@@ -82,30 +65,32 @@ class Login extends Component {
               eyesPos={this.state.eyesPos}
               armsPos={this.state.armsPos} />
 
-            <div>
+            <div className="Input">
               <input type="email" ref="loginInput" value={email} onChange={this.emailChanged.bind(this)} placeholder={labels.email} required
                 autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
                 onFocus={this.emailChanged.bind(this)} onBlur={this.emailBlur.bind(this)} />
             </div>
-            <div>
+            <div className="Input">
               <input type="password" ref="passwordInput" value={password} onChange={this.passwordChanged.bind(this)} placeholder={labels.password} required
                 autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
                 onFocus={this.passwordFocus.bind(this, true)} onBlur={this.passwordFocus.bind(this, false)} />
             </div>
-            {!pending &&
-              <button type="submit">{labels.login}</button>
-            }
-            {pending &&
-              <button type="submit">
-                <LoaderSmall />
-              </button>
-            }
+            <div className="Button">
+              {!pending &&
+                <button type="submit">{labels.login}</button>
+              }
+              {pending &&
+                <button type="submit">
+                  <LoaderSmall />
+                </button>
+              }
+            </div>
+            <div className="Link">
+              <NavLink className="LoginLink" routeName="recoverInit">
+                {labels.forgottenPassword}
+              </NavLink>
+            </div>
           </form>
-          <div>
-            <NavLink className="LoginLink" routeName="recoverInit">
-              {labels.forgottenPassword}
-            </NavLink>
-          </div>
         </div>
       </div>
     );

@@ -33,58 +33,45 @@ class MainMenu extends Component {
     const { isPublic } = this.props;
     const route = this.context.getStore('RouteStore').getCurrentRoute();
     const routeName = route.name;
-    const view = route.params.view;
 
     return (
-      <div className="MainMenu">
+      <menu className="MainMenu">
         {!isPublic &&
-          <menu className="MainMenuContent">
-            <div className="Left">
-              <div>
-                <div className="Desktop" onTouchTap={this.switchNavClick.bind(this)}>
-                  <div className={'btn-36 main ' + config.appName}></div>
-                </div>
-                <div className="Mobile" onTouchTap={this.goToGames.bind(this)}>
-                  <div className="btn-26 main"></div>
-                </div>
+          <div className="MainMenuTab">
+            <div className="MainMenuLeft">
+              <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
+                <div className={'btn-36 main ' + config.appName}></div>
               </div>
             </div>
-            <div className="Center">
+
+            <div className="MainMenuCenter">
               <HeaderBtn />
             </div>
-            <div className="Right">
-
+            <div className="MainMenuRight">
             </div>
-          </menu>
+          </div>
         }
 
         {isPublic &&
-          <menu className="MainMenuContent">
-            <div className="Left">
-              <div>
-                <NavLink className="LoginLink" routeName="demo">
-                  <div className="Desktop">
-                    <div className={'btn-36 main full ' + config.appName}></div>
-                  </div>
-                  <div className="Mobile">
-                    <div className="btn-26 main full"></div>
-                  </div>
-                </NavLink>
-              </div>
-            </div>
-            <div className="Center">
-            </div>
-            <div className="Right">
-              <NavLink className="MenuLink" routeName="register">
-                {labels.createAccount}
+          <div className="MainMenuTab">
+            <div className="MainMenuCenter">
+              <NavLink className="MenuLink" routeName="demo">
+                <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
+                  <div className={'btn-36 main full ' + config.appName}></div>
+                </div>
               </NavLink>
-              <NavLink className="MenuLink" routeName="login">
+            </div>
+            <div className="MainMenuRight">
+              <NavLink className="MenuLink" activeClass="active" routeName="register">
+                {labels.signUp}
+              </NavLink>
+              <NavLink className="MenuLink Featured" activeClass="active" routeName="login">
                 {labels.login}
               </NavLink>
             </div>
-          </menu>
+          </div>
         }
-      </div>
+      </menu>
     );
   }
 }

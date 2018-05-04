@@ -1,0 +1,94 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.Bottom{
+  background: $grey-4;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3) inset;
+  width: calc(100% + 12px);
+  padding: 24px 6px 24px 6px;
+  text-align: center;
+  color: $grey-9;
+
+  *{
+    font-size: $font-size-l;
+  }
+
+  .Content{
+    position: relative;
+    min-width: $break-xsmall;
+    max-width: $content-width;
+    margin: auto;
+    padding: 0 24px;
+
+    .First{
+      display: flex;
+      padding: 0 0 24px 0;
+
+      .Column{
+        flex: 1;
+
+        .Title{
+          color: $grey-dark;
+          cursor: pointer;
+          display: block;
+          font-weight: 500;
+          line-height: 24px;
+        }
+
+        .Item{
+          color: rgb(122, 123, 124);
+          cursor: pointer;
+          display: block;
+          font-weight: 500;
+          line-height: 24px;
+        }
+      }
+    }
+
+    .Credit{
+      border-top: solid $grey-10 1px;
+      padding: 24px 0 0 0;
+      opacity: 0.6;
+      text-align: center;
+
+      *{
+        font-size: $font-size-m;
+      }
+
+      .Role{
+        font-weight: 500;
+        margin: 0 3px 0 9px;
+
+        &:first-child{
+          margin-left: 3px;
+        }
+      }
+
+      .Name{
+        margin: 0 3px 0 3px;
+        color: $footix-blue;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .Bottom{
+    padding: 12px 0;
+
+    .Content{
+      padding: 0 18px;
+
+      .First{
+        display: block;
+
+        .Column{
+          &:not(:first-child) .Title{
+            margin-top: 18px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -6,24 +6,23 @@
   top: 0; right: 0; left: 0;
   height: 58px;
   z-index: 210;
+  margin: 0; padding: 0;
   box-shadow: 0 0 3px rgba(0,0,0,.3);
   background: white;
+  font-size: 0;
+  overflow: hidden;
   user-select: none;
-  overflow-x: auto;
+  white-space: nowrap;
 
-  .MainMenuContent{
+  .MainMenuTab{
     display: flex;
-    justify-content: space-between;
-    margin: 0; padding: 0;
-    height: 58px;
-    overflow: hidden;
-  }
 
-  .Left{
-    flex: 1;
-    padding-left: 6px;
+    .MainMenuLeft{
+      flex: 1;
+      white-space: nowrap;
+    }
 
-    .Desktop{
+    .MainLink{
       cursor: pointer;
       padding: 11px 13px;
 
@@ -31,50 +30,74 @@
       &:active .btn-36{background-position-y: -246px;}
     }
 
-    .Mobile{
-      display: none;
-      cursor: pointer;
-      padding: 8px 6px;
+    .MainMenuCenter{
+      text-align: center;
+      white-space: nowrap;
+
+      &>div:last-child{
+        margin-right: 0;
+      }
     }
-  }
 
-  .Right{
-    flex: 1;
-    text-align: right;
-    padding-right: 6px;
-  }
+    .MainMenuRight{
+      flex: 1;
+      text-align: right;
+      white-space: nowrap;
+      padding: 11px 0;
 
-  .MenuLink{
-    display: inline-block;
-    vertical-align: top;
-    margin: 9px 0 9px 0;
-    line-height: 36px;
-    color: $grey-dark;
-    border: solid $grey-dark 2px;
-    border-radius: 6px;
-    padding: 0 6px;
+      &>a:last-child{
+        margin-right: 12px;
+      }
 
-    &:first-child{
-      margin-right: 6px;
+      .MenuLink{
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 8px;
+        margin: 0 9px 0 0;
+        cursor: pointer;
+        height: 36px;
+        line-height: 34px;
+        color: $grey-10;
+        border: solid transparent 1px;
+        text-transform: capitalize;
+        font-weight: 500;
+
+        &:hover{border-bottom: solid $grey-10 2px;}
+        &:focus{border-bottom: solid $grey-8 2px; outline: none;}
+        &:active{border-bottom: solid $grey-8 2px;}
+        &.active{border-bottom: solid $grey-10 2px;}
+
+        &.Featured{
+          border: solid $grey-10 2px;
+          border-radius: 18px;
+          line-height: 32px;
+          padding: 0 12px;
+
+          &:hover{background: $grey-10; color: white;}
+          &:focus{background: $grey-8; outline: none;}
+          &:active{background: $grey-8;}
+          &.active{background: $grey-10; color: white;}
+        }
+      }
     }
   }
 }
 
 @media (max-width: $break-medium){
   .MainMenu{
-    height: 42px;
+    height: 48px;
 
-    .MainMenuContent{
-      height: 42px;
-    }
-
-    .Left{
-      .Desktop{
-        display: none;
+    .MainMenuTab{
+      .MainLink{
+        padding: 6px 13px;
       }
 
-      .Mobile{
-        display: block;
+      .MainMenuRight{
+        padding: 6px 0;
+
+        &>div:last-child{
+          margin-right: 6px;
+        }
       }
     }
   }

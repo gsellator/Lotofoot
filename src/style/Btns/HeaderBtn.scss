@@ -1,5 +1,6 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .HeaderBtn{
   display: inline-block;
@@ -53,7 +54,7 @@
       .Score{
         display: inline-block;
         vertical-align: top;
-        font-size: 12px;
+//        font-size: 12px;
         font-weight: 500;
       }
     }
