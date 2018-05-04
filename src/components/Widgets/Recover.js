@@ -59,7 +59,7 @@ class Recover extends Component {
             {success &&
               <div>
                <div className="title">
-                  {labels.recoverSuccessTitle}
+                  {labels.wellReceived}
                 </div>
                 <div className="text">
                   {labels.recoverSuccessText}

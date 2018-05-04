@@ -21,8 +21,30 @@
       margin: -140px 0 12px 0;
     }
 
+    .title{
+      margin-top: 24px;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .text{
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
     .Input{
+      display: flex;
       margin: 0 0 6px 0;
+
+      .Label{
+        width: 90px;
+        text-align: right;
+        text-transform: uppercase;
+        font-size: $font-size-s;
+        font-weight: 500;
+        padding-top: 24px;
+        padding-right: 6px;
+      }
 
       input{
         padding: 6px;

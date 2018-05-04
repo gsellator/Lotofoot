@@ -83,9 +83,10 @@ export default {
   resetPassword: 'Reset my password',
   recoverTitle: 'Choose a new password',
   rules: 'Rules',
-  recoverSuccessTitle: 'Well received!',
   recoverSuccessText: 'Your password has been changed.',
   recoverSuccessAction: 'Go to the lotofoot',
+  registerSuccessText: 'Your account has been created.',
+  registerSuccessAction: 'Go to the lotofoot',
 
   send: 'Send',
   semiFinal: 'Semi Final',
@@ -103,6 +104,8 @@ export default {
   emailExample: 'example@me.com',
 
   validate: 'Confirm',
+
+  wellReceived: 'Well received!',
 
   ga: 'Group A',
   gb: 'Group B',

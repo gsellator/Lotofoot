@@ -59,7 +59,7 @@ export default {
     path: "/account",
     method: "get",
     handler: AccountPage,
-    action: InitActions.getContext
+    action: InitActions.me
   },
 
   // Public
