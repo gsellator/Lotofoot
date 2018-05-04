@@ -18,7 +18,7 @@ class DemoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      eyesPos: 18,
+      eyesPos: 0,
       armsPos: false,
     };
   }
