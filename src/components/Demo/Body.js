@@ -15,7 +15,19 @@ class Body extends Component {
   render() {
     return (
       <div className="Body">
-        Body
+        <div className="IlluContainer">
+          <div className="Illu" />
+        </div>
+        <div className="TextsContainer">
+          <div className="Texts">
+            <div>
+              La Coupe du Monde commence le 14 juin.
+            </div>
+            <div>
+              Rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

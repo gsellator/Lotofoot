@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "fluxible-router";
 import PropTypes from 'prop-types';
 
+import Zabivaka from "./Zabivaka";
 import LoaderSmall from "./LoaderSmall";
 
 if (process.env.BROWSER) {
@@ -9,64 +10,83 @@ if (process.env.BROWSER) {
 }
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      eyesPos: 0,
+      armsPos: false,
+    };
+  }
+
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired,
   }
 
-  componentDidMount(){
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    const email = route.query.email;
-    const password = route.query.password;
-    if (email) {this.refs.loginInput.value = email;}
-    if (password) {this.refs.passwordInput.value = password;}
+  inputChanged(name, e) {
+    const txt = e.target ? e.target.value : '';
+    this.setState({
+      [name]: txt,
+      eyesPos: (txt.length + 1) < 36 ? (txt.length + 1) / 2 : 18,
+    });
+  }
 
-    if (email && password) {
-      this.context.executeAction(this.props.loginUser, { email, password });
-    }
+  inputBlur() {
+    this.setState({ eyesPos: 0 });
+  }
 
-    this.refs.loginInput.focus();
+  passwordFocus(value) {
+    this.setState({ armsPos: value });
   }
 
   send(e) {
     e.preventDefault();
     const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const email = this.refs.loginInput.value.replace(/ /g,'');
-    const password = this.refs.passwordInput.value;
-    this.context.executeAction(this.props.loginUser, { route, email, password });
+    this.context.executeAction(this.props.loginUser, { route, email: this.state.email.replace(/ /g,''), password: this.state.password });
   }
 
   render() {
     let { pending, appName, labels } = this.props;
+    let { email, password } = this.state;
 
     return (
       <div className="Login">
         <div className="Box">
           <form onSubmit={this.send.bind(this)}>
-            <div className={'icn-70 ' + appName}></div>
+            <Zabivaka
+              eyesPos={this.state.eyesPos}
+              armsPos={this.state.armsPos} />
 
-            <div>
-              <input type="email" ref="loginInput" placeholder={labels.email} required
-                autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
+            <div className="Input">
+              <input type="email" ref="loginInput" value={email} onChange={this.inputChanged.bind(this, 'email')} placeholder={labels.email} required
+                autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
+                onFocus={this.inputChanged.bind(this, 'email')} onBlur={this.inputBlur.bind(this)} />
             </div>
-            <div>
-              <input type="password" ref="passwordInput" placeholder={labels.password} required
-                autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
+            <div className="Input">
+              <input type="password" ref="passwordInput" value={password} onChange={this.inputChanged.bind(this, 'password')} placeholder={labels.password} required
+                autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
+                onFocus={this.passwordFocus.bind(this, true)} onBlur={this.passwordFocus.bind(this, false)} />
             </div>
-            {!pending &&
-              <button type="submit">{labels.login}</button>
-            }
-            {pending &&
-              <button type="submit">
-                <LoaderSmall />
-              </button>
-            }
+            <div className="Button">
+              {!pending &&
+                <button type="submit">
+                  {labels.login}
+                </button>
+              }
+              {pending &&
+                <button type="submit">
+                  <LoaderSmall />
+                </button>
+              }
+            </div>
+            <div className="Link">
+              <NavLink className="LoginLink" routeName="recoverInit">
+                {labels.forgottenPassword}
+              </NavLink>
+            </div>
           </form>
-          <div>
-            <NavLink className="LoginLink" routeName="recoverInit">
-              {labels.forgottenPassword}
-            </NavLink>
-          </div>
         </div>
       </div>
     );

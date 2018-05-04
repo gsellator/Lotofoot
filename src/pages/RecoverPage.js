@@ -44,7 +44,6 @@ class RecoverPage extends Component {
 RecoverPage = connectToStores(RecoverPage, ["RecoverPageStore"], (context) => {
   return {
     initFailure: context.getStore("RecoverPageStore").getInitFailure(),
-    email: context.getStore("RecoverPageStore").getEmail(),
     pending: context.getStore("RecoverPageStore").getPending(),
     success: context.getStore("RecoverPageStore").getSuccess(),
   };

@@ -5,7 +5,7 @@
 .Paper.PredictionBlock{
   .Title{
     text-align: center;
-    font-size: 18px;
+//    font-size: 18px;
     &:not(:last-child){margin-bottom: 12px;}
   }
   &.Paper .AltPaperTitle{
@@ -20,7 +20,7 @@
     .Inputs{
       input, span{
         font-family: $font-family-numbers;
-        font-size: $font-size-numbers;
+//        font-size: $font-size-numbers;
         font-weight: $font-weight-numbers;
         text-rendering: $text-rendering-numbers;
         height: 40px;
@@ -39,7 +39,7 @@
       transform: translateZ(0);
 
       span{
-        font-size: 15px;
+//        font-size: 15px;
         line-height: 28px;
       }
 

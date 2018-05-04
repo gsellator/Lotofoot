@@ -26,7 +26,7 @@ export default {
     ])
     .then(() => {
       return Promise.all([
-        context.executeAction(ApiAction.postApi, { route, view: 'RecoverUpdate', action: Actions.RECOVER_SUCCESS, body: { password }, isGrant: true }),
+        context.executeAction(ApiAction.postApi, { route, view: 'RecoverUpdate', action: Actions.RECOVER_SUCCESS, body: { password } }),
       ]);
     })
     .then(() => {

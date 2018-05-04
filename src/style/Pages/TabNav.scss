@@ -1,5 +1,6 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .TabNav{
   transform: translate3d(0, 50px, 0);
@@ -44,7 +45,7 @@
       }
       .Label{
         text-align: center;
-        font-size: 11px;
+//        font-size: 11px;
         line-height: 11px;
       }
 

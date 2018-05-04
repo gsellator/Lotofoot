@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { NavLink } from "fluxible-router";
 
+import Zabivaka from "./Zabivaka";
 import LoaderSmall from "./LoaderSmall";
 
 if (process.env.BROWSER) {
@@ -15,7 +16,9 @@ class Register extends Component {
       email: '',
       firstname: '',
       lastname: '',
-      password: ''
+      password: '',
+      eyesPos: 0,
+      armsPos: false,
     };
   }
 
@@ -24,76 +27,110 @@ class Register extends Component {
     getStore: PropTypes.func.isRequired,
   }
 
-  emailChanged(e) {
-    this.setState({email: e.target.value});
+  inputChanged(name, e) {
+    const txt = e.target ? e.target.value : '';
+    this.setState({
+      [name]: txt,
+      eyesPos: (txt.length + 1) < 36 ? (txt.length + 1) / 2 : 18,
+    });
   }
 
-  firstnameChanged(e) {
-    this.setState({firstname: e.target.value});
+  inputBlur() {
+    this.setState({ eyesPos: 0 });
   }
 
-  lastnameChanged(e) {
-    this.setState({lastname: e.target.value});
+  passwordFocus(value) {
+    this.setState({ armsPos: value });
   }
 
-  passwordChanged(e) {
-    this.setState({password: e.target.value});
-  }
-
-  registerUser(e) {
+  send(e) {
     e.preventDefault();
+    const route = this.context.getStore('RouteStore').getCurrentRoute();
     const body = {
       email: this.state.email,
+      username: this.state.email,
       password: this.state.password,
       firstname: this.state.firstname,
       lastname: this.state.lastname,
     }
-    this.context.executeAction(RegisterAction.registerUser, { body });
+    this.context.executeAction(this.props.registerUser, {
+      route,
+      email: this.state.email,
+      password: this.state.password,
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+    });
   }
 
   render() {
-    const { appName, pending, labels } = this.props;
+    const { pending, success, labels } = this.props;
     const { email, password, firstname, lastname } = this.state;
 
     return (
       <div className="Login">
         <div className="Box">
-          <form onSubmit={this.registerUser.bind(this)}>
-            <div className={'icn-70 ' + appName}></div>
+          {!success &&
+            <form onSubmit={this.send.bind(this)}>
+              <Zabivaka
+                eyesPos={this.state.eyesPos}
+                armsPos={this.state.armsPos} />
 
-            <div className="Input">
-              <div className="Label">Email</div>
-              <input type="email" value={email} onChange={this.emailChanged.bind(this)} ref="emailInput" required
-              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"/>
+              <div className="Input">
+                <div className="Label">{labels.email}</div>
+                <input type="email" value={email} onChange={this.inputChanged.bind(this, 'email')} ref="emailInput" required
+                placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="on" maxLength="1024"
+                onFocus={this.inputChanged.bind(this, 'email')} onBlur={this.inputBlur.bind(this)} />
+              </div>
+
+              <div className="Input">
+                <div className="Label">{labels.firstname}</div>
+                <input type="text" value={firstname} onChange={this.inputChanged.bind(this, 'firstname')} required
+                placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
+                onFocus={this.inputChanged.bind(this, 'firstname')} onBlur={this.inputBlur.bind(this)} />
+              </div>
+
+              <div className="Input">
+                <div className="Label">{labels.lastname}</div>
+                <input type="text" value={lastname} onChange={this.inputChanged.bind(this, 'lastname')} required
+                placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
+                onFocus={this.inputChanged.bind(this, 'lastname')} onBlur={this.inputBlur.bind(this)} />
+              </div>
+
+              <div className="Input">
+                <div className="Label">{labels.password}</div>
+                <input type="password" value={password} onChange={this.inputChanged.bind(this, 'password')} required
+                placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"
+                onFocus={this.passwordFocus.bind(this, true)} onBlur={this.passwordFocus.bind(this, false)} />
+              </div>
+
+              <div className="Button">
+                {!pending &&
+                  <button type="submit">
+                    {labels.createAccount}
+                  </button>
+                }
+                {pending &&
+                  <button type="submit">
+                    <LoaderSmall />
+                  </button>
+                }
+              </div>
+            </form>
+          }
+
+          {success &&
+            <div>
+             <div className="title">
+                {labels.wellReceived}
+              </div>
+              <div className="text">
+                {labels.registerSuccessText}
+              </div>
+              <NavLink className="OnBoardBtn" routeName="home">
+                {labels.registerSuccessAction}
+              </NavLink>
             </div>
-
-            <div className="Input">
-              <div className="Label">Prénom</div>
-              <input type="text" value={firstname} onChange={this.firstnameChanged.bind(this)} required
-              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
-            </div>
-
-            <div className="Input">
-              <div className="Label">Nom</div>
-              <input type="text" value={lastname} onChange={this.lastnameChanged.bind(this)} required
-              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024"/>
-            </div>
-
-            <div className="Input">
-              <div className="Label">Mot de passe</div>
-              <input type="password" value={password} onChange={this.passwordChanged.bind(this)} required
-              placeholder={labels.required} autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" />
-            </div>
-
-            {!pending &&
-              <button type="submit">{labels.createAccount}</button>
-            }
-            {pending &&
-              <button type="submit">
-                <div className="Loader"></div>
-              </button>
-            }
-          </form>
+          }
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 
 import Register from "../components/Widgets/Register";
+import StationfRegister from "../components/Widgets/Register";
 
 import RegisterAction from "../actions/Pages/RegisterAction";
 import labels from "../labels";
@@ -21,14 +22,41 @@ class RegisterPage extends Component {
   }
 
   render() {
-    const { pending } = this.props;
+    const { pending, success } = this.props;
+
+    let register= <Register
+      pending={pending}
+      success={success}
+      labels={labels}
+      registerUser={RegisterAction.registerUser} />;
+
+    switch(config.appName) {
+      case 'lotofoot-pre':
+        register = <Register
+          pending={pending}
+          success={success}
+          labels={labels}
+          registerUser={RegisterAction.registerUser} />;
+      break;
+      case 'lotofoot':
+        register = <Register
+          pending={pending}
+          success={success}
+          labels={labels}
+          registerUser={RegisterAction.registerUser} />;
+      break;
+      case 'lotofoot-stationf':
+        register = <StationfRegister
+          pending={pending}
+          success={success}
+          labels={labels}
+          registerUser={RegisterAction.registerUser} />;
+      break;
+    }
 
     return (
       <div className="LoginPage ScrollPage NoPadding RegisterPage">
-        <Register
-          appName={config.appName}
-          pending={pending}
-          labels={labels} />
+        {register}
       </div>
     );
   }
@@ -37,6 +65,7 @@ class RegisterPage extends Component {
 RegisterPage = connectToStores(RegisterPage, ["RegisterPageStore"], (context) => {
   return {
     pending: context.getStore("RegisterPageStore").getPending(),
+    success: context.getStore("RegisterPageStore").getSuccess(),
   };
 }, {getStore: PropTypes.func});
 

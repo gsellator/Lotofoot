@@ -13,14 +13,12 @@ class RecoverPageStore extends BaseStore {
   constructor(dispatcher) {
     super(dispatcher);
     this.initFailure = false;
-    this.email = undefined;
     this.pending = false;
     this.success = false;
   }
 
   handleInitOk({ data, route, url }) {
     this.initFailure = data && data._id ? false : true;
-//    this.email = data && data.email ? data.email : undefined;
     this.pending = false;
     this.success = false;
     this.emitChange();
@@ -39,14 +37,12 @@ class RecoverPageStore extends BaseStore {
   }
 
   getPending() {return this.pending;}
-  getEmail() {return this.email;}
   getInitFailure() {return this.initFailure;}
   getSuccess() {return this.success;}
 
   dehydrate() {
     return {
       pending: this.pending,
-      email: this.email,
       initFailure: this.initFailure,
       success: this.success,
     };
@@ -54,7 +50,6 @@ class RecoverPageStore extends BaseStore {
 
   rehydrate(state) {
     this.pending = state.pending;
-    this.email = state.email;
     this.initFailure = state.initFailure;
     this.success = state.success;
   }

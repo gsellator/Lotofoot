@@ -1,25 +1,28 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .Login{
   display: flex;
   height: 100%;
-  min-height: 424px;
+  min-height: 700px;
 
   .Box{
     margin: auto;
-    width: 400px;
-    padding: 24px 36px;
+    width: 360px;
+    padding: 0 24px 24px 24px;
     background: white;
     z-index: 201;
     border-radius: 16px;
     text-align: center;
 
-    .icn-70{
-      margin: auto;
+    .Zabivaka{
+      max-width: 300px;
+      margin: -140px 0 12px 0;
     }
 
     .title{
+      margin-top: 24px;
       font-size: 20px;
       margin-bottom: 6px;
     }
@@ -29,135 +32,92 @@
       margin-bottom: 12px;
     }
 
-    input{
+    .Input{
+      display: flex;
       margin: 0 0 6px 0;
-      padding: 6px;
-      width: 100%; height: 40px;
-      font-size: 19px;
-      color: $grey-dark;
-      background: transparent;
-      border: none;
-      border-bottom: solid $grey-dark 1px;
-      transition: all .3s ease;
-      border-radius: 0;
-      &.password{ display: inline-block; width: 73%;}
 
-      &:focus {
-        outline: 0;
-        background-color: rgba(255, 255, 255, 0.1);
-        border: none;
-        border-bottom: solid $grey-dark 1px;
-      }
-    }
-
-    button{
-      position: relative;
-      margin: 18px 0 0 0;
-      width: 100%; height: 40px;
-      background-color: transparent;
-      border: 1px solid $grey-dark;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all .3s ease;
-      color: $grey-dark;
-      &:hover{background-color: $grey-2;}
-      &:active{background-color: $grey-1;}
-      &:focus {background-color: $grey-2; outline: 0;}
-    }
-
-    .LoginLink{
-      display: inline-block;
-      vertical-align: top;
-      color: $grey-dark;
-      opacity: 0.5;
-      transition: all .3s ease;
-      line-height: 16px;
-      margin: 18px 0 0 0;
-
-      &:hover{opacity: 1;}
-      &:active{opacity: 0.7;}
-    }
-
-    .LoginLinkSpacer{
-      display: inline-block;
-      vertical-align: top;
-      color: $grey-dark;
-      opacity: 0.5;
-      line-height: 16px;
-      margin: 18px 6px 0 6px;
-
-    }
-
-    table{
-      width: 100%;
-
-      tr td:first-child{
-        max-width: 90px;
+      .Label{
+        width: 90px;
         text-align: right;
+        text-transform: uppercase;
+        font-size: $font-size-s;
+        font-weight: 500;
+        padding-top: 24px;
         padding-right: 6px;
       }
+
+      input{
+        padding: 6px;
+        width: 100%; height: 40px;
+        font-size: $font-size-xxl;
+        color: $grey-dark;
+        background: transparent;
+        border: none;
+        border-bottom: solid $grey-dark 1px;
+        transition: all .3s ease;
+        border-radius: 0;
+
+        &:focus {
+          outline: 0;
+          background-color: rgba(255, 255, 255, 0.1);
+          border: none;
+          border-bottom: solid $grey-dark 1px;
+        }
+      }
     }
 
-    //    .RegisterCall{
-    //      margin: 12px 0 24px 0;
-    //      padding-bottom: 24px;
-    //      border-bottom: dotted $grey-dark 1px;
-    //
-    //      .LoginButton{
-    //        display: inline-block;
-    //        vertical-align: top;
-    //        line-height: 38px;
-    //        width: 100%; height: 40px;
-    //        background-color: transparent;
-    //        border: 1px solid $grey-dark;
-    //        border-radius: 2px;
-    //        cursor: pointer;
-    //        transition: all .3s ease;
-    //        color: $grey-dark;
-    //        &:hover{background-color: $grey-2;}
-    //        &:active{background-color: $grey-1;}
-    //        &:focus {background-color: $grey-2; outline: 0;}
-    //      }
-    //    }
-  }
+    .Button{
+      margin: 18px 0 0 0;
 
-  &.Anim-enter{
-    opacity: 0;
-    transform: translate3d(0, -100px, 0);
-  }
+      button{
+        position: relative;
+        width: 100%; height: 40px;
+        background-color: transparent;
+        border: 1px solid $grey-dark;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all .3s ease;
+        color: $grey-dark;
+        &:hover{background-color: $grey-2;}
+        &:active{background-color: $grey-1;}
+        &:focus {background-color: $grey-2; outline: 0;}
+      }
+    }
 
-  &.Anim-enter.Anim-enter-active{
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  }
+    .Link{
+      margin: 12px 0 0 0;
 
-  &.Anim-leave{
-    opacity: 1;
-  }
+      .LoginLink{
+        display: inline-block;
+        vertical-align: top;
+        color: $grey-dark;
+        line-height: 16px;
 
-  &.Anim-leave.Anim-leave-active{
-    opacity: 0;
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        &:hover{color: $grey-9;}
+        &:active{color: $blue-fluo;}
+      }
+    }
   }
 }
 
 @media (max-width: $break-medium){
   .Login{
+    min-height: 540px;
+
     .Box{
       width: 296px;
-      padding: 12px 24px;
-      background: white;
-      z-index: 201;
-      border-radius: 16px;
-      text-align: center;
+      padding: 0 12px 12px 12px;
 
-      .title{
-        font-size: 18px;
+      .Zabivaka{
+        max-width: 200px;
+        margin: -100px 0 12px 0;
       }
 
-      .text{
-        font-size: 14px;
+      .Input{
+        input{
+          padding: 6px;
+          font-size: $font-size-xl;
+        }
       }
     }
   }
