@@ -40,7 +40,7 @@ class PredictionsByGameTab extends Component {
                 {teamsData[item.game.teamA] &&
                   <div className="Team">
                     <div className="Flag">
-                      <div className={'flag-12 ' + teamsData[item.game.teamA].slug} />
+                      <div className={'flag f-12 ' + teamsData[item.game.teamA].slug} />
                    </div>
                   </div>
                 }
@@ -54,7 +54,7 @@ class PredictionsByGameTab extends Component {
                 {teamsData[item.game.teamB] &&
                   <div className="Team">
                     <div className="Flag">
-                      <div className={'flag-12 ' + teamsData[item.game.teamB].slug} />
+                      <div className={'flag f-12 ' + teamsData[item.game.teamB].slug} />
                     </div>
                   </div>
                 }

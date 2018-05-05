@@ -17,6 +17,7 @@ import DialogWrap from "../../components/Dialog/DialogWrap";
 if (process.env.BROWSER) {
   require("../../style/Pages/Page.scss");
   require("../../style/Pages/Icons.scss");
+  require("../../style/Pages/Flags.scss");
   require("../../style/Pages/Emojis.scss");
   require("../../style/Pages/Btn.scss");
   require("../../style/Pages/Footix.scss");
