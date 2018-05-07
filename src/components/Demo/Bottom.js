@@ -47,7 +47,8 @@ class Bottom extends Component {
             <a className="Name" href="https://fiacrebleu.com/" target="_blank">Fiacrebleu</a>
             <span className="Role">{labels.development}</span>
             <a className="Name" href="https://github.com/ghislaindj" target="_blank">@ghislaindj</a>
-            <a className="Name" href="https://github.com/gsellator" target="_blank">@Gsellator</a>
+            <a className="Name" href="https://github.com/partomatl" target="_blank">@partomatl</a>
+            <a className="Name" href="https://github.com/gsellator" target="_blank">@gsellator</a>
           </div>
         </div>
       </footer>
