@@ -16,22 +16,22 @@ export default {
   clickToPredict: 'Click to bet',
   contactEmail: 'hello@lotofoot.io',
   contactUs: 'Contact us',
-  contribute: 'contribute to this project',
+  contribute: 'Contribute to this project',
 
   delete: 'Delete',
   description: 'Description',
   dailyMaj: 'LOTOFOOT',
   development: 'Development',
 
-  eightFinal: 'Eighth finals',
-  errorPageL1: 'An error occurred while viewing this page...',
+  eightFinal: 'Round of 32',
+  errorPageL1: 'An error occurred while rendering this page...',
   errorPageL2: 'Back to homepage',
 
   final: 'Final',
   firstname: 'First name',
   finished: 'Finished',
   forgottenPassword: 'Forgot your password?',
-  finishedGain: 'This bet earns you',
+  finishedGain: 'This bet gives you',
 
   games: 'Matches',
   game: 'Match',
@@ -45,7 +45,7 @@ export default {
   homeMini: 'Matches',
 
   inProgress: 'In Progress',
-  inProgressGain: 'For now, this bet earns you',
+  inProgressGain: 'For now, this bet gives you',
   illustrations: 'Illustrations',
 
   key: 'Key',
@@ -56,7 +56,7 @@ export default {
   login: 'Log in',
 
   menu: 'Menu',
-  modify: 'Modify',
+  modify: 'Edit',
   myPrediction: 'My bet',
 
   notfoundPageL1: 'The page you requested is not available...',
@@ -65,18 +65,18 @@ export default {
   ok: 'OK',
 
   password: 'Password',
-  predictions: 'Mes bets',
+  predictions: 'My bets',
   point: 'point',
   points: 'points',
 
-  quarterFinal: 'quarter Final',
+  quarterFinal: 'Quarter-Final',
 
   ranking: 'General ranking',
   rankingMini: 'Ranking',
   refresh: 'Refresh',
   required: '(required)',
   recoverInitTitle: 'Forgotten password',
-  recoverInitText: 'Enter your e-mail address so we can send you a link to reset your password',
+  recoverInitText: 'Enter your e-mail address so that we can send you a link to reset your password',
   recoverInitTitleOk: 'Check your emails',
   recoverInitTextOk: 'We successfully received your request. An email allowing you to reset your password has been sent to you at ',
   recoverInitTextOk2: 'Remember to check your spams.',
@@ -84,18 +84,18 @@ export default {
   recoverTitle: 'Choose a new password',
   rules: 'Rules',
   recoverSuccessText: 'Your password has been changed.',
-  recoverSuccessAction: 'Go to the lotofoot',
+  recoverSuccessAction: 'Go to the Lotofoot',
   registerSuccessText: 'Your account has been created.',
-  registerSuccessAction: 'Go to the lotofoot',
+  registerSuccessAction: 'Go to the Lotofoot',
 
   send: 'Send',
-  semiFinal: 'Semi Final',
+  semiFinal: 'Semi-Final',
   sendFeedback: 'Send feedback',
   signUp: 'Sign up',
 
   title: 'Title',
   toCome: 'Next',
-  toPredict: 'À pronostiquer',
+  toPredict: 'Matches you can bet on',
   tabToPredict: 'Tap to bet',
   tooLate: 'It\'s too late, you can\'t bet on this match anymore',
   tooLate2: 'It\'s too late, all bets are closed',
