@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { NavLink } from "fluxible-router";
+
+import Zabivaka from "./Zabivaka";
 import LoaderSmall from "./LoaderSmall";
 
 if (process.env.BROWSER) {
@@ -8,14 +10,30 @@ if (process.env.BROWSER) {
 }
 
 class Recover extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      password: '',
+      eyesPos: 0,
+      armsPos: false,
+    };
+  }
+
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired,
   }
 
-  componentDidMount(){
-    if (!this.props.initFailure && !this.props.success)
-      this.refs.passwordInput.focus();
+  inputChanged(name, e) {
+    const txt = e.target ? e.target.value : '';
+    this.setState({
+      [name]: txt,
+      eyesPos: (txt.length + 1) < 36 ? (txt.length + 1) / 2 : 18,
+    });
+  }
+
+  passwordFocus(value) {
+    this.setState({ armsPos: value });
   }
 
   send(e) {
@@ -25,34 +43,42 @@ class Recover extends Component {
       route,
       recoverToken: route.params.recovertoken,
       email: this.props.email,
-      password: this.refs.passwordInput.value
+      password: this.state.password
     });
   }
 
   render() {
-    let { pending, success, email, labels } = this.props;
+    let { pending, success, labels } = this.props;
+    let { password } = this.state;
 
     return (
       <div className="Login">
         <div className="Box">
           <form onSubmit={this.send.bind(this)}>
+            <Zabivaka
+              eyesPos={this.state.eyesPos}
+              armsPos={this.state.armsPos} />
+
             {!success &&
               <div>
                 <div className="title">
                   {labels.recoverTitle}
                 </div>
-                <div>
-                  <input type="password" ref="passwordInput" placeholder={labels.password} required
-                    autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off"/>
+                <div className="Input">
+                  <input type="password" ref="passwordInput" value={password} onChange={this.inputChanged.bind(this, 'password')} placeholder={labels.password} required
+                    autoComplete="off" spellCheck="false" autoCorrect="off" autoCapitalize="off" maxLength="1024" 
+                    onFocus={this.passwordFocus.bind(this, true)} onBlur={this.passwordFocus.bind(this, false)} />
                 </div>
-                {!pending &&
-                  <button type="submit">{labels.resetPassword}</button>
-                }
-                {pending &&
-                  <button type="submit">
-                    <LoaderSmall />
-                  </button>
-                }
+                <div className="Button">
+                  {!pending &&
+                    <button type="submit">{labels.resetPassword}</button>
+                  }
+                  {pending &&
+                    <button type="submit">
+                      <LoaderSmall />
+                    </button>
+                  }
+                </div>
               </div>
             }
 

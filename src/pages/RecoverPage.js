@@ -26,14 +26,13 @@ class RecoverPage extends Component {
   }
 
   render() {
-    const { pending, success, email } = this.props;
+    const { pending, success } = this.props;
 
     return (
       <div className="LoginPage ScrollPage NoPadding">
         <Recover
           pending={pending}
           success={success}
-          email={email}
           labels={labels}
           sendPassword={RecoverAction.recoverUpdate} />
       </div>
