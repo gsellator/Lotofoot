@@ -46,13 +46,6 @@ class Register extends Component {
   send(e) {
     e.preventDefault();
     const route = this.context.getStore('RouteStore').getCurrentRoute();
-    const body = {
-      email: this.state.email,
-      username: this.state.email,
-      password: this.state.password,
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-    }
     this.context.executeAction(this.props.registerUser, {
       route,
       email: this.state.email,
