@@ -71,6 +71,11 @@
     &.full{width: 120px;}
   }
 
+  &.main.lotofoot-stationf{
+    background-position: -130px -166px;
+    width: 70px;
+  }
+
   &:hover{background-position-y:-206px;}
   &:active{background-position-y:-246px;}
 }
