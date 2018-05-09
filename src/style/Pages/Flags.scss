@@ -1,0 +1,66 @@
+.flag{
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url('../../assets/flags/default.svg');
+}
+
+.f-60{
+  background-size: 90px 60px;
+  width: 90px; height: 60px;
+}
+
+.f-12{
+  background-size: 18px 12px;
+  width: 18px; height: 12px;
+}
+
+@mixin flag($country){
+  .flag.#{$country}{
+    background-image: url('../../assets/flags/#{$country}.svg');
+  }
+}
+
+@include flag('albania');
+@include flag('argentina');
+@include flag('australia');
+@include flag('austria');
+@include flag('belgium');
+@include flag('brazil');
+@include flag('colombia');
+@include flag('costa-rica');
+@include flag('croatia');
+@include flag('czech-republic');
+@include flag('denmark');
+@include flag('egypt');
+@include flag('england');
+@include flag('france');
+@include flag('germany');
+@include flag('hungary');
+@include flag('iceland');
+@include flag('iran');
+@include flag('ireland');
+@include flag('italy');
+@include flag('japan');
+@include flag('mexico');
+@include flag('morocco');
+@include flag('nigeria');
+@include flag('northern-ireland');
+@include flag('panama');
+@include flag('peru');
+@include flag('poland');
+@include flag('portugal');
+@include flag('romania');
+@include flag('russia');
+@include flag('saudi-arabia');
+@include flag('senegal');
+@include flag('serbia');
+@include flag('slovakia');
+@include flag('south-korea');
+@include flag('spain');
+@include flag('sweden');
+@include flag('switzerland');
+@include flag('tunisia');
+@include flag('turkey');
+@include flag('ukraine');
+@include flag('uruguay');
+@include flag('wales');

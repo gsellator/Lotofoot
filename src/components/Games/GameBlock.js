@@ -53,7 +53,7 @@ class GameBlock extends Component {
                 {!data.teamA &&
                   <div className="Team">
                     <div className="Flag">
-                      <div className="flag-60" />
+                      <div className="flag f-60" />
                     </div>
                     <div className="Label">{labels[data.futureTeamA]}</div>
                   </div>
@@ -61,7 +61,7 @@ class GameBlock extends Component {
                 {data.teamA &&
                   <div className="Team">
                     <div className="Flag">
-                      <div className={'flag-60 ' + data.teamA.slug} />
+                      <div className={'flag f-60 ' + data.teamA.slug} />
                     </div>
                     <div className="Label">{labels[data.teamA.slug.replace('-', '')]}</div>
                   </div>
@@ -94,7 +94,7 @@ class GameBlock extends Component {
                 {data.teamB &&
                   <div className="Team">
                     <div className="Flag">
-                      <div className={'flag-60 ' + data.teamB.slug} />
+                      <div className={'flag f-60 ' + data.teamB.slug} />
                     </div>
                     <div className="Label">{labels[data.teamB.slug.replace('-', '')]}</div>
                   </div>
@@ -102,7 +102,7 @@ class GameBlock extends Component {
                 {!data.teamB &&
                   <div className="Team">
                     <div className="Flag">
-                      <div className="flag-60" />
+                      <div className="flag f-60" />
                     </div>
                     <div className="Label">{labels[data.futureTeamB]}</div>
                   </div>

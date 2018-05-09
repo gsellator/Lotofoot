@@ -39,7 +39,7 @@ class GroupRanking extends Component {
                     <span>{'#' + (i+1)}</span>
                   </div>
                   <div>
-                    <span className={'flag-12 ' + item.slug} />
+                    <span className={'flag f-12 ' + item.slug} />
                     <span>{labels[item.slug.replace('-', '')]}</span>
                   </div>
                   <div>{item.points}</div>

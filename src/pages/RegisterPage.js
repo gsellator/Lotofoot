@@ -4,7 +4,7 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 
 import Register from "../components/Widgets/Register";
-import StationfRegister from "../components/Widgets/Register";
+import StationfRegister from "../components/Widgets/StationfRegister";
 
 import RegisterAction from "../actions/Pages/RegisterAction";
 import labels from "../labels";

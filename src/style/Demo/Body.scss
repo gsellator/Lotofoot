@@ -2,10 +2,17 @@
 @import '../constants/breaks';
 @import '../constants/typography';
 
+@font-face {
+  font-family: 'CargoRegular';
+  src: url('../../assets/Cargo-Regular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .Body{
   position: relative;
   height: calc(100% - 120px);
-  min-height: 600px;
+  min-height: 700px;
 
   .IlluContainer{
     padding: 24px;
@@ -26,7 +33,35 @@
     padding: 0 12px;
 
     .Texts{
+      max-width: $text-width;
       margin: auto;
+
+      h2{
+        span{
+          font-family: 'CargoRegular';
+          color: #000;
+          font-size: $font-size-big-2;
+          font-weight: normal;
+          font-style: normal;
+
+          &.Suffixe{
+            color: #00ff72;
+          }
+        }
+      }
+
+      h3{
+        font-family: 'CargoRegular';
+        color: #000;
+        font-size: $font-size-xxxl;
+        font-weight: normal;
+        font-style: normal;
+        margin-top: -9px;
+      }
+
+      p{
+        font-size: $font-size-xl;
+      }
     }
   }
 }
@@ -61,6 +96,14 @@
 
     .TextsContainer{
       height: calc(100% - 204px);
+
+      .Texts{
+        h2{
+          span{
+            font-size: $font-size-big-1;
+          }
+        }
+      }
     }
   }
 }

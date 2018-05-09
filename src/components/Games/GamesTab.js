@@ -44,7 +44,7 @@ class GamesTab extends Component {
                         </div>
                         {item.teamA &&
                           <div className="Left">
-                            <div className={'flag-12 ' + item.teamA.slug} />
+                            <div className={'flag f-12 ' + item.teamA.slug} />
                             <div className="TeamLabel">{labels[item.teamA.slug.replace('-', '')]}</div>
                           </div>
                         }
@@ -78,7 +78,7 @@ class GamesTab extends Component {
                         </div>
                         {item.teamB &&
                           <div className="Right">
-                            <div className={'flag-12 ' + item.teamB.slug} />
+                            <div className={'flag f-12 ' + item.teamB.slug} />
                             <div className="TeamLabel">{labels[item.teamB.slug.replace('-', '')]}</div>
                           </div>
                         }
