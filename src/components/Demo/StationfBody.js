@@ -20,11 +20,11 @@ class StationfBody extends Component {
         </div>
         <div className="TextsContainer">
           <div className="Texts">
-            <div>
-              La Coupe du Monde commence le 14 juin.
+          <div>
+              La Coupe du Monde de football commence le 14 juin en Russie.
             </div>
             <div>
-              Rejoignez dès maintenant le grand Lotofoot Station F de la coupe du monde 2018.
+              Que vous soyez un expert du ballon rond ou un novice complet, rejoignez le Lotofoot de Station F pour pronostiquer le résultat des matchs, représenter votre programme mais surtout terrasser vos collègues.
             </div>
           </div>
         </div>
