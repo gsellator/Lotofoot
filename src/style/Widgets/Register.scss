@@ -37,19 +37,19 @@
   }
 }
 
-//@media (max-width: $break-medium){
-//  .Register{
-//    .Box{
-//      .Input{
-//        select{
-//          font-size: $font-size-s;
-//        }
-//
-//        input{
-//          padding: 6px;
-//          font-size: $font-size-m;
-//        }
-//      }
-//    }
-//  }
-//}
+@media (max-width: $break-medium){
+  .Register{
+    .Box{
+      .Input{
+        select{
+          font-size: $font-size-s;
+        }
+
+        input{
+          padding: 6px;
+          font-size: $font-size-m;
+        }
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ class RegisterPage extends Component {
   render() {
     const { pending, success } = this.props;
 
-    let register= <Register
+    let register= <StationfRegister
       pending={pending}
       success={success}
       labels={labels}

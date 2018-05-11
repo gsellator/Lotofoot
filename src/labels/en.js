@@ -95,7 +95,7 @@ export default {
 
   title: 'Title',
   toCome: 'Next',
-  toPredict: 'Matches you can bet on',
+  toPredict: 'Left to bet',
   tabToPredict: 'Tap to bet',
   tooLate: 'It\'s too late, you can\'t bet on this match anymore',
   tooLate2: 'It\'s too late, all bets are closed',
@@ -217,6 +217,18 @@ export default {
   uruguay: 'Uruguay',
   wales: 'Wales',
 
+  luzhniki: 'Luzhniki stafium, Moscow',
+  otkritie: 'Otkritie Arena, Moscow',
+  krestovsky: 'Krestovsky Stadium, Saint Petersburg',
+  fisht: 'Fisht Olympic Stadium, Sochi',
+  kazan: 'Kazan Arena, Kazan',
+  volgograd: 'Volgograd Arena, Volgograd',
+  kaliningrad: 'Kaliningrad Stadium, Kaliningrad',
+  ekaterinburg: 'Ekaterinburg Arena, Yekaterinburg',
+  mordovia: 'Mordovia Arena, Saransk',
+  'nizhny-novgorod': 'Nizhny Novgorod Stadium, Nizhny Novgorod',
+  rostov: 'Rostov Arena, Rostov-on-Don',
+  cosmos: 'Cosmos Arena, Samara',
 
   helpL1: `Amis Footix, le but de ce Lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de l'Euro. ` +
     `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
