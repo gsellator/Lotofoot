@@ -6,7 +6,7 @@ import Zabivaka from "./Zabivaka";
 import LoaderSmall from "./LoaderSmall";
 
 if (process.env.BROWSER) {
-  require("../../style/Pages/RegisterPage.scss");
+  require("../../style/Widgets/Register.scss");
 }
 
 class Register extends Component {
@@ -61,7 +61,7 @@ class Register extends Component {
     const { email, domain, password, firstname, lastname } = this.state;
 
     return (
-      <div className="Register">
+      <div className="Login Register">
         <div className="Box">
           {!success &&
             <form onSubmit={this.send.bind(this)}>

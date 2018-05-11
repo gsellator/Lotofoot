@@ -18,11 +18,19 @@
     filter: alpha(opacity=20);
     z-index: 1;
   }
+
+  .Login{
+    min-height: 700px;
+  }
 }
 
 @media (max-width: $break-medium){
   .LoginPage.ScrollPage.NoPadding {
     &:before {
+      min-height: 540px;
+    }
+
+    .Login{
       min-height: 540px;
     }
   }

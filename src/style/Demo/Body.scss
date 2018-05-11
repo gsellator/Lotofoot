@@ -12,7 +12,7 @@
 .Body{
   position: relative;
   height: calc(100% - 120px);
-  min-height: 700px;
+  min-height: 600px;
 
   .IlluContainer{
     padding: 24px;
@@ -64,6 +64,10 @@
       }
     }
   }
+
+  &.StationfBody{
+    min-height: 800px;
+  }
 }
 
 @media (max-width: $break-medium){
@@ -80,6 +84,10 @@
 
     .TextsContainer{
       height: calc(100% - 244px);
+    }
+
+    &.StationfBody{
+      min-height: 640px;
     }
   }
 }
@@ -104,6 +112,10 @@
           }
         }
       }
+    }
+
+    &.StationfBody{
+      min-height: 540px;
     }
   }
 }

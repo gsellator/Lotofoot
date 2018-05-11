@@ -6,7 +6,7 @@ export default {
   appUri: 'https://www.lotofoot.io',
   cookie: 'lotofoot_token',
 
-  apiUri: process.env.API_URI,
+  apiUri: process.env.API_URI || 'https://lotofoot-api.herokuapp.com/api',
   appName: process.env.APP_NAME,
   trackingId: process.env.TRACKING_ID,
 };
