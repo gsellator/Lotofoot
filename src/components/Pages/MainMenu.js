@@ -55,8 +55,8 @@ class MainMenu extends Component {
         {isPublic &&
           <div className="MainMenuTab">
             <div className="MainMenuCenter">
-              <NavLink className="MenuLink" routeName="demo">
-                <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
+              <NavLink className="MenuLink" routeName="home">
+                <div className="MainLink">
                   <div className={'btn-36 main full ' + config.appName}></div>
                 </div>
               </NavLink>

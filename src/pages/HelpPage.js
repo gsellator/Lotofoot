@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink, RouteStore } from "fluxible-router";
+
 import Actions from "../constants/Actions";
 import ApiAction from "../actions/Pages/ApiAction";
 import config from "../config";
+import labels from "../labels";
 
 import HelpBlock from "../components/Help/HelpBlock";
 
@@ -34,7 +36,9 @@ class HelpPage extends Component {
             <div className="FootixLoader" />
             <HelpBlock />
             <div className="Footer">
-              En cas de problème ou pour toute question, contactez-nous à l'adresse <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>.
+              <span>{labels.helpL4}</span>
+              <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>
+              <span>.</span>
             </div>
           </div>
         </div>

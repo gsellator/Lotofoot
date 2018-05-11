@@ -82,13 +82,6 @@ class NavFull extends Component {
             </div>
           </div>
         )}
-
-        <div className="LinkSpacer"></div>
-
-        <div className={pageName == 'account' ? 'Link active' : 'Link'} onTouchTap={NavHelper.navToSectClick.bind(this, 'account', '')}>
-          <div className="btn-26 account"></div>
-          <span className="LinkTxt">{(data && data.username) ? data.username : labels.account}</span>
-        </div>
       </nav>
     );
   }

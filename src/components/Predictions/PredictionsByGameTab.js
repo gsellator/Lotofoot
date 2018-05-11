@@ -21,11 +21,8 @@ class PredictionsByGameTab extends Component {
 
     return (
       <div className="Paper PredictionsByGameTab">
-        <div className="AltPaperTitle">
-          <div className="Label">
-            {labels.allPredictions}
-          </div>
-          <div className="icn-60 footix"></div>
+        <div className="PaperTitle">
+          {labels.allPredictions}
         </div>
 
         <div>

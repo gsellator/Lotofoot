@@ -30,7 +30,7 @@ class GamesTab extends Component {
                 if (item.isHeader)
                   return (
                     <div className="Date">
-                      {Filters.capitalize(FormatDate.dtetimeToStr(item.datetime, 'dddd DD MMMM'))}
+                      {Filters.capitalize(FormatDate.dtetimeToStr(item.datetime, 'LL'))}
                     </div>
                   )
                 else

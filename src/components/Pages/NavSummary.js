@@ -32,7 +32,7 @@ class NavSummary extends Component {
             </button>
           )}
 
-          <button  className={(pageName == 'account') ? 'NavLink active' : 'NavLink'} onTouchTap={this.switchNav.bind(this)}>
+          <button  className="NavLink" onTouchTap={this.switchNav.bind(this)}>
             <div className="btn-26 more" title="Menu"></div>
           </button>
         </div>

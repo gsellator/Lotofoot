@@ -20,11 +20,8 @@ class GroupRanking extends Component {
       <div className={(data && data[0]) ? 'Paper GroupRanking' : ''}>
         {data && data[0] &&
           <div>
-            <div className="AltPaperTitle">
-              <div className="Label">
-                Classement selon vous
-              </div>
-              <div className="icn-60 footix"></div>
+            <div className="PaperTitle">
+              Classement selon vous
             </div>
             <div className="Table">
               <div className="Row">

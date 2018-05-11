@@ -1,5 +1,7 @@
 import moment from "moment";
-moment.locale('fr');
+
+import labels from "../../labels";
+moment.locale(labels.language);
 
 const FormatDate = {
   toStr(dte, format) {

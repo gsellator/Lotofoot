@@ -43,7 +43,8 @@ class MessageEdit extends Component {
       <div className="MessageEdit">
         <form onSubmit={this.sendMessage.bind(this)}>
           <div className="Input" ref="MessageInput">
-            <TextareaAutosize maxRows={5} />
+            <TextareaAutosize
+              maxRows={5} />
           </div>
           <div className="Button">
             <button type="submit">{labels.send}</button>
