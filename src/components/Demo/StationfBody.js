@@ -31,10 +31,7 @@ class StationfBody extends Component {
             </h3>
 
             <p>
-              The 2018 FIFA World Cup begins on June 14th in Russia.
-            </p>
-            <p>
-              Que vous soyez un expert du ballon rond ou un novice complet, rejoignez le Lotofoot de Station F pour pronostiquer le résultat des matchs, représenter votre programme mais surtout terrasser vos collègues.
+              The 2018 FIFA World Cup begins on June 14th in Russia. Whether you're a soccer expert or a complete novice, join Station F's predictions contest!
             </p>
             <div>
               <NavLink className="OnBoardBtn" activeClass="active" routeName="register">

@@ -75,19 +75,10 @@ class Application extends Component {
         { content }
 
         <div className="pixel loader"></div>
-        <div className="pixel uiux_loader"></div>
+        <div className="pixel uiux_btns"></div>
         <div className="pixel uiux_icons"></div>
         <div className="pixel uiux_footix"></div>
-        <div className="pixel bordeaux"></div>
-        <div className="pixel lens"></div>
-        <div className="pixel lille"></div>
-        <div className="pixel lyon"></div>
-        <div className="pixel marseille"></div>
-        <div className="pixel nice"></div>
-        <div className="pixel paris"></div>
-        <div className="pixel saint-denis"></div>
-        <div className="pixel saint-etienne"></div>
-        <div className="pixel toulouse"></div>
+        <div className="pixel uiux_emojis"></div>
       </Page>
     );
   }

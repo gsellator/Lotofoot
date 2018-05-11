@@ -11,6 +11,9 @@ const Sections = [
   {
     name: 'help',
   },
+  {
+    name: 'account',
+  },
 ];
 
 export default Sections;

@@ -36,13 +36,22 @@ class HeaderBtn extends Component {
               {FormatDate.isToday(data.datetime) &&
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
               }
-              {!FormatDate.isToday(data.datetime) &&
+
+              {!FormatDate.isToday(data.datetime) && labels.language === 'en' &&
+                <span>
+                  <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'MM')}</span>
+                  <span className="Score">&#8239;/&#8239;</span>
+                  <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'DD')}</span>
+                </span>
+              }
+              {!FormatDate.isToday(data.datetime) && labels.language === 'fr' &&
                 <span>
                   <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'DD')}</span>
                   <span className="Score">&#8239;/&#8239;</span>
                   <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'MM')}</span>
                 </span>
               }
+
               <span className="Flag">
                 {data.teamB && <div className={'flag f-12 ' + data.teamB.slug} title={labels[data.teamB.slug.replace('-', '')]} />}
               </span>

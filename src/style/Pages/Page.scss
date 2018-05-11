@@ -1,12 +1,18 @@
 @import '../constants/colors';
 @import '../constants/breaks';
+@import '../constants/typography';
 
 .Page, .Page.Public{
-
   .Page-body {
     top: 58px;
     background: $grey-0;
   }
+}
+
+.Paper .PaperTitle {
+  font-size: $font-size-xl;
+  margin-bottom: 12px;
+  border-top-width: 2px;
 }
 
 @media (max-width: $break-medium){
@@ -14,5 +20,9 @@
     .Page-body {
       top: 48px;
     }
+  }
+
+  .ScrollPage {
+    padding: 0;
   }
 }

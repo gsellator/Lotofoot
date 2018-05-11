@@ -7,7 +7,7 @@
   text-align: center;
 
   div, span, a{
-//    font-size: 15px;
+    font-size: $font-size-l;
   }
 
   .HelpTable{
@@ -19,7 +19,6 @@
       border: solid $grey-5 1px;
 
       th{
-//        font-size: 13px;
         &:not(:last-child){border-right: solid $grey-5 1px;}
       }
 

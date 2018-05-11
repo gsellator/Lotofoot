@@ -1,0 +1,55 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.Register{
+  display: flex;
+  height: 100%;
+
+  .Box{
+    .title{
+      margin-top: 24px;
+    }
+
+    legend {
+      padding: 0.2em 0.5em;
+      text-align:left;
+      text-transform: uppercase;
+      font-size: $font-size-s;
+      font-weight: 500;
+    }
+
+    .Input{
+      .emailStationF {
+        width:30%;
+        text-align: right;
+      }
+
+      select{
+        width:70%;
+        font-size: $font-size-s;
+      }
+
+      input{
+        font-size: $font-size-l;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .Register{
+    .Box{
+      .Input{
+        select{
+          font-size: $font-size-s;
+        }
+
+        input{
+          padding: 6px;
+          font-size: $font-size-m;
+        }
+      }
+    }
+  }
+}

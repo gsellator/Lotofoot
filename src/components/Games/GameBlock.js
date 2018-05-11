@@ -114,7 +114,7 @@ class GameBlock extends Component {
             <div className="MetaData">
               <div className="Left">
                 <div className="icn-16 pin"></div>
-                <div className="Label">{data.stadium}</div>
+                <div className="Label">{labels[data.stadium]}</div>
               </div>
               <div className="Right">
                 {data.channel && <div className={'icn-24 ' + data.channel}></div>}

@@ -67,7 +67,7 @@ class Page extends Component {
           { this.props.children }
         </div>
 
-        {<ModalWrap />}
+        <ModalWrap />
         <DialogWrap />
       </div>
     );

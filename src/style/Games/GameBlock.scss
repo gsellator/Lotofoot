@@ -12,17 +12,22 @@
     filter: blur(4px) contrast(160%); -webkit-filter: blur(4px) contrast(160%);
     opacity: 0.35;
     z-index: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    &.bordeaux{background: url('../../assets/staduims/bordeaux.jpg') center bottom no-repeat; background-size: cover;}
-    &.lens{background: url('../../assets/staduims/lens.jpg') center center no-repeat; background-size: cover;}
-    &.lille{background: url('../../assets/staduims/lille.jpg') center top no-repeat; background-size: cover;}
-    &.lyon{background: url('../../assets/staduims/lyon.jpg') center center no-repeat; background-size: cover;}
-    &.marseille{background: url('../../assets/staduims/marseille.jpg') center center no-repeat; background-size: cover;}
-    &.nice{background: url('../../assets/staduims/nice.jpg') center center no-repeat; background-size: cover;}
-    &.paris{background: url('../../assets/staduims/paris.jpg') center center no-repeat; background-size: cover;}
-    &.saint-denis{background: url('../../assets/staduims/saint-denis.jpg') center center no-repeat; background-size: cover;}
-    &.saint-etienne, &.saint-etiennes{background: url('../../assets/staduims/saint-etienne.jpg') center center no-repeat; background-size: cover;}
-    &.toulouse{background: url('../../assets/staduims/toulouse.jpg') center bottom no-repeat; background-size: cover;}
+    &.luzhniki{background-image: url('../../assets/staduims/luzhniki.jpg'); background-position: center bottom;}
+    &.otkritie{background-image: url('../../assets/staduims/otkritie.jpg');}
+    &.krestovsky{background-image: url('../../assets/staduims/krestovsky.jpg'); background-position: top center;}
+    &.fisht{background-image: url('../../assets/staduims/fisht.jpg');}
+    &.kazan{background-image: url('../../assets/staduims/kazan.jpg');}
+    &.volgograd{background-image: url('../../assets/staduims/volgograd.jpg'); background-position: center bottom;}
+    &.kaliningrad{background-image: url('../../assets/staduims/kaliningrad.jpg');}
+    &.ekaterinburg{background-image: url('../../assets/staduims/ekaterinburg.jpg'); background-position: center bottom;}
+    &.mordovia{background-image: url('../../assets/staduims/mordovia.jpg');}
+    &.nizhny-novgorod{background-image: url('../../assets/staduims/nizhny-novgorod.jpg');}
+    &.rostov{background-image: url('../../assets/staduims/rostov.jpg');}
+    &.cosmos{background-image: url('../../assets/staduims/cosmos.png');}
   }
 
   .GameBlockData{
@@ -34,14 +39,14 @@
 
     .Date{
       text-align: center;
-//      font-size: 20px;
+      font-size: $font-size-xxl;
       font-weight: 500;
       margin: 0 0 6px 0;
     }
 
     .Phase{
       text-align: center;
-//      font-size: 16px;
+      font-size: $font-size-l;
       font-weight: 500;
       margin: 0 0 24px 0;
     }
@@ -62,12 +67,13 @@
 
           .flag{
             margin: auto;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
           }
         }
 
         .Label{
-//          font-size: 15px;
           line-height: 20px;
+          font-weight: 500;
         }
       }
 
@@ -80,19 +86,12 @@
         .Score{
           span{
             font-family: $font-family-numbers;
-//            font-size: $font-size-numbers;
             font-weight: $font-weight-numbers;
             text-rendering: $text-rendering-numbers;
-//            font-size: 28px;
+            font-size: $font-size-xxxl;
             font-weight: 500;
             line-height: 18px;
           }
-        }
-
-        .Time{
-//          font-size: 14px;
-          font-weight: 500;
-          line-height: 18px;
         }
       }
     }
@@ -133,7 +132,7 @@
 }
 
 @media (max-width: $break-medium){
-  .GameBlock{
+  .Paper.GameBlock{
     height: 200px;
 
     .GameBlockData{
@@ -158,7 +157,7 @@
 
           .Score{
             span{
-//              font-size: 22px;
+              font-size: $font-size-xxl;
             }
           }
         }

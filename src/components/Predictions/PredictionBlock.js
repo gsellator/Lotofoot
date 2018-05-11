@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
+
 import PredictionBlockAction from "../../actions/Pages/PredictionBlockAction";
 import labels from "../../labels";
 
@@ -73,11 +74,10 @@ class PredictionBlock extends Component {
 
         {data && data._id && gameData && gameData.status != 'TIMED' &&
           <div>
-            <div className="AltPaperTitle">
+            <div className="PaperTitle">
               <div className="Label">
                 {labels.myPrediction}
               </div>
-              <div className="icn-60 footix"></div>
             </div>
             <div className="Prediction">
               <div className="Inputs">
@@ -96,11 +96,8 @@ class PredictionBlock extends Component {
 
         {data && gameData && gameData.status === 'TIMED' &&
           <div>
-            <div className="AltPaperTitle">
-              <div className="Label">
-                {labels.myPrediction}
-              </div>
-              <div className="icn-60 footix"></div>
+            <div className="PaperTitle">
+              {labels.myPrediction}
             </div>
             <div>
               {pending && <div className="FootixLoader" />}

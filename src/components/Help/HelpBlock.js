@@ -64,7 +64,7 @@ class HelpBlock extends Component {
           </table>
         </div>
 
-        <div>{labels.helpL6}</div>
+        <div>{labels.helpL3}</div>
       </div>
     );
   }

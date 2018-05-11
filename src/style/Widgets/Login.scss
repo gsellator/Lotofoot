@@ -5,7 +5,6 @@
 .Login{
   display: flex;
   height: 100%;
-  min-height: 700px;
 
   .Box{
     margin: auto;
@@ -101,8 +100,6 @@
 
 @media (max-width: $break-medium){
   .Login{
-    min-height: 540px;
-
     .Box{
       width: 296px;
       padding: 0 12px 12px 12px;
