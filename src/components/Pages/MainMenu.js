@@ -36,22 +36,6 @@ class MainMenu extends Component {
 
     return (
       <menu className="MainMenu">
-        {!isPublic &&
-          <div className="MainMenuTab">
-            <div className="MainMenuLeft">
-              <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
-                <div className={'btn-36 main ' + config.appName}></div>
-              </div>
-            </div>
-
-            <div className="MainMenuCenter">
-              <HeaderBtn />
-            </div>
-            <div className="MainMenuRight">
-            </div>
-          </div>
-        }
-
         {isPublic &&
           <div className="MainMenuTab">
             <div className="MainMenuCenter">
@@ -68,6 +52,22 @@ class MainMenu extends Component {
               <NavLink className="MenuLink Featured" activeClass="active" routeName="login">
                 {labels.login}
               </NavLink>
+            </div>
+          </div>
+        }
+
+        {!isPublic &&
+          <div className="MainMenuTab">
+            <div className="MainMenuLeft">
+              <div className="MainLink" onTouchTap={this.switchNavClick.bind(this)}>
+                <div className={'btn-36 main ' + config.appName}></div>
+              </div>
+            </div>
+
+            <div className="MainMenuCenter">
+              <HeaderBtn />
+            </div>
+            <div className="MainMenuRight">
             </div>
           </div>
         }

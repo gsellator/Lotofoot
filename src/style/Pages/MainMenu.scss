@@ -91,6 +91,10 @@
       .MainLink{
         padding: 6px 13px;
       }
+      
+      .MainMenuLeft .MainLink{
+        display: none;
+      }
 
       .MainMenuRight{
         padding: 6px 0;

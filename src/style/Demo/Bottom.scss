@@ -7,6 +7,7 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3) inset;
   width: calc(100% + 12px);
   padding: 24px 6px 24px 6px;
+  margin: 0 -6px;
   text-align: center;
   color: $grey-9;
 
@@ -57,6 +58,8 @@
       }
 
       .Role{
+        display: inline-block;
+        line-height: 18px;
         font-weight: 500;
         margin: 0 3px 0 9px;
 
@@ -66,6 +69,8 @@
       }
 
       .Name{
+        display: inline-block;
+        line-height: 18px;
         margin: 0 3px 0 3px;
         color: $footix-blue;
       }
@@ -75,8 +80,6 @@
 
 @media (max-width: $break-medium){
   .Bottom{
-    padding: 12px 0;
-
     .Content{
       padding: 0 18px;
 
