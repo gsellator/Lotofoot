@@ -12,13 +12,18 @@
 .Paper .PaperTitle {
   font-size: $font-size-xl;
   margin-bottom: 12px;
-  border-top-width: 2px;
+  border-top-width: 0;
 }
 
 @media (max-width: $break-medium){
-  .Page, .Page.Public{
+  .Page{
     .Page-body {
       top: 48px;
+      bottom: 44px;
+    }
+
+    &.Public .Page-body {
+      bottom: 0;
     }
   }
 

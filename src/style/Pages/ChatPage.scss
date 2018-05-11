@@ -3,11 +3,19 @@
 
 .ScrollPage.ChatPage {
   bottom: 44px;
+  padding-left: 10px;
 
   .ChatPageContainer{
     min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+  }
+}
+
+
+@media (max-width: $break-medium){
+  .ScrollPage.ChatPage {
+    padding: 12px 15px;
   }
 }
