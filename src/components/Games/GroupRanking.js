@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
+
 import labels from "../../labels";
 
 if (process.env.BROWSER) {
@@ -21,7 +22,7 @@ class GroupRanking extends Component {
         {data && data[0] &&
           <div>
             <div className="PaperTitle">
-              Classement selon vous
+              {labels.yourRanking}
             </div>
             <div className="Table">
               <div className="Row">

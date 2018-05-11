@@ -87,7 +87,7 @@ export default {
     });
   },
 
-  putApi(context, { route, view, body, action, predictionId }) {
+  putApi(context, { route, view, body, action, url, predictionId }) {
     return new Promise((resolve, reject) => {
       const accessToken = context.getCookie(config.cookie);
       const userId = context.getStore('LoginStore').getCredentials()._id;

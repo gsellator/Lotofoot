@@ -109,6 +109,8 @@ export default {
 
   wellReceived: 'Bien reçu !',
 
+  yourRanking: 'Ranking according to you',
+
   ga: 'Groupe A',
   gb: 'Groupe B',
   gc: 'Groupe C',
