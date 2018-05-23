@@ -72,6 +72,12 @@ class GamesFilters extends Component {
             <div className={subfilter === 'f' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, 'f')}>
               <div className="SubfilterLabel">{labels.gf}</div>
             </div>
+            <div className={subfilter === 'g' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, 'g')}>
+              <div className="SubfilterLabel">{labels.gg}</div>
+            </div>
+            <div className={subfilter === 'h' ? 'SubfilterBtn Active' : 'SubfilterBtn'} onTouchTap={this.setSubfilter.bind(this, 'h')}>
+              <div className="SubfilterLabel">{labels.gh}</div>
+            </div>
           </div>
         }
         {filter === 'finale' &&
