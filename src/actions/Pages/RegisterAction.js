@@ -23,6 +23,7 @@ export default {
     .then(() => {
       // Auto login succeded
       const accessToken = context.getStore('LoginStore').getAccessToken();
+
       let expiresDate = new Date();
       expiresDate.setTime(expiresDate.getTime() + (5000000 * 1000));
 
@@ -34,6 +35,7 @@ export default {
 
       done();
     }, (err) => {
+      context.dispatch(Actions.REGISTER_FAILURE);
       done();
       console.log('registerUser Error : ', err && err.message);
     });
