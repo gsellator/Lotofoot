@@ -15,13 +15,14 @@ export default {
   create: 'Créer',
   createAccount: 'Créer mon compte',
   clickToPredict: 'Cliquez pour pronostiquer',
+  contactEmail: 'hello@lotofoot.io',
   contactUs: 'Contactez-nous',
+  contribute: 'Contrubuez à ce projet',
 
   delete: 'Supprimer',
   description: 'Description',
   dailyMaj: 'LOTOFOOT',
   development: 'Développement',
-  contribute: 'Contrubuez au projet',
 
   eightFinal: 'Huitième de finale',
   errorPageL1: 'Une erreur est survenue lors de l\'affichage de cette page...',

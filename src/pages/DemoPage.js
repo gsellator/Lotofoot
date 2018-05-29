@@ -19,7 +19,7 @@ class DemoPage extends Component {
   }
 
   render() {
-    let body= <StationfBody />;
+    let body= <Body />;
     switch(config.appName) {
       case 'lotofoot-pre':
         body = <Body />;
