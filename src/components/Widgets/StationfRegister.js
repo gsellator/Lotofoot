@@ -78,7 +78,7 @@ class Register extends Component {
                       onFocus={this.inputChanged.bind(this, 'email')} onBlur={this.inputBlur.bind(this)} />
 
                     <select className="selectStationF" value={domain} onChange={this.inputChanged.bind(this, 'domain')} ref="domain" required>
-                      <option disabled value="">Sélectionnez un programme</option>
+                      <option disabled value="">Select your program</option>
                       <option value="@hec.stationf.co">@hec.stationf.co</option>
                       <option value="@facebook.stationf.co">@facebook.stationf.co</option>
                       <option value="@numa.stationf.co">@numa.stationf.co</option>
@@ -160,9 +160,6 @@ class Register extends Component {
                 <div className="text">
                   {labels.registerSuccessText}
                 </div>
-                <NavLink className="OnBoardBtn" routeName="home">
-                  {labels.registerSuccessAction}
-                </NavLink>
               </div>
             }
           </form>

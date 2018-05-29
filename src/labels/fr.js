@@ -17,22 +17,28 @@ export default {
   clickToPredict: 'Cliquez pour pronostiquer',
   contactEmail: 'hello@lotofoot.io',
   contactUs: 'Contactez-nous',
-  contribute: 'Contrubuez à ce projet',
+  contribute: 'Contribuez à ce projet',
 
   delete: 'Supprimer',
   description: 'Description',
   dailyMaj: 'LOTOFOOT',
   development: 'Développement',
 
+  dialogClose: 'Fermer',
+  dialogRefresh: 'Recharger la page',
+  dialogForgot: 'Mot de passe oublié',
+
   eightFinal: 'Huitième de finale',
   errorPageL1: 'Une erreur est survenue lors de l\'affichage de cette page...',
   errorPageL2: 'Retourner à l\'accueil',
+  errorTimeOut: 'Le chargement de certaines données a pris trop de temps. Essayez de recharger la page et contactez-nous si le problème persiste.',
+  errorLogin: 'La connexion a échoué, mot de passe ou identifiant incorrect.',
 
   final: 'Finale',
   firstname: 'Prénom',
   finished: 'Terminé',
   forgottenPassword: 'Mot de passe oublié',
-  finishedGain: 'Ce pronostic vous rapporte',
+  finishedGain: 'Ce pronostic vous rapporte ',
 
   games: 'Matchs',
   game: 'Match',
@@ -46,7 +52,7 @@ export default {
   homeMini: 'Matchs',
 
   inProgress: 'En cours',
-  inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte',
+  inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte ',
   illustrations: 'Illustrations',
 
   key: 'Clé',
@@ -109,6 +115,10 @@ export default {
   wellReceived: 'Bien reçu !',
 
   yourRanking: 'Classement selon vous',
+  rank: 'Rang',
+  country: 'Équipe',
+  rankingPoints: 'Pts',
+  goalDifference: 'Diff.',
 
   ga: 'Groupe A',
   gb: 'Groupe B',
@@ -220,7 +230,7 @@ export default {
   uruguay: 'Uruguay',
   wales: 'Pays de Galles',
 
-  luzhniki: 'Luzhniki stafium, Moscow',
+  luzhniki: 'Luzhniki Stadium, Moscow',
   otkritie: 'Otkritie Arena, Moscow',
   krestovsky: 'Krestovsky Stadium, Saint Petersburg',
   fisht: 'Fisht Olympic Stadium, Sochi',
@@ -236,7 +246,7 @@ export default {
   helpL1: `Amis Footix, le but de ce Lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de la coupe du monde. ` +
     `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
   helpL2: `Pour chaque match, votre score dépendra du stade de la compétition (groupes, quarts de finale...) et de la qualité de votre pronostic (bon vainqueur, bonne différence de buts, score exact). Les points mis en jeu sont :`,
-  helpL3: `Les pronostics peuvent être modifiés jusqu'au début des match. Bonne chance !`,
+  helpL3: `Les pronostics peuvent être modifiés jusqu'au début des matchs. Bonne chance !`,
   helpL4: `En cas de problème ou pour toute question, contactez-nous à l'adresse `,
   helpLabel1: 'Bon gagnant',
   helpLabel2: 'Gagnant & bonne diff de buts',

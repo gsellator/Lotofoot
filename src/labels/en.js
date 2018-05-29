@@ -3,7 +3,7 @@ export default {
   accountMini: 'Account',
   actions: 'Actions',
   app: 'Application',
-  allPredictions: 'All bets',
+  allPredictions: 'All predictions',
   all: 'All',
 
   back: 'Go back',
@@ -14,7 +14,7 @@ export default {
   chatMini: 'Chat',
   create: 'Create',
   createAccount: 'Create my account',
-  clickToPredict: 'Click to bet',
+  clickToPredict: 'Click to predict',
   contactEmail: 'hello@lotofoot.io',
   contactUs: 'Contact us',
   contribute: 'Contribute to this project',
@@ -24,15 +24,21 @@ export default {
   dailyMaj: 'LOTOFOOT',
   development: 'Development',
 
+  dialogClose: 'Close',
+  dialogRefresh: 'Refresh',
+  dialogForgot: 'Forgot my password',
+
   eightFinal: 'Round of 32',
   errorPageL1: 'An error occurred while rendering this page...',
   errorPageL2: 'Back to homepage',
+  errorTimeOut: 'The server took too long to respond. Try refreshing the page and contact us if the problem remains.',
+  errorLogin: 'You have entered an invalid email or password.',
 
   final: 'Final',
   firstname: 'First name',
   finished: 'Finished',
   forgottenPassword: 'Forgot your password?',
-  finishedGain: 'This bet gives you',
+  finishedGain: 'This prediction gives you',
 
   games: 'Matches',
   game: 'Match',
@@ -54,11 +60,11 @@ export default {
 
   lastname: 'Last name',
   logout: 'Logout',
-  login: 'Log in',
+  login: 'Log In',
 
   menu: 'Menu',
   modify: 'Edit',
-  myPrediction: 'My bet',
+  myPrediction: 'My prediction',
 
   notfoundPageL1: 'The page you requested is not available...',
   notfoundPageL2: 'Back to homepage',
@@ -66,18 +72,18 @@ export default {
   ok: 'OK',
 
   password: 'Password',
-  predictions: 'My bets',
+  predictions: 'My predictions',
   point: 'point',
   points: 'points',
 
   quarterFinal: 'Quarter-Final',
 
-  ranking: 'General ranking',
+  ranking: 'General Ranking',
   rankingMini: 'Ranking',
   refresh: 'Refresh',
   required: '(required)',
-  recoverInitTitle: 'Forgotten password',
-  recoverInitText: 'Enter your e-mail address so that we can send you a link to reset your password',
+  recoverInitTitle: 'Forgotten Password',
+  recoverInitText: 'Enter your email address and we will send you a link to reset your password.',
   recoverInitTitleOk: 'Check your emails',
   recoverInitTextOk: 'We successfully received your request. An email allowing you to reset your password has been sent to you at ',
   recoverInitTextOk2: 'Remember to check your spams.',
@@ -85,20 +91,20 @@ export default {
   recoverTitle: 'Choose a new password',
   rules: 'Rules',
   recoverSuccessText: 'Your password has been changed.',
-  recoverSuccessAction: 'Go to the Lotofoot',
-  registerSuccessText: 'Your account has been created.',
-  registerSuccessAction: 'Go to the Lotofoot',
+  recoverSuccessAction: 'Go to Station Foot',
+  registerSuccessText: 'Your account has been created! Please check your inbox, we sent you an email with a link to activate your account.',
+  registerSuccessAction: 'Go to Station Foot',
 
   send: 'Send',
   semiFinal: 'Semi-Final',
-  sendFeedback: 'Send feedback',
-  signUp: 'Sign up',
+  sendFeedback: 'Send Feedback',
+  signUp: 'Sign Up',
 
   title: 'Title',
-  toCome: 'Next',
-  toPredict: 'Left to bet',
-  tabToPredict: 'Tap to bet',
-  tooLate: 'It\'s too late, you can\'t bet on this match anymore',
+  toCome: 'Upcoming',
+  toPredict: 'To predict',
+  tabToPredict: 'Tap to predict',
+  tooLate: 'It\'s too late, you can\'t predict the outcome of this match anymore',
   tooLate2: 'It\'s too late, all bets are closed',
 
   email: 'Email',
@@ -109,6 +115,10 @@ export default {
   wellReceived: 'Well received!',
 
   yourRanking: 'Ranking according to you',
+  rank: 'Rank',
+  country: 'Team',
+  rankingPoints: 'Pts',
+  goalDifference: 'GD',
 
   ga: 'Group A',
   gb: 'Group B',
@@ -220,7 +230,7 @@ export default {
   uruguay: 'Uruguay',
   wales: 'Wales',
 
-  luzhniki: 'Luzhniki stadium, Moscow',
+  luzhniki: 'Luzhniki Stadium, Moscow',
   otkritie: 'Otkritie Arena, Moscow',
   krestovsky: 'Krestovsky Stadium, Saint Petersburg',
   fisht: 'Fisht Olympic Stadium, Sochi',
@@ -233,12 +243,12 @@ export default {
   rostov: 'Rostov Arena, Rostov-on-Don',
   cosmos: 'Cosmos Arena, Samara',
 
-  helpL1: `Dear Footix, the aim of the game is to guess the winner and the final score (overtime included) of each matches. ` +
-    `In the case of a knockout match for which you predict a draw, you must specify which team you see victorious after the penalty shoot-out.`,
-  helpL2: `For each bet, your score will depend on the stage of the competition (groups, round of 32, semi-final, ...) and the quality of your prediction (right winner, right goal difference, right score) :`,
-  helpL3: `Bets can be changed until the beginning of the match. Good luck!`,
-  helpL4: `Any question? contact us at `,
+  helpL1: `Dear residents, the aim of the game is to guess both the winner and the final score (overtime included) of each match. ` +
+    `In the case of a knockout match for which you predict a draw, you must specify which team you think will be victorious at the end of the penalty shoot-out.`,
+  helpL2: `For each prediction, your score will depend on the stage of the competition (groups, round of 32, semi-final, ...) and the quality of your prediction (right winner, right goal difference, right score).`,
+  helpL3: `Predictions can be changed until the kick-off of the match. Good luck!`,
+  helpL4: `Any question? Contact us at `,
   helpLabel1: 'Right winner',
   helpLabel2: 'Right winner & goal difference',
-  helpLabel3: 'Right winner & score',
+  helpLabel3: 'Right winner & final score',
 };
