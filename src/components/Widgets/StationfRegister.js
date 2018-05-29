@@ -70,6 +70,10 @@ class Register extends Component {
 
             {!success &&
               <div>
+                <div className="text">
+                  Please register with your Station F email
+                </div>
+
                 <fieldset>
                   <legend>{labels.email}</legend>
                   <div className="Input">
