@@ -108,7 +108,7 @@ export default {
 
   wellReceived: 'Bien reçu !',
 
-  yourRanking: 'Ranking according to you',
+  yourRanking: 'Classement selon vous',
 
   ga: 'Groupe A',
   gb: 'Groupe B',
