@@ -6,6 +6,7 @@ import RankingPage from "./pages/RankingPage";
 import ChatPage from "./pages/ChatPage";
 import HelpPage from "./pages/HelpPage";
 import AccountPage from "./pages/AccountPage";
+import InactivePage from "./pages/InactivePage";
 
 import DemoPage from "./pages/DemoPage";
 import LoginPage from "./pages/LoginPage";
@@ -59,6 +60,12 @@ export default {
     path: "/account",
     method: "get",
     handler: AccountPage,
+    action: InitActions.me
+  },
+  inactive: {
+    path: "/inactive",
+    method: "get",
+    handler: InactivePage,
     action: InitActions.me
   },
 

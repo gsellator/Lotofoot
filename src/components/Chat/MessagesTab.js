@@ -15,14 +15,19 @@ class MessagesTab extends Component {
   }
 
   getTextBlock(text) {
+    // https://apps.timwhitlock.info/unicode/inspect?s=🙂
+    // Look for Surrogates
     // 🙂  d83d de42
     // 🙁  d83d de41
     // 😎  d83d de0e
     // 😱  d83d de31
+    // 👍  d83d dc4d
+    // 👎  d83d dc4e
+    // 🖕  d83d dd95
     // 🤓  d83e dd13
     // 🤫  d83e dd2b
 
-    const reg = /(\ud83d[\ude42\ude41\ude0e\ude31]|\ud83e[\udd13\udd2b])/g;
+    const reg = /(\ud83d[\ude42\ude41\ude0e\ude31\udc4d\udc4e\udd95]|\ud83e[\udd13\udd2b])/g;
     const emojisCount = (text.match(reg) || []).length;
 
     let emojiSize = '2';

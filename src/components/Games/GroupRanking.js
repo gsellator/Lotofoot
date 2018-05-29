@@ -26,10 +26,10 @@ class GroupRanking extends Component {
             </div>
             <div className="Table">
               <div className="Row">
-                <div>Rang</div>
-                <div>Pays</div>
-                <div>Pts</div>
-                <div>Dif</div>
+                <div>{labels.rank}</div>
+                <div>{labels.country}</div>
+                <div>{labels.rankingPoints}</div>
+                <div>{labels.goalDifference}</div>
               </div>
               {data && data.map((item, i) =>
                 <div key={i} className="Row">

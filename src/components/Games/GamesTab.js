@@ -106,7 +106,7 @@ class GamesTab extends Component {
                           {predictions[item._id] &&
                             <div className="PredictionLabel">
                               <span className="icn-16 chip" />
-                              <span>{'Mon pronostic : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
+                              <span>{labels.myPrediction + ' : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
                               {item.phase != 0 && predictions[item._id].scoreTeamA == predictions[item._id].scoreTeamB &&
                                 <span>
                                   {predictions[item._id].winner === 'teamA' && !item.teamA && ' (' + labels[item.futureTeamA] + ')'}

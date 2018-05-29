@@ -31,7 +31,7 @@ class StationfBody extends Component {
             </h3>
 
             <p>
-              The 2018 FIFA World Cup begins on June 14th in Russia. Whether you're a soccer expert or a complete novice, join Station F's predictions contest!
+              Dear residents, the 2018 FIFA World Cup kicks off on June 14th in Russia. Whether you're a soccer expert or a complete novice, join StationFoot, Station F's prediction contest!
             </p>
             <div>
               <NavLink className="OnBoardBtn" activeClass="active" routeName="register">

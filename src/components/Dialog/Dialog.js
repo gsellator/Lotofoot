@@ -5,6 +5,8 @@ import { navigateAction } from "fluxible-router";
 import DialogAction from "../../actions/Dialog/DialogAction";
 import config from "../../config";
 
+import labels from "../../labels";
+
 if (process.env.BROWSER) {
   require("../../style/Dialog/Dialog.scss");
 }
@@ -53,11 +55,11 @@ class Dialog extends Component {
 
     if (errorTxt && (errorTxt === 'XMLHttpRequest timeout' || errorTxt === 'Internal XMLHttpRequest Error' || errorTxt.toLowerCase().indexOf('timeout of ') == 0 || errorTxt.indexOf('socket hang up') == 0)){
       msg = <div className="Txt">
-        <span>Le chargement de certaines données a pris trop de temps. Essayez de recharger la page et contactez-nous si le problème persiste.</span>
+        <span>{labels.errorTimeOut}</span>
       </div>;
     } else if (error && (error === 'Unauthorized' || error === 'Not Found')){
       msg = <div className="Txt">
-        <span>La connexion a échoué, mot de passe ou identifiant incorrect.</span>
+        <span>{labels.errorLogin}</span>
       </div>;
     } else {
       msg = <div className="Txt">
@@ -67,13 +69,13 @@ class Dialog extends Component {
 
     if (errorTxt && (errorTxt === 'XMLHttpRequest timeout' || errorTxt === 'Internal XMLHttpRequest Error' || errorTxt.toLowerCase().indexOf('timeout of ') == 0 || errorTxt.indexOf('socket hang up') == 0)){
       btns = <div className="ButtonsBlock">
-        <button ref="MainButton" type="submit" className="Button">Fermer</button>
-        <div className="Button Green" onClick={this.reload.bind(this)}>Recharger la page</div>
+        <button ref="MainButton" type="submit" className="Button">{labels.dialogClose}</button>
+        <div className="Button Green" onClick={this.reload.bind(this)}>{labels.dialogRefresh}</div>
       </div>;
     } else if (error && (error === 'Unauthorized' || error === 'Not Found')){
       btns = <div className="ButtonsBlock">
-        <button ref="MainButton" type="submit" className="Button">Fermer</button>
-        <a className="Button Green" href="/recover">Mot de passe oublié</a>
+        <button ref="MainButton" type="submit" className="Button">{labels.dialogClose}</button>
+        <a className="Button Green" href="/recover">{labels.dialogForgot}</a>
       </div>;
     } else {
       btns = <div className="ButtonsBlock">
