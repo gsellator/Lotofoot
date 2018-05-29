@@ -9,5 +9,5 @@ export default {
 
   apiUri: process.env.API_URI || 'https://lotofoot-stationf-api.herokuapp.com/api',
   appName: process.env.APP_NAME,
-  trackingId: process.env.TRACKING_ID,
+  trackingId: 'UA-45826787-6',
 };
