@@ -28,6 +28,8 @@ export default {
   dialogRefresh: 'Refresh',
   dialogForgot: 'Forgot my password',
 
+  dateFormatGameBlock: 'dddd, MMMM DD',
+
   eightFinal: 'Round of 32',
   errorPageL1: 'An error occurred while rendering this page...',
   errorPageL2: 'Back to homepage',

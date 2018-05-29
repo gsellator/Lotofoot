@@ -29,7 +29,7 @@ class GameBlock extends Component {
             <div className="GameBlockData">
               {data.status === 'TIMED' &&
                 <div className="Date">
-                  {Filters.capitalize(FormatDate.dtetimeToStr(data.datetime, 'dddd DD MMMM')) + ' - ' + labels.game + ' ' + data.friendlyId}
+                  {Filters.toTitleCase(FormatDate.dtetimeToStr(data.datetime, labels.dateFormatGameBlock)) + ' - ' + labels.game + ' ' + data.friendlyId}
                 </div>
               }
               {data.status === 'IN_PROGRESS' &&

@@ -71,7 +71,7 @@ class Register extends Component {
             {!success &&
               <div>
                 <div className="text">
-                  Please register with your Station F email
+                  Please register with your Station F email.
                 </div>
 
                 <fieldset>
@@ -83,39 +83,39 @@ class Register extends Component {
 
                     <select className="selectStationF" value={domain} onChange={this.inputChanged.bind(this, 'domain')} ref="domain" required>
                       <option disabled value="">Select your program</option>
-                      <option value="@hec.stationf.co">@hec.stationf.co</option>
-                      <option value="@facebook.stationf.co">@facebook.stationf.co</option>
-                      <option value="@numa.stationf.co">@numa.stationf.co</option>
-                      <option value="@shakeupfactory.stationf.co">@shakeupfactory.stationf.co</option>
-                      <option value="@ponts-alliance.stationf.co">@ponts-alliance.stationf.co</option>
-                      <option value="@ouicrea.stationf.co">@ouicrea.stationf.co</option>
+                      <option value="@stationf.co">@stationf.co</option>
                       <option value="@adn-ifm.stationf.co">@adn-ifm.stationf.co</option>
-                      <option value="@edhec.stationf.co">@edhec.stationf.co</option>
-                      <option value="@ashoka.stationf.co">@ashoka.stationf.co</option>
-                      <option value="@ubisoft.stationf.co">@ubisoft.stationf.co</option>
-                      <option value="@zendesk.stationf.co">@zendesk.stationf.co</option>
-                      <option value="@impulse-partners.stationf.co">@impulse-partners.stationf.co</option>
-                      <option value="@schoolab.stationf.co">@schoolab.stationf.co</option>
-                      <option value="@bnp-plugandplay.stationf.co">@bnp-plugandplay.stationf.co</option>
-                      <option value="@microsoft.stationf.co">@microsoft.stationf.co</option>
-                      <option value="@omn.stationf.co">@omn.stationf.co</option>
-                      <option value="@naver.stationf.co">@naver.stationf.co</option>
                       <option value="@ama.stationf.co">@ama.stationf.co</option>
+                      <option value="@ashoka.stationf.co">@ashoka.stationf.co</option>
+                      <option value="@bnp-plugandplay.stationf.co">@bnp-plugandplay.stationf.co</option>
+                      <option value="@chainaccelerator.stationf.co">@chainaccelerator.stationf.co</option>
                       <option value="@cnpa.stationf.co">@cnpa.stationf.co</option>
-                      <option value="@offices.stationf.co">@offices.stationf.co</option>
+                      <option value="@edhec.stationf.co">@edhec.stationf.co</option>
+                      <option value="@facebook.stationf.co">@facebook.stationf.co</option>
                       <option value="@founders.stationf.co">@founders.stationf.co</option>
-                      <option value="@icm.stationf.co">@icm.stationf.co</option>
                       <option value="@havas.stationf.co">@havas.stationf.co</option>
-                      <option value="@thales.stationf.co">@thales.stationf.co</option>
+                      <option value="@hec.stationf.co">@hec.stationf.co</option>
+                      <option value="@icm.stationf.co">@icm.stationf.co</option>
+                      <option value="@impulse-partners.stationf.co">@impulse-partners.stationf.co</option>
                       <option value="@impulse-venteprivee.stationf.co">@impulse-venteprivee.stationf.co</option>
+                      <option value="@insead.stationf.co">@insead.stationf.co</option>
+                      <option value="@loreal.stationf.co">@loreal.stationf.co</option>
+                      <option value="@lvmh.stationf.co">@lvmh.stationf.co</option>
+                      <option value="@microsoft.stationf.co">@microsoft.stationf.co</option>
+                      <option value="@naver.stationf.co">@naver.stationf.co</option>
+                      <option value="@numa.stationf.co">@numa.stationf.co</option>
+                      <option value="@offices.stationf.co">@offices.stationf.co</option>
+                      <option value="@omn.stationf.co">@omn.stationf.co</option>
+                      <option value="@ouicrea.stationf.co">@ouicrea.stationf.co</option>
+                      <option value="@ponts-alliance.stationf.co">@ponts-alliance.stationf.co</option>
+                      <option value="@schoolab.stationf.co">@schoolab.stationf.co</option>
+                      <option value="@shakeupfactory.stationf.co">@shakeupfactory.stationf.co</option>
+                      <option value="@tf1.stationf.co">@tf1.stationf.co</option>
+                      <option value="@thales.stationf.co">@thales.stationf.co</option>
+                      <option value="@ubisoft.stationf.co">@ubisoft.stationf.co</option>
                       <option value="@usineio.stationf.co">@usineio.stationf.co</option>
                       <option value="@vc.stationf.co">@vc.stationf.co</option>
-                      <option value="@lvmh.stationf.co">@lvmh.stationf.co</option>
-                      <option value="@insead.stationf.co">@insead.stationf.co</option>
-                      <option value="@tf1.stationf.co">@tf1.stationf.co</option>
-                      <option value="@loreal.stationf.co">@loreal.stationf.co</option>
-                      <option value="@chainaccelerator.stationf.co">@chainaccelerator.stationf.co</option>
-                      <option value="@stationf.co">@stationf.co</option>
+                      <option value="@zendesk.stationf.co">@zendesk.stationf.co</option>
                     </select>
                   </div>
                 </fieldset>
