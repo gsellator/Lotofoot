@@ -12,7 +12,7 @@
 .Body{
   position: relative;
   height: calc(100% - 120px);
-  min-height: 600px;
+  min-height: 800px;
 
   .IlluContainer{
     padding: 24px;
@@ -38,7 +38,6 @@
 
       h2{
         span{
-          font-family: 'CargoRegular';
           color: #000;
           font-size: $font-size-big-2;
           font-weight: normal;
@@ -51,12 +50,11 @@
       }
 
       h3{
-        font-family: 'CargoRegular';
         color: #000;
         font-size: $font-size-xxxl;
         font-weight: normal;
         font-style: normal;
-        margin-top: -9px;
+        margin-top: -14px;
       }
 
       p{
@@ -66,13 +64,26 @@
   }
 
   &.StationfBody{
-    min-height: 800px;
+    .TextsContainer{
+      .Texts{
+        h2{
+          span{
+            font-family: 'CargoRegular';
+          }
+        }
+
+        h3{
+          font-family: 'CargoRegular';
+          margin-top: -9px;
+        }
+      }
+    }
   }
 }
 
 @media (max-width: $break-medium){
   .Body{
-    min-height: 450px;
+    min-height: 640px;
 
     .IlluContainer{
       padding: 12px;
@@ -85,16 +96,12 @@
     .TextsContainer{
       height: calc(100% - 244px);
     }
-
-    &.StationfBody{
-      min-height: 640px;
-    }
   }
 }
 
 @media (max-width: $break-small){
   .Body{
-    min-height: 400px;
+    min-height: 540px;
 
     .IlluContainer{
       .Illu{
@@ -112,10 +119,6 @@
           }
         }
       }
-    }
-
-    &.StationfBody{
-      min-height: 540px;
     }
   }
 }

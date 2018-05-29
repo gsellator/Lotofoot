@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
+import { NavLink } from "fluxible-router";
+
 import labels from "../../labels";
 
 if (process.env.BROWSER) {
@@ -20,11 +22,20 @@ class Body extends Component {
         </div>
         <div className="TextsContainer">
           <div className="Texts">
+            <h2>
+              <span>LOTOFOOT.</span>
+              <span className="Suffixe">IO</span>
+            </h2>
+            <h3>
+              06/14 - 07/15
+            </h3>
+            <p>
+              La Coupe du Monde commence le 14 juin. Amis footis, rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.
+            </p>
             <div>
-              La Coupe du Monde commence le 14 juin.
-            </div>
-            <div>
-              Rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.
+              <NavLink className="OnBoardBtn" activeClass="active" routeName="register">
+                {labels.signUp}
+              </NavLink>
             </div>
           </div>
         </div>
