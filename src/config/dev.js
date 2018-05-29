@@ -5,9 +5,9 @@ export default {
   appDescription: 'Pronostiquez entre amis sur les matchs de la coupe du monde 2018',
   appUri: 'http://localhost:3000',
   cookie: 'lotofoot_token',
+  language: 'fr',
 
-  apiUri: 'http://localhost:5000/api',
-//  apiUri: 'https://lotofoot-api-dev.herokuapp.com/api',
-
+  //apiUri: 'http://localhost:5000/api',
+  apiUri: 'https://lotofoot-api-dev.herokuapp.com/api',
   appName: 'lotofoot-dev',
 };

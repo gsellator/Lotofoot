@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
+
 import FormatDate from "../Helpers/FormatDate";
+import config from "../../config";
 import labels from "../../labels";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";
 
@@ -37,14 +39,14 @@ class HeaderBtn extends Component {
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
               }
 
-              {!FormatDate.isToday(data.datetime) && labels.language === 'en' &&
+              {!FormatDate.isToday(data.datetime) && config.language === 'en' &&
                 <span>
                   <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'MM')}</span>
                   <span className="Score">&#8239;/&#8239;</span>
                   <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'DD')}</span>
                 </span>
               }
-              {!FormatDate.isToday(data.datetime) && labels.language === 'fr' &&
+              {!FormatDate.isToday(data.datetime) && config.language === 'fr' &&
                 <span>
                   <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'DD')}</span>
                   <span className="Score">&#8239;/&#8239;</span>

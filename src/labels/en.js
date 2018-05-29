@@ -1,6 +1,4 @@
 export default {
-  language: 'en',
-
   account: 'My account',
   accountMini: 'Account',
   actions: 'Actions',
