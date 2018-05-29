@@ -10,14 +10,14 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    //console.log(this.props.credentials.hasPaid);
-    //if (this.props.credentials && this.props.credentials.hasPaid){
-    //  const newroute = this.context.getStore("RouteStore").makePath('games');
-    //  this.context.executeAction(navigateAction, { url: newroute });
-    //} else {
-      const newroute = this.context.getStore("RouteStore").makePath('games');
-      this.context.executeAction(navigateAction, { url: newroute });
-    //}
+//    console.log(this.props.credentials);
+//    if (this.props.credentials && this.props.credentials.isValidated){
+//      const newroute = this.context.getStore("RouteStore").makePath('games');
+//      this.context.executeAction(navigateAction, { url: newroute });
+//    } else {
+//      const newroute = this.context.getStore("RouteStore").makePath('inactive');
+//      this.context.executeAction(navigateAction, { url: newroute });
+//    }
   }
 
   render() {

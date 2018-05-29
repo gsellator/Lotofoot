@@ -45,7 +45,8 @@ class Page extends Component {
       pageName === 'recoverInit' ||
       pageName === 'recover' ||
       pageName === 'notfound' ||
-      pageName === 'error'
+      pageName === 'error' ||
+      pageName === 'inactive'
     );
 
     let pageClassName = 'Page';
