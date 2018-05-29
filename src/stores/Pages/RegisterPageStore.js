@@ -8,6 +8,7 @@ class RegisterPageStore extends BaseStore {
     [Actions.REGISTER_INIT]: "handleInit",
     [Actions.REGISTER_PENDING]: "handlePending",
     [Actions.REGISTER_SUCCESS]: "handleSuccess",
+    [Actions.REGISTER_FAILURE]: "handleFailure",
   }
 
   constructor(dispatcher) {
@@ -31,6 +32,12 @@ class RegisterPageStore extends BaseStore {
   handleSuccess({ data, route, url }) {
     this.pending = false;
     this.success = true;
+    this.emitChange();
+  }
+
+  handleFailure() {
+    this.pending = false;
+    this.success = false;
     this.emitChange();
   }
 

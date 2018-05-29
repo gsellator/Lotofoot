@@ -10,6 +10,7 @@ const Actions = keyMirror({
   REGISTER_INIT: null,
   REGISTER_PENDING: null,
   REGISTER_SUCCESS: null,
+  REGISTER_FAILURE: null,
 
   RECOVERINIT_INIT: null,
   RECOVERINIT_PENDING: null,
