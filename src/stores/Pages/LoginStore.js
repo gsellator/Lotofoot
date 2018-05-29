@@ -2,7 +2,7 @@ import { BaseStore } from "fluxible/addons";
 import moment from "moment";
 
 import Actions from "../../constants/Actions";
-import labels from "../../labels";
+import config from "../../config";
 
 class LoginStore extends BaseStore {
   static storeName = "LoginStore"
@@ -18,7 +18,7 @@ class LoginStore extends BaseStore {
 
   constructor(dispatcher) {
     super(dispatcher);
-    moment.locale(labels.language);
+    moment.locale(config.language);
     this.pending = false;
     this.credentials = {};
     this.accessToken = undefined;

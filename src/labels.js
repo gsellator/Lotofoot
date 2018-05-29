@@ -1,7 +1,9 @@
 // Load different labels depending on the selected language
+import config from "./config";
+
 let labelsFile = "en.js";
 
-switch(process.env.LANGUAGE) {
+switch(config.language) {
   case 'en':
     labelsFile = "en.js";
   break;
