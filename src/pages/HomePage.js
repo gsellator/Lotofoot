@@ -11,7 +11,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     console.log(this.props.credentials);
-    if (this.props.credentials && this.props.credentials.isActivated){
+    if (this.props.credentials && this.props.credentials.emailValidated){
       const newroute = this.context.getStore("RouteStore").makePath('games');
       this.context.executeAction(navigateAction, { url: newroute });
     } else {
