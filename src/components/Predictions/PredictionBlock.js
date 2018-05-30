@@ -14,9 +14,9 @@ class PredictionBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreTeamA: this.props.data.scoreTeamA,
-      scoreTeamB: this.props.data.scoreTeamB,
-      winner: this.props.data.winner,
+      scoreTeamA: this.props.predictionData.scoreTeamA,
+      scoreTeamB: this.props.predictionData.scoreTeamB,
+      winner: this.props.predictionData.winner,
     };
   }
 
@@ -30,9 +30,9 @@ class PredictionBlock extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.scoreTeamA === undefined && this.state.scoreTeamA != this.props.data.scoreTeamA) {this.setState({scoreTeamA: this.props.data.scoreTeamA});}
-    if (this.state.scoreTeamB === undefined && this.state.scoreTeamB != this.props.data.scoreTeamB) {this.setState({scoreTeamB: this.props.data.scoreTeamB});}
-    if (this.state.winner === undefined && this.state.winner != this.props.data.winner) {this.setState({winner: this.props.data.winner});}
+    if (this.state.scoreTeamA === '' && this.state.scoreTeamA !== this.props.predictionData.scoreTeamA) {this.setState({scoreTeamA: this.props.predictionData.scoreTeamA});}
+    if (this.state.scoreTeamB === '' && this.state.scoreTeamB !== this.props.predictionData.scoreTeamB) {this.setState({scoreTeamB: this.props.predictionData.scoreTeamB});}
+    if (this.state.winner === undefined && this.state.winner != this.props.predictionData.winner) {this.setState({winner: this.props.predictionData.winner});}
   }
 
   handleChangeA(e) {
@@ -48,31 +48,31 @@ class PredictionBlock extends Component {
   }
 
   postPrediction() {
-    if (!this.props.data._id){
+    if (!this.props.predictionData._id){
       // Create prediction
       const route = this.context.getStore("RouteStore").getCurrentRoute();
       this.context.executeAction(PredictionBlockAction.create, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, gameId: this.props.gameData._id });
     } else {
       // Update prediction
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(PredictionBlockAction.update, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, predictionId: this.props.data._id });
+      this.context.executeAction(PredictionBlockAction.update, { route, scoreTeamA: this.state.scoreTeamA, scoreTeamB: this.state.scoreTeamB, winner: this.state.winner, gamePhase: this.props.gameData.phase, predictionId: this.props.predictionData._id });
     }
   }
 
   render() {
-    const { data, pending, gameData } = this.props;
+    const { predictionData, pending, gameData } = this.props;
     const { scoreTeamA, scoreTeamB } = this.state;
 
     return (
       <div className="Paper PredictionBlock">
-        {!(data && gameData) && <div className="FootixLoader" />}
-        {data && !data._id && gameData && gameData.status != 'TIMED' &&
+        {!(predictionData && gameData) && <div className="FootixLoader" />}
+        {predictionData && !predictionData._id && gameData && gameData.status != 'TIMED' &&
           <div className="Title">
             {labels.tooLate}
           </div>
         }
 
-        {data && data._id && gameData && gameData.status != 'TIMED' &&
+        {predictionData && predictionData._id && gameData && gameData.status != 'TIMED' &&
           <div>
             <div className="PaperTitle">
               <div className="Label">
@@ -89,12 +89,12 @@ class PredictionBlock extends Component {
             <div className="Points">
               {gameData.status === 'IN_PROGRESS' && <span>{labels.inProgressGain + ' '}</span>}
               {gameData.status === 'FINISHED' &&<span>{labels.finishedGain + ' '}</span>}
-              <span>{data.score < 2 ? data.score + ' ' + labels.point + '.' : data.score + ' ' + labels.point + '.'}</span>
+              <span>{predictionData.score < 2 ? predictionData.score + ' ' + labels.point + '.' : predictionData.score + ' ' + labels.point + '.'}</span>
             </div>
           </div>
         }
 
-        {data && gameData && gameData.status === 'TIMED' &&
+        {predictionData && gameData && gameData.status === 'TIMED' &&
           <div>
             <div className="PaperTitle">
               {labels.myPrediction}
@@ -111,7 +111,7 @@ class PredictionBlock extends Component {
                   {gameData.phase != 0 && this.state.scoreTeamA != undefined && this.state.scoreTeamA == this.state.scoreTeamB &&
                     <div className="InputsBtns">
                       <span>
-                        Gagnant :
+                        {labels.winner + ' > '}
                       </span>
                       <span>
                         <div className={this.state.winner === 'teamA' ? 'TabBtn Active' : 'TabBtn'} onTouchTap={this.handleChangeWinner.bind(this, 'teamA')}>
@@ -137,15 +137,5 @@ class PredictionBlock extends Component {
     );
   }
 }
-
-PredictionBlock = connectToStores(PredictionBlock, ["GameBlockStore", "PredictionBlockStore"], (context) => {
-  const route = context.getStore("RouteStore").getCurrentRoute();
-  const game = route.query.game;
-  return {
-    gameData: context.getStore("GameBlockStore").getData(game),
-    data: context.getStore("PredictionBlockStore").getData(game),
-    pending: context.getStore("PredictionBlockStore").getPending(),
-  };
-}, {getStore: PropTypes.func});
 
 export default PredictionBlock;

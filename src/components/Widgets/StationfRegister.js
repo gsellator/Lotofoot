@@ -164,6 +164,9 @@ class Register extends Component {
                 <div className="text">
                   {labels.registerSuccessText}
                 </div>
+                <NavLink className="OnBoardBtn" routeName="home">
+                  {labels.registerSuccessAction}
+                </NavLink>
               </div>
             }
           </form>

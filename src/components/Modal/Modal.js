@@ -38,7 +38,7 @@ class Modal extends Component {
 
   render() {
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    const { data } = this.props;
+    const { gameData, predictionData, pending } = this.props;
 
     return (
       <div className="Modal">
@@ -50,9 +50,12 @@ class Modal extends Component {
         <div className="ModalBody">
           <div>
             <GameBlock />
-            <PredictionBlock />
+            <PredictionBlock
+              gameData={gameData}
+              predictionData={predictionData}
+              pending={pending} />
 
-            {data && (data.status === 'IN_PROGRESS' || data.status === 'FINISHED') &&
+            {gameData && (gameData.status === 'IN_PROGRESS' || gameData.status === 'FINISHED') &&
               <PredictionsByGameTab />
             }
           </div>
@@ -62,11 +65,13 @@ class Modal extends Component {
   }
 }
 
-Modal = connectToStores(Modal, ["GameBlockStore"], (context) => {
+Modal = connectToStores(Modal, ["GameBlockStore", "PredictionBlockStore"], (context) => {
   const route = context.getStore("RouteStore").getCurrentRoute();
   const game = route.query.game;
   return {
-    data: context.getStore("GameBlockStore").getData(game),
+    gameData: context.getStore("GameBlockStore").getData(game),
+    predictionData: context.getStore("PredictionBlockStore").getData(game),
+    pending: context.getStore("PredictionBlockStore").getPending(),
   };
 }, {getStore: PropTypes.func});
 
