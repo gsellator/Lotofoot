@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 import labels from "../../labels";
-import config from "../../config";
 
 if (process.env.BROWSER) {
   require("../../style/Help/HelpBlock.scss");

@@ -2,47 +2,22 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
-import Actions from "../constants/Actions";
-import ApiAction from "../actions/Pages/ApiAction";
 
 import HelpBlock from "../components/Help/HelpBlock";
-import GameBlock from "../components/Games/GameBlock";
 import GamesFilters from "../components/Games/GamesFilters";
 import GamesTab from "../components/Games/GamesTab";
 import GroupRanking from "../components/Games/GroupRanking";
 
 class GamesPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loaded: false };
-  }
-
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
   }
 
-  componentDidMount(){
-    this.componentDidUpdate();
-
-  }
-
-  componentDidUpdate(){
-    if (!this.state.loaded && this.props.userId){
-      this.setState({loaded: true});
-      const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXT});
-      this.context.executeAction(ApiAction.getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
-      this.context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByUser', action: Actions.APIOK_PREDICTIONS_BYUSER_DICO });
-    }
-  }
-
   render() {
+    const { filter, subfilter, games, predictions, groupRanking} = this.props;
     const route = this.context.getStore('RouteStore').getCurrentRoute();
     const msg = route.query.msg;
-    const { filter, games, predictions } = this.props;
-    let gameBlock;
-    //    gameBlock = <GameBlock />;
 
     return (
       <div className="ScrollPage">
@@ -56,17 +31,24 @@ class GamesPage extends Component {
                   <HelpBlock />
                 </div>
                 <div className="HelpSpacer">
-                  <NavLink className="PaperBtn" routeName="games">Fermer les règles</NavLink>
+                  <NavLink className="PaperBtn" routeName="games">
+                    Fermer les règles
+                  </NavLink>
                 </div>
               </div>
             }
-            {gameBlock}
 
-            <GamesFilters />
-            <GamesTab />
+            <GamesFilters
+              filter={filter}
+              subfilter={subfilter}/>
+
+            <GamesTab
+              games={games}
+              predictions={predictions} />
 
             {filter === 'group' &&
-              <GroupRanking />
+              <GroupRanking
+                data={groupRanking} />
             }
           </div>
         }
@@ -79,8 +61,10 @@ GamesPage = connectToStores(GamesPage, ["LoginStore", "GamesTabStore"], (context
   return {
     userId: context.getStore('LoginStore').getCredentials()._id,
     filter: context.getStore("GamesTabStore").getFilter(),
+    subfilter: context.getStore("GamesTabStore").getSubfilter(),
     games: context.getStore("GamesTabStore").getGames(),
     predictions: context.getStore("GamesTabStore").getPredictions(),
+    groupRanking: context.getStore("GamesTabStore").getGroupRanking(),
   };
 }, {getStore: PropTypes.func});
 

@@ -1,13 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
-import { NavLink, RouteStore } from "fluxible-router";
 
-import Actions from "../constants/Actions";
-import ApiAction from "../actions/Pages/ApiAction";
-import config from "../config";
 import labels from "../labels";
-
 import HelpBlock from "../components/Help/HelpBlock";
 
 if (process.env.BROWSER) {
@@ -15,16 +8,6 @@ if (process.env.BROWSER) {
 }
 
 class HelpPage extends Component {
-  static contextTypes = {
-    getStore: PropTypes.func.isRequired,
-    executeAction: PropTypes.func.isRequired
-  }
-
-  componentDidMount(){
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
-  }
-
   render() {
     return (
       <div className="ScrollPage HelpPage">
@@ -33,11 +16,18 @@ class HelpPage extends Component {
             <div className="IlluContainer">
               <div className="Illu" />
             </div>
+
             <div className="FootixLoader" />
+
             <HelpBlock />
+
             <div className="Footer">
-              <span>{labels.helpL4}</span>
-              <a href="mailto:hello@lotofoot.io">hello@lotofoot.io</a>
+              <span>
+                {labels.helpL4}
+              </span>
+              <a href={'mailto:' + labels.contactEmail}>
+                {labels.contactEmail}
+              </a>
               <span>.</span>
             </div>
           </div>
@@ -46,11 +36,5 @@ class HelpPage extends Component {
     );
   }
 }
-
-//HelpPage = connectToStores(HelpPage, ["LoginStore"], (context) => {
-//  return {
-//    credentials: context.getStore("LoginStore").getCredentials()
-//  };
-//}, {getStore: PropTypes.func});
 
 export default HelpPage;

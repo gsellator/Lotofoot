@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
 
-import FormatDate from "../Helpers/FormatDate";
+import FormatDate from "daily-helpers/dist/FormatDate";
 import config from "../../config";
 import labels from "../../labels";
 import GameModalHelper from "../../components/Helpers/GameModalHelper";

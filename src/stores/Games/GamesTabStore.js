@@ -1,5 +1,5 @@
 import { BaseStore } from "fluxible/addons";
-import FormatDate from "../../components/Helpers/FormatDate";
+import FormatDate from "daily-helpers/dist/FormatDate";
 import Actions from "../../constants/Actions";
 import _ from "lodash";
 

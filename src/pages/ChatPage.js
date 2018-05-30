@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import Actions from "../constants/Actions";
-import ApiAction from "../actions/Pages/ApiAction";
 
 import MessagesTab from "../components/Chat/MessagesTab";
 import MessageEdit from "../components/Chat/MessageEdit";
@@ -18,9 +16,6 @@ class ChatPage extends Component {
   }
 
   componentDidMount() {
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
-    this.context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES });
     this.componentDidUpdate();
   }
 
@@ -29,7 +24,7 @@ class ChatPage extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { credentials, data } = this.props;
 
     return (
       <div>
@@ -40,7 +35,9 @@ class ChatPage extends Component {
         <div ref="ChatPage" className="ScrollPage ChatPage">
           {data &&
             <div className="ChatPageContainer">
-              <MessagesTab />
+              <MessagesTab
+                credentials={credentials}
+                data={data} />
             </div>
           }
         </div>
@@ -50,8 +47,9 @@ class ChatPage extends Component {
   }
 }
 
-ChatPage = connectToStores(ChatPage, ["MessagesTabStore"], (context) => {
+ChatPage = connectToStores(ChatPage, ["LoginStore", "MessagesTabStore"], (context) => {
   return {
+    credentials: context.getStore("LoginStore").getCredentials(),
     data: context.getStore("MessagesTabStore").getData()
   };
 }, {getStore: PropTypes.func});

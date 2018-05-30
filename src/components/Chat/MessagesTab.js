@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
-import FormatDate from "../Helpers/FormatDate";
+import FormatDate from "daily-helpers/dist/FormatDate";
 
 if (process.env.BROWSER) {
   require("../../style/Chat/MessagesTab.scss");
@@ -9,11 +7,6 @@ if (process.env.BROWSER) {
 
 
 class MessagesTab extends Component {
-  static contextTypes = {
-    executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
-  }
-
   getTextBlock(text) {
     // https://apps.timwhitlock.info/unicode/inspect?s=🙂
     // Look for Surrogates
@@ -84,12 +77,5 @@ class MessagesTab extends Component {
     );
   }
 }
-
-MessagesTab = connectToStores(MessagesTab, ["LoginStore", "MessagesTabStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginStore").getCredentials(),
-    data: context.getStore("MessagesTabStore").getData()
-  };
-}, {getStore: PropTypes.func});
 
 export default MessagesTab;

@@ -22,7 +22,7 @@ class DemoPage extends Component {
     let body= <StationfBody />;
     switch(config.appName) {
       case 'lotofoot-pre':
-        body = <Body />;
+        body = <StationfBody />;
       break;
       case 'lotofoot':
         body = <Body />;

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
-import { NavLink } from "fluxible-router";
+import FormatDate from "daily-helpers/dist/FormatDate";
+import Filters from "daily-filters";
+
 import GameModalHelper from "../Helpers/GameModalHelper";
-import FormatDate from "../Helpers/FormatDate";
-import Filters from "../Helpers/Filters";
 import labels from "../../labels";
 
 if (process.env.BROWSER) {
@@ -142,12 +141,5 @@ class GamesTab extends Component {
     );
   }
 }
-
-GamesTab = connectToStores(GamesTab, ["GamesTabStore"], (context) => {
-  return {
-    games: context.getStore("GamesTabStore").getGames(),
-    predictions: context.getStore("GamesTabStore").getPredictions(),
-  };
-}, {getStore: PropTypes.func});
 
 export default GamesTab;

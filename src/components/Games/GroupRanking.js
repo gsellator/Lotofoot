@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
 
 import labels from "../../labels";
 
@@ -9,11 +7,6 @@ if (process.env.BROWSER) {
 }
 
 class GroupRanking extends Component {
-  static contextTypes = {
-    executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
-  }
-
   render() {
     const { data } = this.props;
 
@@ -51,11 +44,5 @@ class GroupRanking extends Component {
     );
   }
 }
-
-GroupRanking = connectToStores(GroupRanking, ["GamesTabStore"], (context) => {
-  return {
-    data: context.getStore("GamesTabStore").getGroupRanking(),
-  };
-}, {getStore: PropTypes.func});
 
 export default GroupRanking;

@@ -5,8 +5,6 @@ import { connectToStores } from "fluxible-addons-react";
 
 import AccountBlock from "../components/Widgets/AccountBlock";
 
-import Actions from "../constants/Actions";
-import ApiAction from "../actions/Pages/ApiAction";
 import config from "../config";
 import labels from "../labels";
 
@@ -30,7 +28,7 @@ class AccountPage extends Component {
           labels={labels}
           data={credentials}
           url={config.dldUri}
-          email="hello@lotofoot.io"
+          email={labels.contactEmail}
           logout={this.logout.bind(this)} />
       </div>
     );
