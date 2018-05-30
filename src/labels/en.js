@@ -56,6 +56,8 @@ export default {
   inProgress: 'In Progress',
   inProgressGain: 'For now, this bet gives you',
   illustrations: 'Illustrations',
+  inactiveTitle: 'Check your inbox!',
+  inactiveText: 'We sent you an email with a link to activate your account.',
 
   key: 'Key',
   knockoutPhase: 'Knockout Phase',

@@ -35,10 +35,10 @@ class InactivePage extends Component {
                 armsPos={false} />
 
               <div className="title">
-                {labels.wellReceived}
+                {labels.inactiveTitle}
               </div>
               <div className="text">
-                {labels.registerSuccessText}
+                {labels.inactiveText}
               </div>
             </form>
           </div>

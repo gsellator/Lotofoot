@@ -56,6 +56,8 @@ export default {
   inProgress: 'En cours',
   inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte ',
   illustrations: 'Illustrations',
+  inactiveTitle: 'Check your inbox!',
+  inactiveText: 'We sent you an email with a link to activate your account.',
 
   key: 'Clé',
   knockoutPhase: 'Phase finale',
