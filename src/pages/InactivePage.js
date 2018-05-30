@@ -18,7 +18,11 @@ class InactivePage extends Component {
   }
 
   componentDidMount() {
-    if (this.props.credentials && this.props.credentials.emailValidated){
+    this.componentDidUpdate();
+  }
+
+  componentDidUpdate() {
+    if (this.props.credentials && this.props.credentials._id && this.props.credentials.emailValidated){
       const newroute = this.context.getStore("RouteStore").makePath('games');
       this.context.executeAction(navigateAction, { url: newroute });
     }
