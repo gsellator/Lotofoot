@@ -32,7 +32,7 @@ class RegisterPage extends Component {
 
     switch(config.appName) {
       case 'lotofoot-pre':
-        register = <Register
+        register = <StationfRegister
           pending={pending}
           success={success}
           labels={labels}

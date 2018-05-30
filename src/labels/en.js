@@ -94,8 +94,8 @@ export default {
   rules: 'Rules',
   recoverSuccessText: 'Your password has been changed.',
   recoverSuccessAction: 'Go to Station Foot',
-//  registerSuccessText: 'Your account has been created! Please check your inbox, we sent you an email with a link to activate your account.',
-  registerSuccessText: 'Your account has been created!',
+  registerSuccessText: 'Your account has been created! Please check your inbox, we sent you an email with a link to activate your account.',
+  //registerSuccessText: 'Your account has been created!',
   registerSuccessAction: 'Go to Station Foot',
 
   send: 'Send',
