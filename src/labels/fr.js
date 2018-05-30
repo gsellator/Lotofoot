@@ -115,6 +115,7 @@ export default {
   validate: 'Valider',
 
   wellReceived: 'Bien reçu !',
+  winner: 'Gagnant',
 
   yourRanking: 'Classement selon vous',
   rank: 'Rang',

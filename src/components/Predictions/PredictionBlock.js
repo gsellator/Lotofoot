@@ -111,7 +111,7 @@ class PredictionBlock extends Component {
                   {gameData.phase != 0 && this.state.scoreTeamA != undefined && this.state.scoreTeamA == this.state.scoreTeamB &&
                     <div className="InputsBtns">
                       <span>
-                        Gagnant :
+                        {labels.winner + ' > '}
                       </span>
                       <span>
                         <div className={this.state.winner === 'teamA' ? 'TabBtn Active' : 'TabBtn'} onTouchTap={this.handleChangeWinner.bind(this, 'teamA')}>

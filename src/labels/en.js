@@ -115,6 +115,7 @@ export default {
   validate: 'Confirm',
 
   wellReceived: 'Well received!',
+  winner: 'Winner',
 
   yourRanking: 'Ranking according to you',
   rank: 'Rank',
