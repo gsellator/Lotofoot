@@ -23,50 +23,44 @@ export default {
     path: "/",
     method: "get",
     handler: HomePage,
-    action: InitActions.me
+    action: InitActions.getContext
+  },
+  inactive: {
+    path: "/inactive",
+    method: "get",
+    handler: InactivePage,
+    action: InitActions.getContext
   },
 
   games: {
     path: "/games",
     method: "get",
     handler: GamesPage,
-    action: InitActions.me
-  },
-  gamesNew: {
-    path: "/games?msg=new",
-    method: "get",
-    handler: GamesPage,
-    action: InitActions.me
+    action: InitActions.games
   },
   ranking: {
     path: "/ranking",
     method: "get",
     handler: RankingPage,
-    action: InitActions.me
+    action: InitActions.ranking
   },
   chat: {
     path: "/chat",
     method: "get",
     handler: ChatPage,
-    action: InitActions.me
+    action: InitActions.chat
   },
   help: {
     path: "/help",
     method: "get",
     handler: HelpPage,
-    action: InitActions.me
+    action: InitActions.getContextAndModal
   },
   account: {
     path: "/account",
     method: "get",
     handler: AccountPage,
-    action: InitActions.me
-  },
-  inactive: {
-    path: "/inactive",
-    method: "get",
-    handler: InactivePage,
-    action: InitActions.me
+    action: InitActions.getContextAndModal
   },
 
   // Public

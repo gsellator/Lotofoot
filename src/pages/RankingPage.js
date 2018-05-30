@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import Actions from "../constants/Actions";
-import ApiAction from "../actions/Pages/ApiAction";
 
 import UsersTab from "../components/Ranking/UsersTab";
 
@@ -12,21 +10,17 @@ class RankingPage extends Component {
     getStore: PropTypes.func.isRequired
   }
 
-  componentDidMount(){
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI});
-    this.context.executeAction(ApiAction.getApi, { route, view: 'Users', action: Actions.APIOK_USERS });
-  }
-
   render() {
-    const { data } = this.props;
+    const { credentials, data } = this.props;
 
     return (
       <div className="ScrollPage">
         {!data && <div className="FootixLoader" />}
         {data &&
           <div className="RankingPageContainer">
-            <UsersTab />
+            <UsersTab
+              credentials={credentials}
+              data={data} />
           </div>
         }
       </div>
@@ -34,8 +28,9 @@ class RankingPage extends Component {
   }
 }
 
-RankingPage = connectToStores(RankingPage, ["UsersTabStore"], (context) => {
+RankingPage = connectToStores(RankingPage, ["LoginStore", "UsersTabStore"], (context) => {
   return {
+    credentials: context.getStore("LoginStore").getCredentials(),
     data: context.getStore("UsersTabStore").getData()
   };
 }, {getStore: PropTypes.func});

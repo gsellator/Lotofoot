@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
-import FormatDate from "../Helpers/FormatDate";
-import Filters from "../Helpers/Filters";
+import Filters from "daily-filters";
+
 import labels from "../../labels";
 
 if (process.env.BROWSER) {
@@ -11,11 +9,6 @@ if (process.env.BROWSER) {
 
 
 class PredictionsByGameTab extends Component {
-  static contextTypes = {
-    executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
-  }
-
   render() {
     const { data, users, teamsData } = this.props;
 
@@ -66,13 +59,5 @@ class PredictionsByGameTab extends Component {
     );
   }
 }
-
-PredictionsByGameTab = connectToStores(PredictionsByGameTab, ["PredictionsByGameTabStore", "TeamsDicoStore"], (context) => {
-  return {
-    data: context.getStore("PredictionsByGameTabStore").getData(),
-    users: context.getStore("PredictionsByGameTabStore").getUsers(),
-    teamsData: context.getStore("TeamsDicoStore").getData()
-  };
-}, {getStore: PropTypes.func});
 
 export default PredictionsByGameTab;

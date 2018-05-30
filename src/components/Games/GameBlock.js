@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
-import FormatDate from "../Helpers/FormatDate";
-import Filters from "../Helpers/Filters";
+import FormatDate from "daily-helpers/dist/FormatDate";
+import Filters from "daily-filters";
+
 import labels from "../../labels";
 
 if (process.env.BROWSER) {
@@ -11,11 +10,6 @@ if (process.env.BROWSER) {
 
 
 class GameBlock extends Component {
-  static contextTypes = {
-    executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
-  }
-
   render() {
     const { data } = this.props;
 
@@ -127,13 +121,5 @@ class GameBlock extends Component {
     );
   }
 }
-
-GameBlock = connectToStores(GameBlock, ["GameBlockStore"], (context) => {
-  const route = context.getStore("RouteStore").getCurrentRoute();
-  const game = route.query.game;
-  return {
-    data: context.getStore("GameBlockStore").getData(game)
-  };
-}, {getStore: PropTypes.func});
 
 export default GameBlock;

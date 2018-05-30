@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
 import GamesTabAction from "../../actions/Pages/GamesTabAction";
 import labels from "../../labels";
 
@@ -11,7 +10,6 @@ if (process.env.BROWSER) {
 class GamesFilters extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
   }
 
   setFilter(newFilter) {
@@ -100,12 +98,5 @@ class GamesFilters extends Component {
     );
   }
 }
-
-GamesFilters = connectToStores(GamesFilters, ["GamesTabStore"], (context) => {
-  return {
-    filter: context.getStore("GamesTabStore").getFilter(),
-    subfilter: context.getStore("GamesTabStore").getSubfilter(),
-  };
-}, {getStore: PropTypes.func});
 
 export default GamesFilters;

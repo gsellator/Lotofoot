@@ -6,7 +6,6 @@ export default {
     return context.executeAction(ApiAction.postApi, { route, view: 'Messages', body, action: Actions.APIOK_MESSAGE_CREATE})
     .then((data) => {
       return Promise.all([
-        context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI}),
         context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES }),
       ]);
     }, (err) =>{
@@ -14,7 +13,7 @@ export default {
     });
   },
 
-  getMessages(context, { route = {}, body }) {
+  getMessages(context, { route, body }) {
     return context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
     .then(() => {
       return;

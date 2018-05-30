@@ -26,6 +26,7 @@
         border: solid $grey-5 1px;
         transition: all .3s ease;
         border-radius: 6px;
+        min-height: 26px;
 
         &:focus {
           outline: 0;

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
-import { connectToStores } from "fluxible-addons-react";
-import Filters from "../Helpers/Filters";
+import Filters from "daily-filters";
 
 if (process.env.BROWSER) {
   require("../../style/Ranking/UsersTab.scss");
@@ -9,11 +7,6 @@ if (process.env.BROWSER) {
 
 
 class UsersTab extends Component {
-  static contextTypes = {
-    executeAction: PropTypes.func.isRequired,
-    getStore: PropTypes.func.isRequired
-  }
-
   render() {
     const { data, credentials } = this.props;
 
@@ -43,12 +36,5 @@ class UsersTab extends Component {
     );
   }
 }
-
-UsersTab = connectToStores(UsersTab, ["LoginStore", "UsersTabStore"], (context) => {
-  return {
-    credentials: context.getStore("LoginStore").getCredentials(),
-    data: context.getStore("UsersTabStore").getData()
-  };
-}, {getStore: PropTypes.func});
 
 export default UsersTab;

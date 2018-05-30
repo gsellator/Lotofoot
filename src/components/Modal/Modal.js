@@ -27,18 +27,9 @@ class Modal extends Component {
     getStore: PropTypes.func.isRequired,
   }
 
-  componentDidMount() {
-    const route = this.context.getStore("RouteStore").getCurrentRoute();
-    this.context.executeAction(ApiAction.getApi, { route, view: 'Game', action: Actions.APIOK_GAME });
-    this.context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER });
-    this.context.executeAction(ApiAction.getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS });
-    this.context.executeAction(ApiAction.getApi, { route, view: 'Users', action: Actions.APIOK_USERS });
-    this.context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME });
-  }
-
   render() {
     const route = this.context.getStore("RouteStore").getCurrentRoute();
-    const { gameData, predictionData, pending } = this.props;
+    const { gameData, predictionData, pending, predictionsData, predictionsUsers, predictionsTeams } = this.props;
 
     return (
       <div className="Modal">
@@ -49,14 +40,19 @@ class Modal extends Component {
         </div>
         <div className="ModalBody">
           <div>
-            <GameBlock />
+            <GameBlock
+              data={gameData} />
+
             <PredictionBlock
               gameData={gameData}
               predictionData={predictionData}
               pending={pending} />
 
             {gameData && (gameData.status === 'IN_PROGRESS' || gameData.status === 'FINISHED') &&
-              <PredictionsByGameTab />
+              <PredictionsByGameTab
+                data={predictionsData}
+                users={predictionsUsers}
+                teamsData={predictionsTeams} />
             }
           </div>
         </div>
@@ -65,13 +61,16 @@ class Modal extends Component {
   }
 }
 
-Modal = connectToStores(Modal, ["GameBlockStore", "PredictionBlockStore"], (context) => {
+Modal = connectToStores(Modal, ["GameBlockStore", "PredictionBlockStore", "PredictionsByGameTabStore", "TeamsDicoStore"], (context) => {
   const route = context.getStore("RouteStore").getCurrentRoute();
   const game = route.query.game;
   return {
     gameData: context.getStore("GameBlockStore").getData(game),
     predictionData: context.getStore("PredictionBlockStore").getData(game),
     pending: context.getStore("PredictionBlockStore").getPending(),
+    predictionsData: context.getStore("PredictionsByGameTabStore").getData(),
+    predictionsUsers: context.getStore("PredictionsByGameTabStore").getUsers(),
+    predictionsTeams: context.getStore("TeamsDicoStore").getData()
   };
 }, {getStore: PropTypes.func});
 
