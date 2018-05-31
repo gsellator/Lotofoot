@@ -1,7 +1,7 @@
 export default {
   appEnv: 'prod',
   appLabel: 'Station Foot',
-  appTitle: 'Station Foot | Station F’s prediction contest',
+  appTitle: 'Station Foot | Station F’s prediction contest',
   appDescription: 'Whether you’re a soccer expert or a complete newbie, join StationFoot, Station F’s prediction contest and win goodies!',
   appUri: 'https://stationf.lotofoot.io',
   cookie: 'lotofoot_token',
