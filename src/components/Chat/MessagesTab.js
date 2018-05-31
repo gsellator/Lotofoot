@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FormatDate from "daily-helpers/dist/FormatDate";
+import Filters from "daily-filters";
 
 if (process.env.BROWSER) {
   require("../../style/Chat/MessagesTab.scss");
@@ -54,7 +55,7 @@ class MessagesTab extends Component {
                     <div className="MessageBlock">
                       <div className="Title">
                         <div className="Name">
-                          {item.user && item.user.firstName}
+                          {item.user && (Filters.capitalize(item.user.firstName) + ' ' + Filters.capitalize(item.user.lastName))}
                         </div>
                         <div className="Date">
                           {FormatDate.dtetimeToFromNow(item.createdAt, 'DD/MM')}
