@@ -56,8 +56,8 @@ export default {
   inProgress: 'En cours',
   inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte ',
   illustrations: 'Illustrations',
-  inactiveTitle: 'Check your inbox!',
-  inactiveText: 'We sent you an email with a link to activate your account.',
+  inactiveTitle: 'Consultez vos emails !',
+  inactiveText: 'Nous vous avons envoyé un message contentant un lien pour activer votre compte.',
 
   key: 'Clé',
   knockoutPhase: 'Phase finale',
@@ -96,7 +96,7 @@ export default {
   rules: 'Règles du jeu',
   recoverSuccessText: 'Votre mot de passe a été modifié.',
   recoverSuccessAction: 'Accéder au Lotofoot',
-  registerSuccessText: 'Votre compte a été créé.',
+  registerSuccessText: 'Votre compte a été créé ! Consultez vos emails, nous vous avons envoyé un message contentant un lien pour activer votre compte.',
   registerSuccessAction: 'Accéder au Lotofoot',
 
   send: 'Envoyer',
