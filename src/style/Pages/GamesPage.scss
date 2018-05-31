@@ -1,0 +1,27 @@
+@import '../constants/colors';
+@import '../constants/breaks';
+@import '../constants/typography';
+
+.GamesPage{
+  .GamesHelp{
+    .HelpBlock{
+      margin: 12px auto;
+    }
+
+    .BtnContainer{
+      margin: 12px -12px -12px -12px;
+      textAlign: center;
+    }
+  }
+}
+
+@media (max-width: $break-medium){
+  .GamesPage{
+    .GamesHelp{
+      .BtnContainer{
+        margin: 12px -6px -12px -6px;
+        textAlign: center;
+      }
+    }
+  }
+}

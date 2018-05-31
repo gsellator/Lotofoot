@@ -47,6 +47,7 @@ export default {
   group: 'Groupe',
   groups: 'Groupes',
   gamesMini: 'Matchs',
+  gotIt: 'C\'est noté !',
 
   help: 'Aide',
   helpMini: 'Aide',

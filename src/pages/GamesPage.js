@@ -8,6 +8,12 @@ import GamesFilters from "../components/Games/GamesFilters";
 import GamesTab from "../components/Games/GamesTab";
 import GroupRanking from "../components/Games/GroupRanking";
 
+import labels from "../labels";
+
+if (process.env.BROWSER) {
+  require("../style/Pages/GamesPage.scss");
+}
+
 class GamesPage extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
@@ -20,19 +26,22 @@ class GamesPage extends Component {
     const msg = route.query.msg;
 
     return (
-      <div className="ScrollPage">
+      <div className="ScrollPage GamesPage">
         {!(games && predictions) && <div className="FootixLoader" />}
 
         {(games && predictions) &&
           <div>
             {msg === 'new' &&
               <div className="Paper GamesHelp">
-                <div>
-                  <HelpBlock />
+                <div className="PaperTitle">
+                  {labels.rules}
                 </div>
-                <div className="HelpSpacer">
+
+                <HelpBlock />
+
+                <div className="BtnContainer">
                   <NavLink className="PaperBtn" routeName="games">
-                    Fermer les règles
+                    {labels.gotIt}
                   </NavLink>
                 </div>
               </div>
