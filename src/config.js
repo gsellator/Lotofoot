@@ -8,6 +8,9 @@ switch(process.env.APP_NAME) {
   case 'lotofoot':
     configFile = "lotofoot.js";
   break;
+  case 'lotofoot-en':
+    configFile = "lotofoot-en.js";
+  break;
   case 'lotofoot-stationf':
     configFile = "lotofoot-stationf.js";
   break;

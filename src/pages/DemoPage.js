@@ -27,6 +27,9 @@ class DemoPage extends Component {
       case 'lotofoot':
         body = <Body />;
       break;
+      case 'lotofoot-en':
+        body = <Body />;
+      break;
       case 'lotofoot-stationf':
         body = <StationfBody />;
       break;
