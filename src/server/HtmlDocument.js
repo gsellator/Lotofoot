@@ -33,14 +33,14 @@ class HtmlDocument extends Component {
 
     if (config.appEnv === 'dev'){
       prefStr = 'http://localhost:3001';
-      meta1 = <meta name="google-site-verification" content="u_jMeVlqwU6m_mQM6s6L9WCoOWeeB3t-kv9MM1obJ_M" />;
+      meta1 = <meta name="google-site-verification" content="3yxAA8nMH-iXpC33Y6K8sHZM11ZQX5RuBqdfrH6XseM" />;
       meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120-pre.png'} />;
       meta3 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192-pre.png'} />;
       meta4 = <link rel="manifest" href={prefStr + '/assets/icns_manifest-pre.json'} />;
       meta5 = <meta name="msapplication-config" content={prefStr + '/assets/icns_browserconfig.xml'} />;
       meta6 = <meta name="robots" content="noindex,nofollow" />;
     } else if (config.appEnv === 'prod'){
-      meta1 = <meta name="google-site-verification" content="u_jMeVlqwU6m_mQM6s6L9WCoOWeeB3t-kv9MM1obJ_M" />;
+      meta1 = <meta name="google-site-verification" content="3yxAA8nMH-iXpC33Y6K8sHZM11ZQX5RuBqdfrH6XseM" />;
       meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120.png'} />;
       meta3 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192.png'} />;
       meta4 = <link rel="manifest" href={prefStr + '/assets/icns_manifest.json'} />;

@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Lotofoot.io",
   "short_name": "Lotofoot.io",
-  "version": "1.0.0",
+  "version": "1.0.1",
 
   "lang": "fr-FR",
   "description": "Lotofoot.io",
@@ -42,7 +42,7 @@
 
   "theme_color": "#ADC5F0",
   "background_color": "#ADC5F0",
-  "start_url": "./demo",
+  "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait-primary"
+  "orientation": "portrait"
 }
