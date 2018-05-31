@@ -30,6 +30,9 @@ class DemoPage extends Component {
       case 'lotofoot-stationf':
         body = <StationfBody />;
       break;
+      case 'lotofoot-daily':
+        body = <Body />;
+      break;
     }
 
     return (
