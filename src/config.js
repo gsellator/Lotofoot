@@ -11,6 +11,9 @@ switch(process.env.APP_NAME) {
   case 'lotofoot-stationf':
     configFile = "lotofoot-stationf.js";
   break;
+  case 'lotofoot-daily':
+    configFile = "lotofoot-daily.js";
+  break;
 }
 
 export default require("./config/" + configFile).default;

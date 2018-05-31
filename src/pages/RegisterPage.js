@@ -52,6 +52,13 @@ class RegisterPage extends Component {
           labels={labels}
           registerUser={RegisterAction.registerUser} />;
       break;
+      case 'lotofoot-daily':
+        register = <StationfRegister
+          pending={pending}
+          success={success}
+          labels={labels}
+          registerUser={RegisterAction.registerUser} />;
+      break;
     }
 
     return (
