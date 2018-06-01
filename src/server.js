@@ -15,8 +15,8 @@ import forceSsl from "./server/forceSsl";
 import robots from "./server/robots";
 import sitemap from "./server/sitemap";
 import render from "./server/render";
+import notifierServer from './server/notifierServer';
 
-import notifierServer from "./server/notifierServer";
 import ApiService from "./services/ApiService";
 
 // Initialize express server
@@ -34,7 +34,7 @@ server.get('/logout', logout);
 
 // Notifier
 let io;
-server.post('/notifier/update', (req, res) => {notifierServer.post(req, res, io);});
+server.post('/notifier/update', (req, res) => {notifierServer.post(req, res, io)});
 
 // SSL
 if (server.get("env") === "production") {

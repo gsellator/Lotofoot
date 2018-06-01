@@ -1,14 +1,14 @@
 export default{
   post(req, res, io) {
-    const {channel, data} = req.body;
+    const { channel, data } = req.body;
     switch (channel) {
       case "message":
         io.emit("message", data);
-        break;
+      break;
       default:
         io.emit("update", data);
-        break;
-    }
+      break;
+    };
     return res.sendStatus(200);
   }
 };

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
+import io from "socket.io-client";
 
-//import config from "../../config";
 import NavAction from "../../actions/Pages/NavAction";
-//import NotifierAction from "../../actions/Pages/NotifierAction";
-import NotificationComponent from './Notification';
+import MessageEditAction from "../../actions/Pages/MessageEditAction";
 
 import MainMenu from "./MainMenu";
 import Navs from "../../components/Pages/Navs";
@@ -24,9 +23,31 @@ if (process.env.BROWSER) {
 }
 
 class Page extends Component {
+  constructor(props) {
+    super(props);
+    this.socket;
+  }
+
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
+  }
+
+  componentDidMount(){
+    this.socket = io.connect();
+
+    this.socket.on('message', (data) => {
+      console.log('new message received', data);
+      this.context.executeAction(MessageEditAction.getMessages);
+    });
+
+    this.socket.on('update', (data) => {
+      console.log('new unknown update received', data);
+    });
+  }
+
+  componentWillUnmount() {
+    this.socket.disconnect();
   }
 
   ckickHandler(e){
