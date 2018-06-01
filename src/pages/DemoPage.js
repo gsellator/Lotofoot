@@ -19,18 +19,20 @@ class DemoPage extends Component {
   }
 
   render() {
-    let body= <StationfBody />;
+    let body;
+
     switch(config.appName) {
-      case 'lotofoot-pre':
-        body = <StationfBody />;
-      break;
-      case 'lotofoot':
-        body = <Body />;
-      break;
       case 'lotofoot-stationf':
         body = <StationfBody />;
       break;
+
       case 'lotofoot-daily':
+      default:
+        body = <Body />;
+      break;
+
+      case 'lotofoot-pre':
+      case 'lotofoot':
         body = <Body />;
       break;
     }

@@ -82,7 +82,7 @@ class WhitelistRegister extends Component {
                       onFocus={this.inputChanged.bind(this, 'email')} onBlur={this.inputBlur.bind(this)} />
 
                     <select className="selectStationF" value={domain} onChange={this.inputChanged.bind(this, 'domain')} ref="domain" required>
-                      <option disabled value="">Select your team</option>
+                      <option disabled value="">{labels.selectTeam}</option>
                       {this.props.list.map((item, i) =>
                         <option key={i} value={item.url}>{item.url}</option>
                       )}

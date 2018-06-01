@@ -104,6 +104,7 @@ export default {
   semiFinal: 'Demi-finale',
   sendFeedback: 'Envoyer un feedback',
   signUp: 'Inscription',
+  selectTeam: 'Choisissez votre équipe',
 
   title: 'Titre',
   toCome: 'À venir',
@@ -250,7 +251,7 @@ export default {
   rostov: 'Rostov Arena, Rostov-sur-le-Don',
   cosmos: 'Cosmos Arena, Samara',
 
-  helpL1: `Amis Footix, le but de ce Lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de la coupe du monde. ` +
+  helpL1: `Chers participants, le but de ce Lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de la coupe du monde. ` +
     `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
   helpL2: `Pour chaque match, votre score dépendra du stade de la compétition (groupes, quarts de finale...) et de la qualité de votre pronostic (bon vainqueur, bonne différence de buts, score exact). Les points mis en jeu sont :`,
   helpL3: `Les pronostics peuvent être modifiés jusqu'au début des matchs. Bonne chance !`,

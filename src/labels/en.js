@@ -104,6 +104,7 @@ export default {
   semiFinal: 'Semi-Final',
   sendFeedback: 'Send Feedback',
   signUp: 'Sign Up',
+  selectTeam: 'Select your team',
 
   title: 'Title',
   toCome: 'Upcoming',
