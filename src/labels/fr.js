@@ -59,7 +59,7 @@ export default {
   inProgressGain: 'Pour l\'instant, ce pronostic vous rapporte ',
   illustrations: 'Illustrations',
   inactiveTitle: 'Consultez vos emails !',
-  inactiveText: 'Nous vous avons envoyé un message contentant un lien pour activer votre compte.',
+  inactiveText: 'Nous vous avons envoyé un message contenant un lien pour activer votre compte.',
   index: 'La Coupe du Monde commence le 14 juin. Amis footix, rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.',
 
   key: 'Clé',
@@ -99,7 +99,7 @@ export default {
   rules: 'Règles du jeu',
   recoverSuccessText: 'Votre mot de passe a été modifié.',
   recoverSuccessAction: 'Accéder au Lotofoot',
-  registerSuccessText: 'Votre compte a été créé ! Consultez vos emails, nous vous avons envoyé un message contentant un lien pour activer votre compte.',
+  registerSuccessText: 'Votre compte a été créé ! Consultez vos emails, nous vous avons envoyé un message contenant un lien pour activer votre compte.',
   registerSuccessAction: 'Accéder au Lotofoot',
 
   send: 'Envoyer',
