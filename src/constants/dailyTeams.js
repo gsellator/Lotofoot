@@ -100,6 +100,10 @@ export default [
     url: '@numero23.fr',
   },
   {
+    name: 'Plurimedia',
+    url: '@plurimedia.fr',
+  },
+  {
     name: 'RMC Decouverte',
     url: '@rmcdecouverte.fr',
   },

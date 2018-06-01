@@ -19,25 +19,18 @@ class Bottom extends Component {
     return (
       <footer className="Bottom">
         <div className="Content">
+          <div className="Title">
+            {labels.broughtToYou.toUpperCase()}
+          </div>
           <div className="First">
             <div className="Column">
-              <a className="Title" href="https://github.com/ghislaindj/lotofoot-api" target="_blank">
-                {labels.contribute.toUpperCase()}
-              </a>
-              <a className="Item" href="https://github.com/ghislaindj/lotofoot-api" target="_blank">
-                API
-              </a>
-              <a className="Item" href="https://github.com/gsellator/lotofoot" target="_blank">
-                Front
+              <a href="https://www.startupflow.io/" target="_blank">
+                <div className="icn-100 startupflow"></div>
               </a>
             </div>
-
             <div className="Column">
-              <a className="Title" href={'mailto:' + labels.contactEmail}>
-                {labels.contactUs.toUpperCase()}
-              </a>
-              <a className="Item" href={'mailto:' + labels.contactEmail}>
-                {labels.contactEmail}
+              <a href="https://www.dailydinities.fr/" target="_blank">
+                <div className="icn-100 daily"></div>
               </a>
             </div>
           </div>
@@ -49,6 +42,8 @@ class Bottom extends Component {
             <a className="Name" href="https://github.com/ghislaindj" target="_blank">@ghislaindj</a>
             <a className="Name" href="https://github.com/partomatl" target="_blank">@partomatl</a>
             <a className="Name" href="https://github.com/gsellator" target="_blank">@gsellator</a>
+            <span className="Role">{labels.contactUs}</span>
+            <a className="Name" href={'mailto:' + labels.contactEmail} target="_blank">{labels.contactEmail}</a>
           </div>
         </div>
       </footer>

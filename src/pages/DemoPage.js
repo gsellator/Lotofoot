@@ -4,6 +4,7 @@ import { connectToStores } from "fluxible-addons-react";
 
 import Body from "../components/Demo/Body";
 import StationfBody from "../components/Demo/StationfBody";
+import DailyBody from "../components/Demo/DailyBody";
 import Bottom from "../components/Demo/Bottom";
 
 import config from "../config";
@@ -28,7 +29,7 @@ class DemoPage extends Component {
 
       case 'lotofoot-daily':
       default:
-        body = <Body />;
+        body = <DailyBody />;
       break;
 
       case 'lotofoot-pre':
