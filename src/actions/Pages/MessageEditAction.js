@@ -13,7 +13,8 @@ export default {
     });
   },
 
-  getMessages(context, { route, body }) {
+  getMessages(context, { data }) {
+    const route = context.getStore("RouteStore").getCurrentRoute();
     return context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
     .then(() => {
       return;

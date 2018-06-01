@@ -10,10 +10,9 @@ import DialogStore from "./stores/Dialog/DialogStore";
 
 import MessagesTabStore from "./stores/Chat/MessagesTabStore";
 import CurrentGameStore from "./stores/Games/CurrentGameStore";
-import GameBlockStore from "./stores/Games/GameBlockStore";
 import GameModalStore from "./stores/Games/GameModalStore";
 import GamesTabStore from "./stores/Games/GamesTabStore";
-import PredictionBlockStore from "./stores/Predictions/PredictionBlockStore";
+import ModalStore from "./stores/Predictions/ModalStore";
 import PredictionsByGameTabStore from "./stores/Predictions/PredictionsByGameTabStore";
 import UsersTabStore from "./stores/Ranking/UsersTabStore";
 import TeamsDicoStore from "./stores/Teams/TeamsDicoStore";
@@ -73,10 +72,9 @@ app.registerStore(DialogStore);
 
 app.registerStore(MessagesTabStore);
 app.registerStore(CurrentGameStore);
-app.registerStore(GameBlockStore);
 app.registerStore(GameModalStore);
 app.registerStore(GamesTabStore);
-app.registerStore(PredictionBlockStore);
+app.registerStore(ModalStore);
 app.registerStore(PredictionsByGameTabStore);
 app.registerStore(UsersTabStore);
 app.registerStore(TeamsDicoStore);

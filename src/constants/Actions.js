@@ -33,6 +33,7 @@ const Actions = keyMirror({
   NAVIGATE_FAILURE: null,
 
   // APP
+  FLUSH_MODAL: null,
   APIOK_USERS: null,
 
   APIOK_TEAMS: null,
