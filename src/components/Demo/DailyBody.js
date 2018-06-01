@@ -22,9 +22,9 @@ class Body extends Component {
         </div>
         <div className="TextsContainer">
           <div className="Texts">
-            <div className="HeaderImg" />
+            <div className="HeaderImg Daily" />
             <p>
-              {labels.index}
+              La Coupe du Monde commence le 14 juin. Rejoignez dès maintenant le grand concours de pronostics du club des utilisateurs Daily.
             </p>
             <div>
               <NavLink className="OnBoardBtn" activeClass="active" routeName="register">

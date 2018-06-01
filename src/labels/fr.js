@@ -8,7 +8,7 @@ export default {
 
   back: 'Revenez en arrière',
   backHome: 'Retour à l\'accueil',
-  broughtToYou: 'Lotofoot vous est proposé par',
+  broughtToYou: 'Lotofoot.io vous est proposé par',
 
   cancel: 'Annuler',
   chat: 'Chat',
@@ -60,6 +60,7 @@ export default {
   illustrations: 'Illustrations',
   inactiveTitle: 'Consultez vos emails !',
   inactiveText: 'Nous vous avons envoyé un message contentant un lien pour activer votre compte.',
+  index: 'La Coupe du Monde commence le 14 juin. Amis footix, rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.',
 
   key: 'Clé',
   knockoutPhase: 'Phase finale',

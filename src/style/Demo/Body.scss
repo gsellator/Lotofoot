@@ -36,6 +36,19 @@
       max-width: $text-width;
       margin: auto;
 
+      .HeaderImg{
+        height: 160px;
+        background-image: url('../../assets/header.svg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-bottom: 48px;
+
+        &.Daily{
+          background-image: url('../../assets/header-daily.svg');
+        }
+      }
+
       h2{
         span{
           color: #000;
@@ -95,6 +108,12 @@
 
     .TextsContainer{
       height: calc(100% - 244px);
+
+      .Texts{
+        .HeaderImg{
+          height: 140px;
+        }
+      }
     }
   }
 }
@@ -113,6 +132,10 @@
       height: calc(100% - 204px);
 
       .Texts{
+        .HeaderImg{
+          height: 100px;
+        }
+
         h2{
           span{
             font-size: $font-size-big-1;

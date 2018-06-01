@@ -8,7 +8,7 @@ export default {
 
   back: 'Go back',
   backHome: 'Back to homepage',
-  broughtToYou: 'Lotofoot is brought to you by',
+  broughtToYou: 'Lotofoot.io is brought to you by',
 
   cancel: 'Cancel',
   chat: 'Chat',
@@ -60,6 +60,7 @@ export default {
   illustrations: 'Illustrations',
   inactiveTitle: 'Check your inbox!',
   inactiveText: 'We sent you an email with a link to activate your account.',
+  index: 'The 2018 FIFA World Cup kicks off on June 14th in Russia. Whether you\'re a soccer expert or a complete novice, join the Lotofoot, our exclusive prediction contest!',
 
   key: 'Key',
   knockoutPhase: 'Knockout Phase',
