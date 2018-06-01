@@ -5,8 +5,8 @@ export default{
       case "message":
         io.emit("message", data);
       break;
-      default:
-        io.emit("update", data);
+      case "game":
+        io.emit("game", data);
       break;
     };
     return res.sendStatus(200);

@@ -38,11 +38,11 @@ class Page extends Component {
 
     this.socket.on('message', (data) => {
       console.log('new message received', data);
-      this.context.executeAction(MessageEditAction.getMessages);
+      this.context.executeAction(MessageEditAction.getMessages, { data });
     });
 
-    this.socket.on('update', (data) => {
-      console.log('new unknown update received', data);
+    this.socket.on('game', (data) => {
+      console.log('new game received', data);
     });
   }
 
