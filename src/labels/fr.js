@@ -255,7 +255,7 @@ export default {
 
   helpL1: `Chers participants, le but de ce Lotofoot est de pronostiquer le vainqueur et le score final (prolongations incluses) de chaque match de la coupe du monde. ` +
     `Dans le cas d'un match à élimination directe, si vous pronostiquez un match nul, vous devez aussi préciser quelle est l'équipe que vous voyez victorieuse à l'issue des tirs aux buts.`,
-  helpL2: `Pour chaque match, votre score dépendra du stade de la compétition (groupes, quarts de finale...) et de la qualité de votre pronostic (bon vainqueur, bonne différence de buts, score exact). Les points mis en jeu sont :`,
+  helpL2: `Pour chaque match, vos points dépendront du stade de la compétition (groupes, quarts de finale...) et de la qualité de votre pronostic (bon vainqueur, bonne différence de buts, score exact). Les points mis en jeu sont :`,
   helpL3: `Les pronostics peuvent être modifiés jusqu'au début des matchs. Bonne chance !`,
   helpL4: `En cas de problème ou pour toute question, contactez-nous à l'adresse `,
   helpLabel1: 'Bon Vainqueur',
