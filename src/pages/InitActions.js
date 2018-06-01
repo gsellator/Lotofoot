@@ -15,14 +15,18 @@ const getModal = (context, route) => {
     if (!route.query.game)
       return resolve();
 
-    Promise.all([
-      context.executeAction(ApiAction.getApi, { route, view: 'Game', action: Actions.APIOK_GAME }),
-      context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER }),
+    const url = route.url;
+    return context.executeAction(ApiAction.flushApi, { action: Actions.FLUSH_MODAL, url })
+    .then(() => {
+      return Promise.all([
+        context.executeAction(ApiAction.getApi, { route, view: 'Game', action: Actions.APIOK_GAME, url }),
+        context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGameAndUser', action: Actions.APIOK_PREDICTIONS_BYGAMEANDUSER, url }),
 
-      context.executeAction(ApiAction.getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS }),
-      context.executeAction(ApiAction.getApi, { route, view: 'Users', action: Actions.APIOK_USERS }),
-      context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME }),
-    ])
+        context.executeAction(ApiAction.getApi, { route, view: 'Teams', action: Actions.APIOK_TEAMS, url }),
+        context.executeAction(ApiAction.getApi, { route, view: 'Users', action: Actions.APIOK_USERS, url }),
+        context.executeAction(ApiAction.getApi, { route, view: 'PredictionsByGame', action: Actions.APIOK_PREDICTIONS_BYGAME, url }),
+      ]);
+    })
     .then(() => {
       return resolve();
     });

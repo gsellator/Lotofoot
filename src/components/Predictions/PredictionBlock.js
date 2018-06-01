@@ -13,8 +13,8 @@ class PredictionBlock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scoreTeamA: this.props.predictionData.scoreTeamA,
-      scoreTeamB: this.props.predictionData.scoreTeamB,
+      scoreTeamA: this.props.predictionData.scoreTeamA === undefined ? '' : this.props.predictionData.scoreTeamA,
+      scoreTeamB: this.props.predictionData.scoreTeamB === undefined ? '' : this.props.predictionData.scoreTeamB,
       winner: this.props.predictionData.winner,
     };
   }
@@ -22,16 +22,6 @@ class PredictionBlock extends Component {
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired
-  }
-
-  componentDidMount() {
-    this.componentDidUpdate();
-  }
-
-  componentDidUpdate() {
-    if (this.state.scoreTeamA === '' && this.state.scoreTeamA !== this.props.predictionData.scoreTeamA) {this.setState({scoreTeamA: this.props.predictionData.scoreTeamA});}
-    if (this.state.scoreTeamB === '' && this.state.scoreTeamB !== this.props.predictionData.scoreTeamB) {this.setState({scoreTeamB: this.props.predictionData.scoreTeamB});}
-    if (this.state.winner === undefined && this.state.winner != this.props.predictionData.winner) {this.setState({winner: this.props.predictionData.winner});}
   }
 
   handleChangeA(e) {
