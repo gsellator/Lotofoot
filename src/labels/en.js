@@ -8,6 +8,7 @@ export default {
 
   back: 'Go back',
   backHome: 'Back to homepage',
+  broughtToYou: 'Lotofoot is brought to you by',
 
   cancel: 'Cancel',
   chat: 'Chat',

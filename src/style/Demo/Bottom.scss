@@ -22,27 +22,25 @@
     margin: auto;
     padding: 0 24px;
 
+    .Title{
+      color: $grey-dark;
+      cursor: pointer;
+      display: block;
+      font-weight: 500;
+      line-height: 24px;
+      margin-bottom: 24px;
+    }
+
     .First{
       display: flex;
-      padding: 0 0 24px 0;
+//      padding: 0 0 12px 0;
 
       .Column{
         flex: 1;
 
-        .Title{
-          color: $grey-dark;
-          cursor: pointer;
-          display: block;
-          font-weight: 500;
-          line-height: 24px;
-        }
-
-        .Item{
-          color: rgb(122, 123, 124);
-          cursor: pointer;
-          display: block;
-          font-weight: 500;
-          line-height: 24px;
+        .icn-100{
+          margin: auto;
+          margin-bottom: 24px;
         }
       }
     }
