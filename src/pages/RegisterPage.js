@@ -4,11 +4,14 @@ import { connectToStores } from "fluxible-addons-react";
 import { NavLink } from "fluxible-router";
 
 import Register from "../components/Widgets/Register";
-import StationfRegister from "../components/Widgets/StationfRegister";
+import WhitelistRegister from "../components/Widgets/WhitelistRegister";
 
 import RegisterAction from "../actions/Pages/RegisterAction";
 import labels from "../labels";
 import config from "../config";
+
+import stationfTeams from "../constants/stationfTeams";
+import dailyTeams from "../constants/dailyTeams";
 
 if (process.env.BROWSER) {
   require("../style/Pages/LoginPage.scss");
@@ -24,35 +27,31 @@ class RegisterPage extends Component {
   render() {
     const { pending, success } = this.props;
 
-    let register= <StationfRegister
-      pending={pending}
-      success={success}
-      labels={labels}
-      registerUser={RegisterAction.registerUser} />;
-
+    let register;
     switch(config.appName) {
-      case 'lotofoot-pre':
-        register = <StationfRegister
-          pending={pending}
-          success={success}
-          labels={labels}
-          registerUser={RegisterAction.registerUser} />;
-      break;
-      case 'lotofoot':
-        register = <Register
-          pending={pending}
-          success={success}
-          labels={labels}
-          registerUser={RegisterAction.registerUser} />;
-      break;
       case 'lotofoot-stationf':
-        register = <StationfRegister
+        register = <WhitelistRegister
+          list={stationfTeams}
+          label="Please register with your Station F email."
           pending={pending}
           success={success}
           labels={labels}
           registerUser={RegisterAction.registerUser} />;
       break;
+
       case 'lotofoot-daily':
+      default:
+        register = <WhitelistRegister
+          list={dailyTeams}
+          label="Merci de vous inscrire avec votre mail pro."
+          pending={pending}
+          success={success}
+          labels={labels}
+          registerUser={RegisterAction.registerUser} />;
+      break;
+
+      case 'lotofoot-pre':
+      case 'lotofoot':
         register = <Register
           pending={pending}
           success={success}

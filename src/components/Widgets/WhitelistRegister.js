@@ -4,13 +4,12 @@ import { NavLink } from "fluxible-router";
 
 import Zabivaka from "./Zabivaka";
 import LoaderSmall from "./LoaderSmall";
-import stationfTeams from "../../constants/stationfTeams";
 
 if (process.env.BROWSER) {
   require("../../style/Widgets/Register.scss");
 }
 
-class Register extends Component {
+class WhitelistRegister extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -72,7 +71,7 @@ class Register extends Component {
             {!success &&
               <div>
                 <div className="text">
-                  Please register with your Station F email.
+                  {this.props.label}
                 </div>
 
                 <fieldset>
@@ -83,8 +82,8 @@ class Register extends Component {
                       onFocus={this.inputChanged.bind(this, 'email')} onBlur={this.inputBlur.bind(this)} />
 
                     <select className="selectStationF" value={domain} onChange={this.inputChanged.bind(this, 'domain')} ref="domain" required>
-                      <option disabled value="">Select your team</option>
-                      {stationfTeams.map((item, i) =>
+                      <option disabled value="">{labels.selectTeam}</option>
+                      {this.props.list.map((item, i) =>
                         <option key={i} value={item.url}>{item.url}</option>
                       )}
                     </select>
@@ -147,5 +146,5 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default WhitelistRegister;
 

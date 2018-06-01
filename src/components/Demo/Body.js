@@ -30,7 +30,7 @@ class Body extends Component {
               06/14 - 07/15
             </h3>
             <p>
-              La Coupe du Monde commence le 14 juin. Amis footis, rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.
+              La Coupe du Monde commence le 14 juin. Amis footix, rejoignez dès maintenant le grand Lotofoot de la coupe du monde 2018.
             </p>
             <div>
               <NavLink className="OnBoardBtn" activeClass="active" routeName="register">

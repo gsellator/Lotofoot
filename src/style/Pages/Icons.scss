@@ -16,7 +16,7 @@
 
 @mixin uiux-icons{
   background: url('../../assets/uiux_icons.svg') 0 0 no-repeat;
-  background-size: 256px 390px;
+  background-size: 350px 390px;
 }
 
 
@@ -25,8 +25,7 @@
   width: 20px; height: 20px;
   background-position: -0px -0px;
 
-  &.back{background-position: -25px 0;}
-  &.title{background-position: -50px 0; width: 80px;}
+  &.title{background-position: -25px 0; width: 80px;}
 
   &:hover{background-position-y: -24px;}
   &:active{background-position-y: -48px;}
@@ -45,10 +44,6 @@
   &.account{background-position: -150px -75px;}
   &.refresh{background-position: -180px -75px;}
   &.back{background-position: -210px -75px; width: 16px;}
-  &.main{
-    background-position: -230px -75px;
-    &.full{width: 90px;}
-  }
 
   &:hover{background-position-y: -105px;}
   &:active, &.active{background-position-y: -135px;}
@@ -66,6 +61,11 @@
   &.main.lotofoot-stationf{
     background-position: -130px -166px;
     width: 70px;
+  }
+
+  &.main.lotofoot-daily{
+    background-position: -210px -166px;
+    width: 120px;
   }
 
   &:hover{background-position-y:-206px;}
@@ -126,4 +126,6 @@
   width: 100px; height: 100px;
 
   &.account{background-position: -0px -290px;}
+  &.startupflow{background-position: -110px -290px;}
+  &.daily{background-position: -220px -290px;}
 }
