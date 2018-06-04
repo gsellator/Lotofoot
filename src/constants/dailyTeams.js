@@ -124,6 +124,10 @@ export default [
     url: '@tmc.mc',
   },
   {
+    name: 'TVTY',
+    url: '@tvty.tv',
+  },
+  {
     name: 'Viacom',
     url: '@vimn.com',
   },
