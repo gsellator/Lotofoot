@@ -10,11 +10,10 @@ var dist = path.resolve(__dirname, '../public/assets');
 
 module.exports = {
   devtool: 'source-map',
-  entry: {
-    main: [
-      './src/client.js',
-    ]
-  },
+  entry: [
+    'babel-polyfill',
+    './src/client.js'
+  ],
   output: {
     filename: '[name]-[hash].js',
     chunkFilename: '[name]-[chunkhash].js',
@@ -39,10 +38,22 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: [/node_modules/, /src\/assets\/static/],
+        exclude: [/src\/assets\/static/],
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              presets: [
+                ["env", {
+                  "targets": {
+                    "browsers": [ "ie 11" ]
+                  }
+                }],
+                "stage-0",
+                "react"
+              ],
+              plugins: ['transform-object-assign']
+            },
           },
         ]
       },
