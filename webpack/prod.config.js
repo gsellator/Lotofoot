@@ -52,7 +52,6 @@ module.exports = {
                 "stage-0",
                 "react"
               ],
-              plugins: ['transform-object-assign']
             },
           },
         ]
