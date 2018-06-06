@@ -12,14 +12,13 @@ const port = parseInt(process.env.PORT) + 1 || 3001;
 
 const config = {
   devtool: 'eval-source-map',
-  entry: {
-    main: [
-      'webpack-dev-server/client?http://' + host + ':' + port,
-      'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
-      './src/client.js'
-    ]
-  },
+  entry: [
+    'babel-polyfill',
+    'webpack-dev-server/client?http://' + host + ':' + port,
+    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    './src/client.js'
+  ],
   output: {
     filename: '[name]-[hash].js',
     path: dist,
