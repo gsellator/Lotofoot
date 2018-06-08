@@ -13,7 +13,7 @@ if (process.env.BROWSER) {
 class UsersTab extends Component {
   render() {
     const { data, credentials } = this.props;
-    const reg = /@[^.]+.[^.]+/;
+    const reg = /@.*/;
 
     let showTeam = false;
     let ref = {};

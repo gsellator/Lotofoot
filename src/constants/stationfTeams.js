@@ -141,7 +141,7 @@ export default {
   teams,
 
   teamsRef: () => {
-    let ref = {};
+    let ref = {'@startupflow.io': 'Founders Program'};
     for (let item of teams){
       ref[item.url] = item.name;
     }
