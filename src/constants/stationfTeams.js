@@ -1,4 +1,4 @@
-export default [
+const teams = [
   {
     name: 'Station F Team',
     url: '@stationf.co',
@@ -135,4 +135,16 @@ export default [
     name: 'Zendesk',
     url: '@zendesk.stationf.co',
   },
-]
+];
+
+export default {
+  teams,
+
+  teamsRef: () => {
+    let ref = {};
+    for (let item of teams){
+      ref[item.url] = item.name;
+    }
+    return ref;
+  }
+};
