@@ -31,7 +31,7 @@ class RegisterPage extends Component {
     switch(config.appName) {
       case 'lotofoot-stationf':
         register = <WhitelistRegister
-          list={stationfTeams}
+          list={stationfTeams.teams}
           label="Please register with your Station F email."
           pending={pending}
           success={success}
@@ -42,7 +42,7 @@ class RegisterPage extends Component {
       case 'lotofoot-daily':
       default:
         register = <WhitelistRegister
-          list={dailyTeams}
+          list={dailyTeams.teams}
           label="Merci de vous inscrire avec votre mail pro."
           pending={pending}
           success={success}

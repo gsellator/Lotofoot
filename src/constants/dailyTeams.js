@@ -1,4 +1,4 @@
-export default [
+const teams = [
   {
     name: 'Altice',
     url: '@altice.net',
@@ -140,4 +140,16 @@ export default [
     url: '@vimnmix.com',
   },
 ];
+
+export default {
+  teams,
+
+  teamsRef: () => {
+    let ref = {};
+    for (let item of teams){
+      ref[item.url] = item.name;
+    }
+    return ref;
+  }
+};
 

@@ -37,6 +37,13 @@
       text-align: left;
     }
 
+    .Player{
+      .Team{
+        margin-left: 6px;
+        opacity: 0.5;
+      }
+    }
+
     .Points{
       flex: 1;
       width: 34px;
