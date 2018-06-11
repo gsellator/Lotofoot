@@ -104,6 +104,10 @@ const teams = [
     url: '@plurimedia.fr',
   },
   {
+    name: 'Radio France',
+    url: '@radiofrance.com',
+  },
+  {
     name: 'RMC Decouverte',
     url: '@rmcdecouverte.fr',
   },
