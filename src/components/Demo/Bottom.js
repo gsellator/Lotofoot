@@ -4,6 +4,7 @@ import { NavLink } from "fluxible-router";
 import FormatDate from "daily-helpers/dist/FormatDate";
 
 import labels from "../../labels";
+import config from "../../config";
 
 if (process.env.BROWSER) {
   require("../../style/Demo/Bottom.scss");
@@ -33,6 +34,13 @@ class Bottom extends Component {
                 <div className="icn-100 daily"></div>
               </a>
             </div>
+            {false && config.appName === 'lotofoot-stationf' &&
+              <div className="Column">
+                <a href="https://www.tf1.fr/" target="_blank">
+                  <div className="icn-100 tf1"></div>
+                </a>
+              </div>
+            }
           </div>
 
           <div className="Credit">
