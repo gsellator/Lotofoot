@@ -27,12 +27,12 @@ class NavSummary extends Component {
       <nav className="NavSummary">
         <div>
           {sections.map(sect =>
-            <button className={pageName == sect.name ? 'NavLink active' : 'NavLink'} key={sect.name} onTouchTap={NavHelper.navToSectClick.bind(this, sect.name, sect.defaultView)}>
+            <button className={pageName == sect.name ? 'NavLink active' : 'NavLink'} key={sect.name} onClick={NavHelper.navToSectClick.bind(this, sect.name, sect.defaultView)}>
               <div className={'btn-26 ' + sect.name} title={sect.label}></div>
             </button>
           )}
 
-          <button  className="NavLink" onTouchTap={this.switchNav.bind(this)}>
+          <button  className="NavLink" onClick={this.switchNav.bind(this)}>
             <div className="btn-26 more" title="Menu"></div>
           </button>
         </div>

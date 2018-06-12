@@ -22,7 +22,7 @@ class AccountBlock extends Component {
 
           <div className="AccountActions">
             <a className="TxtBtn" href={'mailto:' + email}>{labels.sendFeedback}</a>
-            <button className="TxtBtn" onTouchTap={this.props.logout}>{labels.logout}</button>
+            <button className="TxtBtn" onClick={this.props.logout}>{labels.logout}</button>
           </div>
         </div>
       </div>

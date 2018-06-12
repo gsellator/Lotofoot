@@ -74,7 +74,7 @@ class Page extends Component {
     if (isPublic) {pageClassName += ' Public';}
 
     return (
-      <div className={pageClassName} onTouchTap={this.ckickHandler.bind(this)}>
+      <div className={pageClassName} onClick={this.ckickHandler.bind(this)}>
         <MainMenu
           isPublic={isPublic} />
 

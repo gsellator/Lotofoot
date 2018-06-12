@@ -103,11 +103,11 @@ class PredictionBlock extends Component {
                         {labels.winner + ' > '}
                       </span>
                       <span>
-                        <div className={this.state.winner === 'teamA' ? 'TabBtn Active' : 'TabBtn'} onTouchTap={this.handleChangeWinner.bind(this, 'teamA')}>
+                        <div className={this.state.winner === 'teamA' ? 'TabBtn Active' : 'TabBtn'} onClick={this.handleChangeWinner.bind(this, 'teamA')}>
                           {!gameData.teamA && labels[gameData.futureTeamA]}
                           {gameData.teamA && labels[gameData.teamA.slug.replace('-', '')]}
                         </div>
-                        <div className={this.state.winner === 'teamB' ? 'TabBtn Active' : 'TabBtn'} onTouchTap={this.handleChangeWinner.bind(this, 'teamB')}>
+                        <div className={this.state.winner === 'teamB' ? 'TabBtn Active' : 'TabBtn'} onClick={this.handleChangeWinner.bind(this, 'teamB')}>
                           {!gameData.teamB && labels[gameData.futureTeamB]}
                           {gameData.teamB && labels[gameData.teamB.slug.replace('-', '')]}
                         </div>
@@ -115,7 +115,7 @@ class PredictionBlock extends Component {
                     </div>
                   }
                   <div className="Btns">
-                    <div className="PaperBtn" onTouchTap={this.postPrediction.bind(this)}>{labels.validate}</div>
+                    <div className="PaperBtn" onClick={this.postPrediction.bind(this)}>{labels.validate}</div>
                   </div>
                 </div>
               }

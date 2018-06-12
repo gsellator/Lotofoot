@@ -22,7 +22,7 @@ class TabNav extends Component {
         <nav className="TabNavContent">
           {Sections.map(sect =>
             <div className="TabNavBtn" key={sect.name}>
-              <div className={sect.name.indexOf(pageName) == 0 ? 'NavLink active' : 'NavLink'} onTouchTap={NavHelper.navToSectClick.bind(this, sect.name)}>
+              <div className={sect.name.indexOf(pageName) == 0 ? 'NavLink active' : 'NavLink'} onClick={NavHelper.navToSectClick.bind(this, sect.name)}>
                 <div className={'btn-26 ' + sect.name} title={labels[sect.name]} />
                 <div className="Label">{labels[sect.name + 'Mini']}</div>
               </div>
