@@ -28,7 +28,7 @@ class HeaderBtn extends Component {
           <div className="btn-20 title"></div>
         }
         {data && data.status === 'TIMED' &&
-          <div className="Live" onTouchTap={GameModalHelper.openGameModalFct.bind(this, data._id)}>
+          <div className="Live" onClick={GameModalHelper.openGameModalFct.bind(this, data._id)}>
             <div className="icn-10 next"></div>
 
             <div className="Cartouche">
@@ -61,7 +61,7 @@ class HeaderBtn extends Component {
           </div>
         }
         {data && data.status === 'IN_PROGRESS' &&
-          <div className="Live" onTouchTap={GameModalHelper.openGameModalFct.bind(this, data._id)}>
+          <div className="Live" onClick={GameModalHelper.openGameModalFct.bind(this, data._id)}>
             <div className="icn-10 live"></div>
 
             <div className="Cartouche">

@@ -65,14 +65,14 @@ class NavFull extends Component {
 
         {sections.map(sect =>
           <div key={sect.name}>
-            <div className={curSect == sect.name ? 'Link active' : 'Link'} onTouchTap={this.sectClick.bind(this, sect)}>
+            <div className={curSect == sect.name ? 'Link active' : 'Link'} onClick={this.sectClick.bind(this, sect)}>
               <div className={'btn-26 ' + sect.name}></div>
               <span className="LinkTxt">{sect.label}</span>
             </div>
 
             <div className="SubSects" style={{ 'height' : (sect.views && curSect == sect.name) ? sect.views.length * 34 + 'px' : '0px' }}>
               {sect.views && sect.views.map(subsect =>
-                <div key={subsect.name} className={(pageName == sect.name && view == subsect.name) ? 'AltLink active' : 'AltLink'} onTouchTap={NavHelper.navToSectClick.bind(this, sect.name, subsect.name)}>
+                <div key={subsect.name} className={(pageName == sect.name && view == subsect.name) ? 'AltLink active' : 'AltLink'} onClick={NavHelper.navToSectClick.bind(this, sect.name, subsect.name)}>
                   <div className="btn-20 dot"></div>
                   <div className="LinkTxt">
                     {subsect.label}

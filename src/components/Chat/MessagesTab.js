@@ -9,6 +9,15 @@ if (process.env.BROWSER) {
 
 class MessagesTab extends Component {
   getTextBlock(text) {
+    const imgReg = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpg|gif|png)$/;
+
+    if (text.match(imgReg) !== null){
+      return (
+        <img src={text} />
+      );
+    }
+
+    // Emojis
     // https://apps.timwhitlock.info/unicode/inspect?s=🙂
     // Look for Surrogates
     // 🙂  d83d de42

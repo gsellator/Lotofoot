@@ -4,7 +4,9 @@ import { connectToStores } from "fluxible-addons-react";
 import io from "socket.io-client";
 
 import NavAction from "../../actions/Pages/NavAction";
-import MessageEditAction from "../../actions/Pages/MessageEditAction";
+import Actions from "../../constants/Actions";
+import ApiAction from "../../actions/Pages/ApiAction";
+
 
 import MainMenu from "./MainMenu";
 import Navs from "../../components/Pages/Navs";
@@ -38,11 +40,14 @@ class Page extends Component {
 
     this.socket.on('message', (data) => {
       console.log('new message received', data);
-      this.context.executeAction(MessageEditAction.getMessages, { data });
+      const route = this.context.getStore("RouteStore").getCurrentRoute();
+      this.context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES });
     });
 
     this.socket.on('game', (data) => {
       console.log('new game received', data);
+      this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI });
+      this.context.executeAction(ApiAction.getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
     });
   }
 
@@ -74,7 +79,7 @@ class Page extends Component {
     if (isPublic) {pageClassName += ' Public';}
 
     return (
-      <div className={pageClassName} onTouchTap={this.ckickHandler.bind(this)}>
+      <div className={pageClassName} onClick={this.ckickHandler.bind(this)}>
         <MainMenu
           isPublic={isPublic} />
 
