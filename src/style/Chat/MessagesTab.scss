@@ -41,6 +41,7 @@
       .Text{
         display: inline-block;
         vertical-align: top;
+        text-align: center;
 
         span{
           font-weight: 300;
@@ -56,8 +57,9 @@
         }
 
         img{
-          max-height: 260px;
-          max-width: 100%;
+          margin: auto;
+          max-height: 550px;
+          max-width: 450px;
         }
       }
 
