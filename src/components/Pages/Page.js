@@ -41,12 +41,13 @@ class Page extends Component {
     this.socket.on('message', (data) => {
       console.log('new message received', data);
       const route = this.context.getStore("RouteStore").getCurrentRoute();
-      this.context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
+      this.context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES });
     });
 
     this.socket.on('game', (data) => {
       console.log('new game received', data);
-      //this.context.executeAction(MessageEditAction.getMessages, { data });
+      this.context.executeAction(ApiAction.getApi, { route, view: 'GamesNext', action: Actions.APIOK_GAMES_NEXTMINI });
+      this.context.executeAction(ApiAction.getApi, { route, view: 'Games', action: Actions.APIOK_GAMES });
     });
   }
 
