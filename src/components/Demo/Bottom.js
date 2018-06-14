@@ -34,7 +34,7 @@ class Bottom extends Component {
                 <div className="icn-100 daily"></div>
               </a>
             </div>
-            {false && config.appName === 'lotofoot-stationf' &&
+            {config.appName === 'lotofoot-stationf' &&
               <div className="Column">
                 <a href="https://www.tf1.fr/" target="_blank">
                   <div className="icn-100 tf1"></div>
