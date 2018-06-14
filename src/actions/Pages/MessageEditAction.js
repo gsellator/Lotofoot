@@ -12,15 +12,4 @@ export default {
       console.log('MessageEditAction error');
     });
   },
-
-  getMessages(context, { data }) {
-    const route = context.getStore("RouteStore").getCurrentRoute();
-    return context.executeAction(ApiAction.getApi, { route, view: 'Messages', action: Actions.APIOK_MESSAGES })
-    .then(() => {
-      return;
-    }, (err) => {
-      console.log('GetMessages Error : ', err.message);
-      return;
-    });
-  }
 };

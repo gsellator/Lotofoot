@@ -10,8 +10,9 @@
     background-size: cover;
 
     .Illu{
-      height: 320px;
-      background: url('../../assets/super_victor.svg') center top no-repeat;
+      height: 360px;
+      //      background: url('../../assets/super_victor.svg') center top no-repeat;
+      background: url('../../assets/footix-2018.svg') center top no-repeat;
       background-size: contain;
     }
   }
@@ -37,7 +38,7 @@
         padding: 12px;
 
         .Illu{
-          height: 220px;
+          height: 260px;
         }
       }
     }
@@ -46,9 +47,11 @@
 
 @media (max-width: $break-small){
   .HelpPage{
-    .IlluContainer{
-      .Illu{
-        height: 180px;
+    .Paper{
+      .IlluContainer{
+        .Illu{
+          height: 220px;
+        }
       }
     }
   }
