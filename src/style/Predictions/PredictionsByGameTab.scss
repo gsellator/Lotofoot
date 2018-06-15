@@ -3,121 +3,76 @@
 @import '../constants/typography';
 
 .Paper.PredictionsByGameTab{
-  text-align: center;
   padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 
-  .Prediction{
-    margin: 0 -12px;
-    padding: 6px 12px;
-    position: relative;
+  .Item{
+    padding: 6px 9px;
     display: flex;
-    justify-content: space-between;
-    &:not(:last-child){border-bottom: solid $grey-3 1px;}
 
-    .Left{
-      height: 22px;
-      width: 96px; min-width: 96px;
-      margin: 1px 0;
-      text-align: left;
-      white-space: nowrap;
-
-      div{
-        display: inline-block;
-        vertical-align: top;
-        font-size: $font-size-s;
-        line-height: 22px;
-      }
-
-      .Group{
-        font-weight: 500;
-      }
-
-      .Stadium{
-        margin-left: 6px;
-      }
-
+    &:not(:last-child){
+      border-bottom: solid $grey-3 1px;
     }
 
-    .Center{
+    .Left{
       flex: 1;
-      display: flex;
-      justify-content: space-between;
-      height: 22px;
-      margin: 1px 0;
+      white-space: nowrap;
+      overflow: hidden;
 
-      div{
+      span{
         display: inline-block;
-        vertical-align: top;
         font-size: $font-size-m;
         line-height: 22px;
-      }
 
-      .Team{
-        flex: 1;
-        white-space: nowrap;
-        min-width: 10px;
-        overflow: hidden;
-
-        &:first-child{
-          text-align: right;
-          .Label{padding-right: 6px;}
-        }
-        &:last-child{
-          text-align: left;
-          .Label{padding-left: 6px;}
+        &.Rank{
+          margin-right: 6px;
         }
 
-        .Label{
-          font-weight: 500;
-          color: $grey-9;
-        }
-
-        .Flag{
-          margin-top: 3px;
-          font-size: 0;
-          height: 16px;
-
-          img{
-            display: inline-block;
-            vertical-align: top;
-            height: 16px;
-          }
-        }
-      }
-
-      .ScoreContainer{
-        width: 49px;
-
-        .Time{
-          font-size: $font-size-l;
-          font-weight: 500;
-          color: $grey-9;
-          line-height: 18px;
-        }
-
-        .Score span{
-          font-family: $font-family-numbers;
-          font-weight: $font-weight-numbers;
-          text-rendering: $text-rendering-numbers;
-          font-size: $font-size-l;
-          font-weight: 500;
-          color: $grey-9;
-          line-height: 18px;
-          color: black;
+        &.Team{
+          margin-left: 6px;
+          opacity: 0.5;
         }
       }
     }
 
     .Right{
-      width: 60px; min-width: 60px;
-      height: 24px;
-      white-space: nowrap;
-      text-align: right;
+      .Prediction{
+        display: flex;
+        justify-content: space-between;
+        height: 22px;
+        padding: 0 0 0 6px;
+        width: 130px;
+        white-space: nowrap;
 
-      .icn-24{
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 6px;
+        .Team{
+          padding: 5px 0;
+
+          .flag{
+            box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.45);
+          }
+        }
+
+        .ScoreContainer{
+          flex: 1;
+          font-family: $font-family-numbers;
+          font-weight: $font-weight-numbers;
+          text-rendering: $text-rendering-numbers;
+          font-size: $font-size-l;
+          line-height: 24px;
+          color: black;
+          text-align: center;
+        }
+
+        .Points{
+          display: inline-block;
+          font-size: $font-size-m;
+          line-height: 22px;
+          margin-left: 9px;
+          width: 30px;
+          text-align: right;
+          border-left: solid $grey-9 1px;
+        }
       }
     }
   }
@@ -127,37 +82,5 @@
   .Paper.PredictionsByGameTab{
     border-radius: 0;
     margin-bottom: 12px;
-
-    .Match{
-      .Left{
-        display: none;
-      }
-
-      .Center{
-        div{
-          font-size: $font-size-m;
-        }
-
-        .Team{
-          .Flag{
-            height: 10px;
-            margin-top: 6px;
-
-            img{
-              height: 10px;
-            }
-          }
-        }
-
-        .Score{
-          width: 40px;
-          font-size: $font-size-m;
-        }
-      }
-
-      .Right{
-        display: none;
-      }
-    }
   }
 }

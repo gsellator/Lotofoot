@@ -27,7 +27,8 @@ class PredictionsByGameTabStore extends BaseStore {
       for (let item of data)
         this.users[item._id] = {
           firstName: item.firstName,
-          lastName: item.lastName
+          lastName: item.lastName,
+          email: item.email
         };
     }
     this.emitChange();
