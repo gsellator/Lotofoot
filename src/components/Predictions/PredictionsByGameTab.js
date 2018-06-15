@@ -45,7 +45,7 @@ class PredictionsByGameTab extends Component {
                 <span className="Name">
                   {Filters.capitalize(users[item.user].firstName) + ' ' + Filters.capitalize(users[item.user].lastName)}
                 </span>
-                {users[item.user].email &&
+                {showTeam && users[item.user].email &&
                   <span className="Team">
                     {'| ' + ref[users[item.user].email.match(reg)] }
                   </span>
