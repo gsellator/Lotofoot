@@ -41,7 +41,6 @@
       .Text{
         display: inline-block;
         vertical-align: top;
-        text-align: center;
 
         span{
           font-weight: 300;
@@ -56,10 +55,13 @@
           }
         }
 
-        img{
-          margin: auto;
-          max-height: 500px;
-          max-width: 400px;
+        .Image{
+          text-align: center;
+
+          img{
+            max-height: 440px;
+            max-width: 100%;
+          }
         }
       }
 

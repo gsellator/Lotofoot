@@ -13,7 +13,9 @@ class MessagesTab extends Component {
 
     if (text.match(imgReg) !== null){
       return (
-        <img src={text} />
+        <div className="Image">
+          <img src={text} />
+        </div>
       );
     }
 
