@@ -36,7 +36,8 @@ class PredictionBlock extends Component {
     this.setState({winner: winner});
   }
 
-  postPrediction() {
+  postPrediction(e) {
+    e.preventDefault();
     if (!this.props.predictionData._id){
       // Create prediction
       const route = this.context.getStore("RouteStore").getCurrentRoute();
@@ -91,7 +92,7 @@ class PredictionBlock extends Component {
             <div>
               {pending && <div className="FootixLoader" />}
               {!pending &&
-                <div className="Prediction">
+                <form className="Prediction" onSubmit={this.postPrediction.bind(this)}>
                   <div className="Inputs">
                     <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="100" />
                     <span> - </span>
@@ -115,9 +116,9 @@ class PredictionBlock extends Component {
                     </div>
                   }
                   <div className="Btns">
-                    <div className="PaperBtn" onClick={this.postPrediction.bind(this)}>{labels.validate}</div>
+                    <button type="submit" className="PaperBtn">{labels.validate}</button>
                   </div>
-                </div>
+                </form>
               }
             </div>
           </div>
