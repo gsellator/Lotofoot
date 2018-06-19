@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { connectToStores } from "fluxible-addons-react";
-import Actions from "../../constants/Actions";
-import ApiAction from "../../actions/Pages/ApiAction";
+
+import GameModalHelper from "../Helpers/GameModalHelper";
 
 import BackBtn from "../Btns/BackBtn";
 import HeaderBtn from "../Btns/HeaderBtn";
-
 import GameBlock from "../Games/GameBlock";
 import PredictionBlock from "../Predictions/PredictionBlock";
 import PredictionsByGameTab from "../Predictions/PredictionsByGameTab";
@@ -19,12 +18,29 @@ if (process.env.BROWSER) {
 class Modal extends Component {
   constructor(props) {
     super(props);
-    this.state = { curUrl: '' };
+    this.KeyDownHandler = undefined;
   }
 
   static contextTypes = {
     executeAction: PropTypes.func.isRequired,
     getStore: PropTypes.func.isRequired,
+  }
+
+  componentDidMount() {
+    this.KeyDownHandler = this.handleKeyDown.bind(this);
+    document.body.addEventListener('keydown', this.KeyDownHandler);
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener('keydown', this.KeyDownHandler);
+  }
+
+  handleKeyDown(e){
+    // Esc
+    if (e.keyCode === 27) {
+      const closeModal = GameModalHelper.closeGameModal.bind(this);
+      closeModal();
+    }
   }
 
   render() {

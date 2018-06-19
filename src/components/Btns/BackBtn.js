@@ -13,10 +13,6 @@ class BackBtn extends Component {
     getStore: PropTypes.func.isRequired,
   }
 
-  //  goBack(){
-  //    window.history.go(-1)
-  //  }
-
   render() {
     return (
       <div className="BackBtn" onClick={GameModalHelper.closeGameModal.bind(this)} title={labels.back}>
