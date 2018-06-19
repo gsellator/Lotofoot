@@ -63,15 +63,15 @@ class GamesTabStore extends BaseStore {
     this.emitChange();
   }
 
-  getGames() {
+  getDays() {
     if (!this.games){return undefined;}
 
     // We filter on the group
-    let tmpGamesSource = [];
+    let tmpSource = [];
     switch (this.filter){
       case "match":
         if (this.subfilter === '-'){
-          tmpGamesSource = this.games;
+          tmpSource = this.games;
         } else if (this.subfilter == 1) {
           let firstMatchIndex = this.games.length - 1;
           for (let i=0; i<this.games.length; i++){
@@ -82,11 +82,11 @@ class GamesTabStore extends BaseStore {
             firstMatchIndex = firstMatchIndex - 3;
           else
             firstMatchIndex = 0;
-          tmpGamesSource = this.games.slice(firstMatchIndex, this.games.length);
+          tmpSource = this.games.slice(firstMatchIndex, this.games.length);
         } else if (this.predictions) {
           for (let item of this.games){
             if (item.status === 'TIMED' && !this.predictions[item._id])
-              tmpGamesSource[tmpGamesSource.length] = item;
+              tmpSource[tmpSource.length] = item;
           }
         }
         break;
@@ -95,12 +95,12 @@ class GamesTabStore extends BaseStore {
         if (this.subfilter === '-'){
           for (let item of this.games){
             if (item.phase === 0)
-              tmpGamesSource[tmpGamesSource.length] = item;
+              tmpSource[tmpSource.length] = item;
           }
         } else {
           for (let item of this.games){
             if (item.phase === 0 && this.subfilter === item.group)
-              tmpGamesSource[tmpGamesSource.length] = item;
+              tmpSource[tmpSource.length] = item;
           }
         }
         break;
@@ -109,31 +109,33 @@ class GamesTabStore extends BaseStore {
         if (this.subfilter === '-'){
           for (let item of this.games){
             if (item.phase > 0)
-              tmpGamesSource[tmpGamesSource.length] = item;
+              tmpSource[tmpSource.length] = item;
           }
         } else {
           for (let item of this.games){
             if (this.subfilter == item.phase)
-              tmpGamesSource[tmpGamesSource.length] = item;
+              tmpSource[tmpSource.length] = item;
           }
         }
         break;
     }
 
     // We add rows witch allow to draw date headers in gamesTab.js
-    let tmpGames = [];
-    for (let item of tmpGamesSource){
-      if (tmpGames.length === 0){
-        tmpGames[0] = {isHeader: true, datetime: item.datetime}
-        tmpGames[1] = item;
+    let tmpDays = [];
+    for (let item of tmpSource){
+      if (tmpDays.length === 0 || (FormatDate.dtetimeToStr(tmpDays[tmpDays.length-1].datetime, 'YYYY-MM-DD') != FormatDate.dtetimeToStr(item.datetime, 'YYYY-MM-DD'))){
+        tmpDays[tmpDays.length] = {
+          isHeader: true,
+          datetime: item.datetime,
+          games: [item]
+        };
       } else {
-        if (FormatDate.dtetimeToStr(tmpGames[tmpGames.length-1].datetime, 'YYYY-MM-DD') != FormatDate.dtetimeToStr(item.datetime, 'YYYY-MM-DD'))
-          tmpGames[tmpGames.length] = {isHeader: true, datetime: item.datetime}
-        tmpGames[tmpGames.length] = item;
+        tmpDays[tmpDays.length - 1].games[tmpDays[tmpDays.length - 1].games.length] = item;
       }
     }
 
-    return tmpGames;
+
+    return tmpDays;
   }
 
   getGroupRanking() {

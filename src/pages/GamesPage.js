@@ -21,15 +21,15 @@ class GamesPage extends Component {
   }
 
   render() {
-    const { filter, subfilter, games, predictions, groupRanking} = this.props;
+    const { filter, subfilter, days, predictions, groupRanking} = this.props;
     const route = this.context.getStore('RouteStore').getCurrentRoute();
     const msg = route.query.msg;
 
     return (
       <div className="ScrollPage GamesPage">
-        {!(games && predictions) && <div className="FootixLoader" />}
+        {!(days && predictions) && <div className="FootixLoader" />}
 
-        {(games && predictions) &&
+        {(days && predictions) &&
           <div>
             {msg === 'new' &&
               <div className="Paper GamesHelp">
@@ -52,7 +52,7 @@ class GamesPage extends Component {
               subfilter={subfilter}/>
 
             <GamesTab
-              games={games}
+              days={days}
               predictions={predictions} />
 
             {filter === 'group' &&
@@ -71,7 +71,7 @@ GamesPage = connectToStores(GamesPage, ["LoginStore", "GamesTabStore"], (context
     userId: context.getStore('LoginStore').getCredentials()._id,
     filter: context.getStore("GamesTabStore").getFilter(),
     subfilter: context.getStore("GamesTabStore").getSubfilter(),
-    games: context.getStore("GamesTabStore").getGames(),
+    days: context.getStore("GamesTabStore").getDays(),
     predictions: context.getStore("GamesTabStore").getPredictions(),
     groupRanking: context.getStore("GamesTabStore").getGroupRanking(),
   };

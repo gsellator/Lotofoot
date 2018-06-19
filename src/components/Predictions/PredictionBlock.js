@@ -36,7 +36,15 @@ class PredictionBlock extends Component {
     this.setState({winner: winner});
   }
 
-  postPrediction() {
+  getRandomScore(min, max) {
+    this.setState({
+      scoreTeamA: Math.floor(Math.random() * (max - min + 1)) + min,
+      scoreTeamB: Math.floor(Math.random() * (max - min + 1)) + min,
+    });
+  }
+
+  postPrediction(e) {
+    e.preventDefault();
     if (!this.props.predictionData._id){
       // Create prediction
       const route = this.context.getStore("RouteStore").getCurrentRoute();
@@ -91,11 +99,14 @@ class PredictionBlock extends Component {
             <div>
               {pending && <div className="FootixLoader" />}
               {!pending &&
-                <div className="Prediction">
+                <form className="Prediction" onSubmit={this.postPrediction.bind(this)}>
                   <div className="Inputs">
                     <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="100" />
                     <span> - </span>
                     <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="100" />
+                    <button type="button" className="ImageBtn" onClick={this.getRandomScore.bind(this, 0, 4)}>
+                      <div className="btn-26 wand" />
+                    </button>
                   </div>
                   {gameData.phase != 0 && this.state.scoreTeamA != undefined && this.state.scoreTeamA == this.state.scoreTeamB &&
                     <div className="InputsBtns">
@@ -115,9 +126,9 @@ class PredictionBlock extends Component {
                     </div>
                   }
                   <div className="Btns">
-                    <div className="PaperBtn" onClick={this.postPrediction.bind(this)}>{labels.validate}</div>
+                    <button type="submit" className="PaperBtn">{labels.validate}</button>
                   </div>
-                </div>
+                </form>
               }
             </div>
           </div>
