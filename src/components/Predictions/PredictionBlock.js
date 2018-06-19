@@ -36,6 +36,13 @@ class PredictionBlock extends Component {
     this.setState({winner: winner});
   }
 
+  getRandomScore(min, max) {
+    this.setState({
+      scoreTeamA: Math.floor(Math.random() * (max - min + 1)) + min,
+      scoreTeamB: Math.floor(Math.random() * (max - min + 1)) + min,
+    });
+  }
+
   postPrediction(e) {
     e.preventDefault();
     if (!this.props.predictionData._id){
@@ -97,6 +104,9 @@ class PredictionBlock extends Component {
                     <input type="number" value={scoreTeamA} onChange={this.handleChangeA.bind(this)} pattern="\d*" min="0" max="100" />
                     <span> - </span>
                     <input type="number" value={scoreTeamB} onChange={this.handleChangeB.bind(this)} pattern="\d*" min="0" max="100" />
+                    <button type="button" className="ImageBtn" onClick={this.getRandomScore.bind(this, 0, 4)}>
+                      <div className="btn-26 wand" />
+                    </button>
                   </div>
                   {gameData.phase != 0 && this.state.scoreTeamA != undefined && this.state.scoreTeamA == this.state.scoreTeamB &&
                     <div className="InputsBtns">

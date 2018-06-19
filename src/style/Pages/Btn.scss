@@ -100,35 +100,35 @@
   }
 }
 
-.ImgBtn{
-  display: inline-block;
-  vertical-align: top;
+.ImageBtn{
+  display: flex;
+  height: 40px;
+  width: 40px;
   background: $grey-1;
   border-radius: 2px;
-  padding: 3px;
-  margin: 0 2px 4px 2px;
   cursor: pointer;
-  font-size: 0;
-  filter: grayscale(100%);
-  transform: translateZ(0);
-  height: 42px;
+  border: solid transparent 1px;
 
-  div{
-    display: inline-block;
-    vertical-align: top;
-    opacity: 0.5;
-
-    &.ImgBtnTxt{
-      margin: 0 6px 0 6px;
-      line-height: 36px;
-      font-size: $font-size-m;
-    }
+  .btn-26{
+    margin: auto;
   }
 
-  &:focus{background-color: $grey-2; outline: none; border: $fluo-blue solid 1px;}
-  &:hover{background-color: $grey-2;}
-  &:active{background: $grey-1; color: $footix-blue; filter: none;}
-  &.active{background: $blue-medium; filter: none; div{opacity: 1;}}
+  &:focus{
+    background-color: $grey-2;
+    outline: none;
+    border: $fluo-blue solid 1px;
+  }
+
+  &:hover{
+    background-color: $grey-2;
+    .btn-26{background-position-y: -105px;}
+  }
+  &:active, &.active{
+    background: $grey-1;
+    color: $footix-blue;
+    filter: none;
+    .btn-26{background-position-y: -135px;}
+  }
 }
 
 .SwitchBtn{
