@@ -21,6 +21,15 @@ class ChatPage extends Component {
 
   componentDidUpdate() {
     this.refs.ChatPage.scrollTop = this.refs.ChatPage.scrollHeight;
+
+    // Autoscroll at page's bottom after image loaded
+    const page = this.refs.ChatPage;
+    window.setTimeout(() => {
+      page.scrollTop = page.scrollHeight;
+    }, 500);
+    window.setTimeout(() => {
+      page.scrollTop = page.scrollHeight;
+    }, 1000);
   }
 
   render() {
