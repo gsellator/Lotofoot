@@ -8,8 +8,7 @@ class ModalStore extends BaseStore {
     [Actions.FLUSH_MODAL]: "handleFlush",
     [Actions.APIOK_GAME]: "handleApiOkGame",
     [Actions.APIOK_PREDICTIONS_BYGAMEANDUSER]: "handleApiOkPred",
-    [Actions.PENDING_PREDICTIONS_CREATE]: "handlePendingSwitch",
-    [Actions.PENDING_PREDICTION_UPDATE]: "handlePendingSwitch",
+    [Actions.PENDING_PREDICTION]: "handlePendingSwitch",
     [Actions.APIOK_PREDICTIONS_CREATE]: "handleApiOkCreate",
     [Actions.APIOK_PREDICTION_UPDATE]: "handleApiOkModify",
   }

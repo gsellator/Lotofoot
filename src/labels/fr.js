@@ -82,6 +82,7 @@ export default {
   predictions: 'Mes pronostics',
   point: 'point',
   points: 'points',
+  pickAWinner: 'Veuillez indiquer quelle équipe gagnera à l\'issue des tirs aux buts.',
 
   quarterFinal: 'Quart de finale',
 
@@ -101,6 +102,7 @@ export default {
   recoverSuccessAction: 'Accéder au Lotofoot',
   registerSuccessText: 'Votre compte a été créé ! Consultez vos emails, nous vous avons envoyé un message contenant un lien pour activer votre compte.',
   registerSuccessAction: 'Accéder au Lotofoot',
+  recoverTokenInexistantError: 'Ce lien a déjà été utilisé. Pour réinitialiser votre mot de passe, veuillez faire une nouvelle demande.',
 
   send: 'Envoyer',
   semiFinal: 'Demi-finale',

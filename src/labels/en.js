@@ -82,6 +82,7 @@ export default {
   predictions: 'My predictions',
   point: 'point',
   points: 'points',
+  pickAWinner: 'Please indicate which team will win after the shots on goal.',
 
   quarterFinal: 'Quarter-Final',
 
@@ -101,6 +102,7 @@ export default {
   recoverSuccessAction: 'Go to Station Foot',
   registerSuccessText: 'Your account has been created! Please check your inbox, we sent you an email with a link to activate your account.',
   registerSuccessAction: 'Go to Station Foot',
+  recoverTokenInexistantError: 'This link has already been used. To reset your password, please make a new recover request.',
 
   send: 'Send',
   semiFinal: 'Semi-Final',
