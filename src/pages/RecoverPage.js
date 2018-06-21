@@ -6,6 +6,7 @@ import { navigateAction, NavLink } from "fluxible-router";
 import Recover from "../components/Widgets/Recover";
 
 import RecoverAction from "../actions/Pages/RecoverAction";
+import DialogAction from "../actions/Dialog/DialogAction";
 import labels from "../labels";
 
 if (process.env.BROWSER) {
@@ -18,9 +19,14 @@ class RecoverPage extends Component {
     executeAction: PropTypes.func.isRequired
   }
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+
   componentDidUpdate(){
     if (this.props.initFailure){
       const newroute = this.context.getStore('RouteStore').makePath('recoverInit');
+      this.context.executeAction(DialogAction.showDialog, { errorTxt: labels.recoverTokenInexistantError });
       this.context.executeAction(navigateAction, { url: newroute });
     }
   }
