@@ -68,6 +68,10 @@ const teams = [
     url: '@insead.stationf.co',
   },
   {
+    name: 'La Poste',
+    url: '@laposte.fr',
+  },
+  {
     name: 'L\'Oréal',
     url: '@loreal.stationf.co',
   },
