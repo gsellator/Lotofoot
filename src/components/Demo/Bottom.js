@@ -18,7 +18,7 @@ class Bottom extends Component {
 
   render() {
     const isStationf = Boolean(config.appName === 'lotofoot-stationf');
-    
+
     return (
       <footer className="Bottom">
         <div className="Content">
@@ -52,7 +52,7 @@ class Bottom extends Component {
             }
           </div>
 
-          {true &&isStationf &&
+          {isStationf &&
             <div className="First">
               <div className="Column">
                 <a href="https://www.funkyveggie.fr/" target="_blank">
