@@ -131,3 +131,17 @@
   &.daily{background-position: -220px -290px; width: 120px;}
   &.tf1{background-position: -350px -290px;}
 }
+
+.png-100{
+  background: url('../../assets/uiux_sponsors.png') 0 0 no-repeat;
+  background-size: 820px 100px;
+  width: 100px; height: 100px;
+
+  &.techshop{background-position: -0px 0;}
+  &.funky-veggie{background-position: -110px 0;}
+  &.freres-lauzea{background-position: -220px 0;}
+  &.startup-garage{background-position: -330px 0; width: 140px;}
+  &.stationf{background-position: -480px 0;}
+  &.laposte{background-position: -590px 0;}
+  &.microsoft{background-position: -700px 0; width: 120px;}
+}

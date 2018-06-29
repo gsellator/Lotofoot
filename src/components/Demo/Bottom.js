@@ -17,6 +17,8 @@ class Bottom extends Component {
   }
 
   render() {
+    const isStationf = Boolean(config.appName === 'lotofoot-stationf');
+    
     return (
       <footer className="Bottom">
         <div className="Content">
@@ -34,14 +36,56 @@ class Bottom extends Component {
                 <div className="icn-100 daily"></div>
               </a>
             </div>
-            {config.appName === 'lotofoot-stationf' &&
+            {isStationf &&
               <div className="Column">
-                <a href="https://www.tf1.fr/" target="_blank">
+                <a href="https://stationf.groupe-tf1.fr/" target="_blank">
                   <div className="icn-100 tf1"></div>
                 </a>
               </div>
             }
+            {isStationf &&
+              <div className="Column">
+                <a href="https://www.techshoplm.fr/" target="_blank">
+                  <div className="png-100 techshop"></div>
+                </a>
+              </div>
+            }
           </div>
+
+          {true &&isStationf &&
+            <div className="First">
+              <div className="Column">
+                <a href="https://www.funkyveggie.fr/" target="_blank">
+                  <div className="png-100 funky-veggie"></div>
+                </a>
+              </div>
+              <div className="Column">
+                <a href="https://www.frereslauzea.com/" target="_blank">
+                  <div className="png-100 freres-lauzea"></div>
+                </a>
+              </div>
+              <div className="Column">
+                <a href="https://fr-fr.facebook.com/FbStationF/" target="_blank">
+                  <div className="png-100 startup-garage"></div>
+                </a>
+              </div>
+              {false && <div className="Column">
+                <a href="https://stationf.co/" target="_blank">
+                  <div className="png-100 stationf"></div>
+                </a>
+              </div>}
+              {false && <div className="Column">
+                <a href="https://www.laposte.fr/" target="_blank">
+                  <div className="png-100 laposte"></div>
+                </a>
+              </div>}
+              {false && <div className="Column">
+                <a href="https://www.microsoft.com/fr-fr" target="_blank">
+                  <div className="png-100 microsoft"></div>
+                </a>
+              </div>}
+            </div>
+          }
 
           <div className="Credit">
             <span className="Role">{labels.illustrations}</span>
