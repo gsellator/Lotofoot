@@ -39,6 +39,13 @@ class Bottom extends Component {
             {isStationf &&
               <div className="Column">
                 <a href="https://stationf.groupe-tf1.fr/" target="_blank">
+                  <div className="icn-100 medialab-tf1"></div>
+                </a>
+              </div>
+            }
+            {isStationf &&
+              <div className="Column">
+                <a href="https://www.tf1.fr/" target="_blank">
                   <div className="icn-100 tf1"></div>
                 </a>
               </div>
@@ -79,11 +86,11 @@ class Bottom extends Component {
                   <div className="png-100 laposte"></div>
                 </a>
               </div>}
-              {false && <div className="Column">
+              <div className="Column">
                 <a href="https://www.microsoft.com/fr-fr" target="_blank">
                   <div className="png-100 microsoft"></div>
                 </a>
-              </div>}
+              </div>
             </div>
           }
 
