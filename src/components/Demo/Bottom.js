@@ -59,11 +59,11 @@ class Bottom extends Component {
                   <div className="png-100 funky-veggie"></div>
                 </a>
               </div>
-              <div className="Column">
+              {false && <div className="Column">
                 <a href="https://www.frereslauzea.com/" target="_blank">
                   <div className="png-100 freres-lauzea"></div>
                 </a>
-              </div>
+              </div>}
               <div className="Column">
                 <a href="https://fr-fr.facebook.com/FbStationF/" target="_blank">
                   <div className="png-100 startup-garage"></div>
