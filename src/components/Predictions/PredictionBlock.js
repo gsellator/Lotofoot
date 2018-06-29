@@ -108,7 +108,7 @@ class PredictionBlock extends Component {
                       <div className="btn-26 wand" />
                     </button>
                   </div>
-                  {gameData.phase != 0 && this.state.scoreTeamA != undefined && this.state.scoreTeamA == this.state.scoreTeamB &&
+                  {gameData.phase != 0 && this.state.scoreTeamA != '' && this.state.scoreTeamA == this.state.scoreTeamB &&
                     <div className="InputsBtns">
                       <span>
                         {labels.winner + ' > '}
