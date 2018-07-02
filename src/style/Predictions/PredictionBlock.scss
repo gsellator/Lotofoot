@@ -22,6 +22,11 @@
         font-weight: $font-weight-numbers;
         text-rendering: $text-rendering-numbers;
         height: 40px;
+
+        &.Winner{
+          border-bottom: solid $grey-dark 3px;
+          padding: 0 2px;
+        }
       }
 
       input{

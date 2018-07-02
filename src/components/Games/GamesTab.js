@@ -39,7 +39,7 @@ class GamesTab extends Component {
                     {item.teamA &&
                       <div className="Left">
                         <div className={'flag f-12 ' + item.teamA.slug} />
-                        <div className="TeamLabel">{labels[item.teamA.slug.replace('-', '')]}</div>
+                        <div className="TeamLabel">{labels[item.teamA.slug]}</div>
                       </div>
                     }
                     {!item.teamA &&
@@ -64,16 +64,20 @@ class GamesTab extends Component {
                       }
                       {item.status === 'FINISHED' && item.teamA && item.teamB &&
                         <div className="Score">
-                          <span>{(item.scoreTeamA || '0')}</span>
+                          <span className={item.phase != 0 && item.scoreTeamA === item.scoreTeamB && item.winner === 'teamA' ? 'Winner' : ''}>
+                            {(item.scoreTeamA || '0')}
+                          </span>
                           <span>&#8239;-&#8239;</span>
-                          <span>{(item.scoreTeamB || '0')}</span>
+                          <span className={item.phase != 0 && item.scoreTeamA === item.scoreTeamB && item.winner === 'teamB' ? 'Winner' : ''}>
+                            {(item.scoreTeamB || '0')}
+                          </span>
                         </div>
                       }
                     </div>
                     {item.teamB &&
                       <div className="Right">
                         <div className={'flag f-12 ' + item.teamB.slug} />
-                        <div className="TeamLabel">{labels[item.teamB.slug.replace('-', '')]}</div>
+                        <div className="TeamLabel">{labels[item.teamB.slug]}</div>
                       </div>
                     }
                     {!item.teamB &&
@@ -100,15 +104,14 @@ class GamesTab extends Component {
                       {predictions[item._id] &&
                         <div className="PredictionLabel">
                           <span className="icn-16 chip" />
-                          <span>{labels.myPrediction + ' : ' + predictions[item._id].scoreTeamA + ' - ' + predictions[item._id].scoreTeamB}</span>
-                          {item.phase != 0 && predictions[item._id].scoreTeamA == predictions[item._id].scoreTeamB &&
-                            <span>
-                              {predictions[item._id].winner === 'teamA' && !item.teamA && ' (' + labels[item.futureTeamA] + ')'}
-                              {predictions[item._id].winner === 'teamA' && item.teamA && ' (' + labels[item.teamA.slug.replace('-', '')] + ')'}
-                              {predictions[item._id].winner === 'teamB' && !item.teamB && ' (' + labels[item.futureTeamB] + ')'}
-                              {predictions[item._id].winner === 'teamB' && item.teamB && ' (' + labels[item.teamB.slug.replace('-', '')] + ')'}
-                            </span>
-                          }
+                          <span>{labels.myPrediction}</span>
+                          <span className={item.phase != 0 && predictions[item._id].scoreTeamA === predictions[item._id].scoreTeamB && predictions[item._id].winner === 'teamA' ? 'Winner' : ''}>
+                            {predictions[item._id].scoreTeamA}
+                          </span>
+                          <span>&#8239;-&#8239;</span>
+                          <span className={item.phase != 0 && predictions[item._id].scoreTeamA === predictions[item._id].scoreTeamB && predictions[item._id].winner === 'teamB' ? 'Winner' : ''}>
+                            {predictions[item._id].scoreTeamB}
+                          </span>
                         </div>
                       }
                       {item.status === 'TIMED' && !predictions[item._id] &&

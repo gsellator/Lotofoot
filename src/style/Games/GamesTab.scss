@@ -102,6 +102,11 @@
               line-height: 30px;
               font-weight: 500;
               color: $grey-medium;
+
+              &.Winner{
+                border-bottom: solid $grey-dark 2px;
+                padding: 0 2px;
+              }
             }
           }
         }
@@ -157,6 +162,11 @@
           }
 
           .Mobile{display: none}
+
+          .Winner{
+            border-bottom: solid $grey-dark 2px;
+            padding: 0 2px;
+          }
         }
 
         .Left{

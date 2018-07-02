@@ -78,9 +78,13 @@ class PredictionBlock extends Component {
             </div>
             <div className="Prediction">
               <div className="Inputs">
-                <span>{scoreTeamA}</span>
+                <span className={gameData.phase != 0 && predictionData.scoreTeamA === predictionData.scoreTeamB && predictionData.winner === 'teamA' ? 'Winner' : ''}>
+                  {scoreTeamA}
+                </span>
                 <span> - </span>
-                <span>{scoreTeamB}</span>
+                <span className={gameData.phase != 0 && predictionData.scoreTeamA === predictionData.scoreTeamB && predictionData.winner === 'teamB' ? 'Winner' : ''}>
+                  {scoreTeamB}
+                </span>
               </div>
             </div>
             <div className="Points">
@@ -116,11 +120,11 @@ class PredictionBlock extends Component {
                       <span>
                         <div className={this.state.winner === 'teamA' ? 'TabBtn Active' : 'TabBtn'} onClick={this.handleChangeWinner.bind(this, 'teamA')}>
                           {!gameData.teamA && labels[gameData.futureTeamA]}
-                          {gameData.teamA && labels[gameData.teamA.slug.replace('-', '')]}
+                          {gameData.teamA && labels[gameData.teamA.slug]}
                         </div>
                         <div className={this.state.winner === 'teamB' ? 'TabBtn Active' : 'TabBtn'} onClick={this.handleChangeWinner.bind(this, 'teamB')}>
                           {!gameData.teamB && labels[gameData.futureTeamB]}
-                          {gameData.teamB && labels[gameData.teamB.slug.replace('-', '')]}
+                          {gameData.teamB && labels[gameData.teamB.slug]}
                         </div>
                       </span>
                     </div>
