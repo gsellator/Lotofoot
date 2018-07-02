@@ -61,7 +61,13 @@ class PredictionsByGameTab extends Component {
                   </div>
 
                   <div className="ScoreContainer">
-                    {(item.scoreTeamA || '0') + ' - ' + (item.scoreTeamB || '0')}
+                    <span className={item.game.phase != 0 && item.scoreTeamA === item.scoreTeamB && item.winner === 'teamA' ? 'Winner' : ''}>
+                      {(item.scoreTeamA || '0')}
+                    </span>
+                    <span> - </span>
+                    <span className={item.game.phase != 0 && item.scoreTeamA === item.scoreTeamB && item.winner === 'teamB' ? 'Winner' : ''}>
+                      {(item.scoreTeamB || '0')}
+                    </span>
                   </div>
 
                   <div className="Team">

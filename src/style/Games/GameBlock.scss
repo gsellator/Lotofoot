@@ -91,6 +91,11 @@
             font-size: $font-size-xxxl;
             font-weight: 500;
             line-height: 18px;
+
+            &.Winner{
+              border-bottom: solid $grey-dark 3px;
+              padding: 0 2px;
+            }
           }
         }
       }

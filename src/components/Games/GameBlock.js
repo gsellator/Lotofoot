@@ -57,7 +57,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className={'flag f-60 ' + data.teamA.slug} />
                     </div>
-                    <div className="Label">{labels[data.teamA.slug.replace('-', '')]}</div>
+                    <div className="Label">{labels[data.teamA.slug]}</div>
                   </div>
                 }
                 <div className="ScoreContainer">
@@ -78,9 +78,13 @@ class GameBlock extends Component {
                   {data.status === 'FINISHED' &&
                     <div>
                       <div className="Score">
-                        <span>{(data.scoreTeamA || '0')}</span>
+                        <span className={data.phase != 0 && data.scoreTeamA === data.scoreTeamB && data.winner === 'teamA' ? 'Winner' : ''}>
+                          {(data.scoreTeamA || '0')}
+                        </span>
                         <span>&#8239;-&#8239;</span>
-                        <span>{(data.scoreTeamB || '0')}</span>
+                        <span className={data.phase != 0 && data.scoreTeamA === data.scoreTeamB && data.winner === 'teamB' ? 'Winner' : ''}>
+                          {(data.scoreTeamB || '0')}
+                        </span>
                       </div>
                     </div>
                   }
@@ -90,7 +94,7 @@ class GameBlock extends Component {
                     <div className="Flag">
                       <div className={'flag f-60 ' + data.teamB.slug} />
                     </div>
-                    <div className="Label">{labels[data.teamB.slug.replace('-', '')]}</div>
+                    <div className="Label">{labels[data.teamB.slug]}</div>
                   </div>
                 }
                 {!data.teamB &&

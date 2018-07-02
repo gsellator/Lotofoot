@@ -27,13 +27,14 @@ class HeaderBtn extends Component {
         {(!data || (data && data.status === 'FINISHED')) &&
           <div className="btn-20 title"></div>
         }
+
         {data && data.status === 'TIMED' &&
           <div className="Live" onClick={GameModalHelper.openGameModalFct.bind(this, data._id)}>
             <div className="icn-10 next"></div>
 
             <div className="Cartouche">
               <span className="Flag">
-                {data.teamA && <div className={'flag f-12 ' + data.teamA.slug} title={labels[data.teamA.slug.replace('-', '')]} />}
+                {data.teamA && <div className={'flag f-12 ' + data.teamA.slug} title={labels[data.teamA.slug]} />}
               </span>
               {FormatDate.isToday(data.datetime) &&
                 <span className="Score">{FormatDate.dtetimeToStr(data.datetime, 'HH:mm')}</span>
@@ -55,18 +56,19 @@ class HeaderBtn extends Component {
               }
 
               <span className="Flag">
-                {data.teamB && <div className={'flag f-12 ' + data.teamB.slug} title={labels[data.teamB.slug.replace('-', '')]} />}
+                {data.teamB && <div className={'flag f-12 ' + data.teamB.slug} title={labels[data.teamB.slug]} />}
               </span>
             </div>
           </div>
         }
+
         {data && data.status === 'IN_PROGRESS' &&
           <div className="Live" onClick={GameModalHelper.openGameModalFct.bind(this, data._id)}>
             <div className="icn-10 live"></div>
 
             <div className="Cartouche">
               <span className="Flag">
-                {data.teamA && <div className={'flag f-12 ' + data.teamA.slug} title={labels[data.teamA.slug.replace('-', '')]} />}
+                {data.teamA && <div className={'flag f-12 ' + data.teamA.slug} title={labels[data.teamA.slug]} />}
               </span>
               <span className="Score">
                 {data.scoreTeamA || '0'}
@@ -76,7 +78,7 @@ class HeaderBtn extends Component {
                 {data.scoreTeamB || '0'}
               </span>
               <span className="Flag">
-                {data.teamB && <div className={'flag f-12 ' + data.teamB.slug} title={labels[data.teamB.slug.replace('-', '')]} />}
+                {data.teamB && <div className={'flag f-12 ' + data.teamB.slug} title={labels[data.teamB.slug]} />}
               </span>
             </div>
           </div>
