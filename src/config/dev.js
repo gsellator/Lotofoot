@@ -8,7 +8,7 @@ export default {
   language: 'en',
 
   //apiUri: 'http://localhost:5000/api',
-  //apiUri: 'https://lotofoot-api-dev.herokuapp.com/api',
-  apiUri: 'https://lotofoot-api.herokuapp.com/api',
+  apiUri: 'https://lotofoot-api-dev.herokuapp.com/api',
+//  apiUri: 'https://lotofoot-api.herokuapp.com/api',
   appName: 'lotofoot-dev',
 };
