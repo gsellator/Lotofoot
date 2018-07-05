@@ -18,6 +18,7 @@ class Bottom extends Component {
 
   render() {
     const isStationf = Boolean(config.appName === 'lotofoot-stationf');
+    const isDaily = Boolean(config.appName === 'lotofoot-daily');
 
     return (
       <footer className="Bottom">
@@ -54,6 +55,13 @@ class Bottom extends Component {
               <div className="Column">
                 <a href="https://www.techshoplm.fr/" target="_blank">
                   <div className="png-100 techshop"></div>
+                </a>
+              </div>
+            }
+            {isDaily &&
+              <div className="Column">
+                <a href="https://lesjours.fr/" target="_blank">
+                  <div className="png-100 lesjours"></div>
                 </a>
               </div>
             }
