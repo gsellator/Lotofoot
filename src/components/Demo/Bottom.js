@@ -61,7 +61,7 @@ class Bottom extends Component {
             {isDaily &&
               <div className="Column">
                 <a href="https://lesjours.fr/" target="_blank">
-                  <div className="png-100 lesjours"></div>
+                  <div className="icn-100 lesjours"></div>
                 </a>
               </div>
             }
