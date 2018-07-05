@@ -16,7 +16,7 @@
 
 @mixin uiux-icons{
   background: url('../../assets/uiux_icons.svg') 0 0 no-repeat;
-  background-size: 560px 390px;
+  background-size: 670px 390px;
 }
 
 
@@ -131,6 +131,7 @@
   &.daily{background-position: -220px -290px; width: 120px;}
   &.medialab-tf1{background-position: -350px -290px;}
   &.tf1{background-position: -460px -290px;}
+  &.lesjours{background-position: -570px -290px;}
 }
 
 .png-100{
