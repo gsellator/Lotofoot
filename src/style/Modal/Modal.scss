@@ -11,8 +11,16 @@
   }
 
   &.Anim-enter.Anim-enter-active {
-    .MainMenu{transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms; transform: translate3d(0, 0, 0);}
-    .ModalBody{transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms; transform: translate3d(0, 0, 0);}
+    .MainMenu{
+      will-change: transform;
+      transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms;
+      transform: translate3d(0, 0, 0);
+    }
+    .ModalBody{
+      will-change: transform;
+      transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   &.Anim-leave {
@@ -21,14 +29,21 @@
   }
 
   &.Anim-leave.Anim-leave-active {
-    .MainMenu{transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms; transform: translate3d(100%, 0, 0);}
-    .ModalBody{transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms; transform: translate3d(100%, 0, 0);}
+    .MainMenu{
+      will-change: transform;
+      transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms;
+      transform: translate3d(100%, 0, 0);
+    }
+    .ModalBody{
+      will-change: transform;
+      transition: all 300ms cubic-bezier(0, 0.70, 0.60, 1) 0ms;
+      transform: translate3d(100%, 0, 0);
+    }
   }
 
   .MainMenu{
     box-shadow: none;
     z-index: 220;
-//    transform: translateZ(0);
   }
 
   .ModalBody{

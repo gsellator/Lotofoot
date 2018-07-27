@@ -3,7 +3,7 @@
 @import '../constants/typography';
 
 .TabNav{
-  transform: translate3d(0, 50px, 0);
+  display: none;
   position: absolute;
   right: 0; bottom: 0; left: 0;
   height: 44px;
@@ -60,22 +60,6 @@
 
 @media (max-width: $break-medium){
   .TabNav{
-    transform: translate3d(0, 0, 0);
-
-    &.TabNavAnim-enter{
-      transform: translate3d(0, 50px, 0);
-    }
-
-    &.TabNavAnim-enter.TabNavAnim-enter-active{
-      transform: translate3d(0, 0, 0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    }
-
-    &.TabNavAnim-leave{
-      transform: translate3d(0, 0, 0);
-    }
-
-    &.TabNavAnim-leave.TabNavAnim-leave-active{
-      transform: translate3d(0, 50px, 0); transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-    }
+    display: block;
   }
 }
