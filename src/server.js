@@ -37,9 +37,9 @@ let io;
 server.post('/notifier/update', (req, res) => {notifierServer.post(req, res, io)});
 
 // SSL
-if (server.get("env") === "production") {
-  server.use(forceSsl);
-}
+//if (server.get("env") === "production") {
+//  server.use(forceSsl);
+//}
 
 // Google
 server.get('/robots.txt', robots);
