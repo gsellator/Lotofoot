@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import config from "../config";
 import ga from "./ga";
-import typekit from "./typekit";
 import { provideContext } from "fluxible-addons-react";
 
 class HtmlDocument extends Component {
@@ -96,7 +95,7 @@ class HtmlDocument extends Component {
             <script dangerouslySetInnerHTML={{__html: ga.replace("{trackingId}", config.trackingId)}} />
           }
 
-          <script dangerouslySetInnerHTML={{__html: typekit}} />
+          <link rel="stylesheet" href="https://use.typekit.net/ash2wpw.css" />
         </head>
 
         <body style={{ overflow: print ? 'auto' : 'hidden' }}>
