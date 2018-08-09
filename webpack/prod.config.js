@@ -24,21 +24,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jpe?g|png|gif|svg|xml|json|css|js)$/,
-        include: /src\/assets\/static/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        }
-      },
-      {
         test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/,
-        exclude: /src\/assets\/static/,
         loader: 'file-loader'
       },
       {
         test: /\.js$/,
-        exclude: [/src\/assets\/static/],
         use: [
           {
             loader: 'babel-loader',

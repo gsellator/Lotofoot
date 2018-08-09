@@ -45,6 +45,9 @@ server.post('/notifier/update', (req, res) => {notifierServer.post(req, res, io)
 server.get('/robots.txt', robots);
 server.get('/sitemap.xml', sitemap);
 
+// Static files
+server.use('/static', express.static('./src/assets/static'));
+
 // APIs reverse proxy
 // Configure fetchr (for doing api calls server and client-side)
 server.use(csurf({ cookie: true }));
