@@ -8,6 +8,7 @@ Allow: /
 Allow: /demo
 Allow: /login
 Allow: /assets/
+Allow: /static/
 Disallow: /*/
 Sitemap: ` + config.appUri + `/sitemap.xml
 `);

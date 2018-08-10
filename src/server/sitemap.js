@@ -10,7 +10,7 @@ export default (req, res) => {
     <changefreq>daily</changefreq>
     <priority>1</priority>
     <image:image>
-      <image:loc>` + config.appUri + `/assets/icns.svg</image:loc>
+      <image:loc>` + config.appUri + `/static/icns.svg</image:loc>
       <image:caption>` + config.appLabel + `</image:caption>
     </image:image>
   </url>
@@ -19,7 +19,7 @@ export default (req, res) => {
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>` + config.appUri + `/assets/icns-` + config.appName + `.svg</image:loc>
+      <image:loc>` + config.appUri + `/static/icns-` + config.appName + `.svg</image:loc>
       <image:caption>` + config.appLabel + `</image:caption>
     </image:image>
   </url>
@@ -28,7 +28,7 @@ export default (req, res) => {
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>` + config.appUri + `/assets/icns.svg</image:loc>
+      <image:loc>` + config.appUri + `/static/icns.svg</image:loc>
       <image:caption>` + config.appLabel + `</image:caption>
     </image:image>
   </url>

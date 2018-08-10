@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import config from "../config";
 import ga from "./ga";
-import typekit from "./typekit";
 import { provideContext } from "fluxible-addons-react";
 
 class HtmlDocument extends Component {
@@ -28,23 +27,21 @@ class HtmlDocument extends Component {
     const route = this.context.getStore("RouteStore").getCurrentRoute();
     const print = route.query.print;
 
-    let prefStr = '';
     let meta1, meta2, meta3, meta4, meta5, meta6;
 
     if (config.appEnv === 'dev'){
-      prefStr = 'http://localhost:3001';
       meta1 = <meta name="google-site-verification" content="3yxAA8nMH-iXpC33Y6K8sHZM11ZQX5RuBqdfrH6XseM" />;
-      meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120-pre.png'} />;
-      meta3 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192-pre.png'} />;
-      meta4 = <link rel="manifest" href={prefStr + '/assets/icns_manifest-pre.json'} />;
-      meta5 = <meta name="msapplication-config" content={prefStr + '/assets/icns_browserconfig.xml'} />;
+      meta2 = <link rel="apple-touch-icon" sizes="120x120" href={'/static/icns_120x120-pre.png'} />;
+      meta3 = <link rel="icon" type="image/png" sizes="192x192" href={'/static/icns_192x192-pre.png'} />;
+      meta4 = <link rel="manifest" href={'/static/icns_manifest-pre.json'} />;
+      meta5 = <meta name="msapplication-config" content={'/static/icns_browserconfig.xml'} />;
       meta6 = <meta name="robots" content="noindex,nofollow" />;
     } else if (config.appEnv === 'prod'){
       meta1 = <meta name="google-site-verification" content="3yxAA8nMH-iXpC33Y6K8sHZM11ZQX5RuBqdfrH6XseM" />;
-      meta2 = <link rel="apple-touch-icon" sizes="120x120" href={prefStr + '/assets/icns_120x120.png'} />;
-      meta3 = <link rel="icon" type="image/png" sizes="192x192" href={prefStr + '/assets/icns_192x192.png'} />;
-      meta4 = <link rel="manifest" href={prefStr + '/assets/icns_manifest.json'} />;
-      meta5 = <meta name="msapplication-config" content="/assets/icns_browserconfig.xml" />;
+      meta2 = <link rel="apple-touch-icon" sizes="120x120" href={'/static/icns_120x120.png'} />;
+      meta3 = <link rel="icon" type="image/png" sizes="192x192" href={'/static/icns_192x192.png'} />;
+      meta4 = <link rel="manifest" href={'/static/icns_manifest.json'} />;
+      meta5 = <meta name="msapplication-config" content="/static/icns_browserconfig.xml" />;
     }
 
     return (
@@ -70,23 +67,23 @@ class HtmlDocument extends Component {
           <meta property="og:title" content={config.appTitle} />
           <meta property="og:description" content={config.appDescription} />
 
-          <link rel="apple-touch-icon" sizes="57x57" href={prefStr + '/assets/icns_57x57.png'} />
-          <link rel="apple-touch-icon" sizes="60x60" href={prefStr + '/assets/icns_60x60.png'} />
-          <link rel="apple-touch-icon" sizes="72x72" href={prefStr + '/assets/icns_72x72.png'} />
-          <link rel="apple-touch-icon" sizes="76x76" href={prefStr + '/assets/icns_76x76.png'} />
-          <link rel="apple-touch-icon" sizes="114x114" href={prefStr + '/assets/icns_114x114.png'} />
+          <link rel="apple-touch-icon" sizes="57x57" href={'/static/icns_57x57.png'} />
+          <link rel="apple-touch-icon" sizes="60x60" href={'/static/icns_60x60.png'} />
+          <link rel="apple-touch-icon" sizes="72x72" href={'/static/icns_72x72.png'} />
+          <link rel="apple-touch-icon" sizes="76x76" href={'/static/icns_76x76.png'} />
+          <link rel="apple-touch-icon" sizes="114x114" href={'/static/icns_114x114.png'} />
           {meta2}
-          <link rel="apple-touch-icon" sizes="144x144" href={prefStr + '/assets/icns_144x144.png'} />
-          <link rel="apple-touch-icon" sizes="152x152" href={prefStr + '/assets/icns_152x152.png'} />
-          <link rel="apple-touch-icon" sizes="180x180" href={prefStr + '/assets/icns_180x180.png'} />
-          <link rel="icon" type="image/png" sizes="32x32" href={prefStr + '/assets/icns_fav_32x32.png'} />
+          <link rel="apple-touch-icon" sizes="144x144" href={'/static/icns_144x144.png'} />
+          <link rel="apple-touch-icon" sizes="152x152" href={'/static/icns_152x152.png'} />
+          <link rel="apple-touch-icon" sizes="180x180" href={'/static/icns_180x180.png'} />
+          <link rel="icon" type="image/png" sizes="32x32" href={'/static/icns_fav_32x32.png'} />
           {meta3}
-          <link rel="icon" type="image/png" sizes="96x96" href={prefStr + '/assets/icns_fav_96x96.png'} />
+          <link rel="icon" type="image/png" sizes="96x96" href={'/static/icns_fav_96x96.png'} />
           {meta4}
-          <link rel="mask-icon" href={prefStr + '/assets/icns.svg'} color="#2d7fbc" />
+          <link rel="mask-icon" href={'/static/icns.svg'} color="#2d7fbc" />
           {meta5}
           <meta name="msapplication-TileColor" content="#2d7fbc" />
-          <meta name="msapplication-TileImage" content={prefStr + '/assets/icn_144x144.png'} />
+          <meta name="msapplication-TileImage" content={'/static/icn_144x144.png'} />
           <meta name="theme-color" content="#FFFFFF" />
           {meta6}
 
@@ -98,7 +95,7 @@ class HtmlDocument extends Component {
             <script dangerouslySetInnerHTML={{__html: ga.replace("{trackingId}", config.trackingId)}} />
           }
 
-          <script dangerouslySetInnerHTML={{__html: typekit}} />
+          <link rel="stylesheet" href="https://use.typekit.net/ash2wpw.css" />
         </head>
 
         <body style={{ overflow: print ? 'auto' : 'hidden' }}>

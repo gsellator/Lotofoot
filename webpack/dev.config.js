@@ -28,21 +28,12 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(jpe?g|png|gif|svg|xml|json|css|js)$/,
-        include: /src\/assets\/static/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        }
-      },
-      {
         test: /\.(jpe?g|png|gif|svg|eot|woff2|woff|ttf)$/,
-        exclude: /src\/assets\/static/,
         loader: 'file-loader'
       },
       {
         test: /\.js$/,
-        exclude: [/node_modules/, /src\/assets\/static/],
+        exclude: [/node_modules/],
         use: [
           {
             loader: 'babel-loader',
