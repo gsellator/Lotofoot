@@ -42,7 +42,7 @@
 
   "theme_color": "#ADC5F0",
   "background_color": "#ADC5F0",
-  "start_url": "/",
+  "start_url": "/login",
   "display": "standalone",
   "orientation": "portrait"
 }
