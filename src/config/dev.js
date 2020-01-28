@@ -7,8 +7,7 @@ export default {
   cookie: 'lotofoot_token',
   language: 'en',
 
-  //apiUri: 'http://localhost:5000/api',
-  apiUri: 'https://lotofoot-api-dev.herokuapp.com/api',
-//  apiUri: 'https://lotofoot-api.herokuapp.com/api',
+  apiUri: false ? 'https://lotofoot-api-dev.herokuapp.com/api' : 'http://localhost:5000/api',
+  //  apiUri: 'https://lotofoot-api.herokuapp.com/api',
   appName: 'lotofoot-dev',
 };
