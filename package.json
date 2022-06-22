@@ -77,7 +77,7 @@
     "webpack-error-notification": "0.1.7"
   },
   "devDependencies": {
-    "jsdom": "^11.10.0",
+    "jsdom": "^16.5.0",
     "mocha": "4.0.1",
     "mocha-jsdom": "1.1.0"
   }
