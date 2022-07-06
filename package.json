@@ -52,7 +52,7 @@
     "immutable": "3.8.2",
     "keymirror": "0.1.1",
     "lodash": "4.17.4",
-    "moment": "2.20.1",
+    "moment": "2.29.4",
     "morgan": "1.9.0",
     "node-sass": "^4.9.0",
     "prop-types": "15.6.0",
